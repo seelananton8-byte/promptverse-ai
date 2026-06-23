@@ -38,7 +38,7 @@ export default function Navbar() {
           {/* Login */}
           <Link
             to="/login"
-            className="px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 transition"
+            className="hidden md:block px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 transition"
           >
             Login
           </Link>
@@ -46,7 +46,7 @@ export default function Navbar() {
           {/* Signup */}
           <Link
             to="/signup"
-            className="px-5 py-2 rounded-xl border border-white/20 hover:bg-white/10 transition"
+            className="hidden md:block px-5 py-2 rounded-xl border border-white/20 hover:bg-white/10 transition"
           >
             Sign Up
           </Link>
