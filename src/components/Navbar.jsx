@@ -25,13 +25,13 @@ export default function Navbar() {
               ✨
             </div>
 
-            <h1 className="text-lg md:text-2xl font-bold whitespace-nowrap">
+            <h1 className="text-base md:text-2xl font-bold whitespace-nowrap">
               PromptVerse <span className="text-purple-400">AI</span>
             </h1>
           </div>
 
           {/* Right Side */}
-          <div className="flex items-center gap-3 md:gap-4 flex-shrink-0 ml-3">
+          <div className="flex items-center gap-2 md:gap-4 flex-shrink-0 ml-4">
 
             {/* Dark Mode */}
             <button className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 active:scale-95 transition">

@@ -7,6 +7,7 @@ import {
   Hash,
   ArrowRight,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const features = [
   {
@@ -51,22 +52,40 @@ export default function Features() {
   return (
     <section className="max-w-7xl mx-auto px-6 py-20">
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+      >
 
         {features.map((item, index) => {
           const Icon = item.icon;
 
           return (
-            <div
+            <motion.div
               key={index}
-              className="group rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-7 hover:border-purple-500 hover:shadow-[0_0_40px_rgba(168,85,247,.25)] transition-all duration-300 hover:-translate-y-2"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+              }}
+              whileHover={{
+                y: -10,
+                scale: 1.03,
+              }}
+              className="group rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-7 hover:border-purple-500 hover:shadow-[0_0_45px_rgba(168,85,247,.35)] transition-all duration-300"
             >
 
-              <div
+              <motion.div
+                whileHover={{ rotate: 8, scale: 1.1 }}
                 className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${item.gradient} flex items-center justify-center shadow-lg`}
               >
                 <Icon size={30} />
-              </div>
+              </motion.div>
 
               <h2 className="text-2xl font-bold mt-6">
                 {item.title}
@@ -76,17 +95,19 @@ export default function Features() {
                 {item.desc}
               </p>
 
-              <button
-                className="mt-7 w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-purple-600 group-hover:border-purple-600"
+              <motion.button
+                whileHover={{ scale: 1.15 }}
+                whileTap={{ scale: 0.9 }}
+                className="mt-7 w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-purple-600 group-hover:border-purple-600 transition-all"
               >
                 <ArrowRight size={20} />
-              </button>
+              </motion.button>
 
-            </div>
+            </motion.div>
           );
         })}
 
-      </div>
+      </motion.div>
 
     </section>
   );
