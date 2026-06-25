@@ -48,26 +48,10 @@ export default function Navbar() {
               <User size={20} />
             </button>
 
-            {/* Desktop Login */}
-            <Link
-              to="/login"
-              className="hidden md:block px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 transition"
-            >
-              Login
-            </Link>
-
-            {/* Desktop Signup */}
-            <Link
-              to="/signup"
-              className="hidden md:block px-5 py-2 rounded-xl border border-white/20 hover:bg-white/10 transition"
-            >
-              Sign Up
-            </Link>
-
             {/* Mobile Menu */}
-            <button
+           <button
               onClick={() => setMenuOpen(true)}
-              className="md:hidden w-10 h-10 rounded-full bg-white/10 flex items-center justify-center"
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition"
             >
               <Menu size={22} />
             </button>

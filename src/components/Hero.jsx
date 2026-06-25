@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Sparkles, Search, Copy } from "lucide-react";
 import { motion } from "framer-motion";
 import { generateContent } from "../services/gemini";
@@ -11,6 +11,16 @@ export default function Hero() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+
+  //Reusing
+  useEffect(() => {
+  const savedPrompt = localStorage.getItem("reusePrompt");
+
+  if (savedPrompt) {
+    setPrompt(savedPrompt);
+    localStorage.removeItem("reusePrompt");
+  }
+}, []);
 
   // 🚀 Generate AI Content
   const handleGenerate = async () => {
@@ -137,6 +147,11 @@ export default function Hero() {
             onChange={(e) => {
               setPrompt(e.target.value);
               setError("");
+            }}
+              onKeyDown={(e) => {
+              if (e.key === "Enter" && !loading) {
+                handleGenerate();
+              }
             }}
             className="flex-1 bg-transparent px-6 py-5 outline-none"
             placeholder="Type your prompt..."

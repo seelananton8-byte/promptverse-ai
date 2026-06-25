@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { Trash2, Copy } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function History() {
   const [history, setHistory] = useState([]);
+
+   const navigate = useNavigate();
 
   useEffect(() => {
     const storedHistory = JSON.parse(
@@ -16,6 +19,24 @@ export default function History() {
     localStorage.removeItem("history");
     setHistory([]);
   };
+
+  const reusePrompt = (prompt) => {
+    localStorage.setItem("reusePrompt", prompt);
+    navigate("/");
+  };
+
+  const deleteItem = (index) => {
+  const updatedHistory = history.filter(
+    (_, i) => i !== index
+  );
+
+  localStorage.setItem(
+    "history",
+    JSON.stringify(updatedHistory)
+  );
+
+  setHistory(updatedHistory);
+};
 
   const copyText = async (text) => {
     await navigator.clipboard.writeText(text);
@@ -52,6 +73,10 @@ export default function History() {
                 key={index}
                 className="bg-white/5 border border-white/10 rounded-2xl p-5"
               >
+                <p className="text-xs text-gray-500 mb-3">
+                  {new Date(item.time).toLocaleString()}
+                </p>
+
                 <h2 className="font-bold text-purple-400">
                   Prompt:
                 </h2>
@@ -68,13 +93,32 @@ export default function History() {
                   {item.response}
                 </p>
 
+            <div className="flex gap-2 mt-4">
+
                 <button
-                  onClick={() => copyText(item.response)}
-                  className="mt-4 bg-purple-600 px-4 py-2 rounded-lg flex items-center gap-2"
+                    onClick={() => copyText(item.response)}
+                    className="bg-purple-600 px-4 py-2 rounded-lg flex items-center gap-2"
                 >
-                  <Copy size={16} />
-                  Copy
+                    <Copy size={16} />
+                    Copy
                 </button>
+
+                <button
+                    onClick={() => deleteItem(index)}
+                    className="bg-red-600 px-4 py-2 rounded-lg flex items-center gap-2"
+                >
+                    <Trash2 size={16} />
+                    Delete
+                </button>
+
+                <button
+                    onClick={() => reusePrompt(item.prompt)}
+                    className="bg-cyan-600 px-4 py-2 rounded-lg flex items-center gap-2"
+                    >
+                    🔄 Reuse
+                </button>
+
+            </div>
               </div>
             ))}
           </div>
