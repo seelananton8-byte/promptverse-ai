@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Sparkles, Search, Copy } from "lucide-react";
 import { motion } from "framer-motion";
 import { generateContent } from "../services/gemini";
+import { generateWithGroq } from "../services/groq";
+
 
 export default function Hero() {
   const [prompt, setPrompt] = useState("");
@@ -12,39 +14,56 @@ export default function Hero() {
 
   // 🚀 Generate AI Content
   const handleGenerate = async () => {
-    if (!prompt.trim()) {
-      setError("Please enter a prompt.");
-      return;
-    }
+  if (!prompt.trim()) {
+    setError("Please enter a prompt.");
+    return;
+  }
 
-    setError("");
-    setLoading(true);
+  setError("");
+  setLoading(true);
+
+  try {
+    let response;
 
     try {
-      const response = await generateContent(prompt);
-      setResult(response);
+      // Primary AI → Gemini
+      response = await generateContent(prompt);
+    } catch (geminiError) {
+      console.log("Gemini failed, switching to Groq...", geminiError);
 
-      // 💾 Save history
-      const newItem = {
-        prompt,
-        response,
-        time: new Date().toISOString(),
-      };
-
-      const oldHistory = JSON.parse(localStorage.getItem("history") || "[]");
-      localStorage.setItem(
-        "history",
-        JSON.stringify([newItem, ...oldHistory])
-      );
-
-      setPrompt("");
-    } catch (err) {
-      setError("Failed to generate content.");
-      console.error(err);
-    } finally {
-      setLoading(false);
+      // Backup AI → Groq
+      response = await generateWithGroq(prompt);
     }
-  };
+
+    setResult(response);
+
+    // 💾 Save history
+    const newItem = {
+      prompt,
+      response,
+      time: new Date().toISOString(),
+    };
+
+    const oldHistory = JSON.parse(
+      localStorage.getItem("history") || "[]"
+    );
+
+    localStorage.setItem(
+      "history",
+      JSON.stringify([newItem, ...oldHistory])
+    );
+
+    setPrompt("");
+
+  } catch (err) {
+    console.error(err);
+    setError(
+      "Both Gemini and Groq are currently unavailable. Please try again later."
+    );
+  } finally {
+    setLoading(false);
+  }
+};
 
   // 📋 Copy
   const copyToClipboard = async () => {
