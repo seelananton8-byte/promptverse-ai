@@ -3,6 +3,7 @@ import { Sparkles, Search, Copy } from "lucide-react";
 import { motion } from "framer-motion";
 import { generateContent } from "../services/gemini";
 import { generateWithGroq } from "../services/groq";
+import { generateWithCerebras } from "../services/cerebras";
 
 
 export default function Hero() {
@@ -36,13 +37,28 @@ export default function Hero() {
     let response;
 
     try {
-      // Primary AI → Gemini
-      response = await generateContent(prompt);
-    } catch (geminiError) {
-      console.log("Gemini failed, switching to Groq...", geminiError);
-
-      // Backup AI → Groq
+      // 🥇 Primary AI → Groq
       response = await generateWithGroq(prompt);
+
+    } catch (groqError) {
+      console.log(
+        "Groq failed, switching to Cerebras...",
+        groqError
+      );
+
+      try {
+        // 🥈 Backup AI → Cerebras
+        response = await generateWithCerebras(prompt);
+
+      } catch (cerebrasError) {
+        console.log(
+          "Cerebras failed, switching to Gemini...",
+          cerebrasError
+        );
+
+        // 🥉 Final AI → Gemini
+        response = await generateContent(prompt);
+      }
     }
 
     setResult(response);
@@ -67,9 +83,11 @@ export default function Hero() {
 
   } catch (err) {
     console.error(err);
+
     setError(
-      "Both Gemini and Groq are currently unavailable. Please try again later."
+      "All AI services are currently unavailable. Please try again later."
     );
+
   } finally {
     setLoading(false);
   }
