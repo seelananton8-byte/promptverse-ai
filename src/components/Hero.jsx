@@ -13,6 +13,7 @@ export default function Hero() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+  const [saved, setSaved] = useState(false);
   const [favorites, setFavorites] = useState(
   JSON.parse(localStorage.getItem("favorites")) || []
 );
@@ -150,6 +151,11 @@ export default function Hero() {
     "favorites",
     JSON.stringify(updatedFavorites)
   );
+      setSaved(true);
+
+    setTimeout(() => {
+      setSaved(false);
+    }, 1500);
 };
 
   return (
@@ -258,8 +264,12 @@ export default function Hero() {
                 onClick={saveFavorite}
                 className="px-4 py-2 rounded-lg bg-pink-600 hover:bg-pink-700 transition flex items-center gap-2"
               >
-                <Heart size={16} />
-                Save
+                <Heart
+                    size={16}
+                    fill={saved ? "currentColor" : "none"}
+                  />
+
+                  {saved ? "Saved" : "Save"}
               </button>
 
               <button

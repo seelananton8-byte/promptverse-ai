@@ -4,6 +4,8 @@ import { Trash2, Copy, Heart, X } from "lucide-react";
 export default function Favorites() {
   const [favorites, setFavorites] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [deleteIndex, setDeleteIndex] = useState(null);
+  const [showClearModal, setShowClearModal] = useState(false);
 
   useEffect(() => {
     const storedFavorites = JSON.parse(
@@ -17,6 +19,7 @@ export default function Favorites() {
     localStorage.removeItem("favorites");
     setFavorites([]);
     setSelectedItem(null);
+    setShowClearModal(false);
   };
 
   const removeFavorite = (index) => {
@@ -56,7 +59,7 @@ export default function Favorites() {
 
           {favorites.length > 0 && (
             <button
-              onClick={clearFavorites}
+              onClick={() => setShowClearModal(true)}
               className="bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition"
             >
               <Trash2 size={18} />
@@ -154,9 +157,7 @@ export default function Favorites() {
                   </button>
 
                   <button
-                    onClick={() => {
-                      removeFavorite(selectedItem.index);
-                    }}
+                    onClick={() => setDeleteIndex(selectedItem.index)}
                     className="bg-red-600 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-red-700 transition"
                   >
                     <Trash2 size={16} />
@@ -171,6 +172,79 @@ export default function Favorites() {
           </>
         )}
 
+                {deleteIndex !== null && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-[60]">
+            <div className="bg-[#0B1023] p-6 rounded-2xl border border-white/10 w-[320px]">
+
+              <h2 className="text-xl font-semibold mb-4">
+                Remove this favorite?
+              </h2>
+
+              <p className="text-gray-400 mb-6">
+                This action cannot be undone.
+              </p>
+
+              <div className="flex justify-end gap-3">
+
+                <button
+                  onClick={() => setDeleteIndex(null)}
+                  className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
+                >
+                  Cancel
+                </button>
+
+                <button
+                  onClick={() => {
+                    removeFavorite(deleteIndex);
+                    setDeleteIndex(null);
+                  }}
+                  className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 transition"
+                >
+                  Remove
+                </button>
+
+              </div>
+
+            </div>
+          </div>
+        )}
+
+              {showClearModal && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-[70]">
+            <div className="bg-[#0B1023] p-6 rounded-2xl border border-white/10 w-[320px]">
+
+              <h2 className="text-xl font-semibold mb-4">
+                Remove all favorites?
+              </h2>
+
+              <p className="text-gray-400 mb-6">
+                This action cannot be undone.
+              </p>
+
+              <div className="flex justify-end gap-3">
+
+                <button
+                  onClick={() => setShowClearModal(false)}
+                  className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
+                >
+                  Cancel
+                </button>
+
+                <button
+                  onClick={() => {
+                    clearFavorites();
+                    setShowClearModal(false);
+                  }}
+                  className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 transition"
+                >
+                  Delete
+                </button>
+
+              </div>
+
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

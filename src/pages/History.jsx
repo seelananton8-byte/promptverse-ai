@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 export default function History() {
   const [history, setHistory] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [deleteIndex, setDeleteIndex] = useState(null);
+  const [copied, setCopied] = useState(false);
+  const [showClearModal, setShowClearModal] = useState(false);
 
   const navigate = useNavigate();
 
@@ -20,6 +23,7 @@ export default function History() {
     localStorage.removeItem("history");
     setHistory([]);
     setSelectedItem(null);
+    setShowClearModal(false);
   };
 
   const reusePrompt = (prompt) => {
@@ -46,7 +50,12 @@ export default function History() {
 
   const copyText = async (text) => {
     await navigator.clipboard.writeText(text);
-    alert("Copied!");
+
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 1500);
   };
 
   return (
@@ -61,7 +70,7 @@ export default function History() {
 
           {history.length > 0 && (
             <button
-              onClick={clearHistory}
+              onClick={() => setShowClearModal(true)}
               className="bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition"
             >
               <Trash2 size={18} />
@@ -76,7 +85,6 @@ export default function History() {
           </p>
         ) : (
           <div className="space-y-4">
-
             {history.map((item, index) => (
               <div
                 key={index}
@@ -97,11 +105,10 @@ export default function History() {
                 </p>
               </div>
             ))}
-
           </div>
         )}
 
-        {/* Modal */}
+        {/* View Modal */}
         {selectedItem && (
           <>
             <div
@@ -110,10 +117,8 @@ export default function History() {
             />
 
             <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
-
               <div className="bg-[#0B1023] border border-white/10 rounded-3xl p-6 max-w-4xl w-full max-h-[85vh] overflow-y-auto">
 
-                {/* Header */}
                 <div className="flex justify-between items-center mb-6">
                   <h2 className="text-2xl font-bold text-purple-400">
                     {selectedItem.prompt}
@@ -127,21 +132,18 @@ export default function History() {
                   </button>
                 </div>
 
-                {/* Time */}
                 <p className="text-sm text-gray-500 mb-6">
                   {new Date(
                     selectedItem.time
                   ).toLocaleString()}
                 </p>
 
-                {/* Response */}
                 <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
                   <p className="whitespace-pre-wrap text-gray-300 leading-relaxed">
                     {selectedItem.response}
                   </p>
                 </div>
 
-                {/* Actions */}
                 <div className="flex flex-wrap gap-3 mt-6">
 
                   <button
@@ -151,7 +153,7 @@ export default function History() {
                     className="bg-purple-600 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-purple-700 transition"
                   >
                     <Copy size={16} />
-                    Copy
+                    {copied ? "Copied" : "Copy"}
                   </button>
 
                   <button
@@ -164,9 +166,9 @@ export default function History() {
                   </button>
 
                   <button
-                    onClick={() => {
-                      deleteItem(selectedItem.index);
-                    }}
+                    onClick={() =>
+                      setDeleteIndex(selectedItem.index)
+                    }
                     className="bg-red-600 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-red-700 transition"
                   >
                     <Trash2 size={16} />
@@ -176,9 +178,84 @@ export default function History() {
                 </div>
 
               </div>
-
             </div>
           </>
+        )}
+
+        {/* Delete Confirmation Modal */}
+        {deleteIndex !== null && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-[60]">
+            <div className="bg-[#0B1023] p-6 rounded-2xl border border-white/10 w-[320px]">
+
+              <h2 className="text-xl font-semibold mb-4">
+                Delete this history?
+              </h2>
+
+              <p className="text-gray-400 mb-6">
+                This action cannot be undone.
+              </p>
+
+              <div className="flex justify-end gap-3">
+
+                <button
+                  onClick={() => setDeleteIndex(null)}
+                  className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
+                >
+                  Cancel
+                </button>
+
+                <button
+                  onClick={() => {
+                    deleteItem(deleteIndex);
+                    setDeleteIndex(null);
+                  }}
+                  className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 transition"
+                >
+                  Delete
+                </button>
+
+              </div>
+
+            </div>
+          </div>
+        )}
+
+        {/* Clear All History Modal */}
+        {showClearModal && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-[70]">
+            <div className="bg-[#0B1023] p-6 rounded-2xl border border-white/10 w-[320px]">
+
+              <h2 className="text-xl font-semibold mb-4">
+                Delete all history?
+              </h2>
+
+              <p className="text-gray-400 mb-6">
+                This action cannot be undone.
+              </p>
+
+              <div className="flex justify-end gap-3">
+
+                <button
+                  onClick={() => setShowClearModal(false)}
+                  className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
+                >
+                  Cancel
+                </button>
+
+                <button
+                  onClick={() => {
+                    clearHistory();
+                    setShowClearModal(false);
+                  }}
+                  className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 transition"
+                >
+                  Delete
+                </button>
+
+              </div>
+
+            </div>
+          </div>
         )}
 
       </div>
