@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Sparkles, Search, Copy } from "lucide-react";
+import { Sparkles, Search, Copy, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import { generateContent } from "../services/gemini";
 import { generateWithGroq } from "../services/groq";
@@ -8,10 +8,14 @@ import { generateWithCerebras } from "../services/cerebras";
 
 export default function Hero() {
   const [prompt, setPrompt] = useState("");
+  const [lastPrompt, setLastPrompt] = useState("");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+  const [favorites, setFavorites] = useState(
+  JSON.parse(localStorage.getItem("favorites")) || []
+);
 
   //Reusing
   useEffect(() => {
@@ -62,6 +66,7 @@ export default function Hero() {
     }
 
     setResult(response);
+    setLastPrompt(prompt);
 
     // 💾 Save history
     const newItem = {
@@ -125,6 +130,27 @@ export default function Hero() {
   const clearResult = () => {
     setResult("");
   };
+  const saveFavorite = () => {
+  if (!result) return;
+
+  const newFavorite = {
+    prompt: lastPrompt,
+    response: result,
+    time: new Date().toISOString(),
+  };
+
+  const updatedFavorites = [
+    newFavorite,
+    ...favorites,
+  ];
+
+  setFavorites(updatedFavorites);
+
+  localStorage.setItem(
+    "favorites",
+    JSON.stringify(updatedFavorites)
+  );
+};
 
   return (
     <motion.section
@@ -228,6 +254,14 @@ export default function Hero() {
 
             {/* ACTION BUTTONS */}
             <div className="flex gap-2 mt-4">
+              <button
+                onClick={saveFavorite}
+                className="px-4 py-2 rounded-lg bg-pink-600 hover:bg-pink-700 transition flex items-center gap-2"
+              >
+                <Heart size={16} />
+                Save
+              </button>
+
               <button
                 onClick={copyToClipboard}
                 className="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 transition flex items-center gap-2"

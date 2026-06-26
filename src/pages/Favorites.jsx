@@ -1,43 +1,35 @@
 import { useEffect, useState } from "react";
-import { Trash2, Copy, X } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Trash2, Copy, Heart, X } from "lucide-react";
 
-export default function History() {
-  const [history, setHistory] = useState([]);
+export default function Favorites() {
+  const [favorites, setFavorites] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
-    const storedHistory = JSON.parse(
-      localStorage.getItem("history") || "[]"
+    const storedFavorites = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
     );
 
-    setHistory(storedHistory);
+    setFavorites(storedFavorites);
   }, []);
 
-  const clearHistory = () => {
-    localStorage.removeItem("history");
-    setHistory([]);
+  const clearFavorites = () => {
+    localStorage.removeItem("favorites");
+    setFavorites([]);
     setSelectedItem(null);
   };
 
-  const reusePrompt = (prompt) => {
-    localStorage.setItem("reusePrompt", prompt);
-    navigate("/");
-  };
-
-  const deleteItem = (index) => {
-    const updatedHistory = history.filter(
+  const removeFavorite = (index) => {
+    const updatedFavorites = favorites.filter(
       (_, i) => i !== index
     );
 
-    localStorage.setItem(
-      "history",
-      JSON.stringify(updatedHistory)
-    );
+    setFavorites(updatedFavorites);
 
-    setHistory(updatedHistory);
+    localStorage.setItem(
+      "favorites",
+      JSON.stringify(updatedFavorites)
+    );
 
     if (selectedItem?.index === index) {
       setSelectedItem(null);
@@ -55,13 +47,16 @@ export default function History() {
 
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl font-bold">
-            History
-          </h1>
+          <div className="flex items-center gap-3">
+            <Heart className="text-pink-500" size={34} />
+            <h1 className="text-4xl font-bold">
+              Favorites
+            </h1>
+          </div>
 
-          {history.length > 0 && (
+          {favorites.length > 0 && (
             <button
-              onClick={clearHistory}
+              onClick={clearFavorites}
               className="bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition"
             >
               <Trash2 size={18} />
@@ -70,14 +65,14 @@ export default function History() {
         </div>
 
         {/* Empty State */}
-        {history.length === 0 ? (
+        {favorites.length === 0 ? (
           <p className="text-gray-400">
-            No history found.
+            No favorites found.
           </p>
         ) : (
           <div className="space-y-4">
 
-            {history.map((item, index) => (
+            {favorites.map((item, index) => (
               <div
                 key={index}
                 onClick={() =>
@@ -86,15 +81,17 @@ export default function History() {
                     index,
                   })
                 }
-                className="bg-white/5 border border-white/10 rounded-2xl p-5 cursor-pointer hover:border-purple-500 hover:bg-white/10 transition"
-              >
-                <h2 className="text-lg font-semibold text-purple-400 truncate">
+             className="bg-white/5 border border-white/10 rounded-2xl p-5 cursor-pointer hover:border-purple-500 hover:bg-white/10 transition"
+            >
+                <h2 className="text-lg font-semibold text-pink-400 truncate">
                   {item.prompt}
                 </h2>
 
-                <p className="text-sm text-gray-500 mt-2">
-                  {new Date(item.time).toLocaleString()}
-                </p>
+                {item.time && (
+                  <p className="text-sm text-gray-500 mt-2">
+                    {new Date(item.time).toLocaleString()}
+                  </p>
+                )}
               </div>
             ))}
 
@@ -115,7 +112,7 @@ export default function History() {
 
                 {/* Header */}
                 <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-2xl font-bold text-purple-400">
+                  <h2 className="text-2xl font-bold text-pink-400">
                     {selectedItem.prompt}
                   </h2>
 
@@ -128,11 +125,13 @@ export default function History() {
                 </div>
 
                 {/* Time */}
-                <p className="text-sm text-gray-500 mb-6">
-                  {new Date(
-                    selectedItem.time
-                  ).toLocaleString()}
-                </p>
+                {selectedItem.time && (
+                  <p className="text-sm text-gray-500 mb-6">
+                    {new Date(
+                      selectedItem.time
+                    ).toLocaleString()}
+                  </p>
+                )}
 
                 {/* Response */}
                 <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
@@ -155,22 +154,13 @@ export default function History() {
                   </button>
 
                   <button
-                    onClick={() =>
-                      reusePrompt(selectedItem.prompt)
-                    }
-                    className="bg-cyan-600 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-cyan-700 transition"
-                  >
-                    🔄 Reuse
-                  </button>
-
-                  <button
                     onClick={() => {
-                      deleteItem(selectedItem.index);
+                      removeFavorite(selectedItem.index);
                     }}
                     className="bg-red-600 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-red-700 transition"
                   >
                     <Trash2 size={16} />
-                    Delete
+                    Remove
                   </button>
 
                 </div>
