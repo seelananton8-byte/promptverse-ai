@@ -99,7 +99,7 @@ export default function Hero() {
       );
     } else {
     setError(
-      "All AI services are currently unavailable. Please try again later."
+      "Unable to generate response. Please try again later."
     );
   }
 
