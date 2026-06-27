@@ -189,7 +189,7 @@ export default function Hero() {
       </h1>
 
       <p className="text-gray-400 text-lg md:text-xl mt-6">
-        AI prompts, captions, emails, hashtags & more...
+        AI prompts, captions, emails & more...
       </p>
       <p className="text-gray-400 text-lg md:text-xl mt-6">
         Create anything in seconds.
