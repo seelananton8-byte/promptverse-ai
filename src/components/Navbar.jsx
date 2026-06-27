@@ -1,3 +1,6 @@
+import { logout } from "../services/auth";
+import { LogOut } from "lucide-react";
+import { loginWithGoogle } from "../services/auth";
 import { Link } from "react-router-dom";
 import {
   Moon,
@@ -13,6 +16,9 @@ import { useState } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [user, setUser] = useState(
+  JSON.parse(localStorage.getItem("user"))
+);
 
   return (
     <>
@@ -44,8 +50,29 @@ export default function Navbar() {
             </button>
 
             {/* Profile */}
-            <button className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-purple-600 active:scale-95 transition">
-              <User size={20} />
+            <button 
+                onClick={async () => {
+                  if (user) return;
+
+                  try {
+                    const loggedInUser = await loginWithGoogle();
+
+                    setUser(loggedInUser);
+
+                  } catch (err) {
+                    console.log(err);
+                  }
+                }}
+            className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-purple-600 active:scale-95 transition">
+                {user ? (
+                  <img
+                    src={user.photoURL}
+                    alt="Profile"
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
+                ) : (
+                  <User size={20} />
+                )}
             </button>
 
             {/* Mobile Menu */}
@@ -92,24 +119,6 @@ export default function Navbar() {
               </Link>
 
               <Link
-                to="/login"
-                onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-3 hover:text-purple-400 transition"
-              >
-                <User size={20} />
-                Login
-              </Link>
-
-              <Link
-                to="/signup"
-                onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-3 hover:text-purple-400 transition"
-              >
-                <User size={20} />
-                Sign Up
-              </Link>
-
-              <Link
                 to="/history"
                 onClick={() => setMenuOpen(false)}
                 className="flex items-center gap-3 hover:text-purple-400 transition"
@@ -135,6 +144,22 @@ export default function Navbar() {
                 <Settings size={20} />
                 Settings
               </Link>
+
+            <button
+                onClick={async () => {
+                  await logout();
+
+                  localStorage.removeItem("user");
+
+                  setUser(null);
+
+                  setMenuOpen(false);
+                }}
+                className="flex items-center gap-3 hover:text-red-400 transition"
+              >
+                <LogOut size={20} />
+                Logout
+          </button>
 
             </div>
           </div>
