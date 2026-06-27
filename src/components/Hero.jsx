@@ -91,11 +91,17 @@ export default function Hero() {
     setPrompt("");
 
   } catch (err) {
-    console.error(err);
-
+    console.error("AI Generation Error: ",err);
+    
+    if (!navigator.onLine) {
+      setError(
+        "No internet connection. Please check your network."
+      );
+    } else {
     setError(
       "All AI services are currently unavailable. Please try again later."
     );
+  }
 
   } finally {
     setLoading(false);
