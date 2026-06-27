@@ -1,9 +1,13 @@
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { useEffect, useState } from "react";
 import { Trash2, Copy, Heart, X } from "lucide-react";
+import MarkdownViewer from "../components/MarkdownViewer";
 
 export default function Favorites() {
   const [favorites, setFavorites] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [copied, setCopied] = useState(false);
   const [deleteIndex, setDeleteIndex] = useState(null);
   const [showClearModal, setShowClearModal] = useState(false);
 
@@ -41,7 +45,12 @@ export default function Favorites() {
 
   const copyText = async (text) => {
     await navigator.clipboard.writeText(text);
-    alert("Copied!");
+
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 1500);
   };
 
   return (
@@ -138,9 +147,7 @@ export default function Favorites() {
 
                 {/* Response */}
                 <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
-                  <p className="whitespace-pre-wrap text-gray-300 leading-relaxed">
-                    {selectedItem.response}
-                  </p>
+                  <MarkdownViewer content={selectedItem.response} />
                 </div>
 
                 {/* Actions */}
@@ -153,7 +160,7 @@ export default function Favorites() {
                     className="bg-purple-600 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-purple-700 transition"
                   >
                     <Copy size={16} />
-                    Copy
+                    {copied ? "Copied" : "Copy"}
                   </button>
 
                   <button

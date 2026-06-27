@@ -1,6 +1,9 @@
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { useEffect, useState } from "react";
 import { Trash2, Copy, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import MarkdownViewer from "../components/MarkdownViewer";
 
 export default function History() {
   const [history, setHistory] = useState([]);
@@ -139,9 +142,7 @@ export default function History() {
                 </p>
 
                 <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
-                  <p className="whitespace-pre-wrap text-gray-300 leading-relaxed">
-                    {selectedItem.response}
-                  </p>
+                  <MarkdownViewer content={selectedItem.response} />
                 </div>
 
                 <div className="flex flex-wrap gap-3 mt-6">

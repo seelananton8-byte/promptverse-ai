@@ -1,9 +1,12 @@
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { useState, useEffect } from "react";
 import { Sparkles, Search, Copy, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import { generateContent } from "../services/gemini";
 import { generateWithGroq } from "../services/groq";
 import { generateWithCerebras } from "../services/cerebras";
+import MarkdownViewer from "./MarkdownViewer";
 
 
 export default function Hero() {
@@ -186,7 +189,10 @@ export default function Hero() {
       </h1>
 
       <p className="text-gray-400 text-lg md:text-xl mt-6">
-        AI prompts, captions, emails & more...
+        AI prompts, captions, emails, hashtags & more...
+      </p>
+      <p className="text-gray-400 text-lg md:text-xl mt-6">
+        Create anything in seconds.
       </p>
 
       {/* INPUT */}
@@ -204,7 +210,7 @@ export default function Hero() {
               }
             }}
             className="flex-1 bg-transparent px-6 py-5 outline-none"
-            placeholder="Type your prompt..."
+            placeholder="Search prompts anything..."
           />
 
           <motion.button
@@ -254,9 +260,7 @@ export default function Hero() {
             </div>
 
             {/* TEXT */}
-            <p className="whitespace-pre-wrap text-gray-200 leading-relaxed">
-              {result}
-            </p>
+            <MarkdownViewer content={result} />
 
             {/* ACTION BUTTONS */}
             <div className="flex gap-2 mt-4">
