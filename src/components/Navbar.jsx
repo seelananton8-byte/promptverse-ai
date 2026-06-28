@@ -2,6 +2,7 @@ import { logout } from "../services/auth";
 import { LogOut } from "lucide-react";
 import { loginWithGoogle } from "../services/auth";
 import { Link } from "react-router-dom";
+import { observeAuth } from "../services/auth";
 import {
   Moon,
   Heart,
@@ -12,13 +13,21 @@ import {
   History,
   Settings,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [user, setUser] = useState(
   JSON.parse(localStorage.getItem("user"))
 );
+
+useEffect(() => {
+  const unsubscribe = observeAuth((currentUser) => {
+    setUser(currentUser);
+  });
+
+  return () => unsubscribe();
+}, []);
 
   return (
     <>
@@ -58,6 +67,8 @@ export default function Navbar() {
                     const loggedInUser = await loginWithGoogle();
 
                     setUser(loggedInUser);
+
+                    alert("✅ Login Successful!");
 
                   } catch (err) {
                     console.log(err);
@@ -149,9 +160,8 @@ export default function Navbar() {
                 onClick={async () => {
                   await logout();
 
-                  localStorage.removeItem("user");
-
                   setUser(null);
+                  alert("👋 Logged out successfully!");
 
                   setMenuOpen(false);
                 }}
