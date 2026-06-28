@@ -2,10 +2,26 @@ import { TrendingUp, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const prompts = [
-  "Instagram Viral Caption",
-  "YouTube Video Script",
-  "LinkedIn Professional Post",
-  "Business Email Generator",
+  {
+    title: "Instagram Viral Caption",
+    description:
+      "Generate engaging captions that increase reach and engagement.",
+  },
+  {
+    title: "YouTube Video Script",
+    description:
+      "Create professional scripts for your next YouTube video.",
+  },
+  {
+    title: "LinkedIn Professional Post",
+    description:
+      "Write high-converting LinkedIn posts for professionals.",
+  },
+  {
+    title: "Business Email Generator",
+    description:
+      "Generate polished business emails in seconds.",
+  },
 ];
 
 export default function Trending() {
@@ -46,12 +62,25 @@ export default function Trending() {
               y: -10,
               scale: 1.03,
             }}
-            className="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-purple-500 hover:shadow-[0_0_40px_rgba(168,85,247,.35)] transition-all duration-300"
+            className="relative group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-purple-500 hover:shadow-[0_0_40px_rgba(168,85,247,.35)] transition-all duration-300"
           >
+
+            {/* Category Badge */}
+            <span className="inline-block text-xs bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full mb-4">
+              Trending
+            </span>
+
+            {/* Title */}
             <h3 className="font-semibold text-lg">
-              {item}
+              {item.title}
             </h3>
 
+            {/* Description */}
+            <p className="text-gray-400 text-sm mt-3 leading-relaxed">
+              {item.description}
+            </p>
+
+            {/* Action Button */}
             <motion.button
               whileHover={{
                 rotate: 45,
