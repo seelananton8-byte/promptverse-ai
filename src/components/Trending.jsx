@@ -53,12 +53,7 @@ export default function Trending({ setSelectedPrompt }) {
             key={index}
             onClick={() => {
               setSelectedPrompt(item.title);
-
-              localStorage.setItem(
-                "showYoutubeTools",
-                item.title === "YouTube Video Script"
-              );
-
+              
               document
                 .getElementById("hero-section")
                 ?.scrollIntoView({

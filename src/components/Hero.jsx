@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Sparkles, Search, Copy, Heart, Type, FileText, Ham, Hash, Image } from "lucide-react";
+import { Sparkles, Search, Copy, Heart, Type, FileText, Hash, Image, Megaphone } from "lucide-react";
 import { motion } from "framer-motion";
 import { generateContent } from "../services/gemini";
 import { generateWithGroq } from "../services/groq";
@@ -19,6 +19,7 @@ export default function Hero({ selectedPrompt }) {
   const [description, setDescription] = useState("");
   const [hashtags, setHashtags] = useState("");
   const [thumbnailIdeas, setThumbnailIdeas] = useState("");
+  const [cta, setCta] = useState("");
   const [showYoutubeTools, setShowYoutubeTools] = useState(false);
   const [favorites, setFavorites] = useState(
   JSON.parse(localStorage.getItem("favorites")) || []
@@ -40,14 +41,6 @@ export default function Hero({ selectedPrompt }) {
       setPrompt(selectedPrompt);
     }
   }, [selectedPrompt]);
-
-  // Youtube Script
-  useEffect(() => {
-  const value =
-    localStorage.getItem("showYoutubeTools") === "true";
-
-  setShowYoutubeTools(value);
-}, [prompt]);
 
   // 🚀 Generate AI Content
   const handleGenerate = async () => {
@@ -88,10 +81,18 @@ export default function Hero({ selectedPrompt }) {
     }
 
     setResult(response);
+
     setTitles("");
     setDescription("");
     setHashtags("");
     setThumbnailIdeas("");
+
+    if (prompt === "YouTube Video Script") {
+      setShowYoutubeTools(true);
+    } else {
+      setShowYoutubeTools(false);
+    }
+
     setLastPrompt(prompt);
 
     // 💾 Save history
@@ -159,13 +160,29 @@ const generateExtra = async (type) => {
           `Generate 5 clickable YouTube thumbnail ideas for this content:\n\n${result}`;
         break;
 
+        case "cta":
+        promptText =
+          `Generate 5 powerful YouTube call-to-actions (CTA) for this content:\n\n${result}`;
+        break;
+
       default:
         return;
     }
 
-    const extraResult = await generateContent(promptText);
+    let extraResult;
 
-        switch (type) {
+      try {
+        extraResult = await generateContent(promptText);
+      } catch (geminiError) {
+        try {
+          extraResult = await generateWithGroq(promptText);
+        } catch (groqError) {
+          extraResult = await generateWithCerebras(promptText);
+        }
+      }
+      console.log("Extra Result:", extraResult);
+
+      switch (type) {
       case "title":
         setTitles(extraResult);
         break;
@@ -180,6 +197,10 @@ const generateExtra = async (type) => {
 
       case "thumbnail":
         setThumbnailIdeas(extraResult);
+        break;
+
+              case "cta":
+        setCta(extraResult);
         break;
 
       default:
@@ -410,20 +431,30 @@ const generateExtra = async (type) => {
               </div>
             )}
 
+            {cta && (
+              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="text-lg font-semibold text-orange-400 mb-3">
+                  🚀 Call To Actions
+                </h4>
+
+                <MarkdownViewer content={cta} />
+              </div>
+            )}
+
             {/* Extra AI Buttons */}
               {showYoutubeTools && (
-                <div className="flex flex-col md:flex-row justify-center gap-2 mt-4 mb-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4 mb-4">
                   <button
                     onClick={() => generateExtra("title")}
-                    className="px-3 py-2 text-sm rounded-lg bg-slate-700 hover:bg-slate-800 transition flex items-center justify-center gap-2"
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium"
                   >
-                  <Type size={16} /> 
+                  <Type size={16} />
                   Generate Title
                   </button>
 
                   <button
                     onClick={() => generateExtra("description")}
-                    className="px-3 py-2 text-sm rounded-lg bg-slate-700 hover:bg-slate-800 transition flex items-center justify-center gap-2"
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium"
                   >
                   <FileText size={16} />
                     Generate Description
@@ -431,7 +462,7 @@ const generateExtra = async (type) => {
 
                   <button
                     onClick={() => generateExtra("hashtags")}
-                    className="px-3 py-2 text-sm rounded-lg bg-slate-700 hover:bg-slate-800 transition flex items-center justify-center gap-2"
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium"
                   >
                   <Hash size={16} />
                     Generate Hashtags
@@ -439,10 +470,18 @@ const generateExtra = async (type) => {
 
                   <button
                     onClick={() => generateExtra("thumbnail")}
-                    className="px-3 py-2 text-sm rounded-lg bg-slate-700 hover:bg-slate-800 transition flex items-center justify-center gap-2"
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium"
                   >
                   <Image size={16} />
                     Generate Thumbnail Ideas
+                  </button>
+
+                  <button
+                    onClick={() => generateExtra("cta")}
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium"
+                  >
+                  <Megaphone size={16}/>
+                    Generate CTA
                   </button>
                 </div>
                 )}
