@@ -9,6 +9,11 @@ const model = genAI.getGenerativeModel({
 });
 
 export async function generateContent(prompt) {
+ try {
   const result = await model.generateContent(prompt);
   return result.response.text();
+ } catch (error) {
+  console.error("Gemini Error: ", error);
+  throw error;
+ }
 }

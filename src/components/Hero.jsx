@@ -1,5 +1,3 @@
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { useState, useEffect } from "react";
 import { Sparkles, Search, Copy, Heart } from "lucide-react";
 import { motion } from "framer-motion";
@@ -45,27 +43,27 @@ export default function Hero() {
     let response;
 
     try {
-      // 🥇 Primary AI → Groq
-      response = await generateWithGroq(prompt);
+      // Primary AI → Gemini
+      response = await generateContent(prompt);
 
-    } catch (groqError) {
+    } catch (geminiError) {
       console.log(
-        "Groq failed, switching to Cerebras...",
-        groqError
+        "Gemini failed, switching to Groq...",
+        geminiError
       );
 
       try {
-        // 🥈 Backup AI → Cerebras
-        response = await generateWithCerebras(prompt);
+        // Backup AI → Groq
+        response = await generateWithGroq(prompt);
 
-      } catch (cerebrasError) {
+      } catch (groqError) {
         console.log(
-          "Cerebras failed, switching to Gemini...",
-          cerebrasError
+          "Groq failed, switching to Cerebras...",
+          groqError
         );
 
-        // 🥉 Final AI → Gemini
-        response = await generateContent(prompt);
+        // Final AI → Cerebras
+        response = await generateWithCerebras(prompt);
       }
     }
 

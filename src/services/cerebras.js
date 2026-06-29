@@ -1,5 +1,6 @@
 export async function generateWithCerebras(prompt) {
-  const response = await fetch(
+  try {
+    const response = await fetch(
     "https://api.cerebras.ai/v1/chat/completions",
     {
       method: "POST",
@@ -26,4 +27,8 @@ export async function generateWithCerebras(prompt) {
   const data = await response.json();
 
   return data.choices[0].message.content;
+  } catch(error) {
+    console.error("Cerebras Error: ", error);
+    throw error;
+  }
 }

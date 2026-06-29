@@ -6,7 +6,8 @@ const groq = new Groq({
 });
 
 export async function generateWithGroq(prompt) {
-  const completion = await groq.chat.completions.create({
+  try {
+    const completion = await groq.chat.completions.create({
     messages: [
       {
         role: "user",
@@ -17,4 +18,8 @@ export async function generateWithGroq(prompt) {
   });
 
   return completion.choices[0].message.content;
-}
+  } catch (error) {
+    console.error("Grog Error: ", error);
+    throw error;
+  }
+} 
