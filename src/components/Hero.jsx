@@ -7,7 +7,7 @@ import { generateWithCerebras } from "../services/cerebras";
 import MarkdownViewer from "./MarkdownViewer";
 
 
-export default function Hero() {
+export default function Hero({ selectedPrompt }) {
   const [prompt, setPrompt] = useState("");
   const [lastPrompt, setLastPrompt] = useState("");
   const [result, setResult] = useState("");
@@ -15,6 +15,11 @@ export default function Hero() {
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [titles, setTitles] = useState("");
+  const [description, setDescription] = useState("");
+  const [hashtags, setHashtags] = useState("");
+  const [thumbnailIdeas, setThumbnailIdeas] = useState("");
+  const [showYoutubeTools, setShowYoutubeTools] = useState(false);
   const [favorites, setFavorites] = useState(
   JSON.parse(localStorage.getItem("favorites")) || []
 );
@@ -28,6 +33,21 @@ export default function Hero() {
     localStorage.removeItem("reusePrompt");
   }
 }, []);
+
+  // Trending Prompt Auto Fill
+  useEffect(() => {
+    if (selectedPrompt) {
+      setPrompt(selectedPrompt);
+    }
+  }, [selectedPrompt]);
+
+  // Youtube Script
+  useEffect(() => {
+  const value =
+    localStorage.getItem("showYoutubeTools") === "true";
+
+  setShowYoutubeTools(value);
+}, [prompt]);
 
   // 🚀 Generate AI Content
   const handleGenerate = async () => {
@@ -68,6 +88,10 @@ export default function Hero() {
     }
 
     setResult(response);
+    setTitles("");
+    setDescription("");
+    setHashtags("");
+    setThumbnailIdeas("");
     setLastPrompt(prompt);
 
     // 💾 Save history
@@ -106,6 +130,70 @@ export default function Hero() {
   }
 };
 
+const generateExtra = async (type) => {
+  if (!result) return;
+
+  setLoading(true);
+
+  try {
+    let promptText = "";
+
+    switch (type) {
+      case "title":
+        promptText =
+          `Generate 5 catchy YouTube titles for this content:\n\n${result}`;
+        break;
+
+      case "description":
+        promptText =
+          `Generate a professional YouTube description for this content:\n\n${result}`;
+        break;
+
+      case "hashtags":
+        promptText =
+          `Generate 20 SEO friendly YouTube hashtags for this content:\n\n${result}`;
+        break;
+
+      case "thumbnail":
+        promptText =
+          `Generate 5 clickable YouTube thumbnail ideas for this content:\n\n${result}`;
+        break;
+
+      default:
+        return;
+    }
+
+    const extraResult = await generateContent(promptText);
+
+        switch (type) {
+      case "title":
+        setTitles(extraResult);
+        break;
+
+      case "description":
+        setDescription(extraResult);
+        break;
+
+      case "hashtags":
+        setHashtags(extraResult);
+        break;
+
+      case "thumbnail":
+        setThumbnailIdeas(extraResult);
+        break;
+
+      default:
+        break;
+    }
+
+  } catch (err) {
+    console.error(err);
+    setError("Failed to generate extra content.");
+  } finally {
+    setLoading(false);
+  }
+};
+
   // 📋 Copy
   const copyToClipboard = async () => {
     if (!result) return;
@@ -138,8 +226,23 @@ export default function Hero() {
   const clearResult = () => {
     setResult("");
   };
+
+  // Save Favorites
   const saveFavorite = () => {
   if (!result) return;
+
+  const alreadyExists = favorites.some((item) => 
+  item.prompt === lastPrompt && 
+  item.response === result 
+);
+  if (alreadyExists) {
+    setSaved(true);
+
+    setTimeout(() => {
+      setSaved(false);
+    }, 1500);
+    return
+  }
 
   const newFavorite = {
     prompt: lastPrompt,
@@ -158,7 +261,7 @@ export default function Hero() {
     "favorites",
     JSON.stringify(updatedFavorites)
   );
-      setSaved(true);
+    setSaved(true);
 
     setTimeout(() => {
       setSaved(false);
@@ -167,6 +270,7 @@ export default function Hero() {
 
   return (
     <motion.section
+      id="hero-section"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -265,6 +369,79 @@ export default function Hero() {
 
             {/* TEXT */}
             <MarkdownViewer content={result} />
+
+            {titles && (
+              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="text-lg font-semibold text-pink-400 mb-3">
+                  ✨ Generated Titles
+                </h4>
+
+                <MarkdownViewer content={titles} />
+              </div>
+            )}
+
+            {description && (
+              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="text-lg font-semibold text-cyan-400 mb-3">
+                  📝 Generated Description
+                </h4>
+
+                <MarkdownViewer content={description} />
+              </div>
+            )}
+
+            {hashtags && (
+              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="text-lg font-semibold text-green-400 mb-3">
+                  #️⃣ Generated Hashtags
+                </h4>
+
+                <MarkdownViewer content={hashtags} />
+              </div>
+            )}
+
+            {thumbnailIdeas && (
+              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="text-lg font-semibold text-yellow-400 mb-3">
+                  🖼️ Thumbnail Ideas
+                </h4>
+
+                <MarkdownViewer content={thumbnailIdeas} />
+              </div>
+            )}
+
+            {/* Extra AI Buttons */}
+              {showYoutubeTools && (
+                <div className="flex flex-wrap justify-center gap-2 mt-4 mb-4">
+                  <button
+                    onClick={() => generateExtra("title")}
+                    className="px-3 py-2 text-sm rounded-lg bg-purple-600 hover:bg-purple-700 transition"
+                  >
+                    ✨ Generate Title
+                  </button>
+
+                  <button
+                    onClick={() => generateExtra("description")}
+                    className="px-3 py-2 text-sm rounded-lg bg-purple-600 hover:bg-purple-700 transition"
+                  >
+                    ✨ Generate Description
+                  </button>
+
+                  <button
+                    onClick={() => generateExtra("hashtags")}
+                    className="px-3 py-2 text-sm rounded-lg bg-purple-600 hover:bg-purple-700 transition"
+                  >
+                    ✨ Generate Hashtags
+                  </button>
+
+                  <button
+                    onClick={() => generateExtra("thumbnail")}
+                    className="px-3 py-2 text-sm rounded-lg bg-purple-600 hover:bg-purple-700 transition"
+                  >
+                    ✨ Generate Thumbnail Ideas
+                  </button>
+                </div>
+                )}
 
             {/* ACTION BUTTONS */}
             <div className="flex gap-2 mt-4">

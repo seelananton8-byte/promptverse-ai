@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Features from "../components/Features";
@@ -6,6 +8,8 @@ import Recent from "../components/Recent";
 import Upgrade from "../components/Upgrade";
 
 export default function Home() {
+  const [selectedPrompt, setSelectedPrompt] = useState("");
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#050816] text-white">
 
@@ -15,9 +19,9 @@ export default function Home() {
 
       <div className="relative z-10">
         <Navbar />
-        <Hero />
+        <Hero selectedPrompt={selectedPrompt} />
         <Features />
-        <Trending />
+        <Trending setSelectedPrompt={setSelectedPrompt} />
         <Recent />
         <Upgrade />
       </div>

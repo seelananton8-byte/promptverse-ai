@@ -24,7 +24,7 @@ const prompts = [
   },
 ];
 
-export default function Trending() {
+export default function Trending({ setSelectedPrompt }) {
   return (
     <section className="max-w-7xl mx-auto px-6 mt-10">
 
@@ -51,6 +51,21 @@ export default function Trending() {
         {prompts.map((item, index) => (
           <motion.div
             key={index}
+            onClick={() => {
+              setSelectedPrompt(item.title);
+
+              localStorage.setItem(
+                "showYoutubeTools",
+                item.title === "YouTube Video Script"
+              );
+
+              document
+                .getElementById("hero-section")
+                ?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+            }}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -62,7 +77,7 @@ export default function Trending() {
               y: -10,
               scale: 1.03,
             }}
-            className="relative group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-purple-500 hover:shadow-[0_0_40px_rgba(168,85,247,.35)] transition-all duration-300"
+            className="relative group cursor-pointer bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-purple-500 hover:shadow-[0_0_40px_rgba(168,85,247,.35)] transition-all duration-300"
           >
 
             {/* Category Badge */}
