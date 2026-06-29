@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Sparkles, Search, Copy, Heart } from "lucide-react";
+import { Sparkles, Search, Copy, Heart, Type, FileText, Ham, Hash, Image } from "lucide-react";
 import { motion } from "framer-motion";
 import { generateContent } from "../services/gemini";
 import { generateWithGroq } from "../services/groq";
@@ -412,33 +412,37 @@ const generateExtra = async (type) => {
 
             {/* Extra AI Buttons */}
               {showYoutubeTools && (
-                <div className="flex flex-wrap justify-center gap-2 mt-4 mb-4">
+                <div className="flex flex-col md:flex-row justify-center gap-2 mt-4 mb-4">
                   <button
                     onClick={() => generateExtra("title")}
-                    className="px-3 py-2 text-sm rounded-lg bg-purple-600 hover:bg-purple-700 transition"
+                    className="px-3 py-2 text-sm rounded-lg bg-slate-700 hover:bg-slate-800 transition flex items-center justify-center gap-2"
                   >
-                    ✨ Generate Title
+                  <Type size={16} /> 
+                  Generate Title
                   </button>
 
                   <button
                     onClick={() => generateExtra("description")}
-                    className="px-3 py-2 text-sm rounded-lg bg-purple-600 hover:bg-purple-700 transition"
+                    className="px-3 py-2 text-sm rounded-lg bg-slate-700 hover:bg-slate-800 transition flex items-center justify-center gap-2"
                   >
-                    ✨ Generate Description
+                  <FileText size={16} />
+                    Generate Description
                   </button>
 
                   <button
                     onClick={() => generateExtra("hashtags")}
-                    className="px-3 py-2 text-sm rounded-lg bg-purple-600 hover:bg-purple-700 transition"
+                    className="px-3 py-2 text-sm rounded-lg bg-slate-700 hover:bg-slate-800 transition flex items-center justify-center gap-2"
                   >
-                    ✨ Generate Hashtags
+                  <Hash size={16} />
+                    Generate Hashtags
                   </button>
 
                   <button
                     onClick={() => generateExtra("thumbnail")}
-                    className="px-3 py-2 text-sm rounded-lg bg-purple-600 hover:bg-purple-700 transition"
+                    className="px-3 py-2 text-sm rounded-lg bg-slate-700 hover:bg-slate-800 transition flex items-center justify-center gap-2"
                   >
-                    ✨ Generate Thumbnail Ideas
+                  <Image size={16} />
+                    Generate Thumbnail Ideas
                   </button>
                 </div>
                 )}
