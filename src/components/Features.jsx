@@ -1,19 +1,11 @@
-import {
-  Bot,
-  Pencil,
-  Mail,
-  Code2,
-  FileText,
-  Hash,
-  ArrowRight,
-} from "lucide-react";
+import { Pencil, Code2, FileText, Hash, ArrowRight, GraduationCap, WandSparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 const features = [
   {
-    title: "AI Prompt",
-    desc: "Generate powerful AI prompts",
-    icon: Bot,
+    title: "AI Gallery",
+    desc: "Explore stunning AI image prompts",
+    icon: WandSparkles,
     gradient: "from-blue-500 to-cyan-500",
   },
   {
@@ -23,9 +15,9 @@ const features = [
     gradient: "from-pink-500 to-rose-500",
   },
   {
-    title: "Email",
-    desc: "Write professional emails",
-    icon: Mail,
+    title: "Study Assistant",
+    desc: "Explain topics, generate notes & quizzes",
+    icon: GraduationCap,
     gradient: "from-green-500 to-emerald-500",
   },
   {
