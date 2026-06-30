@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
-import { Sparkles, Search, Copy, Heart, Type, FileText, Hash, Image, Megaphone } from "lucide-react";
+import { Sparkles, Search, Copy, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import { generateContent } from "../services/gemini";
 import { generateWithGroq } from "../services/groq";
 import { generateWithCerebras } from "../services/cerebras";
 import MarkdownViewer from "./MarkdownViewer";
+import YoutubeTools from "../extra-tools/YoutubeTools";
+import InstagramTools from "../extra-tools/InstagramTools";
+import LinkedinTools from "../extra-tools/LinkedinTools";
+import EmailTools from "../extra-tools/EmailTools";
 
 
-export default function Hero({ selectedPrompt }) {
+export default function Hero({ selectedPrompt, setSelectedPrompt }) {
   const [prompt, setPrompt] = useState("");
   const [lastPrompt, setLastPrompt] = useState("");
   const [result, setResult] = useState("");
@@ -20,7 +24,22 @@ export default function Hero({ selectedPrompt }) {
   const [hashtags, setHashtags] = useState("");
   const [thumbnailIdeas, setThumbnailIdeas] = useState("");
   const [cta, setCta] = useState("");
+  const [instaHashtags, setInstaHashtags] = useState("");
+  const [instaHook, setInstaHook] = useState("");
+  const [reelIdeas, setReelIdeas] = useState("");
+  const [instaCTA, setInstaCTA] = useState("");
+  const [linkedinHook, setLinkedinHook] = useState("");
+  const [linkedinHashtags, setLinkedinHashtags] = useState("");
+  const [linkedinCTA, setLinkedinCTA] = useState("");
+  const [linkedinIdeas, setLinkedinIdeas] = useState("");
+  const [emailSubject, setEmailSubject] = useState("");
+  const [emailRewrite, setEmailRewrite] = useState("");
+  const [emailFollowup, setEmailFollowup] = useState("");
+  const [emailClosing, setEmailClosing] = useState("");
   const [showYoutubeTools, setShowYoutubeTools] = useState(false);
+  const [showInstagramTools, setShowInstagramTools] = useState(false);
+  const [showLinkedinTools, setShowLinkedinTools] = useState(false);
+  const [showEmailTools, setShowEmailTools] = useState(false);
   const [favorites, setFavorites] = useState(
   JSON.parse(localStorage.getItem("favorites")) || []
 );
@@ -86,12 +105,35 @@ export default function Hero({ selectedPrompt }) {
     setDescription("");
     setHashtags("");
     setThumbnailIdeas("");
+    setCta("");
+    setInstaHashtags("");
+    setInstaHook("");
+    setInstaCTA("");
+    setReelIdeas("");
+    setLinkedinHook("");
+    setLinkedinHashtags("");
+    setLinkedinCTA("");
+    setLinkedinIdeas("");
+    setEmailSubject("");
+    setEmailRewrite("");
+    setEmailFollowup("");
+    setEmailClosing("");
 
-    if (prompt === "YouTube Video Script") {
-      setShowYoutubeTools(true);
-    } else {
-      setShowYoutubeTools(false);
-    }
+    setShowYoutubeTools(
+      selectedPrompt === "YouTube Video Script"
+    );
+
+    setShowInstagramTools(
+      selectedPrompt === "Instagram Viral Caption"
+    );
+
+    setShowLinkedinTools(
+      selectedPrompt === "LinkedIn Professional Post"
+    );
+
+    setShowEmailTools(
+      selectedPrompt === "Professional Email Writer"
+    );
 
     setLastPrompt(prompt);
 
@@ -215,6 +257,222 @@ const generateExtra = async (type) => {
   }
 };
 
+const generateInstagramExtra = async (type) => {
+  if (!result) return;
+
+  setLoading(true);
+
+  try {
+    let promptText = "";
+
+    switch (type) {
+      case "hashtags":
+        promptText =
+          `Generate 20 viral Instagram hashtags for this post:\n\n${result}`;
+        break;
+
+      case "hook":
+        promptText =
+          `Generate 5 viral Instagram hooks for this post:\n\n${result}`;
+        break;
+
+      case "reels":
+        promptText =
+          `Generate 5 Instagram reel ideas related to this content:\n\n${result}`;
+        break;
+
+        case "cta":
+        promptText =
+          `Generate 5 engaging Instagram CTAs for this content:\n\n${result}`;
+        break;
+
+      default:
+        return;
+    }
+
+    let extraResult;
+
+    try {
+      extraResult = await generateContent(promptText);
+    } catch (geminiError) {
+      try {
+        extraResult = await generateWithGroq(promptText);
+      } catch (groqError) {
+        extraResult = await generateWithCerebras(promptText);
+      }
+    }
+
+    switch (type) {
+      case "hashtags":
+        setInstaHashtags(extraResult);
+        break;
+
+      case "hook":
+        setInstaHook(extraResult);
+        break;
+
+      case "reels":
+        setReelIdeas(extraResult);
+        break;
+
+        case "cta":
+        setInstaCTA(extraResult);
+        break;
+
+      default:
+        break;
+    }
+  } catch (err) {
+    console.error(err);
+    setError("Failed to generate Instagram content.");
+  } finally {
+    setLoading(false);
+  }
+};
+
+const generateLinkedinExtra = async (type) => {
+  if (!result) return;
+
+  setLoading(true);
+
+  try {
+    let promptText = "";
+
+    switch (type) {
+      case "hook":
+        promptText =
+          `Generate 5 professional LinkedIn hooks for this post:\n\n${result}`;
+        break;
+
+      case "hashtags":
+        promptText =
+          `Generate 15 professional LinkedIn hashtags for this post:\n\n${result}`;
+        break;
+
+      case "ideas":
+        promptText =
+          `Generate 5 LinkedIn thought leadership ideas based on this content:\n\n${result}`;
+        break;
+
+      case "cta":
+        promptText =
+          `Generate 5 engaging LinkedIn CTAs for this post:\n\n${result}`;
+        break;
+
+      default:
+        return;
+    }
+
+    let extraResult;
+
+    try {
+      extraResult = await generateContent(promptText);
+    } catch (geminiError) {
+      try {
+        extraResult = await generateWithGroq(promptText);
+      } catch (groqError) {
+        extraResult = await generateWithCerebras(promptText);
+      }
+    }
+
+    switch (type) {
+      case "hook":
+        setLinkedinHook(extraResult);
+        break;
+
+      case "hashtags":
+        setLinkedinHashtags(extraResult);
+        break;
+
+      case "ideas":
+      setLinkedinIdeas(extraResult);
+      break;
+
+      case "cta":
+        setLinkedinCTA(extraResult);
+        break;
+
+      default:
+        break;
+    }
+
+  } catch (err) {
+    console.error(err);
+    setError("Failed to generate LinkedIn content.");
+  } finally {
+    setLoading(false);
+  }
+};
+
+const generateEmailExtra = async (type) => {
+  if (!result) return;
+
+  setLoading(true);
+
+  try {
+    let promptText = "";
+
+    switch (type) {
+      case "subject":
+        promptText =
+          `Generate 10 professional email subject lines for:\n\n${result}`;
+        break;
+
+      case "rewrite":
+        promptText =
+          `Rewrite this email professionally:\n\n${result}`;
+        break;
+
+      case "followup":
+        promptText =
+          `Generate a professional follow-up email for:\n\n${result}`;
+        break;
+
+      case "closing":
+        promptText =
+          `Generate 10 professional email closing statements for:\n\n${result}`;
+        break;
+
+      default:
+        return;
+    }
+
+    let extraResult;
+
+    try {
+      extraResult = await generateContent(promptText);
+    } catch {
+      try {
+        extraResult = await generateWithGroq(promptText);
+      } catch {
+        extraResult = await generateWithCerebras(promptText);
+      }
+    }
+
+    switch (type) {
+      case "subject":
+        setEmailSubject(extraResult);
+        break;
+
+      case "rewrite":
+        setEmailRewrite(extraResult);
+        break;
+
+      case "followup":
+        setEmailFollowup(extraResult);
+        break;
+
+      case "closing":
+        setEmailClosing(extraResult);
+        break;
+    }
+  } catch (err) {
+    console.error(err);
+    setError("Failed to generate email content.");
+  } finally {
+    setLoading(false);
+  }
+};
   // 📋 Copy
   const copyToClipboard = async () => {
     if (!result) return;
@@ -332,6 +590,8 @@ const generateExtra = async (type) => {
             onChange={(e) => {
               setPrompt(e.target.value);
               setError("");
+
+              setSelectedPrompt("");
             }}
               onKeyDown={(e) => {
               if (e.key === "Enter" && !loading) {
@@ -441,50 +701,145 @@ const generateExtra = async (type) => {
               </div>
             )}
 
+            {/* Insta Display */}
+            {instaHashtags && (
+              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="text-lg font-semibold text-pink-400 mb-3">
+                  #️⃣ Instagram Hashtags
+                </h4>
+
+                <MarkdownViewer content={instaHashtags} />
+              </div>
+            )}
+
+            {instaHook && (
+              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="text-lg font-semibold text-orange-400 mb-3">
+                  🎣 Instagram Hooks
+                </h4>
+
+                <MarkdownViewer content={instaHook} />
+              </div>
+            )}
+
+            {reelIdeas && (
+              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="text-lg font-semibold text-green-400 mb-3">
+                  🎬 Reel Ideas
+                </h4>
+
+                <MarkdownViewer content={reelIdeas} />
+              </div>
+            )}
+
+            {instaCTA && (
+              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="text-lg font-semibold text-cyan-400 mb-3">
+                  📣 Instagram CTAs
+                </h4>
+
+                <MarkdownViewer content={instaCTA} />
+              </div>
+            )}
+
+            {/* Linkedin Display */}
+            {linkedinHook && (
+              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="text-lg font-semibold text-blue-400 mb-3">
+                  🎯 LinkedIn Hooks
+                </h4>
+
+                <MarkdownViewer content={linkedinHook} />
+              </div>
+            )}
+
+            {linkedinHashtags && (
+              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="text-lg font-semibold text-green-400 mb-3">
+                  📈 LinkedIn Hashtags
+                </h4>
+
+                <MarkdownViewer content={linkedinHashtags} />
+              </div>
+            )}
+
+            {linkedinIdeas && (
+              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="text-lg font-semibold text-purple-400 mb-3">
+                  💡 Thought Leadership Ideas
+                </h4>
+
+                <MarkdownViewer content={linkedinIdeas} />
+              </div>
+            )}
+
+            {linkedinCTA && (
+              <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <h4 className="text-lg font-semibold text-orange-400 mb-3">
+                  📣 LinkedIn CTA
+                </h4>
+
+                <MarkdownViewer content={linkedinCTA} />
+              </div>
+            )}
+
+            {/* Examil Display */}
+            {emailSubject && (
+                <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                  <h4 className="text-lg font-semibold text-emerald-400 mb-3">
+                    📧 Email Subjects
+                  </h4>
+
+                  <MarkdownViewer content={emailSubject} />
+                </div>
+              )}
+
+              {emailRewrite && (
+                <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                  <h4 className="text-lg font-semibold text-cyan-400 mb-3">
+                    ✍️ Professional Rewrite
+                  </h4>
+
+                  <MarkdownViewer content={emailRewrite} />
+                </div>
+              )}
+
+              {emailFollowup && (
+                <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                  <h4 className="text-lg font-semibold text-orange-400 mb-3">
+                    📨 Follow-up Email
+                  </h4>
+
+                  <MarkdownViewer content={emailFollowup} />
+                </div>
+              )}
+
+              {emailClosing && (
+                <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                  <h4 className="text-lg font-semibold text-pink-400 mb-3">
+                    🙏 Professional Closings
+                  </h4>
+
+                  <MarkdownViewer content={emailClosing} />
+                </div>
+              )}
+
             {/* Extra AI Buttons */}
               {showYoutubeTools && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4 mb-4">
-                  <button
-                    onClick={() => generateExtra("title")}
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium"
-                  >
-                  <Type size={16} />
-                  Generate Title
-                  </button>
+                <YoutubeTools generateExtra={generateExtra} />
+              )}
 
-                  <button
-                    onClick={() => generateExtra("description")}
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium"
-                  >
-                  <FileText size={16} />
-                    Generate Description
-                  </button>
+              {showInstagramTools && (
+                <InstagramTools  generateInstagramExtra={generateInstagramExtra} />
+              )}
 
-                  <button
-                    onClick={() => generateExtra("hashtags")}
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium"
-                  >
-                  <Hash size={16} />
-                    Generate Hashtags
-                  </button>
+              {showLinkedinTools && (
+                <LinkedinTools generateLinkedinExtra={generateLinkedinExtra} />
+              )}
 
-                  <button
-                    onClick={() => generateExtra("thumbnail")}
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium"
-                  >
-                  <Image size={16} />
-                    Generate Thumbnail Ideas
-                  </button>
-
-                  <button
-                    onClick={() => generateExtra("cta")}
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium"
-                  >
-                  <Megaphone size={16}/>
-                    Generate CTA
-                  </button>
-                </div>
-                )}
+              {showEmailTools && (
+                <EmailTools  generateEmailExtra={generateEmailExtra} />
+              )}
 
             {/* ACTION BUTTONS */}
             <div className="flex gap-2 mt-4">

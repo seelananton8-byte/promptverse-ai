@@ -19,7 +19,7 @@ export default function Home() {
 
       <div className="relative z-10">
         <Navbar />
-        <Hero selectedPrompt={selectedPrompt} />
+        <Hero selectedPrompt={selectedPrompt} setSelectedPrompt={setSelectedPrompt} />
         <Features />
         <Trending setSelectedPrompt={setSelectedPrompt} />
         <Recent />

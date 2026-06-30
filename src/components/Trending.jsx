@@ -18,7 +18,7 @@ const prompts = [
       "Write high-converting LinkedIn posts for professionals.",
   },
   {
-    title: "Business Email Generator",
+    title: "Professional Email Writer",
     description:
       "Generate polished business emails in seconds.",
   },
