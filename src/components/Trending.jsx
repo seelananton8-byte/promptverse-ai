@@ -20,7 +20,7 @@ const prompts = [
   {
     title: "Professional Email Writer",
     description:
-      "Generate polished business emails in seconds.",
+      "Generate polished professional emails in seconds.",
   },
 ];
 
