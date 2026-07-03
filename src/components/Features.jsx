@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const features = [
   {
-    title: "AI Gallery",
+    title: "AI Gallery 123",
     desc: "Explore stunning AI image prompts",
     icon: WandSparkles,
     gradient: "from-blue-500 to-cyan-500",
