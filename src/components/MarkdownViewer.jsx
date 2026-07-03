@@ -37,6 +37,18 @@ export default function MarkdownViewer({ content }) {
         [&_code]:px-1
         [&_code]:rounded
         [&_code]:text-cyan-400
+
+        [&_pre]:overflow-x-auto
+        [&_pre]:max-w-full
+        [&_pre]:bg-[#0B1120]
+        [&_pre]:p-4
+        [&_pre]:rounded-xl
+        [&_pre]:border
+        [&_pre]:border-white/10
+        [&_pre]:my-4
+
+        [&_pre_code]:bg-transparent
+        [&_pre_code]:p-0
       "
     >
       <ReactMarkdown remarkPlugins={[remarkGfm]}>

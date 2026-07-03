@@ -1,4 +1,4 @@
-import { Pencil, Code2, FileText, Hash, ArrowRight, GraduationCap, WandSparkles } from "lucide-react";
+import { ArrowRight, WandSparkles, Video, GraduationCap, Camera, Briefcase, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 const features = [
@@ -7,40 +7,46 @@ const features = [
     desc: "Explore stunning AI image prompts",
     icon: WandSparkles,
     gradient: "from-blue-500 to-cyan-500",
-  },
-  {
-    title: "Caption",
-    desc: "Create engaging captions",
-    icon: Pencil,
-    gradient: "from-pink-500 to-rose-500",
+    prompt: "AI Gallery"
   },
   {
     title: "Study Assistant",
     desc: "Explain topics, generate notes & quizzes",
     icon: GraduationCap,
     gradient: "from-green-500 to-emerald-500",
+    prompt: "Explain Any Topic"
   },
   {
-    title: "Code",
-    desc: "Generate clean code",
-    icon: Code2,
-    gradient: "from-orange-500 to-yellow-500",
+    title: "YouTube Toolkit",
+    desc: "Generate titles, descriptions & CTAs",
+    icon: Video,
+    gradient: "from-red-500 to-pink-500",
+    prompt: "YouTube Script Generator"
   },
   {
-    title: "Resume",
-    desc: "Build ATS-friendly resumes",
-    icon: FileText,
+    title: "Instagram Toolkit",
+    desc: "Hooks, hashtags and viral reel ideas",
+    icon:  Camera,
+    gradient: "from-pink-500 to-purple-500",
+    prompt: "Instagram Viral Caption"
+  },
+  {
+    title: "LinkedIn Toolkit",
+    desc: "Professional hooks and content ideas",
+    icon: Briefcase,
+    gradient: "from-blue-500 to-cyan-500",
+    prompt: "LinkedIn Post Generator"
+  },
+  {
+    title: "Email Toolkit",
+    desc: "Subjects, rewrites and follow-up emails",
+    icon: Mail,
     gradient: "from-purple-500 to-fuchsia-500",
-  },
-  {
-    title: "Hashtags",
-    desc: "Find trending hashtags",
-    icon: Hash,
-    gradient: "from-cyan-500 to-blue-500",
+    prompt: "Professional Email Writer"
   },
 ];
 
-export default function Features() {
+export default function Features({ setSelectedPrompt }) {
   return (
     <section className="max-w-7xl mx-auto px-6 py-20">
 
@@ -57,6 +63,17 @@ export default function Features() {
 
           return (
             <motion.div
+                onClick={() => {
+                setSelectedPrompt(item.prompt);
+
+                 document
+                .getElementById("hero-section")
+                ?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center",
+                });
+              }}
+
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}

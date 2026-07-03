@@ -3,7 +3,6 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Features from "../components/Features";
-import Trending from "../components/Trending";
 import Recent from "../components/Recent";
 import Upgrade from "../components/Upgrade";
 
@@ -20,8 +19,7 @@ export default function Home() {
       <div className="relative z-10">
         <Navbar />
         <Hero selectedPrompt={selectedPrompt} setSelectedPrompt={setSelectedPrompt} />
-        <Features />
-        <Trending setSelectedPrompt={setSelectedPrompt} />
+        <Features setSelectedPrompt={setSelectedPrompt} />
         <Recent />
         <Upgrade />
       </div>

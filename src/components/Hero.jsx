@@ -120,7 +120,7 @@ export default function Hero({ selectedPrompt, setSelectedPrompt }) {
     setEmailClosing("");
 
     setShowYoutubeTools(
-      selectedPrompt === "YouTube Video Script"
+      selectedPrompt === "YouTube Script Generator"
     );
 
     setShowInstagramTools(
@@ -128,7 +128,7 @@ export default function Hero({ selectedPrompt, setSelectedPrompt }) {
     );
 
     setShowLinkedinTools(
-      selectedPrompt === "LinkedIn Professional Post"
+      selectedPrompt === "LinkedIn Post Generator"
     );
 
     setShowEmailTools(
@@ -222,7 +222,6 @@ const generateExtra = async (type) => {
           extraResult = await generateWithCerebras(promptText);
         }
       }
-      console.log("Extra Result:", extraResult);
 
       switch (type) {
       case "title":
