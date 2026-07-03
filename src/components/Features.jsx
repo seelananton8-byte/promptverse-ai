@@ -1,5 +1,6 @@
 import { ArrowRight, WandSparkles, Video, GraduationCap, Camera, Briefcase, Mail } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const features = [
   {
@@ -47,6 +48,8 @@ const features = [
 ];
 
 export default function Features({ setSelectedPrompt }) {
+  const navigate = useNavigate();
+
   return (
     <section className="max-w-7xl mx-auto px-6 py-20">
 
@@ -64,6 +67,11 @@ export default function Features({ setSelectedPrompt }) {
           return (
             <motion.div
                 onClick={() => {
+                  if (item.title === "AI Gallery") {
+                    navigate("/gallery");
+                    return;
+                  }
+                  
                 setSelectedPrompt(item.prompt);
 
                  document

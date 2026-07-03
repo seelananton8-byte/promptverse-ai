@@ -6,6 +6,7 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import History from "./pages/History";
 import Favorites from "./pages/Favorites";
+import Gallery from "./pages/Gallery";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/history" element={<History />} />
       <Route path="/favorites" element={<Favorites />} />
+      <Route path="/gallery" element={<Gallery />} />
     </Routes>
   );
 }
