@@ -95,9 +95,9 @@ export default function GalleryCard({
       </div>
 
       {/* Content */}
-      <div className="p-5 flex flex-col h-[170px]">
+      <div className="p-4 md:p-5 flex flex-col h-[160px] md:h-[180px]">
 
-        <h3 className="font-bold text-lg mb-3">
+        <h3 className="font-bold text-lg md:text-xl line-clamp-2">
           {item.title}
         </h3>
 
