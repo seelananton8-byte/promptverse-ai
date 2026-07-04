@@ -95,7 +95,7 @@ export default function GalleryCard({
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="p-5 flex flex-col h-[170px]">
 
         <h3 className="font-bold text-lg mb-3">
           {item.title}
@@ -124,7 +124,7 @@ export default function GalleryCard({
             );
           }}
           className="
-            mt-4
+            mt-auto
             w-full
             py-3
             rounded-2xl
