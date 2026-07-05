@@ -209,6 +209,66 @@ export const galleryData = [
     prompt: 
     "Transform the uploaded person into a stylish young man standing on a peaceful beach during golden hour, preserving the uploaded person's exact facial features, hairstyle, skin tone and natural expression, wearing a premium white linen shirt with rolled-up sleeves and beige trousers, looking confidently toward the ocean, warm sunset light illuminating the face, gentle sea waves, golden sand, dramatic orange and pink sky, cinematic composition, ultra realistic face, DSLR photography, shallow depth of field, luxury lifestyle, natural pose, HDR, 8K, masterpiece, premium travel photography, highly detailed, photorealistic."
   },
+  {
+    id: 22,
+    title: "Mountain Travaler",
+    category: "Male",
+    image: "/images/male/male5.png",
+    likes: "1.8k",
+    views: "2.8k",
+    prompt: 
+    "Create an ultra realistic cinematic portrait using the uploaded person's face as the exact identity, standing confidently on a snow-covered mountain peak facing directly toward the camera with a calm and determined expression, wearing a premium black winter hiking jacket, dark cargo pants, leather hiking boots, insulated gloves, and a rugged trekking backpack, surrounded by majestic snow-covered mountains, dramatic clouds, and a breathtaking golden sunrise, warm golden-hour lighting naturally illuminating the face while preserving every facial feature from the uploaded image, ultra realistic skin texture, sharp eyes, natural hair, realistic beard details, cinematic composition, shallow depth of field, HDR, masterpiece photography, National Geographic style, adventure travel aesthetic, luxury outdoor fashion, highly detailed, 8K, professional DSLR photography, preserve the uploaded face exactly without changing facial structure, hairstyle, beard, skin tone, or expression."
+  },
+  {
+    id: 23,
+    title: "Gym Mirror Selfie",
+    category: "Male",
+    image: "/images/male/male6.png",
+    likes: "2.8k",
+    views: "3.8k",
+    prompt: 
+    "Create an ultra realistic premium gym mirror selfie using the uploaded person's face as the exact identity, standing confidently in front of a luxury modern gym mirror while holding a premium smartphone, wearing a fitted black sleeveless gym tank top and athletic joggers, muscular aesthetic, defined arms, natural athletic physique, realistic skin texture, sharp eyes, natural hairstyle, realistic beard details, premium fitness aesthetic, cinematic gym lighting, luxury fitness club interior, professional workout equipment in the background, shallow depth of field, HDR, masterpiece photography, ultra detailed, hyper realistic, DSLR quality, fitness influencer style, Instagram aesthetic, 8K resolution, preserve the uploaded face exactly without changing facial structure, hairstyle, beard, skin tone, or expression."
+  },
+  {
+    id: 24,
+    title: "Coffee Shop Lifestyle",
+    category: "Male",
+    image: "/images/male/male7.png",
+    likes: "2.6k",
+    views: "3.8k",
+    prompt: 
+    "Create an ultra realistic premium lifestyle portrait using the uploaded person's face as the exact identity, sitting casually inside a modern luxury coffee shop while working on a sleek MacBook, holding a coffee cup with a relaxed confident expression, wearing a minimalist oversized beige hoodie, black jeans, white sneakers, premium wristwatch, aesthetic wooden table, warm ambient café lighting, large glass windows, blurred customers in the background, modern Scandinavian interior design, shallow depth of field, cinematic composition, realistic skin texture, sharp eyes, natural hairstyle, ultra detailed, masterpiece photography, luxury lifestyle aesthetic, Instagram influencer style, professional DSLR photography, HDR, 8K resolution, preserve the uploaded face exactly without changing facial structure, hairstyle, beard, skin tone, or expression."
+  },
+  {
+    id: 25,
+    title: "Rainy Street Portrait",
+    category: "Male",
+    image: "/images/male/male8.png",
+    likes: "1.2k",
+    views: "1.8k",
+    prompt: 
+    "Create an ultra realistic cinematic rainy street portrait using the uploaded person's face as the exact identity, standing confidently in the middle of a neon-lit city street during heavy rain, facing directly toward the camera with a calm and confident expression, wearing a premium black waterproof trench coat over a dark hoodie, modern streetwear, realistic wet hair, subtle rain droplets on the face, vibrant red, blue and purple neon signs reflecting on the wet pavement, cinematic rain effects, luxury cyberpunk atmosphere, realistic skin texture, sharp eyes, natural hairstyle, realistic beard details, shallow depth of field, dramatic bokeh lights, masterpiece photography, HDR, ultra detailed, hyper realistic, luxury fashion editorial style, professional DSLR photography, 8K resolution, preserve the uploaded face exactly without changing facial structure, hairstyle, beard, skin tone, or expression."
+  },
+  {
+    id: 26,
+    title: "Airport Luxury Travel",
+    category: "Male",
+    image: "/images/male/male9.png",
+    likes: "3.1k",
+    views: "4.2k",
+    prompt: 
+    "Create an ultra realistic luxury airport travel portrait using the uploaded person's face as the exact identity, standing confidently inside a modern international airport terminal facing directly toward the camera with a confident professional expression, holding a premium passport and boarding pass in one hand while pulling a luxury black suitcase with the other, wearing a tailored black blazer over a fitted white t-shirt, slim-fit trousers, premium white sneakers, luxury wristwatch, stylish sunglasses resting on the head, business class travel aesthetic, large glass airport windows, modern departure lounge, private jet and airplanes visible through the windows, luxury travel atmosphere, cinematic lighting, realistic skin texture, sharp eyes, natural hairstyle, realistic beard details, shallow depth of field, HDR, masterpiece photography, ultra detailed, luxury lifestyle, Instagram influencer aesthetic, Forbes entrepreneur vibe, professional DSLR photography, 8K resolution, preserve the uploaded face exactly without changing facial structure, hairstyle, beard, skin tone, or expression."
+  },
+  {
+    id: 27,
+    title: "DSLR Photography Masterclass",
+    category: "Male",
+    image: "/images/male/male10.png",
+    likes: "2.5k",
+    views: "3.7k",
+    prompt: 
+    "Create an ultra realistic cinematic street photographer portrait using the uploaded person's face as the exact identity, standing confidently on a vibrant urban street while holding a premium professional Canon EOS R5 DSLR camera with a 70-200mm telephoto lens, facing directly toward the camera with a confident creative expression, wearing a stylish oversized black jacket over a white t-shirt, dark cargo pants, white sneakers, luxury wristwatch, camera strap around the neck, modern city street filled with warm golden-hour sunlight, aesthetic buildings, blurred pedestrians, colorful cafés, luxury lifestyle atmosphere, cinematic lighting, realistic skin texture, sharp eyes, natural hairstyle, realistic beard details, shallow depth of field, creamy bokeh, HDR, masterpiece photography, ultra detailed, National Geographic style, professional photographer aesthetic, luxury travel influencer vibe, DSLR photography, 8K resolution, preserve the uploaded face exactly without changing facial structure, hairstyle, beard, skin tone, or expression."
+  }
 ];
 
 export const categories = [
