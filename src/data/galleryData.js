@@ -159,6 +159,56 @@ export const galleryData = [
     prompt: 
     "Transform the uploaded person into a professional Indian cricketer celebrating a historic victory inside a packed international cricket stadium, wearing a modern blue Indian cricket jersey (without logos), raising both hands proudly, thousands of fans waving Indian flags, confetti flying, fireworks exploding in the night sky, emotional celebration, cinematic lighting, ultra realistic face matching the uploaded person, DSLR photography, shallow depth of field, HDR, 8K, masterpiece, highly detailed, premium sports photography."
   },
+  {
+    id: 17,
+    title: "The Last Sunset Warrior",
+    category: "Anime",
+    image: "/images/anime/anime1.jpeg",
+    likes: "310",
+    views: "520",
+    prompt: 
+    "masterpiece, best quality, anime style, use the reference photo as the primary face reference, preserve the exact facial structure, eyes, nose, lips, jawline, skin tone, and overall identity of the person, highly accurate face resemblance, transform the person into Naruto Uzumaki, spiky blond hair, blue eyes, Leaf Village forehead protector, orange and black ninja outfit, standing on a rocky cliff at sunset, glowing chakra aura, dramatic orange and golden sky, wind blowing the jacket and headband, cinematic lighting, ultra detailed, sharp focus, vibrant colors, volumetric lighting, epic atmosphere, 8k"
+  },
+  {
+    id: 18,
+    title: "Midnight Supercar King",
+    category: "Male",
+    image: "/images/male/male1.jpeg",
+    likes: "410",
+    views: "1000",
+    prompt: 
+    "Transform the uploaded person into a stylish young man posing confidently beside a matte black Lamborghini Aventador on a luxury city street at night, wearing a premium black suit with black sunglasses, preserving the uploaded person's exact facial features, hairstyle and skin tone, neon city lights reflecting on the car, modern skyscrapers in the background, cinematic lighting, luxury lifestyle, ultra realistic face, glossy reflections, DSLR photography, shallow depth of field, dramatic atmosphere, vibrant colors, HDR, 8K, masterpiece, premium automotive photography, highly detailed, photorealistic."
+  },
+  {
+    id: 19,
+    title: "Midnight Superbike Rider",
+    category: "Male",
+    image: "/images/male/male2.jpeg",
+    likes: "1110",
+    views: "5.5k",
+    prompt: 
+    "Transform the uploaded person into a stylish young man standing beside a premium black superbike on a neon-lit city street at night, holding a sleek black helmet in one hand, wearing a modern black biker jacket, dark jeans, leather boots and sunglasses, preserving the uploaded person's exact facial features, hairstyle, skin tone and natural expression, luxury sports motorcycle, glowing city lights reflecting on the bike, modern skyscrapers in the background, cinematic lighting, ultra realistic face, DSLR photography, shallow depth of field, dramatic atmosphere, vibrant colors, HDR, 8K, masterpiece, premium automotive photography, highly detailed, photorealistic."
+  },
+  {
+    id: 20,
+    title: "Empire Office CEO",
+    category: "Male",
+    image: "/images/male/male3.jpeg",
+    likes: "1.1k",
+    views: "2.5k",
+    prompt: 
+    "Transform the uploaded person into a confident young businessman standing inside a luxurious skyscraper office overlooking a breathtaking modern city skyline, preserving the uploaded person's exact facial features, hairstyle, skin tone and natural expression, wearing a perfectly tailored black suit, white shirt and luxury watch, hands in pockets, floor-to-ceiling glass windows, premium executive office, elegant wooden desk, city lights glowing outside, cinematic lighting, luxury lifestyle, ultra realistic face, DSLR photography, shallow depth of field, dramatic atmosphere, HDR, 8K, masterpiece, premium corporate photography, highly detailed, photorealistic."
+  },
+  {
+    id: 21,
+    title: "Golden Hour Escape",
+    category: "Male",
+    image: "/images/male/male4.jpeg",
+    likes: "2.1k",
+    views: "3.5k",
+    prompt: 
+    "Transform the uploaded person into a stylish young man standing on a peaceful beach during golden hour, preserving the uploaded person's exact facial features, hairstyle, skin tone and natural expression, wearing a premium white linen shirt with rolled-up sleeves and beige trousers, looking confidently toward the ocean, warm sunset light illuminating the face, gentle sea waves, golden sand, dramatic orange and pink sky, cinematic composition, ultra realistic face, DSLR photography, shallow depth of field, luxury lifestyle, natural pose, HDR, 8K, masterpiece, premium travel photography, highly detailed, photorealistic."
+  },
 ];
 
 export const categories = [
