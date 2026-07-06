@@ -268,7 +268,87 @@ export const galleryData = [
     views: "3.7k",
     prompt: 
     "Create an ultra realistic cinematic street photographer portrait using the uploaded person's face as the exact identity, standing confidently on a vibrant urban street while holding a premium professional Canon EOS R5 DSLR camera with a 70-200mm telephoto lens, facing directly toward the camera with a confident creative expression, wearing a stylish oversized black jacket over a white t-shirt, dark cargo pants, white sneakers, luxury wristwatch, camera strap around the neck, modern city street filled with warm golden-hour sunlight, aesthetic buildings, blurred pedestrians, colorful cafés, luxury lifestyle atmosphere, cinematic lighting, realistic skin texture, sharp eyes, natural hairstyle, realistic beard details, shallow depth of field, creamy bokeh, HDR, masterpiece photography, ultra detailed, National Geographic style, professional photographer aesthetic, luxury travel influencer vibe, DSLR photography, 8K resolution, preserve the uploaded face exactly without changing facial structure, hairstyle, beard, skin tone, or expression."
-  }
+  },
+  {
+    id: 28,
+    title: "Gear:5 The Warrior of Liberation",
+    category: "Anime",
+    image: "/images/anime/anime2.jpeg",
+    likes: "2.5k",
+    views: "3.7k",
+    prompt: 
+    "A cheerful anime hero in an awakened form, standing in a powerful low-angle pose with legs apart and fists clenched. Wild fluffy white hair flowing upward like soft clouds, thick curled white eyebrows, bright expressive round eyes with a playful yet fearless look, a huge toothy grin full of confidence and mischief. White cloud-like smoke swirling around the shoulders and head, glowing white aura mixed with subtle black and purple lightning energy. Open white jacket with gold buttons, muscular chest with visible battle scars, white knee-length shorts with fluffy fur trim, long flowing purple sash around the waist, simple sandals. Floating rocks, cracked ground, dramatic cinematic lighting, vibrant anime colors, dynamic perspective, ultra detailed, masterpiece, crisp line art, high contrast, epic shonen anime style, 8K, perfect anatomy, expressive face, highly detailed eyes, dynamic energy effects."
+  },
+  {
+    id: 29,
+    title: "Kakashi Hatake - The Storm of Legends",
+    category: "Anime",
+    image: "/images/anime/anime3.jpeg",
+    likes: "2.5k",
+    views: "3.7k",
+    prompt: 
+    "Kakashi Hatake at full power, Six Paths chakra, Dual Mangekyo Sharingan glowing in both eyes, Perfect Susanoo towering behind him, intense blue lightning (Raikiri/Chidori) surrounding his hand, dramatic battle stance, silver spiky hair, Leaf Village forehead protector, black mask, green jonin vest, cinematic lighting, stormy battlefield, ultra detailed anime style, dynamic energy effects, 8k quality, sharp focus, masterpiece, highly detailed, epic composition."
+  },
+  {
+    id: 30,
+    title: "The Legendary Low-Class Warrior",
+    category: "Anime",
+    image: "/images/anime/anime4.jpeg",
+    likes: "2.6k",
+    views: "3.9k",
+    prompt: 
+    "Create a highly detailed anime illustration using the uploaded image as the composition and pose reference. Preserve the exact full-body stance, camera angle, dramatic Ultra Instinct–style energy aura, glowing blue-purple lighting, torn martial arts outfit, and cinematic background. Replace only the face with the uploaded reference face while matching its hairstyle, facial structure, eyes, expression, and skin tone naturally. Blend the new face seamlessly into the anime artwork with perfect proportions, keeping the body, clothing, lighting, and energy effects unchanged. Ultra-detailed, sharp focus, masterpiece quality, vibrant colors, cinematic anime style, 8K, highly realistic anime rendering."
+  },
+  {
+    id: 31,
+    title: "Itachi Uchiha - The God of Genjutsu",
+    category: "Anime",
+    image: "/images/anime/anime5.jpeg",
+    likes: "1.6k",
+    views: "2.9k",
+    prompt: 
+    "Itachi Uchiha, ultra detailed anime face reference, centered portrait, perfectly symmetrical face, calm and emotionless expression, long straight black hair framing the face, glowing Mangekyo Sharingan eyes, pale skin, Leaf Village forehead protector with scratch mark, Akatsuki cloak collar visible, cinematic red rim lighting, soft shadows, blood-red moon in the background, flying black crows, subtle red chakra aura, masterpiece, best quality, ultra sharp focus, highly detailed eyes, realistic anime style, clean line art, 8K, HDR, no text, no logo, no watermark, no letters, no symbols, no extra characters, face fully visible, front view, reference sheet quality"
+  },
+  {
+    id: 32,
+    title: "Vegeta - The God of Pride",
+    category: "Anime",
+    image: "/images/anime/anime6.jpeg",
+    likes: "1.9k",
+    views: "3.9k",
+    prompt: 
+    "Vegeta, ultra detailed anime face reference, centered portrait, perfectly symmetrical face, sharp widow's peak hairline, intense confident expression, dark spiky hair, thick eyebrows, sharp teal eyes, light skin tone, battle-worn but clean face, Saiyan armor collar visible, soft cinematic lighting, neutral gray studio background, ultra sharp focus, masterpiece, best quality, highly detailed eyes, clean line art, realistic anime style, 8K, HDR, front view, reference sheet quality, face fully visible, no aura, no effects, no text, no logo, no watermark, no letters, no extra characters"
+  },
+  {
+    id: 33,
+    title: "Roronoa Zoro - The King Of Hell",
+    category: "Anime",
+    image: "/images/anime/anime7.jpeg",
+    likes: "3.9k",
+    views: "4.9k",
+    prompt: 
+    "Roronoa Zoro, ultra detailed anime face reference, centered portrait, front-facing, perfectly symmetrical face, sharp jawline, intense emerald green eyes, short spiky green hair, iconic scar over the left eye (left eye closed), calm and fearless expression, lightly tanned skin, subtle battle scars, soft cinematic lighting, dark stormy background with faint green aura, highly detailed facial features, masterpiece, best quality, ultra sharp focus, realistic anime style, clean line art, 8K, HDR, face fully visible, reference sheet quality, no text, no logo, no watermark, no letters, no symbols, no extra characters"
+  },
+  {
+    id: 34,
+    title: "The Yellow Flash",
+    category: "Anime",
+    image: "/images/anime/anime8.jpeg",
+    likes: "4.9k",
+    views: "6.9k",
+    prompt: 
+    "A masterpiece-quality anime illustration of a legendary blond-haired ninja with sharp blue eyes, a calm and confident expression, and a white cloak with red flame patterns. He stands on a cliff overlooking a hidden ninja village at night under a glowing full moon. Wind blows through his spiky golden hair and cloak, creating a cinematic atmosphere. Dramatic moonlight, ultra-detailed background, dynamic pose, high contrast lighting, vibrant colors, fantasy ninja aesthetic, 8K, ultra HD, highly detailed, crisp anime art, professional illustration, wallpaper quality."
+  },
+  {
+    id: 35,
+    title: "Gojo Satoru | Six Eyes",
+    category: "Anime",
+    image: "/images/anime/anime9.jpeg",
+    likes: "5.9k",
+    views: "7.9k",
+    prompt: 
+    "Masterpiece, best quality, ultra-detailed, 8K, anime portrait, close-up headshot, handsome young man, sharp jawline, pale flawless skin, messy spiky white hair with high volume, glowing icy-blue eyes with detailed irises, calm confident expression, slight smile, black high-collar outfit, black blindfold partially lifted with one hand, dramatic cinematic lighting, blue and purple energy aura, soft rim light, highly detailed face, crisp eyelashes, perfect anime proportions, clean composition, centered subject, shallow depth of field, vibrant colors, modern anime illustration, wallpaper quality, no text, no letters, no logo, no watermark, no signature, no Japanese characters, no frame, no border, no extra objects, plain cinematic background."
+  },
 ];
 
 export const categories = [

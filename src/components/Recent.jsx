@@ -1,14 +1,15 @@
 import { History } from "lucide-react";
 import { motion } from "framer-motion";
-
-const history = [
-  "React Landing Page",
-  "Cold Email",
-  "Resume Summary",
-  "Instagram Caption",
-];
+import { useState, useEffect } from "react";
+import { getRecent, formatRecentTime } from "../services/recentService";
 
 export default function Recent() {
+  const [history, setHistory] = useState([]);
+
+  useEffect(() => {
+    setHistory(getRecent());
+  }, []);
+
   return (
     <section className="max-w-7xl mx-auto px-6 mt-20">
 
@@ -45,11 +46,11 @@ export default function Recent() {
           >
 
             <h3 className="text-lg font-semibold">
-              {item}
+              {item.title}
             </h3>
 
             <p className="text-sm text-gray-400 mt-2">
-              Used recently
+              {formatRecentTime(item.time)}
             </p>
 
           </motion.div>

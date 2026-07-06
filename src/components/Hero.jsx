@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { generateContent } from "../services/gemini";
 import { generateWithGroq } from "../services/groq";
 import { generateWithCerebras } from "../services/cerebras";
+import { addRecent } from "../services/recentService";
 import MarkdownViewer from "./MarkdownViewer";
 import YoutubeTools from "../extra-tools/YoutubeTools";
 import InstagramTools from "../extra-tools/InstagramTools";
@@ -43,6 +44,18 @@ export default function Hero({ selectedPrompt, setSelectedPrompt }) {
   const [favorites, setFavorites] = useState(
   JSON.parse(localStorage.getItem("favorites")) || []
 );
+
+// Add recent prompt
+useEffect(() => {
+  const recentItems = [
+    "Study Assistant",
+    "Youtube Toolkit",
+    "Instagram Toolkit",
+    "LinkedIn Toolkit",
+    "Email Toolkit",
+  ];
+  recentItems.forEach(addRecent);
+}, []);
 
   //Reusing
   useEffect(() => {

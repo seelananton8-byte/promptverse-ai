@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 
 import { categories, galleryData } from "../data/galleryData";
+import { addRecent } from "../services/recentService";
 
 import GalleryCard from "../components/gallery/GalleryCard";
 import PromptModal from "../components/gallery/PromptModal";
@@ -13,6 +14,10 @@ export default function Gallery() {
 const [selectedCategory, setSelectedCategory] = useState("All");
 const [searchTerm, setSearchTerm] = useState("");
 const [selectedPrompt, setSelectedPrompt] = useState(null);
+
+useEffect(() => {
+  addRecent("AI Gallery");
+}, []);
 
 const {
 favorites,
