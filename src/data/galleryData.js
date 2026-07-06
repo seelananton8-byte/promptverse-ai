@@ -349,6 +349,66 @@ export const galleryData = [
     prompt: 
     "Masterpiece, best quality, ultra-detailed, 8K, anime portrait, close-up headshot, handsome young man, sharp jawline, pale flawless skin, messy spiky white hair with high volume, glowing icy-blue eyes with detailed irises, calm confident expression, slight smile, black high-collar outfit, black blindfold partially lifted with one hand, dramatic cinematic lighting, blue and purple energy aura, soft rim light, highly detailed face, crisp eyelashes, perfect anime proportions, clean composition, centered subject, shallow depth of field, vibrant colors, modern anime illustration, wallpaper quality, no text, no letters, no logo, no watermark, no signature, no Japanese characters, no frame, no border, no extra objects, plain cinematic background."
   },
+  {
+    id: 36,
+    title: "Cozy Rainy Cafe Date",
+    category: "Couples",
+    image: "/images/couples/couple7.jpeg",
+    likes: "5.9k",
+    views: "7.9k",
+    prompt: 
+    "A romantic young couple sitting together inside a cozy café on a rainy evening, warm golden lights glowing throughout the café, large glass windows covered with raindrops, both holding hot coffee cups and smiling at each other, elegant casual outfits, wooden tables, soft candlelight, blurred city lights outside, cinematic atmosphere, ultra realistic facial details, DSLR photography, shallow depth of field, warm color grading, cozy aesthetic, HDR, 8K, masterpiece, premium lifestyle photography, highly detailed, photorealistic."
+  },
+  {
+    id: 37,
+    title: "Rooftop City Lights",
+    category: "Couples",
+    image: "/images/couples/couple8.jpeg",
+    likes: "6.9k",
+    views: "7.8k",
+    prompt: 
+    "Transform the uploaded couple into a romantic young couple embracing on a luxurious rooftop terrace overlooking a breathtaking modern city skyline at night, wearing elegant black evening outfits, looking into each other's eyes with genuine love, warm candlelight surrounding the rooftop, luxury outdoor lounge, glowing skyscrapers, sparkling city lights, cinematic night atmosphere, premium romantic lifestyle, ultra realistic facial details, DSLR photography, shallow depth of field, dramatic composition, soft bokeh lights, HDR, 8K, masterpiece, premium couple photography, highly detailed, photorealistic."
+  },
+  {
+    id: 38,
+    title: "Cherry Blossom Love",
+    category: "Couples",
+    image: "/images/couples/couple9.jpeg",
+    likes: "5.9k",
+    views: "7.8k",
+    prompt: 
+    "Transform the uploaded couple into a romantic young couple walking hand in hand beneath beautiful blooming cherry blossom trees during spring, soft pink petals gently falling around them, both wearing elegant pastel-colored outfits, smiling lovingly at each other, dreamy park pathway, warm golden sunlight filtering through the blossoms, cinematic atmosphere, ultra realistic facial details, DSLR photography, shallow depth of field, soft bokeh, romantic lifestyle, HDR, 8K, masterpiece, premium couple photography, highly detailed, photorealistic."
+  },
+  {
+    id: 39,
+    title: "Couple receiving blessings in Church",
+    category: "Couples",
+    image: "/images/couples/couple10.jpeg",
+    likes: "8.9k",
+    views: "10.8k",
+    prompt: 
+    "Transform the uploaded couple into a romantic young couple standing together inside a magnificent historic church, receiving blessings during a beautiful wedding ceremony, elegant white wedding gown and classic black tuxedo, warm golden sunlight streaming through colorful stained-glass windows, glowing candles, fresh white flowers decorating the altar, peaceful spiritual atmosphere, cinematic composition, ultra realistic facial details, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, masterpiece, premium wedding photography, highly detailed, photorealistic."
+  },
+  {
+    id: 40,
+    title: "Couple receiving blessings in Temple",
+    category: "Couples",
+    image: "/images/couples/couple11.jpeg",
+    likes: "9.9k",
+    views: "10.8k",
+    prompt: 
+    "Transform the uploaded couple into a devoted young couple receiving sacred blessings from a Hindu priest inside a magnificent ancient temple, both dressed in elegant traditional Indian attire, the woman wearing a beautiful silk saree with jasmine flowers in her hair, the man wearing a cream traditional kurta and dhoti, hands folded in prayer, priest applying holy tilak while holding a traditional pooja plate with diya and flowers, intricate stone carvings, glowing oil lamps, divine deity shrine in the background, warm golden temple lighting, peaceful spiritual atmosphere, cinematic composition, ultra realistic facial details, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, masterpiece, premium spiritual photography, highly detailed, photorealistic."
+  },
+  {
+    id: 41,
+    title: "Couple receiving blessings in Mosque",
+    category: "Couples",
+    image: "/images/couples/couple12.jpeg",
+    likes: "8.9k",
+    views: "9.8k",
+    prompt: 
+    "Transform the uploaded couple into a devoted young Muslim couple receiving blessings from an imam inside a magnificent mosque, both dressed in elegant modest traditional attire, the man wearing a white kurta and prayer cap, the woman wearing a beautiful hijab and modest abaya, standing respectfully with hands gently folded, intricate Islamic architecture, grand arches, beautiful geometric patterns, hanging lanterns, soft golden lighting, peaceful spiritual atmosphere, prayer carpets, warm sunlight streaming through ornate windows, cinematic composition, ultra realistic facial details, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, masterpiece, premium spiritual photography, highly detailed, photorealistic."
+  },
 ];
 
 export const categories = [
