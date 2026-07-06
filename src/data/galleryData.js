@@ -409,6 +409,76 @@ export const galleryData = [
     prompt: 
     "Transform the uploaded couple into a devoted young Muslim couple receiving blessings from an imam inside a magnificent mosque, both dressed in elegant modest traditional attire, the man wearing a white kurta and prayer cap, the woman wearing a beautiful hijab and modest abaya, standing respectfully with hands gently folded, intricate Islamic architecture, grand arches, beautiful geometric patterns, hanging lanterns, soft golden lighting, peaceful spiritual atmosphere, prayer carpets, warm sunlight streaming through ornate windows, cinematic composition, ultra realistic facial details, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, masterpiece, premium spiritual photography, highly detailed, photorealistic."
   },
+  {
+    id: 42,
+    title: "Sasuke Uchiha - Emperor of Shadows",
+    category: "Anime",
+    image: "/images/anime/anime10.jpeg",
+    likes: "8.9k",
+    views: "9.8k",
+    prompt: 
+    "Sasuke Uchiha inspired anime warrior, ultra detailed, modern anime art style, intense cold expression, sharp jawline, spiky black hair, glowing Eternal Mangekyo Sharingan and Rinnegan, cinematic purple lightning surrounding the body, Susanoo chakra aura in the background, dramatic storm clouds, floating rocks, destroyed battlefield, crimson moon, black and violet color palette, dynamic wind, high collar cloak flowing, muscular upper body visible, heroic standing pose, ultra realistic anime shading, volumetric lighting, ray tracing, HDR, masterpiece, best quality, 8K UHD, ultra sharp focus, wallpaper composition, centered character, clean background, no text, no logo, no watermark, no signature."
+  },
+  {
+    id: 43,
+    title: "Traditional Saree Elegance",
+    category: "Female",
+    image: "/images/female/female1.jpeg",
+    likes: "8.9k",
+    views: "9.8k",
+    prompt: 
+    "Transform the uploaded person into a graceful young woman posing confidently in a luxurious indoor setting, preserving the uploaded person's exact facial features, hairstyle and natural expression, wearing an elegant deep emerald green silk saree with intricate golden embroidery and matching designer blouse, adorned with traditional gold jewelry including necklace, earrings and bangles, standing on a polished marble floor inside a premium modern luxury interior with warm golden lighting, sophisticated décor, chandelier, soft floral arrangements, cinematic composition, ultra realistic face, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, masterpiece, premium fashion photography, highly detailed, photorealistic."
+  },
+  {
+    id: 44,
+    title: "Bridal Saree Photoshoot",
+    category: "Female",
+    image: "/images/female/female2.jpeg",
+    likes: "9.9k",
+    views: "10.8k",
+    prompt: 
+    "Transform the uploaded person into a stunning young Indian bride, preserving the uploaded person's exact facial features, hairstyle, skin tone and natural expression, wearing a luxurious deep red Kanchipuram silk bridal saree with rich golden zari work, adorned with exquisite traditional South Indian bridal gold jewelry including layered necklaces, maang tikka, jhumka earrings, bangles, waist belt (vaddanam), jasmine flowers beautifully arranged in her hair, elegant bridal makeup, intricate mehndi on her hands, standing inside a magnificent traditional wedding hall with glowing brass oil lamps, grand carved temple pillars, fresh flower decorations, warm golden lighting, cinematic composition, ultra realistic face, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, masterpiece, premium bridal photography, highly detailed, photorealistic."
+  },
+  {
+    id: 45,
+    title: "Serenity in a Temple Ambience",
+    category: "Female",
+    image: "/images/female/female3.jpeg",
+    likes: "7.9k",
+    views: "10.8k",
+    prompt: 
+    "Transform the uploaded person into a graceful young Indian woman standing peacefully inside a magnificent ancient Hindu temple, preserving the uploaded person's exact facial features, hairstyle, skin tone and natural expression, wearing a luxurious maroon and gold Kanchipuram silk saree with intricate golden zari work, matching traditional blouse, adorned with elegant South Indian gold jewelry including necklace, jhumka earrings, bangles and waist belt (vaddanam), fresh jasmine flowers beautifully tied in her hair, subtle traditional makeup with a small bindi, standing beside intricately carved stone pillars, glowing brass oil lamps, colorful flower garlands, majestic temple gopuram softly visible in the background, warm golden evening light, peaceful spiritual atmosphere, cinematic composition, ultra realistic face, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, masterpiece, premium traditional portrait photography, highly detailed, photorealistic."
+  },
+  {
+    id: 46,
+    title: "Businesswoman in a Skyscraper Office",
+    category: "Female",
+    image: "/images/female/female4.jpeg",
+    likes: "6.9k",
+    views: "9.8k",
+    prompt: 
+    "Transform the uploaded person into a confident young businesswoman standing inside a luxurious skyscraper office, preserving the uploaded person's exact facial features, hairstyle, skin tone and natural expression, wearing a perfectly tailored black business suit with a white silk shirt, elegant high heels, luxury wristwatch and minimal diamond jewelry, hands confidently folded, floor-to-ceiling glass windows overlooking a breathtaking modern city skyline, premium executive office, elegant wooden desk, modern laptop, sophisticated corporate environment, cinematic lighting, ultra realistic face, DSLR photography, shallow depth of field, dramatic atmosphere, HDR, 8K, masterpiece, premium corporate photography, highly detailed, photorealistic."
+  },
+  {
+    id: 47,
+    title: "Cherry Blossom Portrait",
+    category: "Female",
+    image: "/images/female/female5.jpeg",
+    likes: "7.9k",
+    views: "9.9k",
+    prompt: 
+    "Transform the uploaded person into a graceful young woman standing beneath beautiful blooming cherry blossom trees during spring, preserving the uploaded person's exact facial features, hairstyle, skin tone and natural expression, wearing an elegant soft pink floral kimono-inspired dress with delicate blossom patterns, natural glowing makeup, elegant loose hairstyle decorated with small cherry blossoms, soft pink petals gracefully falling around her, dreamy riverside park pathway, warm golden sunlight filtering through the blossoms, peaceful spring atmosphere, cinematic composition, ultra realistic face, DSLR photography, shallow depth of field, soft bokeh, pastel color grading, HDR, 8K, masterpiece, premium portrait photography, highly detailed, photorealistic."
+  },
+  {
+    id: 48,
+    title: "Luxury Car Photoshoot",
+    category: "Female",
+    image: "/images/female/female6.jpeg",
+    likes: "8.9k",
+    views: "9.9k",
+    prompt: 
+    "Transform the uploaded person into a confident young woman posing beside a luxurious black luxury sedan parked in front of a magnificent modern mansion during golden hour, preserving the uploaded person's exact facial features, hairstyle, skin tone and natural expression, wearing a perfectly tailored black designer pantsuit with a black satin shirt, elegant black high heels, luxury wristwatch and minimal diamond jewelry, hands in pockets, glossy black luxury car reflecting the warm sunset light, grand luxury villa with palm trees in the background, cinematic lighting, luxury lifestyle, ultra realistic face, DSLR photography, shallow depth of field, dramatic atmosphere, soft bokeh, HDR, 8K, masterpiece, premium automotive photography, highly detailed, photorealistic."
+  },
 ];
 
 export const categories = [
