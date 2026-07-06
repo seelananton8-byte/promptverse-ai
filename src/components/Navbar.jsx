@@ -1,8 +1,8 @@
 import { logout } from "../services/auth";
 import { LogOut } from "lucide-react";
-import { loginWithGoogle } from "../services/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { observeAuth } from "../services/auth";
+import AuthModal from "./AuthModal";
 import {
   Moon,
   Heart,
@@ -17,6 +17,7 @@ import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
   const [user, setUser] = useState(
   JSON.parse(localStorage.getItem("user"))
 );
@@ -28,6 +29,8 @@ useEffect(() => {
 
   return () => unsubscribe();
 }, []);
+
+const navigate = useNavigate();
 
   return (
     <>
@@ -60,18 +63,11 @@ useEffect(() => {
 
             {/* Profile */}
             <button 
-                onClick={async () => {
-                  if (user) return;
-
-                  try {
-                    const loggedInUser = await loginWithGoogle();
-
-                    setUser(loggedInUser);
-
-                    alert("✅ Login Successful!");
-
-                  } catch (err) {
-                    console.log(err);
+                onClick={() => {
+                  if (user) {
+                    navigate("/profile");   // later build pannuvom
+                  } else {
+                    setShowAuthModal(true);
                   }
                 }}
             className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-purple-600 active:scale-95 transition">
@@ -155,26 +151,14 @@ useEffect(() => {
                 <Settings size={20} />
                 Settings
               </Link>
-
-            <button
-                onClick={async () => {
-                  await logout();
-
-                  setUser(null);
-                  alert("👋 Logged out successfully!");
-
-                  setMenuOpen(false);
-                }}
-                className="flex items-center gap-3 hover:text-red-400 transition"
-              >
-                <LogOut size={20} />
-                Logout
-          </button>
-
             </div>
           </div>
         </>
       )}
+        <AuthModal
+        isOpen={showAuthModal}
+        onClose={() => setShowAuthModal(false)}
+      />
     </>
   );
 }
