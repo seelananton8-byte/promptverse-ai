@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Copy, Heart, Share2 } from "lucide-react";
 import toast from "react-hot-toast";
+import { saveHistory } from "../../services/history";
 
 export default function PromptModal({
   selectedPrompt,
@@ -10,11 +11,18 @@ export default function PromptModal({
 }) {
   if (!selectedPrompt) return null;
 
-  const copyPrompt = () => {
-    navigator.clipboard.writeText(selectedPrompt.prompt);
+  const copyPrompt = async () => {
+  navigator.clipboard.writeText(selectedPrompt.prompt);
 
-    toast.success("Prompt copied successfully");
-  };
+  await saveHistory({
+  category: selectedPrompt.category,
+  title: selectedPrompt.title,
+  prompt: selectedPrompt.prompt,
+  output: selectedPrompt.prompt,
+});
+
+  toast.success("Prompt copied successfully");
+};
 
   const sharePrompt = async () => {
     try {

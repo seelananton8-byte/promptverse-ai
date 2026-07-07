@@ -1,65 +1,60 @@
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { useEffect, useState } from "react";
 import { Trash2, Copy, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import MarkdownViewer from "../components/MarkdownViewer";
+import { getHistory,  deleteHistory, clearAllHistory } from "../services/history";
 
 export default function History() {
   const [history, setHistory] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
-  const [deleteIndex, setDeleteIndex] = useState(null);
-  const [copied, setCopied] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
   const [showClearModal, setShowClearModal] = useState(false);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedHistory = JSON.parse(
-      localStorage.getItem("history") || "[]"
-    );
+  const loadHistory = async () => {
+    const data = await getHistory();
 
-    setHistory(storedHistory);
-  }, []);
+    setHistory(data);
+  };
 
-  const clearHistory = () => {
-    localStorage.removeItem("history");
+  loadHistory();
+}, []);
+
+  // Clear history
+  const clearHistory = async () => {
+  try {
+    await clearAllHistory();
+
     setHistory([]);
     setSelectedItem(null);
     setShowClearModal(false);
-  };
+
+  } catch (err) {
+    console.error(err);
+  }
+};
 
   const reusePrompt = (prompt) => {
     localStorage.setItem("reusePrompt", prompt);
     navigate("/");
   };
 
-  const deleteItem = (index) => {
-    const updatedHistory = history.filter(
-      (_, i) => i !== index
-    );
+  const deleteItem = async (id) => {
+  await deleteHistory(id);
 
-    localStorage.setItem(
-      "history",
-      JSON.stringify(updatedHistory)
-    );
+  setHistory((prev) => prev.filter((item) => item.id !== id));
 
-    setHistory(updatedHistory);
-
-    if (selectedItem?.index === index) {
-      setSelectedItem(null);
-    }
-  };
+  setSelectedItem(null);
+};
 
   const copyText = async (text) => {
-    await navigator.clipboard.writeText(text);
+  await navigator.clipboard.writeText(text);
 
-    setCopied(true);
-
-    setTimeout(() => {
-      setCopied(false);
-    }, 1500);
-  };
+  toast.success("Copied to clipboard!");
+};
 
   return (
     <div className="min-h-screen bg-[#050816] text-white p-6">
@@ -90,7 +85,7 @@ export default function History() {
           <div className="space-y-4">
             {history.map((item, index) => (
               <div
-                key={index}
+                key={item.id}
                 onClick={() =>
                   setSelectedItem({
                     ...item,
@@ -104,7 +99,9 @@ export default function History() {
                 </h2>
 
                 <p className="text-sm text-gray-500 mt-2">
-                  {new Date(item.time).toLocaleString()}
+                   {item.createdAt?.toDate
+                    ? item.createdAt.toDate().toLocaleString()
+                    : "Just now"}
                 </p>
               </div>
             ))}
@@ -136,25 +133,25 @@ export default function History() {
                 </div>
 
                 <p className="text-sm text-gray-500 mb-6">
-                  {new Date(
-                    selectedItem.time
-                  ).toLocaleString()}
+                  {selectedItem.createdAt?.seconds
+                    ? new Date(selectedItem.createdAt.seconds * 1000).toLocaleString()
+                    : "Just now"}
                 </p>
 
                 <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
-                  <MarkdownViewer content={selectedItem.response} />
+                  <MarkdownViewer content={selectedItem.output} />
                 </div>
 
                 <div className="flex flex-wrap gap-3 mt-6">
 
                   <button
                     onClick={() =>
-                      copyText(selectedItem.response)
+                      copyText(selectedItem.output)
                     }
                     className="bg-purple-600 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-purple-700 transition"
                   >
                     <Copy size={16} />
-                    {copied ? "Copied" : "Copy"}
+                    Copy
                   </button>
 
                   <button
@@ -168,7 +165,7 @@ export default function History() {
 
                   <button
                     onClick={() =>
-                      setDeleteIndex(selectedItem.index)
+                      setDeleteId(selectedItem.id)
                     }
                     className="bg-red-600 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-red-700 transition"
                   >
@@ -184,7 +181,7 @@ export default function History() {
         )}
 
         {/* Delete Confirmation Modal */}
-        {deleteIndex !== null && (
+        {deleteId && (
           <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-[60]">
             <div className="bg-[#0B1023] p-6 rounded-2xl border border-white/10 w-[320px]">
 
@@ -199,17 +196,17 @@ export default function History() {
               <div className="flex justify-end gap-3">
 
                 <button
-                  onClick={() => setDeleteIndex(null)}
+                  onClick={() => setDeleteId(null)}
                   className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
                 >
                   Cancel
                 </button>
 
                 <button
-                  onClick={() => {
-                    deleteItem(deleteIndex);
-                    setDeleteIndex(null);
-                  }}
+                  onClick={async () => {
+                  await deleteItem(deleteId);
+                  setDeleteId(null);
+                }}
                   className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 transition"
                 >
                   Delete
@@ -244,10 +241,9 @@ export default function History() {
                 </button>
 
                 <button
-                  onClick={() => {
-                    clearHistory();
-                    setShowClearModal(false);
-                  }}
+                  onClick={async () => {
+                  await clearHistory();
+                }}
                   className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 transition"
                 >
                   Delete

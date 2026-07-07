@@ -5,6 +5,7 @@ import { generateContent } from "../services/gemini";
 import { generateWithGroq } from "../services/groq";
 import { generateWithCerebras } from "../services/cerebras";
 import { addRecent } from "../services/recentService";
+import { saveHistory } from "../services/history";
 import MarkdownViewer from "./MarkdownViewer";
 import YoutubeTools from "../extra-tools/YoutubeTools";
 import InstagramTools from "../extra-tools/InstagramTools";
@@ -151,22 +152,30 @@ useEffect(() => {
     setLastPrompt(prompt);
 
     // 💾 Save history
-    const newItem = {
-      prompt,
-      response,
-      time: new Date().toISOString(),
-    };
+  // Store values before clearing
+const promptText = prompt;
+const aiResponse = response;
+const categoryName = selectedPrompt || "AI Assistant";
 
-    const oldHistory = JSON.parse(
-      localStorage.getItem("history") || "[]"
-    );
+// Clear UI immediately
+setPrompt("");
+setResult(aiResponse);
 
-    localStorage.setItem(
-      "history",
-      JSON.stringify([newItem, ...oldHistory])
-    );
+// Save to Firestore (don't block UI)
+saveHistory({
+  category: categoryName,
+  title: promptText,
+  prompt: promptText,
+  output: aiResponse,
+})
+.then(() => {
+  console.log("✅ History Saved");
+})
+.catch((err) => {
+  console.error("❌ SAVE ERROR", err);
+});
 
-    setPrompt("");
+  
 
   } catch (err) {
     console.error("AI Generation Error: ",err);
