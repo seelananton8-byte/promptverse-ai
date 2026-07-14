@@ -1,9 +1,12 @@
+import { auth } from "../services/firebase"; // Import the auth object from your Firebase configuration
+import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { Trash2, Copy, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import MarkdownViewer from "../components/MarkdownViewer";
 import { getHistory,  deleteHistory, clearAllHistory } from "../services/history";
+import { getHistoryLocal, deleteHistoryLocal, clearAllHistoryLocal } from "../services/historyLocal";
 
 export default function History() {
   const [history, setHistory] = useState([]);
@@ -14,40 +17,87 @@ export default function History() {
   const navigate = useNavigate();
 
   useEffect(() => {
-  const loadHistory = async () => {
-    const data = await getHistory();
 
-    setHistory(data);
-  };
+  const unsubscribe = onAuthStateChanged(auth, async (user) => {
 
-  loadHistory();
+    try {
+
+      let data;
+
+      if (user) {
+        data = await getHistory();
+      } else {
+        data = await getHistoryLocal();
+      }
+
+      setHistory(data);
+
+    } catch (err) {
+
+      console.error(err);
+
+      toast.error("Unable to load history.");
+
+    }
+
+  });
+
+  return () => unsubscribe();
+
 }, []);
 
   // Clear history
   const clearHistory = async () => {
   try {
-    await clearAllHistory();
+    if (auth.currentUser) {
+      await clearAllHistory();
+    } else {
+      await clearAllHistoryLocal();
+    }
 
     setHistory([]);
     setSelectedItem(null);
     setShowClearModal(false);
+    toast.success("History cleared.");
 
   } catch (err) {
     console.error(err);
+    toast.error("Unable to clear history.");
   }
 };
 
   const reusePrompt = (prompt) => {
     localStorage.setItem("reusePrompt", prompt);
+    toast.success("Prompt ready to reuse!");
     navigate("/");
   };
 
   const deleteItem = async (id) => {
-  await deleteHistory(id);
 
-  setHistory((prev) => prev.filter((item) => item.id !== id));
+  try {
 
-  setSelectedItem(null);
+    if (auth.currentUser) {
+      await deleteHistory(id);
+    } else {
+      await deleteHistoryLocal(id);
+    }
+
+    setHistory((prev) =>
+      prev.filter((item) => item.id !== id)
+    );
+
+    setSelectedItem(null);
+
+    toast.success("History deleted successfully!");
+
+  } catch (err) {
+
+    console.error(err);
+
+    toast.error("Unable to delete history.");
+
+  }
+
 };
 
   const copyText = async (text) => {
@@ -83,14 +133,11 @@ export default function History() {
           </p>
         ) : (
           <div className="space-y-4">
-            {history.map((item, index) => (
+            {history.map((item) => (
               <div
                 key={item.id}
                 onClick={() =>
-                  setSelectedItem({
-                    ...item,
-                    index,
-                  })
+                  setSelectedItem(item)
                 }
                 className="bg-white/5 border border-white/10 rounded-2xl p-5 cursor-pointer hover:border-purple-500 hover:bg-white/10 transition"
               >
@@ -101,6 +148,8 @@ export default function History() {
                 <p className="text-sm text-gray-500 mt-2">
                    {item.createdAt?.toDate
                     ? item.createdAt.toDate().toLocaleString()
+                    : item.createdAt
+                    ? new Date(item.createdAt).toLocaleString()
                     : "Just now"}
                 </p>
               </div>
@@ -135,6 +184,8 @@ export default function History() {
                 <p className="text-sm text-gray-500 mb-6">
                   {selectedItem.createdAt?.seconds
                     ? new Date(selectedItem.createdAt.seconds * 1000).toLocaleString()
+                    : selectedItem.createdAt
+                    ? new Date(selectedItem.createdAt).toLocaleString()
                     : "Just now"}
                 </p>
 

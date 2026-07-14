@@ -1,57 +1,71 @@
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { auth } from "../services/firebase";
+import { getFavorites, deleteFavorite, clearAllFavorites } from "../services/favorites";
+import { getFavoritesLocal, deleteFavoriteLocal, clearAllFavoritesLocal } from "../services/favoritesLocal";
+import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { Trash2, Copy, Heart, X } from "lucide-react";
+import toast from "react-hot-toast";
 import MarkdownViewer from "../components/MarkdownViewer";
 
 export default function Favorites() {
   const [favorites, setFavorites] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
-  const [copied, setCopied] = useState(false);
-  const [deleteIndex, setDeleteIndex] = useState(null);
+  const [deleteId,setDeleteId] = useState(null);
   const [showClearModal, setShowClearModal] = useState(false);
 
   useEffect(() => {
-    const storedFavorites = JSON.parse(
-      localStorage.getItem("favorites") || "[]"
-    );
 
-    setFavorites(storedFavorites);
-  }, []);
+  const unsubscribe = onAuthStateChanged(auth, async (user) => {
 
-  const clearFavorites = () => {
-    localStorage.removeItem("favorites");
+    let data;
+
+    if (user) {
+      data = await getFavorites();
+    } else {
+      data = await getFavoritesLocal();
+    }
+
+    setFavorites(data);
+
+  });
+
+  return () => unsubscribe();
+
+}, []);
+
+  const clearFavorites = async () => {
+    if (auth.currentUser) {
+      await clearAllFavorites();
+    } else {
+      await clearAllFavoritesLocal();
+    }
+
     setFavorites([]);
     setSelectedItem(null);
     setShowClearModal(false);
   };
 
-  const removeFavorite = (index) => {
-    const updatedFavorites = favorites.filter(
-      (_, i) => i !== index
-    );
-
-    setFavorites(updatedFavorites);
-
-    localStorage.setItem(
-      "favorites",
-      JSON.stringify(updatedFavorites)
-    );
-
-    if (selectedItem?.index === index) {
-      setSelectedItem(null);
+  const removeFavorite = async (id) => {
+    if (auth.currentUser) {
+      await deleteFavorite(id);
+    } else {
+      await deleteFavoriteLocal(id);
     }
+
+    setFavorites((prev) => prev.filter((item) => item.id !== id)
+  );
+
+  setSelectedItem(null);
+  toast.success("Favorite removed successfully");
   };
 
   const copyText = async (text) => {
-    await navigator.clipboard.writeText(text);
 
-    setCopied(true);
+  await navigator.clipboard.writeText(text);
 
-    setTimeout(() => {
-      setCopied(false);
-    }, 1500);
-  };
+  toast.success("Copied to clipboard!");
+
+}
 
   return (
     <div className="min-h-screen bg-[#050816] text-white p-6">
@@ -86,7 +100,7 @@ export default function Favorites() {
 
             {favorites.map((item, index) => (
               <div
-                key={index}
+                key={item.id}
                 onClick={() =>
                   setSelectedItem({
                     ...item,
@@ -99,11 +113,13 @@ export default function Favorites() {
                   {item.prompt}
                 </h2>
 
-                {item.time && (
-                  <p className="text-sm text-gray-500 mt-2">
-                    {new Date(item.time).toLocaleString()}
-                  </p>
-                )}
+                <p className="text-sm text-gray-500 mt-2">
+                  {item.createdAt?.toDate
+                    ? item.createdAt.toDate().toLocaleString()
+                    : item.createdAt
+                    ? new Date(item.createdAt).toLocaleString()
+                    : "Just Now"}
+                </p>
               </div>
             ))}
 
@@ -137,13 +153,13 @@ export default function Favorites() {
                 </div>
 
                 {/* Time */}
-                {selectedItem.time && (
-                  <p className="text-sm text-gray-500 mb-6">
-                    {new Date(
-                      selectedItem.time
-                    ).toLocaleString()}
-                  </p>
-                )}
+                <p className="text-sm text-gray-500 mb-6">
+                  {selectedItem.createdAt?.toDate
+                    ? selectedItem.createdAt.toDate().toLocaleString()
+                    : selectedItem.createdAt
+                    ? new Date(selectedItem.createdAt).toLocaleString()
+                    : "Just Now"}
+                </p>
 
                 {/* Response */}
                 <div className="bg-white/5 rounded-2xl p-5 border border-white/10">
@@ -160,11 +176,11 @@ export default function Favorites() {
                     className="bg-purple-600 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-purple-700 transition"
                   >
                     <Copy size={16} />
-                    {copied ? "Copied" : "Copy"}
+                    Copy
                   </button>
 
                   <button
-                    onClick={() => setDeleteIndex(selectedItem.index)}
+                    onClick={() => setDeleteId(selectedItem.id)}
                     className="bg-red-600 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-red-700 transition"
                   >
                     <Trash2 size={16} />
@@ -179,7 +195,7 @@ export default function Favorites() {
           </>
         )}
 
-                {deleteIndex !== null && (
+                {deleteId !== null && (
           <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-[60]">
             <div className="bg-[#0B1023] p-6 rounded-2xl border border-white/10 w-[320px]">
 
@@ -194,7 +210,7 @@ export default function Favorites() {
               <div className="flex justify-end gap-3">
 
                 <button
-                  onClick={() => setDeleteIndex(null)}
+                  onClick={() => setDeleteId(null)}
                   className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
                 >
                   Cancel
@@ -202,8 +218,8 @@ export default function Favorites() {
 
                 <button
                   onClick={() => {
-                    removeFavorite(deleteIndex);
-                    setDeleteIndex(null);
+                    removeFavorite(deleteId);
+                    setDeleteId(null);
                   }}
                   className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 transition"
                 >

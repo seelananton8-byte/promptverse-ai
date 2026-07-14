@@ -1,11 +1,18 @@
+import { auth } from "../services/firebase"; // Import the auth object from your Firebase configuration
 import { useState, useEffect } from "react";
 import { Sparkles, Search, Copy, Heart } from "lucide-react";
 import { motion } from "framer-motion";
+import toast from "react-hot-toast";
 import { generateContent } from "../services/gemini";
 import { generateWithGroq } from "../services/groq";
 import { generateWithCerebras } from "../services/cerebras";
 import { addRecent } from "../services/recentService";
 import { saveHistory } from "../services/history";
+import { saveHistoryLocal } from "../services/historyLocal";
+import { saveFavorite as saveFavoriteFirestore } from "../services/favorites";
+import { getFavorites } from "../services/favorites";
+import { saveFavoriteLocal } from "../services/favoritesLocal";
+import { getFavoritesLocal } from "../services/favoritesLocal";
 import MarkdownViewer from "./MarkdownViewer";
 import YoutubeTools from "../extra-tools/YoutubeTools";
 import InstagramTools from "../extra-tools/InstagramTools";
@@ -19,7 +26,6 @@ export default function Hero({ selectedPrompt, setSelectedPrompt }) {
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [copied, setCopied] = useState(false);
   const [saved, setSaved] = useState(false);
   const [titles, setTitles] = useState("");
   const [description, setDescription] = useState("");
@@ -42,9 +48,7 @@ export default function Hero({ selectedPrompt, setSelectedPrompt }) {
   const [showInstagramTools, setShowInstagramTools] = useState(false);
   const [showLinkedinTools, setShowLinkedinTools] = useState(false);
   const [showEmailTools, setShowEmailTools] = useState(false);
-  const [favorites, setFavorites] = useState(
-  JSON.parse(localStorage.getItem("favorites")) || []
-);
+  const [favorites, setFavorites] = useState([]);
 
 // Add recent prompt
 useEffect(() => {
@@ -66,6 +70,22 @@ useEffect(() => {
     setPrompt(savedPrompt);
     localStorage.removeItem("reusePrompt");
   }
+}, []);
+
+useEffect(() => {
+  const loadFavorites = async () => {
+    let data;
+
+    if (auth.currentUser) {
+      data = await getFavorites();
+    } else {
+      data = await getFavoritesLocal();
+    }
+
+    setFavorites(data);
+  };
+
+  loadFavorites();
 }, []);
 
   // Trending Prompt Auto Fill
@@ -160,20 +180,32 @@ const categoryName = selectedPrompt || "AI Assistant";
 // Clear UI immediately
 setPrompt("");
 setResult(aiResponse);
+toast.success("Content generated!");
 
 // Save to Firestore (don't block UI)
-saveHistory({
-  category: categoryName,
-  title: promptText,
-  prompt: promptText,
-  output: aiResponse,
-})
-.then(() => {
-  console.log("✅ History Saved");
-})
-.catch((err) => {
-  console.error("❌ SAVE ERROR", err);
-});
+if (auth.currentUser) {
+  saveHistory({
+    category: categoryName,
+    title: promptText,
+    prompt: promptText,
+    output: aiResponse,
+  })
+    .then(() => {
+      console.log("✅ History Saved (Firestore)");
+    })
+    .catch((err) => {
+      console.error("❌ SAVE ERROR", err);
+    });
+} else {
+  saveHistoryLocal({
+    category: categoryName,
+    title: promptText,
+    prompt: promptText,
+    output: aiResponse,
+  });
+
+  console.log("✅ History Saved (LocalStorage)");
+}
 
   
 
@@ -500,10 +532,7 @@ const generateEmailExtra = async (type) => {
 
     try {
       await navigator.clipboard.writeText(result);
-      setCopied(true);
-
-      setTimeout(() =>
-      setCopied(false), 1500);
+      toast.success("Copied to clipboard!");
     } catch (err) {
       setError("Copy failed ❌", err);
     }
@@ -520,6 +549,7 @@ const generateEmailExtra = async (type) => {
     element.download = `promptverse-${Date.now()}.txt`;
     document.body.appendChild(element);
     element.click();
+    toast.success("Downloaded!");
   };
 
   // ❌ Clear Result
@@ -528,44 +558,47 @@ const generateEmailExtra = async (type) => {
   };
 
   // Save Favorites
-  const saveFavorite = () => {
+  const saveFavorite = async () => {
   if (!result) return;
 
-  const alreadyExists = favorites.some((item) => 
-  item.prompt === lastPrompt && 
-  item.response === result 
-);
-  if (alreadyExists) {
-    setSaved(true);
+  const alreadyExists = favorites.some(
+    (item) =>
+      item.prompt === lastPrompt &&
+      item.response === result
+  );
 
-    setTimeout(() => {
-      setSaved(false);
-    }, 1500);
-    return
+  if (alreadyExists) {
+    toast.error("Already saved");
+    return;
   }
 
   const newFavorite = {
+    id: Date.now().toString(),
     prompt: lastPrompt,
     response: result,
-    time: new Date().toISOString(),
+    createdAt:new Date().toISOString(),
   };
 
-  const updatedFavorites = [
-    newFavorite,
-    ...favorites,
-  ];
+  if (auth.currentUser) {
+  await saveFavoriteFirestore({
+    prompt: lastPrompt,
+    response: result,
+  });
 
-  setFavorites(updatedFavorites);
+  setFavorites((prev) => [newFavorite, ...prev]);
 
-  localStorage.setItem(
-    "favorites",
-    JSON.stringify(updatedFavorites)
-  );
-    setSaved(true);
+} else {
+  saveFavoriteLocal(newFavorite);
 
-    setTimeout(() => {
-      setSaved(false);
-    }, 1500);
+  setFavorites((prev) => [newFavorite, ...prev]);
+}
+
+  toast.success("Added to Favorites ❤️");
+  setSaved(true);
+
+  setTimeout(() => {
+    setSaved(false);
+  }, 1500);
 };
 
   return (
@@ -881,7 +914,7 @@ const generateEmailExtra = async (type) => {
                 className="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 transition flex items-center gap-2"
               >
                 <Copy size={16} />
-                {copied ? "Copied" : "Copy"}
+                Copy
               </button>
 
               <button
