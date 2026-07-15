@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Copy, Heart, Share2 } from "lucide-react";
 import toast from "react-hot-toast";
-import { addRecent } from "../../services/recentService";
 
 export default function PromptModal({
   selectedPrompt,
@@ -12,15 +11,6 @@ export default function PromptModal({
 }) {
   const [sharing, setSharing] = useState(false);
   if (!selectedPrompt) return null;
-
-  useEffect(() => {
-  if (selectedPrompt) {
-    addRecent(
-      "AI Gallery",
-      selectedPrompt.title
-    );
-  }
-}, [selectedPrompt]);
 
   const copyPrompt = async () => {
   await navigator.clipboard.writeText(selectedPrompt.prompt);
