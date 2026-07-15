@@ -1,7 +1,8 @@
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Copy, Heart, Share2 } from "lucide-react";
 import toast from "react-hot-toast";
-import { saveHistory } from "../../services/history";
+import { addRecent } from "../../services/recentService";
 
 export default function PromptModal({
   selectedPrompt,
@@ -9,36 +10,61 @@ export default function PromptModal({
   isFavorite,
   toggleFavorite,
 }) {
+  const [sharing, setSharing] = useState(false);
   if (!selectedPrompt) return null;
 
+  useEffect(() => {
+  if (selectedPrompt) {
+    addRecent(
+      "AI Gallery",
+      selectedPrompt.title
+    );
+  }
+}, [selectedPrompt]);
+
   const copyPrompt = async () => {
-  navigator.clipboard.writeText(selectedPrompt.prompt);
+  await navigator.clipboard.writeText(selectedPrompt.prompt);
 
-  await saveHistory({
-  category: selectedPrompt.category,
-  title: selectedPrompt.title,
-  prompt: selectedPrompt.prompt,
-  output: selectedPrompt.prompt,
-});
-
-  toast.success("Prompt copied successfully");
+  toast.success("Prompt copied 📋");
 };
 
   const sharePrompt = async () => {
-    try {
-      if (navigator.share) {
-        await navigator.share({
-          title: selectedPrompt.title,
-          text: selectedPrompt.prompt,
-        });
-      } else {
-        navigator.clipboard.writeText(selectedPrompt.prompt);
-        toast.success("Prompt copied for sharing 🚀");
-      }
-    } catch (err) {
-      console.log(err);
+
+  if (sharing) return;
+
+  setSharing(true);
+
+  try {
+
+    if (navigator.share) {
+
+      await navigator.share({
+        title: selectedPrompt.title,
+        text: selectedPrompt.prompt,
+      });
+
+    } else {
+
+      await navigator.clipboard.writeText(selectedPrompt.prompt);
+
+      toast.success("Prompt copied for sharing 🚀");
+
     }
-  };
+
+  } catch (err) {
+
+    // User Cancel panna error varum.
+    if (err.name !== "AbortError") {
+      console.error(err);
+    }
+
+  } finally {
+
+    setSharing(false);
+
+  }
+
+};
 
   return (
     <AnimatePresence>
@@ -223,11 +249,9 @@ export default function PromptModal({
               </button>
 
               <button
-                onClick={() =>
-                  toggleFavorite(
-                    selectedPrompt.id
-                  )
-                }
+                onClick={() => {
+                  toggleFavorite(selectedPrompt);
+                }}
                 className="
                   w-16
                   rounded-2xl
@@ -250,6 +274,7 @@ export default function PromptModal({
               </button>
 
               <button
+                disabled={sharing}
                 onClick={sharePrompt}
                 className="
                   w-16
@@ -258,6 +283,8 @@ export default function PromptModal({
                   flex items-center justify-center
                   hover:bg-white/20
                   transition-all
+                  disabled:opacity-50
+                  disabled:cursor-not-allowed
                 "
               >
                 <Share2 size={24} />

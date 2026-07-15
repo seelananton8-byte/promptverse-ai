@@ -1,4 +1,4 @@
-export const addRecent = (title) => {
+export const addRecent = (title, subtitle = "") => {
   const recent =
     JSON.parse(localStorage.getItem("recent")) || [];
 
@@ -8,6 +8,7 @@ export const addRecent = (title) => {
 
   filtered.unshift({
     title,
+    subtitle,
     time: new Date().toISOString(),
   });
 
@@ -15,6 +16,8 @@ export const addRecent = (title) => {
     "recent",
     JSON.stringify(filtered.slice(0, 10))
   );
+
+  window.dispatchEvent(new Event("recent-updated"));
 };
 
 export const getRecent = () => {

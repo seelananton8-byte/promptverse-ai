@@ -7,8 +7,18 @@ export default function Recent() {
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
+  const loadRecent = () => {
     setHistory(getRecent());
-  }, []);
+  };
+
+  loadRecent();
+
+  window.addEventListener("recent-updated", loadRecent);
+
+  return () => {
+    window.removeEventListener("recent-updated", loadRecent);
+  };
+}, []);
 
   return (
     <section className="max-w-7xl mx-auto px-6 mt-20">
@@ -45,13 +55,19 @@ export default function Recent() {
             className="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-cyan-400 hover:shadow-[0_0_35px_rgba(34,211,238,.35)] transition-all duration-300"
           >
 
-            <h3 className="text-lg font-semibold">
-              {item.title}
-            </h3>
+             <h3 className="text-lg font-semibold">
+                {item.title}
+              </h3>
 
-            <p className="text-sm text-gray-400 mt-2">
-              {formatRecentTime(item.time)}
-            </p>
+              {item.subtitle && (
+                <p className="text-sm text-purple-300 mt-2 font-medium line-clamp-1">
+                  {item.subtitle}
+                </p>
+              )}
+
+              <p className="text-sm text-gray-400 mt-2">
+                {formatRecentTime(item.time)}
+              </p>
 
           </motion.div>
         ))}

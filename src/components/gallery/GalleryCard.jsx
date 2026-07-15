@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { addRecent } from "../../services/recentService";
 
 export default function GalleryCard({
   item,
@@ -18,7 +19,10 @@ export default function GalleryCard({
       transition={{
         duration: 0.4,
       }}
-      onClick={() => setSelectedPrompt(item)}
+      onClick={() => {
+        addRecent("AI Gallery", item.title);
+        setSelectedPrompt(item);
+      }}
       className="
         group
         cursor-pointer
@@ -70,7 +74,7 @@ export default function GalleryCard({
         <button
           onClick={(e) => {
             e.stopPropagation();
-            toggleFavorite(item.id);
+            toggleFavorite(item);
           }}
           className="
             absolute

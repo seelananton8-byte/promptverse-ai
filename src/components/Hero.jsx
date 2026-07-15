@@ -50,18 +50,6 @@ export default function Hero({ selectedPrompt, setSelectedPrompt }) {
   const [showEmailTools, setShowEmailTools] = useState(false);
   const [favorites, setFavorites] = useState([]);
 
-// Add recent prompt
-useEffect(() => {
-  const recentItems = [
-    "Study Assistant",
-    "Youtube Toolkit",
-    "Instagram Toolkit",
-    "LinkedIn Toolkit",
-    "Email Toolkit",
-  ];
-  recentItems.forEach(addRecent);
-}, []);
-
   //Reusing
   useEffect(() => {
   const savedPrompt = localStorage.getItem("reusePrompt");
@@ -170,6 +158,27 @@ useEffect(() => {
     );
 
     setLastPrompt(prompt);
+
+// Recently Used
+if (selectedPrompt === "Study Assistant") {
+  addRecent("Study Assistant", "Study Assistant");
+}
+
+else if (selectedPrompt === "YouTube Script Generator") {
+  addRecent("Youtube Toolkit", "Youtube Toolkit");
+}
+
+else if (selectedPrompt === "Instagram Viral Caption") {
+  addRecent("Instagram Toolkit", "Instagram Toolkit");
+}
+
+else if (selectedPrompt === "LinkedIn Post Generator") {
+  addRecent("LinkedIn Toolkit", "LinkedIn Toolkit");
+}
+
+else if (selectedPrompt === "Professional Email Writer") {
+  addRecent("Email Toolkit", "Email Toolkit");
+}
 
     // 💾 Save history
   // Store values before clearing

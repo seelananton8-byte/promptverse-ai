@@ -1,5 +1,3 @@
-import { logout } from "../services/auth";
-import { LogOut } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { observeAuth } from "../services/auth";
 import AuthModal from "./AuthModal";
@@ -18,9 +16,7 @@ import { useState, useEffect } from "react";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
-  const [user, setUser] = useState(
-  JSON.parse(localStorage.getItem("user"))
-);
+  const [user, setUser] = useState(null);
 
 useEffect(() => {
   const unsubscribe = observeAuth((currentUser) => {
@@ -72,11 +68,19 @@ const navigate = useNavigate();
                 }}
             className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-purple-600 active:scale-95 transition">
                 {user ? (
-                  <img
-                    src={user.photoURL}
-                    alt="Profile"
-                    className="w-10 h-10 rounded-full object-cover"
-                  />
+                  user.photoURL ? (
+                    <img
+                      src={user.photoURL}
+                      alt="Profile"
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold uppercase">
+                      {user.displayName?.charAt(0) ||
+                      user.email?.charAt(0) ||
+                      "P"}
+                    </div>
+                  )
                 ) : (
                   <User size={20} />
                 )}
