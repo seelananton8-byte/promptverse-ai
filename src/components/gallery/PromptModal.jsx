@@ -32,6 +32,7 @@ export default function PromptModal({
         title: selectedPrompt.title,
         text: selectedPrompt.prompt,
       });
+      toast.success('Shared successfully');
 
     } else {
 
@@ -107,8 +108,9 @@ export default function PromptModal({
           <div className="relative">
 
             <img
+              loading='lazy'
               src={selectedPrompt.image}
-              alt={selectedPrompt.title}
+              alt={`${selectedPrompt.title} AI Prompt`}
               className="
                 w-full
                 h-[250px]

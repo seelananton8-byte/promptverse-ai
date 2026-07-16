@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { addRecent } from "../../services/recentService";
+import toast from 'react-hot-toast'
 
 export default function GalleryCard({
   item,
@@ -41,8 +42,9 @@ export default function GalleryCard({
       <div className="relative overflow-hidden">
 
         <img
+          loading="lazy"
           src={item.image}
-          alt={item.title}
+          alt={`${item.title} AI Prompt`}
           className="
             w-full
             h-64
@@ -120,12 +122,13 @@ export default function GalleryCard({
 
         {/* Copy Prompt */}
         <button
-          onClick={(e) => {
+          onClick={async (e) => {
             e.stopPropagation();
 
-            navigator.clipboard.writeText(
+            await navigator.clipboard.writeText(
               item.prompt
             );
+            toast.success("Prompt copied!");
           }}
           className="
             mt-auto

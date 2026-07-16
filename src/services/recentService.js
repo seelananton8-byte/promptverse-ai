@@ -46,9 +46,11 @@ export const formatRecentTime = (date) => {
         (1000 * 60 * 60 * 24)
     );
 
-  const time = itemDate.toLocaleTimeString([], {
+  const time = itemDate.toLocaleTimeString("en-IN",
+    {
     hour: "2-digit",
     minute: "2-digit",
+    hour12: true,
   });
 
   if (diff === 0) {

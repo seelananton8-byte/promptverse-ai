@@ -152,6 +152,11 @@ return ( <div className="min-h-screen bg-[#050816] text-white px-6 py-10">
     />
 
     {/* Gallery Grid */}
+    {filteredData.length === 0 ? (
+      <div className="text-center py-20 text-gray-400">
+        No Prompts found.
+      </div>
+    ) : (
     <div className="
       grid
       grid-cols-2
@@ -171,6 +176,7 @@ return ( <div className="min-h-screen bg-[#050816] text-white px-6 py-10">
         />
       ))}
     </div>
+    )}
 
     {/* Modal */}
     <PromptModal
