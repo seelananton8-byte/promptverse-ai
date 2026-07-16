@@ -46,12 +46,14 @@ export const formatRecentTime = (date) => {
         (1000 * 60 * 60 * 24)
     );
 
-  const time = itemDate.toLocaleTimeString("en-IN",
+  const time = itemDate.toLocaleTimeString("en-US",
     {
     hour: "2-digit",
     minute: "2-digit",
     hour12: true,
-  });
+  })
+  .replace("am", "AM")
+  .replace("pm", "PM");
 
   if (diff === 0) {
     return `Today • ${time}`;

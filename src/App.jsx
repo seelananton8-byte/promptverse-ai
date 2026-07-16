@@ -10,6 +10,9 @@ import Gallery from "./pages/Gallery";
 import Profile from "./pages/Profile";
 import ForgotPassword from "./pages/ForgotPassword";
 import Request from "./pages/Request";
+import WhatsNew from "./pages/WhatsNew";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import About from "./pages/About";
 
 export default function App() {
   return (
@@ -24,6 +27,9 @@ export default function App() {
       <Route path="/profile" element={<Profile />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/request" element={<Request />} />
+      <Route path="/whats-new" element={<WhatsNew />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/about" element={<About />} />
     </Routes>
   );
 }

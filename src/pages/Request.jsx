@@ -136,17 +136,17 @@ if (!/\S+@\S+\.\S+/.test(formData.email)) {
 
             <option  className="bg-[#111827] text-white">Anime</option>
 
-            <option  className="bg-[#111827] text-white">Fantasy</option>
+            <option  className="bg-[#111827] text-white">Couples</option>
 
-            <option className="bg-[#111827] text-white">Cyberpunk</option>
+            <option className="bg-[#111827] text-white">Cricket</option>
 
-            <option className="bg-[#111827] text-white">Portrait</option>
+            <option className="bg-[#111827] text-white">Cinematic</option>
 
-            <option className="bg-[#111827] text-white">Realistic</option>
+            <option className="bg-[#111827] text-white">Fantasy</option>
 
-            <option className="bg-[#111827] text-white">Nature</option>
+            <option className="bg-[#111827] text-white">Female</option>
 
-            <option className="bg-[#111827] text-white">Sci-Fi</option>
+            <option className="bg-[#111827] text-white">Male</option>
 
             <option className="bg-[#111827] text-white">Architecture</option>
 

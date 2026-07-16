@@ -3,6 +3,9 @@ import { observeAuth } from "../services/auth";
 import AuthModal from "./AuthModal";
 import {
   Heart,
+  Sparkles,
+  ShieldCheck,
+  Info,
   Send,
   User,
   Menu,
@@ -142,6 +145,33 @@ const navigate = useNavigate();
               >
                 <Heart size={20} />
                 Favorites
+              </Link>
+
+              <Link
+                to="/whats-new"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-3 hover:text-purple-400 transition"
+              >
+                <Sparkles size={20} />
+                What's New
+              </Link>
+
+              <Link
+                to="/privacy-policy"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-3 hover:text-purple-400 transition"
+              >
+                <ShieldCheck size={20} />
+                Privacy Policy
+              </Link>
+
+              <Link
+                to="/about"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-3 hover:text-purple-400 transition"
+              >
+                <Info size={20} />
+                About PromptVerse AI
               </Link>
 
               <Link
