@@ -2,8 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { observeAuth } from "../services/auth";
 import AuthModal from "./AuthModal";
 import {
-  Moon,
   Heart,
+  Send,
   User,
   Menu,
   X,
@@ -47,14 +47,11 @@ const navigate = useNavigate();
           {/* Right Side */}
           <div className="flex items-center gap-2 md:gap-4 flex-shrink-0 ml-4">
 
-            {/* Dark Mode */}
-            <button className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 active:scale-95 transition">
-              <Moon size={20} />
-            </button>
-
-            {/* Favorites */}
-            <button className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-600 active:scale-95 transition">
-              <Heart size={20} />
+            {/* request */}
+            <button
+             onClick={() => navigate("/request")}
+             className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-600 active:scale-95 transition">
+              <Send size={20} />
             </button>
 
             {/* Profile */}

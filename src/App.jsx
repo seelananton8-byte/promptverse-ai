@@ -9,6 +9,7 @@ import Favorites from "./pages/Favorites";
 import Gallery from "./pages/Gallery";
 import Profile from "./pages/Profile";
 import ForgotPassword from "./pages/ForgotPassword";
+import Request from "./pages/Request";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/request" element={<Request />} />
     </Routes>
   );
 }
