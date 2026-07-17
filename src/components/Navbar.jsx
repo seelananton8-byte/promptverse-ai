@@ -13,6 +13,7 @@ import {
   Home,
   History,
   Settings,
+  CircleHelp,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -181,6 +182,15 @@ const navigate = useNavigate();
               >
                 <Settings size={20} />
                 Settings
+              </Link>
+
+              <Link
+                to="/help-center"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-3 hover:text-purple-400 transition"
+              >
+                <CircleHelp size={20} />
+                Help Center
               </Link>
             </div>
           </div>

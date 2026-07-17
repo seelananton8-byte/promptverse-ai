@@ -411,7 +411,8 @@ const generateWithAI = async (platform) => {
                 </div>
 
                 <p className="text-xs text-gray-500 mt-6">
-                  💡 Prompt will be copied automatically before opening your selected AI platform.
+                  💡 Your prompt will be copied automatically.
+                  After generating your image, simply close the AI tab to continue using PromptVerse AI.
                 </p>
 
               </div>

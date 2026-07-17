@@ -13,6 +13,8 @@ import Request from "./pages/Request";
 import WhatsNew from "./pages/WhatsNew";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import About from "./pages/About";
+import HelpCenter from "./pages/HelpCenter";
+import Settings from "./pages/Settings";
 
 export default function App() {
   return (
@@ -30,6 +32,8 @@ export default function App() {
       <Route path="/whats-new" element={<WhatsNew />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/about" element={<About />} />
+      <Route path="/help-center" element={<HelpCenter />} />
+      <Route path="/settings" element={<Settings />} />
     </Routes>
   );
 }
