@@ -12,10 +12,73 @@ export default function PromptModal({
   const [sharing, setSharing] = useState(false);
   if (!selectedPrompt) return null;
 
+  const aiPlatforms = [
+  {
+    name: "ChatGPT",
+    icon: "🤖",
+    desc: "OpenAI Image Generator",
+    url: "https://chatgpt.com",
+  },
+  {
+    name: "Gemini",
+    icon: "💎",
+    desc: "Google AI",
+    url: "https://gemini.google.com",
+  },
+  {
+    name: "Leonardo AI",
+    icon: "🟠",
+    desc: "Professional Images",
+    url: "https://app.leonardo.ai",
+  },
+  {
+    name: "Flux",
+    icon: "⚡",
+    desc: "Fast Image Generation",
+    url: "https://playground.bfl.ai",
+  },
+  {
+    name: "Claude",
+    icon: "🧠",
+    desc: "Anthropic AI",
+    url: "https://claude.ai",
+  },
+  {
+    name: "Grok",
+    icon: "⚫",
+    desc: "xAI",
+    url: "https://grok.com",
+  },
+];
+
   const copyPrompt = async () => {
   await navigator.clipboard.writeText(selectedPrompt.prompt);
 
   toast.success("Prompt copied 📋");
+};
+
+const generateWithAI = async (platform) => {
+
+  try {
+
+    await navigator.clipboard.writeText(
+      selectedPrompt.prompt
+    );
+
+    toast.success(
+      `Prompt copied! Opening ${platform.name} 🚀`
+    );
+
+    setTimeout(() => {
+      window.open(platform.url, "_blank");
+    }, 600);
+
+  } catch (err) {
+
+    toast.error("Failed to copy prompt");
+
+  }
+
 };
 
   const sharePrompt = async () => {
@@ -281,6 +344,77 @@ export default function PromptModal({
               >
                 <Share2 size={24} />
               </button>
+
+              {/* Generate Image */}
+
+              <div className="mt-10 border-t border-white/10 pt-8">
+
+                <h3 className="text-2xl font-bold text-white">
+                  ✨ Generate Image
+                </h3>
+
+                <p className="mt-2 text-gray-400">
+                  Choose your favorite AI platform.
+                </p>
+
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+
+                  {aiPlatforms.map((platform) => (
+
+                    <button
+                      key={platform.name}
+                      onClick={() => generateWithAI(platform)}
+                      className="
+                        group
+                        bg-white/5
+                        border border-white/10
+                        rounded-2xl
+                        p-5
+                        text-left
+                        hover:border-purple-500
+                        hover:bg-purple-500/10
+                        hover:shadow-[0_0_30px_rgba(168,85,247,.35)]
+                        transition-all
+                        duration-300
+                        hover:scale-[1.03]
+                      "
+                    >
+
+                      <div className="text-3xl">
+                        {platform.icon}
+                      </div>
+
+                      <h4 className="mt-3 font-bold text-white">
+                        {platform.name}
+                      </h4>
+
+                      <p className="text-sm text-gray-400 mt-1">
+                        {platform.desc}
+                      </p>
+
+                      <div
+                        className="
+                          mt-4
+                          text-purple-400
+                          font-medium
+                          group-hover:translate-x-1
+                          transition
+                        "
+                      >
+                        Generate →
+                      </div>
+
+                    </button>
+
+                  ))}
+
+                </div>
+
+                <p className="text-xs text-gray-500 mt-6">
+                  💡 Prompt will be copied automatically before opening your selected AI platform.
+                </p>
+
+              </div>
 
             </div>
 
