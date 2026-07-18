@@ -230,7 +230,7 @@ export default function About() {
             </h2>
 
             <p className="mt-6 text-2xl font-bold text-purple-300">
-                Antonseelan
+                JeyPre Creations
             </p>
 
             <p className="mt-8 text-gray-400 leading-8 max-w-3xl mx-auto">

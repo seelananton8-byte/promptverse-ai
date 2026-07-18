@@ -336,7 +336,7 @@ export default function Settings() {
                         </p>
 
                         <p className="mt-8 text-gray-500">
-                            Built with ❤️ by Antonseelan
+                            Built with ❤️ by JeyPre Creations
                         </p>
 
                         </div>
