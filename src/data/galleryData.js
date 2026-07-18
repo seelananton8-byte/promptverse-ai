@@ -479,6 +479,46 @@ export const galleryData = [
     prompt: 
     "Transform the uploaded person into a confident young woman posing beside a luxurious black luxury sedan parked in front of a magnificent modern mansion during golden hour, preserving the uploaded person's exact facial features, hairstyle, skin tone and natural expression, wearing a perfectly tailored black designer pantsuit with a black satin shirt, elegant black high heels, luxury wristwatch and minimal diamond jewelry, hands in pockets, glossy black luxury car reflecting the warm sunset light, grand luxury villa with palm trees in the background, cinematic lighting, luxury lifestyle, ultra realistic face, DSLR photography, shallow depth of field, dramatic atmosphere, soft bokeh, HDR, 8K, masterpiece, premium automotive photography, highly detailed, photorealistic."
   },
+  {
+    id: 49,
+    title: "Cinematic Beauty",
+    category: "Female",
+    image: "/images/female/female7.jpeg",
+    likes: "1.2k",
+    views: "2.3k",
+    prompt:
+    "A breathtaking cinematic portrait of a beautiful young woman standing outdoors during golden hour, long flowing dark hair gently blowing in the wind, expressive brown eyes, flawless natural skin, soft makeup, wearing an elegant black outfit with subtle embroidery, looking over her shoulder toward the camera, warm sunset backlighting creating a glowing rim light, shallow depth of field, creamy soft bokeh, cinematic composition, ultra-realistic facial details, premium fashion photography, DSLR, 85mm lens, f/1.4, HDR, 8K, masterpiece, highly detailed, realistic skin texture, natural colors, award-winning photography."
+  },
+  {
+    id: 50,
+    title: "Korean Style Portrait",
+    category: "Female",
+    image: "/images/female/female8.jpeg",
+    likes: "2.2k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face, facial features, skin tone, hairstyle, and expression exactly. Transform the subject into a stylish Korean-inspired portrait with clean natural makeup, flawless glowing skin, soft brown hair, elegant modern Korean fashion, minimal accessories, warm natural lighting, soft pastel background, shallow depth of field, creamy bokeh, cinematic composition, ultra-realistic DSLR photography, 85mm lens, HDR, 8K, highly detailed, premium editorial fashion portrait, realistic skin texture, natural colors, masterpiece."
+  },
+  {
+    id: 51,
+    title: "Indian traditional look",
+    category: "Female",
+    image: "/images/female/female9.jpeg",
+    likes: "1.2k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face, facial features, skin tone, hairstyle, and expression exactly. Transform the subject into a graceful Indian traditional portrait wearing an elegant ivory silk saree with a rich maroon and gold border, matching embroidered blouse, traditional gold jhumka earrings, delicate gold necklace, small red bindi, and jasmine flowers adorning the hair. Pose naturally while looking over the shoulder with a calm, confident expression. Set the scene in a beautifully carved ancient Indian temple with warm golden sunlight streaming through the pillars, creating a soft cinematic glow and natural rim lighting. Shallow depth of field, creamy bokeh, ultra-realistic DSLR photography, 85mm lens, f/1.8, HDR, 8K, realistic skin texture, premium editorial portrait, masterpiece, highly detailed, natural colors, timeless elegance."
+  },
+  {
+    id: 52,
+    title: "Moon Goddess",
+    category: "Female",
+    image: "/images/female/female10.jpeg",
+    likes: "1.3k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face, facial features, skin tone, hairstyle, and expression exactly. Transform the subject into a majestic Moon Goddess standing beneath a giant glowing full moon, wearing an elegant silver and white celestial gown with flowing translucent fabric, shimmering moonstone crown, glowing crystal jewelry, and long silky hair gently floating in the night breeze. Surround her with sparkling stars, floating moon petals, magical mist, and glowing fireflies. Soft blue and silver moonlight illuminates her face, creating a divine ethereal aura. Fantasy cinematic composition, ultra-realistic, DSLR quality, 85mm lens, HDR, 8K, masterpiece, highly detailed, realistic skin texture, volumetric lighting, soft bokeh, award-winning fantasy photography."
+  },
 ];
 
 export const categories = [
