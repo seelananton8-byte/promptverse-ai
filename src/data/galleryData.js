@@ -519,6 +519,206 @@ export const galleryData = [
     prompt:
     "Use the uploaded reference photo as the facial identity. Preserve the person's original face, facial features, skin tone, hairstyle, and expression exactly. Transform the subject into a majestic Moon Goddess standing beneath a giant glowing full moon, wearing an elegant silver and white celestial gown with flowing translucent fabric, shimmering moonstone crown, glowing crystal jewelry, and long silky hair gently floating in the night breeze. Surround her with sparkling stars, floating moon petals, magical mist, and glowing fireflies. Soft blue and silver moonlight illuminates her face, creating a divine ethereal aura. Fantasy cinematic composition, ultra-realistic, DSLR quality, 85mm lens, HDR, 8K, masterpiece, highly detailed, realistic skin texture, volumetric lighting, soft bokeh, award-winning fantasy photography."
   },
+  {
+    id: 53,
+    title: "Movie Star Look",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic1.jpeg",
+    likes: "1.3k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face, facial features, skin tone, hairstyle, and expression exactly. Transform the subject into a powerful cinematic hero standing confidently in a dramatic urban environment, wearing a premium tailored outfit, golden sunset lighting, volumetric light rays, atmospheric fog, shallow depth of field, realistic shadows, movie color grading, ultra-realistic skin texture, DSLR photography, HDR, 8K, masterpiece."
+  },
+  {
+    id: 54,
+    title: "Midnight Rain",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic2.jpeg",
+    likes: "1.2k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Place the subject in a heavy cinematic rain scene at night with neon reflections, realistic water droplets, dramatic lighting, wet streets, shallow depth of field, movie-grade color tones, ultra-realistic photography, HDR, 8K."
+  },
+  {
+    id: 55,
+    title: "Elite Street",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic3.jpeg",
+    likes: "1.1k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's face exactly. Create a luxury cinematic portrait of the subject walking through an upscale city street, premium fashion, luxury cars in the background, golden hour sunlight, cinematic composition, DSLR photography, ultra-realistic details, HDR, masterpiece."
+  },
+   {
+    id: 56,
+    title: "Peak Adventure",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic4.jpeg",
+    likes: "1.4k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Place the subject on a breathtaking mountain peak during sunrise, dramatic clouds, cinematic lighting, realistic wind effects, adventure movie atmosphere, ultra-detailed photography, HDR, 8K."
+  },
+  {
+    id: 57,
+    title: "Forest Wanderer",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic5.jpeg",
+    likes: "1.2k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Transform the subject into a mystical traveler inside an enchanted forest with glowing lights, magical mist, cinematic atmosphere, volumetric lighting, realistic textures, DSLR photography, HDR, masterpiece."
+  },
+  {
+    id: 58,
+    title: "Palace Elite",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic6.jpeg",
+    likes: "1.5k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Transform the subject into modern royalty wearing luxurious royal attire with elegant jewelry, inside a magnificent palace, golden lighting, cinematic realism, ultra-detailed textures, HDR, 8K."
+  },
+  {
+    id: 59,
+    title: "The Survivor",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic7.jpeg",
+    likes: "1.2k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Create an intense action movie scene with explosions, smoke, dramatic lighting, confident pose, cinematic realism, shallow depth of field, ultra-realistic photography, HDR, masterpiece."
+  },
+  {
+    id: 60,
+    title: "Neon Nexus",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic8.jpeg",
+    likes: "1.3k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Transform the subject into a futuristic character inside a cyberpunk city, glowing neon lights, holograms, cinematic atmosphere, ultra-realistic textures, DSLR photography, HDR, 8K."
+  },
+  {
+    id: 61,
+    title: "Vintage Classic",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic9.jpeg",
+    likes: "1.4k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Create a timeless vintage cinematic portrait with classic fashion, retro architecture, warm film colors, realistic lighting, DSLR photography, shallow depth of field, HDR."
+  },
+  {
+    id: 62,
+    title: "Desert Odyssey",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic10.jpeg",
+    likes: "1.2k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Place the subject in a dramatic desert landscape during golden hour, cinematic lighting, blowing sand, epic atmosphere, ultra-realistic details, HDR, 8K."
+  },
+  {
+    id: 63,
+    title: "Winter Wonderland",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic11.jpeg",
+    likes: "1.4k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Place the subject in a beautiful snowy landscape with falling snowflakes, warm cinematic lighting, realistic winter atmosphere, shallow depth of field, HDR, masterpiece."
+  },
+  {
+    id: 64,
+    title: "Luxury Lobby",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic12.jpeg",
+    likes: "1.2k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Create a cinematic luxury portrait inside an elegant five-star hotel lobby, premium outfit, warm lighting, marble interiors, ultra-realistic photography, HDR, 8K."
+  },
+  {
+    id: 65,
+    title: "Sunset Paradise",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic13.jpeg",
+    likes: "1.4k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Place the subject on a tropical beach during sunset, golden sunlight, cinematic waves, realistic reflections, dreamy atmosphere, DSLR photography, HDR, masterpiece."
+  },
+  {
+    id: 66,
+    title: "Skyline Nights",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic14.jpeg",
+    likes: "1.2k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Create a cinematic rooftop portrait overlooking a glowing city skyline at night, neon lights, dramatic mood, shallow depth of field, HDR, ultra-realistic."
+  },
+  {
+    id: 67,
+    title: "Crime Noir",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic15.jpeg",
+    likes: "1.4k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Create a stylish cinematic portrait inspired by classic crime dramas, luxurious formal attire, elegant vintage interior, dramatic lighting, realistic textures, HDR, masterpiece."
+  },
+  {
+    id: 68,
+    title: "Space Explorer",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic16.jpeg",
+    likes: "1.3k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Transform the subject into a futuristic space explorer standing on an alien planet, cinematic galaxies, glowing stars, realistic space suit, ultra-realistic photography, HDR, 8K."
+  },
+  {
+    id: 69,
+    title: "Castle Royale",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic17.jpeg",
+    likes: "1.2k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Place the subject inside a magnificent medieval castle with dramatic lighting, realistic stone architecture, cinematic atmosphere, ultra-detailed photography, HDR."
+  },
+  {
+    id: 70,
+    title: "Cafe Elegance",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic18.jpeg",
+    likes: "1.1k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Create a premium cinematic portrait inside a luxury café with warm lighting, elegant interiors, coffee ambiance, shallow depth of field, DSLR photography, HDR."
+  },
+  {
+    id: 71,
+    title: "Moonlight Magic",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic19.jpeg",
+    likes: "1.3k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Place the subject beneath a giant glowing full moon with soft blue cinematic lighting, magical mist, dreamy atmosphere, ultra-realistic textures, HDR, masterpiece."
+  },
+  {
+    id: 72,
+    title: "Golden Hour",
+    category: "Cinematic",
+    image: "/images/cinematic/cinematic20.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Create an ultra-realistic cinematic portrait during golden hour with soft sunlight, warm color grading, shallow depth of field, realistic skin texture, premium fashion, DSLR photography, HDR, 8K, masterpiece."
+  },
 ];
 
 export const categories = [
