@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { addRecent } from "../../services/recentService";
 import toast from 'react-hot-toast'
+import { useEffect, useState } from "react";
+import { getGalleryStats } from "../../services/galleryStats";
+import { toggleGalleryFavorite } from "../../services/galleryActions";
 
 export default function GalleryCard({
   item,
@@ -8,6 +11,20 @@ export default function GalleryCard({
   toggleFavorite,
   setSelectedPrompt,
 }) {
+  const [stats, setStats] = useState({
+  likes: 0,
+  views: 0,
+});
+
+useEffect(() => {
+  const loadStats = async () => {
+    const data = await getGalleryStats(item.id);
+    setStats(data);
+  };
+
+  loadStats();
+}, [item.id]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -74,9 +91,16 @@ export default function GalleryCard({
 
         {/* Favorite */}
         <button
-          onClick={(e) => {
+          onClick={async (e) => {
             e.stopPropagation();
-            toggleFavorite(item);
+
+            const data = await toggleGalleryFavorite({
+              item,
+              isFavorite,
+              toggleFavorite,
+            });
+
+            setStats(data);
           }}
           className="
             absolute
@@ -116,8 +140,8 @@ export default function GalleryCard({
             text-gray-400
           "
         >
-          <span>❤️ {item.likes}</span>
-          <span>👁️ {item.views}</span>
+          <span>❤️ {stats.likes}</span>
+          <span>👁️ {stats.views}</span>
         </div>
 
         {/* Copy Prompt */}

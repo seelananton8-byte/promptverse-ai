@@ -165,7 +165,7 @@ if (selectedPrompt === "Study Assistant") {
 }
 
 else if (selectedPrompt === "YouTube Script Generator") {
-  addRecent("Youtube Toolkit", "Youtube Toolkit");
+  addRecent("YouTube Toolkit", "YouTube Toolkit");
 }
 
 else if (selectedPrompt === "Instagram Viral Caption") {

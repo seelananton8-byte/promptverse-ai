@@ -2,6 +2,12 @@ import { useState} from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Copy, Heart, Share2 } from "lucide-react";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
+import {
+  getGalleryStats,
+  incrementViews,
+} from "../../services/galleryStats";
+import { toggleGalleryFavorite } from "../../services/galleryActions";
 
 export default function PromptModal({
   selectedPrompt,
@@ -10,6 +16,55 @@ export default function PromptModal({
   toggleFavorite,
 }) {
   const [sharing, setSharing] = useState(false);
+  const [stats, setStats] = useState({
+  likes: 0,
+  views: 0,
+});
+
+const handleFavorite = async () => {
+
+  const data = await toggleGalleryFavorite({
+    item: selectedPrompt,
+    isFavorite,
+    toggleFavorite,
+  });
+
+  setStats(data);
+
+};
+
+useEffect(() => {
+  if (!selectedPrompt) return;
+
+  const loadStats = async () => {
+    const promptId = String(selectedPrompt.id);
+
+    const viewedPrompts =
+      JSON.parse(localStorage.getItem("viewedPrompts")) || [];
+
+    if (!viewedPrompts.includes(promptId)) {
+      await incrementViews(selectedPrompt.id);
+
+      viewedPrompts.push(promptId);
+
+      localStorage.setItem(
+        "viewedPrompts",
+        JSON.stringify(viewedPrompts)
+      );
+    }
+
+    try {
+      const data = await getGalleryStats(selectedPrompt.id);
+      setStats(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  loadStats();
+
+}, [selectedPrompt]);
+
   if (!selectedPrompt) return null;
 
   const aiPlatforms = [
@@ -251,11 +306,11 @@ const generateWithAI = async (platform) => {
               "
             >
               <span>
-                ❤️ {selectedPrompt.likes}
+                ❤️ {stats.likes}
               </span>
 
               <span>
-                👁️ {selectedPrompt.views}
+                👁️ {stats.views}
               </span>
             </div>
 
@@ -304,9 +359,7 @@ const generateWithAI = async (platform) => {
               </button>
 
               <button
-                onClick={() => {
-                  toggleFavorite(selectedPrompt);
-                }}
+                onClick={handleFavorite}
                 className="
                   w-16
                   rounded-2xl
