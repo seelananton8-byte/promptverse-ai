@@ -8,6 +8,7 @@ import Upgrade from "../components/Upgrade";
 
 export default function Home() {
   const [selectedPrompt, setSelectedPrompt] = useState("");
+  const [activeTool, setActiveTool] = useState("");
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#050816] text-white">
@@ -18,8 +19,8 @@ export default function Home() {
 
       <div className="relative z-10">
         <Navbar />
-        <Hero selectedPrompt={selectedPrompt} setSelectedPrompt={setSelectedPrompt} />
-        <Features setSelectedPrompt={setSelectedPrompt} />
+        <Hero selectedPrompt={selectedPrompt} setSelectedPrompt={setSelectedPrompt} activeTool={activeTool} setActiveTool={setActiveTool} />
+        <Features setSelectedPrompt={setSelectedPrompt}  setActiveTool={setActiveTool} />
         <Recent />
         <Upgrade />
       </div>

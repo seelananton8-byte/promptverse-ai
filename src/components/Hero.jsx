@@ -18,9 +18,10 @@ import YoutubeTools from "../extra-tools/YoutubeTools";
 import InstagramTools from "../extra-tools/InstagramTools";
 import LinkedinTools from "../extra-tools/LinkedinTools";
 import EmailTools from "../extra-tools/EmailTools";
+import StudyTools from "../extra-tools/StudyTools";
 
 
-export default function Hero({ selectedPrompt, setSelectedPrompt }) {
+export default function Hero({ selectedPrompt, setSelectedPrompt, activeTool, setActiveTool }) {
   const [prompt, setPrompt] = useState("");
   const [lastPrompt, setLastPrompt] = useState("");
   const [result, setResult] = useState("");
@@ -49,6 +50,12 @@ export default function Hero({ selectedPrompt, setSelectedPrompt }) {
   const [showLinkedinTools, setShowLinkedinTools] = useState(false);
   const [showEmailTools, setShowEmailTools] = useState(false);
   const [favorites, setFavorites] = useState([]);
+  const [showStudyTools, setShowStudyTools] = useState(false);
+  const [studyNotes, setStudyNotes] = useState("");
+  const [studySummary, setStudySummary] = useState("");
+  const [studyQuiz, setStudyQuiz] = useState("");
+  const [studyMCQ, setStudyMCQ] = useState("");
+  const [studyExplain, setStudyExplain] = useState("");
 
   //Reusing
   useEffect(() => {
@@ -78,10 +85,20 @@ useEffect(() => {
 
   // Trending Prompt Auto Fill
   useEffect(() => {
-    if (selectedPrompt) {
-      setPrompt(selectedPrompt);
-    }
-  }, [selectedPrompt]);
+  // Hide all tool panels first
+  setShowStudyTools(false);
+  setShowYoutubeTools(false);
+  setShowInstagramTools(false);
+  setShowLinkedinTools(false);
+  setShowEmailTools(false);
+
+  if (selectedPrompt === "Study Assistant") {
+    setPrompt("");
+    setActiveTool("study");
+  } else if (selectedPrompt) {
+    setPrompt(selectedPrompt);
+  }
+}, [selectedPrompt]);
 
   // 🚀 Generate AI Content
   const handleGenerate = async () => {
@@ -93,12 +110,31 @@ useEffect(() => {
   setError("");
   setLoading(true);
 
+  let finalPrompt = prompt;
   try {
     let response;
 
     try {
       // Primary AI → Gemini
-      response = await generateContent(prompt);
+
+      if (activeTool === "study") {
+        finalPrompt = `
+      You are an expert Study Assistant.
+
+      The user will provide ONLY the study topic.
+
+      Your job is to:
+      - Explain the topic clearly.
+      - Use simple language.
+      - Give examples.
+      - Mention important points.
+      - End with a short recap.
+
+      Study Topic:
+      ${prompt}
+      `;
+      }
+      response = await generateContent(finalPrompt);
 
     } catch (geminiError) {
       console.log(
@@ -108,7 +144,7 @@ useEffect(() => {
 
       try {
         // Backup AI → Groq
-        response = await generateWithGroq(prompt);
+        response = await generateWithGroq(finalPrompt);
 
       } catch (groqError) {
         console.log(
@@ -117,11 +153,30 @@ useEffect(() => {
         );
 
         // Final AI → Cerebras
-        response = await generateWithCerebras(prompt);
+        response = await generateWithCerebras(finalPrompt);
       }
     }
 
     setResult(response);
+    if (activeTool === "study") {
+      setShowStudyTools(true);
+    }
+
+    if (activeTool === "youtube") {
+      setShowYoutubeTools(true);
+    }
+
+    if (activeTool === "instagram") {
+      setShowInstagramTools(true);
+    }
+
+    if (activeTool === "linkedin") {
+      setShowLinkedinTools(true);
+    }
+
+    if (activeTool === "email") {
+      setShowEmailTools(true);
+    }
 
     setTitles("");
     setDescription("");
@@ -140,22 +195,11 @@ useEffect(() => {
     setEmailRewrite("");
     setEmailFollowup("");
     setEmailClosing("");
-
-    setShowYoutubeTools(
-      selectedPrompt === "YouTube Script Generator"
-    );
-
-    setShowInstagramTools(
-      selectedPrompt === "Instagram Viral Caption"
-    );
-
-    setShowLinkedinTools(
-      selectedPrompt === "LinkedIn Post Generator"
-    );
-
-    setShowEmailTools(
-      selectedPrompt === "Professional Email Writer"
-    );
+    setStudyNotes("");
+    setStudySummary("");
+    setStudyQuiz("");
+    setStudyMCQ("");
+    setStudyExplain("");
 
     setLastPrompt(prompt);
 
@@ -535,6 +579,85 @@ const generateEmailExtra = async (type) => {
     setLoading(false);
   }
 };
+
+const generateStudyExtra = async (type) => {
+  if (!result) return;
+
+  setLoading(true);
+
+  try {
+    let promptText = "";
+
+    switch (type) {
+      case "notes":
+        promptText = `Create detailed study notes based on this content:\n\n${result}`;
+        break;
+
+      case "summary":
+        promptText = `Summarize this content in easy-to-understand study notes:\n\n${result}`;
+        break;
+
+      case "quiz":
+        promptText = `Generate 20 quiz questions with answers based on this content:\n\n${result}`;
+        break;
+
+      case "mcq":
+        promptText = `Generate 20 multiple-choice questions (MCQs) with correct answers based on this content:\n\n${result}`;
+        break;
+
+      case "explain":
+        promptText = `Explain this topic like a teacher with simple examples:\n\n${result}`;
+        break;
+
+      default:
+        return;
+    }
+
+    let extraResult;
+
+    try {
+      extraResult = await generateContent(promptText);
+    } catch {
+      try {
+        extraResult = await generateWithGroq(promptText);
+      } catch {
+        extraResult = await generateWithCerebras(promptText);
+      }
+    }
+
+    switch (type) {
+      case "notes":
+        setStudyNotes(extraResult);
+        break;
+
+      case "summary":
+        setStudySummary(extraResult);
+        break;
+
+      case "quiz":
+        setStudyQuiz(extraResult);
+        break;
+
+      case "mcq":
+        setStudyMCQ(extraResult);
+        break;
+
+      case "explain":
+        setStudyExplain(extraResult);
+        break;
+
+      default:
+        break;
+    }
+
+  } catch (err) {
+    console.error(err);
+    setError("Failed to generate study content.");
+  } finally {
+    setLoading(false);
+  }
+};
+
   // 📋 Copy
   const copyToClipboard = async () => {
     if (!result) return;
@@ -564,7 +687,11 @@ const generateEmailExtra = async (type) => {
   // ❌ Clear Result
   const clearResult = () => {
     setResult("");
-  };
+
+    setShowStudyTools(false);
+
+    setActiveTool("");
+};
 
   // Save Favorites
   const saveFavorite = async () => {
@@ -647,30 +774,44 @@ const generateEmailExtra = async (type) => {
 
       {/* INPUT */}
       <div className="mt-12">
-        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center overflow-hidden">
+        <div className="flex items-stretch rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl">
           <input
             value={prompt}
             onChange={(e) => {
               setPrompt(e.target.value);
               setError("");
 
-              setSelectedPrompt("");
+              if (activeTool !== "study") {
+                setSelectedPrompt("");
+              }
             }}
               onKeyDown={(e) => {
               if (e.key === "Enter" && !loading) {
                 handleGenerate();
               }
             }}
-            className="flex-1 bg-transparent px-6 py-5 outline-none"
-            placeholder="Search prompts anything..."
+            className={`flex-1 bg-transparent px-6 outline-none ${
+              activeTool === "study"
+                ? "py-6 text-lg"
+                : "py-5"
+            }`}
+            placeholder={
+                activeTool === "study"
+                  ? "Enter your study topic... (Example: React Hooks, Photosynthesis)"
+                  : "Search prompts anything..."
+              }
           />
-
+        
           <motion.button
             onClick={handleGenerate}
             disabled={loading}
             whileHover={{ scale: loading ? 1 : 1.05 }}
             whileTap={{ scale: loading ? 1 : 0.95 }}
-            className="bg-gradient-to-r from-purple-600 to-pink-500 h-full px-8 py-5 disabled:opacity-50"
+            className={`bg-gradient-to-r from-purple-600 to-pink-500 px-8 transition-all duration-300 ${
+              selectedPrompt === "Study Assistant"
+                ? "rounded-r-2xl"
+                : "rounded-r-2xl"
+            }`}
           >
             {loading ? (
               <span className="animate-pulse">✨</span>
@@ -887,6 +1028,57 @@ const generateEmailExtra = async (type) => {
                 </div>
               )}
 
+              {/* Study Assistant */}
+              {studyNotes && (
+                <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                  <h4 className="text-lg font-semibold text-blue-400 mb-3">
+                    📚 Study Notes
+                  </h4>
+
+                  <MarkdownViewer content={studyNotes} />
+                </div>
+              )}
+
+              {studySummary && (
+                <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                  <h4 className="text-lg font-semibold text-green-400 mb-3">
+                    📝 Study Summary
+                  </h4>
+
+                  <MarkdownViewer content={studySummary} />
+                </div>
+              )}
+
+              {studyQuiz && (
+                <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                  <h4 className="text-lg font-semibold text-orange-400 mb-3">
+                    ❓ Quiz Questions
+                  </h4>
+
+                  <MarkdownViewer content={studyQuiz} />
+                </div>
+              )}
+
+              {studyMCQ && (
+                <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                  <h4 className="text-lg font-semibold text-pink-400 mb-3">
+                    📄 Multiple Choice Questions
+                  </h4>
+
+                  <MarkdownViewer content={studyMCQ} />
+                </div>
+              )}
+
+              {studyExplain && (
+                <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                  <h4 className="text-lg font-semibold text-purple-400 mb-3">
+                    🧠 Detailed Explanation
+                  </h4>
+
+                  <MarkdownViewer content={studyExplain} />
+                </div>
+              )}
+
             {/* Extra AI Buttons */}
               {showYoutubeTools && (
                 <YoutubeTools generateExtra={generateExtra} />
@@ -902,6 +1094,10 @@ const generateEmailExtra = async (type) => {
 
               {showEmailTools && (
                 <EmailTools  generateEmailExtra={generateEmailExtra} />
+              )}
+
+              {showStudyTools && (
+                <StudyTools generateStudyExtra={generateStudyExtra} />
               )}
 
             {/* ACTION BUTTONS */}

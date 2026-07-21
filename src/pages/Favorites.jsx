@@ -115,10 +115,28 @@ export default function Favorites() {
 
                 <p className="text-sm text-gray-500 mt-2">
                   {item.createdAt?.toDate
-                    ? item.createdAt.toDate().toLocaleString()
+                    ? item.createdAt.toDate().toLocaleString("en-US", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })
+                      .replace("am", "AM")
+                      .replace("pm", "PM")
                     : item.createdAt
-                    ? new Date(item.createdAt).toLocaleString()
-                    : "Just Now"}
+                    ? new Date(item.createdAt).toLocaleString("en-US", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })
+                      .replace("am", "AM")
+                      .replace("pm", "PM")
+                    : "Just now"}
                 </p>
               </div>
             ))}
@@ -155,10 +173,28 @@ export default function Favorites() {
                 {/* Time */}
                 <p className="text-sm text-gray-500 mb-6">
                   {selectedItem.createdAt?.toDate
-                    ? selectedItem.createdAt.toDate().toLocaleString()
+                    ? selectedItem.createdAt.toDate().toLocaleString("en-US", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })
+                      .replace("am", "AM")
+                      .replace("pm", "PM")
                     : selectedItem.createdAt
-                    ? new Date(selectedItem.createdAt).toLocaleString()
-                    : "Just Now"}
+                    ? new Date(selectedItem.createdAt).toLocaleString("en-US", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })
+                      .replace("am", "AM")
+                      .replace("pm", "PM")
+                    : "Just now"}
                 </p>
 
                 {/* Response */}

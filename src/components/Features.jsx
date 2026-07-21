@@ -15,7 +15,7 @@ const features = [
     desc: "Explain topics, generate notes & quizzes",
     icon: GraduationCap,
     gradient: "from-green-500 to-emerald-500",
-    prompt: "Explain Any Topic"
+    prompt: "Study Assistant"
   },
   {
     title: "YouTube Toolkit",
@@ -47,7 +47,7 @@ const features = [
   },
 ];
 
-export default function Features({ setSelectedPrompt }) {
+export default function Features({ setSelectedPrompt, setActiveTool }) {
   const navigate = useNavigate();
 
   return (
@@ -73,6 +73,20 @@ export default function Features({ setSelectedPrompt }) {
                   }
                   
                 setSelectedPrompt(item.prompt);
+
+                  if (item.title === "Study Assistant") {
+                    setActiveTool("study");
+                  } else if (item.title === "YouTube Toolkit") {
+                    setActiveTool("youtube");
+                  } else if (item.title === "Instagram Toolkit") {
+                    setActiveTool("instagram");
+                  } else if (item.title === "LinkedIn Toolkit") {
+                    setActiveTool("linkedin");
+                  } else if (item.title === "Email Toolkit") {
+                    setActiveTool("email");
+                  } else {
+                    setActiveTool("");
+                  }
 
                  document
                 .getElementById("hero-section")

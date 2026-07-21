@@ -146,10 +146,28 @@ export default function History() {
                 </h2>
 
                 <p className="text-sm text-gray-500 mt-2">
-                   {item.createdAt?.toDate
-                    ? item.createdAt.toDate().toLocaleString()
+                  {item.createdAt?.toDate
+                    ? item.createdAt.toDate().toLocaleString("en-US", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })
+                      .replace("am", "AM")
+                      .replace("pm", "PM")
                     : item.createdAt
-                    ? new Date(item.createdAt).toLocaleString()
+                    ? new Date(item.createdAt).toLocaleString("en-US", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })
+                      .replace("am", "AM")
+                      .replace("pm", "PM")
                     : "Just now"}
                 </p>
               </div>
@@ -182,10 +200,28 @@ export default function History() {
                 </div>
 
                 <p className="text-sm text-gray-500 mb-6">
-                  {selectedItem.createdAt?.seconds
-                    ? new Date(selectedItem.createdAt.seconds * 1000).toLocaleString()
+                  {selectedItem.createdAt?.toDate
+                    ? selectedItem.createdAt.toDate().toLocaleString("en-US", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })
+                      .replace("am", "AM")
+                      .replace("pm", "PM")
                     : selectedItem.createdAt
-                    ? new Date(selectedItem.createdAt).toLocaleString()
+                    ? new Date(selectedItem.createdAt).toLocaleString("en-US", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })
+                      .replace("am", "AM")
+                      .replace("pm", "PM")
                     : "Just now"}
                 </p>
 
