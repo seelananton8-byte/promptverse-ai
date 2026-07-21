@@ -790,14 +790,14 @@ const generateStudyExtra = async (type) => {
                 handleGenerate();
               }
             }}
-            className={`flex-1 bg-transparent px-6 outline-none ${
+            className={`flex-1 bg-transparent px-6 outline-none text-sm md:text-base ${
               activeTool === "study"
-                ? "py-6 text-lg"
+                ? "py-6"
                 : "py-5"
             }`}
             placeholder={
                 activeTool === "study"
-                  ? "Study topic... (e.g. Photosynthesis)"
+                  ? "Enter study topic..."
                   : "Search prompts anything..."
               }
           />
