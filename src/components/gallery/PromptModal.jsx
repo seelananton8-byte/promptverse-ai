@@ -3,11 +3,36 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Copy, Heart, Share2 } from "lucide-react";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
-import {
-  getGalleryStats,
-  incrementViews,
-} from "../../services/galleryStats";
+import { getGalleryStats, incrementViews } from "../../services/galleryStats";
 import { toggleGalleryFavorite } from "../../services/galleryActions";
+
+const ads = [
+  {
+    title: "Learn React Faster",
+    desc: "Master React with real projects.",
+    button: "Learn More",
+  },
+  {
+    title: "Deploy on Vercel",
+    desc: "Host your projects for free.",
+    button: "Get Started",
+  },
+  {
+    title: "Master Tailwind CSS",
+    desc: "Build beautiful UIs quickly.",
+    button: "Start Learning",
+  },
+  {
+    title: "Build AI Apps",
+    desc: "Create powerful AI tools.",
+    button: "Explore",
+  },
+  {
+    title: "Firebase Essentials",
+    desc: "Authentication + Database.",
+    button: "Read Guide",
+  },
+];
 
 export default function PromptModal({
   selectedPrompt,
@@ -16,6 +41,9 @@ export default function PromptModal({
   toggleFavorite,
 }) {
   const [sharing, setSharing] = useState(false);
+  const [showAd, setShowAd] = useState(false);
+  const [currentAd, setCurrentAd] = useState(0);
+  const [showPrompt, setShowPrompt] = useState(false);
   const [stats, setStats] = useState({
   likes: 0,
   views: 0,
@@ -32,6 +60,24 @@ const handleFavorite = async () => {
   setStats(data);
 
 };
+
+// Ad
+useEffect(() => {
+  if (!selectedPrompt) return;
+
+  setShowAd(true);
+  setShowPrompt(false);
+
+  setCurrentAd(Math.floor(Math.random() * ads.length));
+
+  const timer = setTimeout(() => {
+    setShowAd(false);
+    setShowPrompt(true);
+  }, 7000);
+
+  return () => clearTimeout(timer);
+
+}, [selectedPrompt]);
 
 useEffect(() => {
   if (!selectedPrompt) return;
@@ -280,7 +326,28 @@ const generateWithAI = async (platform) => {
 
           {/* Content */}
           <div className="p-6 md:p-8">
+            {showAd && (
+              <div className="rounded-3xl bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 p-8 text-center mb-8">
+                <p className="text-sm uppercase tracking-widest text-white/70">
+                  Sponsored
+                </p>
 
+                <h2 className="text-3xl font-bold mt-3">
+                   {ads[currentAd].title}
+                </h2>
+
+                <p className="mt-4 text-white/90">
+                   {ads[currentAd].desc}
+                </p>
+
+                <button className="mt-6 px-8 py-3 rounded-xl bg-white text-purple-700 font-bold">
+                  {ads[currentAd].button}
+                </button>
+              </div>
+            )}
+
+          {showPrompt && (
+            <>
             <h2
               className="
                 text-3xl
@@ -471,6 +538,8 @@ const generateWithAI = async (platform) => {
               </div>
 
             </div>
+            </>
+            )}
 
           </div>
 

@@ -6,17 +6,23 @@ import { useEffect, useState } from "react";
 import { Trash2, Copy, Heart, X } from "lucide-react";
 import toast from "react-hot-toast";
 import MarkdownViewer from "../components/MarkdownViewer";
+import Skeleton from "../components/Skeleton";
+import SponsoredBanner from "../components/SponsoredBanner";
+import { useNavigate } from "react-router-dom";
 
 export default function Favorites() {
   const [favorites, setFavorites] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedItem, setSelectedItem] = useState(null);
   const [deleteId,setDeleteId] = useState(null);
   const [showClearModal, setShowClearModal] = useState(false);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
 
   const unsubscribe = onAuthStateChanged(auth, async (user) => {
-
+  try {
     let data;
 
     if (user) {
@@ -26,6 +32,14 @@ export default function Favorites() {
     }
 
     setFavorites(data);
+    setLoading(false);
+
+  } catch (err) {
+    console.error(err);
+  
+    toast.error("Unable to load favorites.");
+    setLoading(false);
+  }
 
   });
 
@@ -67,6 +81,16 @@ export default function Favorites() {
 
 }
 
+if (loading) {
+  return (
+    <div className="min-h-screen bg-[#050816] text-white p-6">
+      <div className="max-w-5xl mx-auto">
+        <Skeleton count={4} />
+      </div>
+    </div>
+  );
+}
+
   return (
     <div className="min-h-screen bg-[#050816] text-white p-6">
       <div className="max-w-5xl mx-auto">
@@ -92,9 +116,29 @@ export default function Favorites() {
 
         {/* Empty State */}
         {favorites.length === 0 ? (
-          <p className="text-gray-400">
-            No favorites found.
-          </p>
+          <div className="flex flex-col items-center justify-center py-24 text-center">
+
+            <div className="text-7xl mb-6">
+              💜
+            </div>
+
+            <h2 className="text-3xl font-bold">
+              No Saved Creations
+            </h2>
+
+            <p className="text-gray-400 mt-4 max-w-md">
+              You haven't saved any AI responses yet.
+              Tap the heart icon on your favorite creations and build your personal AI library.
+            </p>
+
+            <button
+              onClick={() => navigate("/")}
+              className="mt-8 px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-500 font-semibold hover:scale-105 transition"
+            >
+              🚀 Explore AI Tools
+            </button>
+
+          </div>
         ) : (
           <div className="space-y-4">
 
@@ -304,6 +348,7 @@ export default function Favorites() {
             </div>
           </div>
         )}
+        <SponsoredBanner />
       </div>
     </div>
   );

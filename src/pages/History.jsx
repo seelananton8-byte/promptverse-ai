@@ -5,6 +5,8 @@ import { Trash2, Copy, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import MarkdownViewer from "../components/MarkdownViewer";
+import SponsoredBanner from "../components/SponsoredBanner";
+import Skeleton from "../components/Skeleton";
 import { getHistory,  deleteHistory, clearAllHistory } from "../services/history";
 import { getHistoryLocal, deleteHistoryLocal, clearAllHistoryLocal } from "../services/historyLocal";
 
@@ -13,6 +15,7 @@ export default function History() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [deleteId, setDeleteId] = useState(null);
   const [showClearModal, setShowClearModal] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -31,12 +34,14 @@ export default function History() {
       }
 
       setHistory(data);
+      setLoading(false);
 
     } catch (err) {
 
       console.error(err);
 
       toast.error("Unable to load history.");
+      setLoading(false);
 
     }
 
@@ -106,6 +111,16 @@ export default function History() {
   toast.success("Copied to clipboard!");
 };
 
+if (loading) {
+  return (
+    <div className="min-h-screen bg-[#050816] text-white p-6">
+      <div className="max-w-5xl mx-auto">
+        <Skeleton count={4} />
+      </div>
+    </div>
+  );
+}
+
   return (
     <div className="min-h-screen bg-[#050816] text-white p-6">
       <div className="max-w-5xl mx-auto">
@@ -128,9 +143,29 @@ export default function History() {
 
         {/* Empty State */}
         {history.length === 0 ? (
-          <p className="text-gray-400">
-            No history found.
-          </p>
+          <div className="flex flex-col items-center justify-center py-24 text-center">
+
+            <div className="text-7xl mb-6">
+              📂
+            </div>
+
+            <h2 className="text-3xl font-bold">
+              No History Yet
+            </h2>
+
+            <p className="text-gray-400 mt-4 max-w-md">
+              Every AI response you generate will appear here.
+              Start creating amazing content with PromptVerse AI.
+            </p>
+
+            <button
+              onClick={() => navigate("/")}
+              className="mt-8 px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-500 font-semibold hover:scale-105 transition"
+            >
+              ✨ Generate Now
+            </button>
+
+          </div>
         ) : (
           <div className="space-y-4">
             {history.map((item) => (
@@ -341,7 +376,7 @@ export default function History() {
             </div>
           </div>
         )}
-
+      <SponsoredBanner />
       </div>
     </div>
   );
