@@ -797,7 +797,7 @@ const generateStudyExtra = async (type) => {
             }`}
             placeholder={
                 activeTool === "study"
-                  ? "Enter your study topic... (Example: React Hooks, Photosynthesis)"
+                  ? "Study topic... (e.g. Photosynthesis)"
                   : "Search prompts anything..."
               }
           />
@@ -807,7 +807,7 @@ const generateStudyExtra = async (type) => {
             disabled={loading}
             whileHover={{ scale: loading ? 1 : 1.05 }}
             whileTap={{ scale: loading ? 1 : 0.95 }}
-            className={`bg-gradient-to-r from-purple-600 to-pink-500 px-8 transition-all duration-300 ${
+            className={`bg-gradient-to-r from-purple-600 to-pink-500 px-6 md:px-8 transition-all duration-300 ${
               selectedPrompt === "Study Assistant"
                 ? "rounded-r-2xl"
                 : "rounded-r-2xl"
