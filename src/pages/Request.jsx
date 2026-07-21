@@ -64,9 +64,9 @@ if (!/\S+@\S+\.\S+/.test(formData.email)) {
   }
 };
   return (
-    <div className="min-h-screen bg-[#050816] text-white px-6 py-14">
+    <div className="min-h-screen bg-[#050816] text-white px-4 sm:px-6 py-14 overflow-x-hidden">
 
-      <div className="max-w-5xl mx-auto">
+      <div className="w-full max-w-5xl mx-auto">
 
         {/* Badge */}
         <motion.div
@@ -82,7 +82,7 @@ if (!/\S+@\S+\.\S+/.test(formData.email)) {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
-          className="text-5xl md:text-7xl font-extrabold mt-6 leading-tight bg-gradient-to-r from-white via-purple-300 to-cyan-300 bg-clip-text text-transparent"
+          className="text-4xl sm:text-5xl md:text-7xl font-extrabold mt-6 leading-tight bg-gradient-to-r from-white via-purple-300 to-cyan-300 bg-clip-text text-transparent"
         >
           Request New
           <br />
@@ -107,7 +107,7 @@ if (!/\S+@\S+\.\S+/.test(formData.email)) {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="mt-14 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8"
+        className="mt-14 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-5 sm:p-8 w-full"
         >
 
         <h2 className="text-2xl font-bold mb-8">

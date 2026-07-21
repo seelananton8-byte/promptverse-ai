@@ -48,18 +48,30 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050816] flex items-center justify-center px-6 text-white">
+    <div className="min-h-screen bg-[#050816] flex items-center justify-center px-4 sm:px-6 py-6">
 
       <form
         onSubmit={handleLogin}
-        className="w-full max-w-md bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8"
+        className="
+          w-full
+          max-w-md
+          max-h-[90vh]
+          overflow-y-auto
+          bg-white/5
+          backdrop-blur-xl
+          border
+          border-white/10
+          rounded-3xl
+          p-6
+          sm:p-8
+        "
       >
 
-        <h1 className="text-4xl font-bold text-center mb-2">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-2">
           Welcome Back 👋
         </h1>
 
-        <p className="text-center text-gray-400 mb-8">
+        <p className="text-center text-gray-400 text-sm sm:text-base mb-6 sm:mb-8">
           Login to PromptVerse AI
         </p>
 
@@ -67,25 +79,48 @@ export default function Login() {
 
         <input
           type="email"
+          autoComplete="email"
           placeholder="Email Address"
+          aria-label="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-4 rounded-xl bg-[#111827] border border-white/10 outline-none mb-4"
+          className="
+            w-full
+            p-3
+            sm:p-4
+            rounded-xl
+            bg-[#111827]
+            border
+            border-white/10
+            outline-none
+            mb-4
+          "
         />
 
         {/* Password */}
 
         <input
           type="password"
+          autoComplete="current-password"
           placeholder="Password"
+          aria-label="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-4 rounded-xl bg-[#111827] border border-white/10 outline-none"
+          className="
+            w-full
+            p-3
+            sm:p-4
+            rounded-xl
+            bg-[#111827]
+            border
+            border-white/10
+            outline-none
+          "
         />
 
         {/* Forgot Password */}
 
-        <div className="text-right mt-3 mb-6">
+        <div className="text-right mt-3 mb-5 sm:mb-6">
 
           <Link
             to="/forgot-password"
@@ -101,14 +136,25 @@ export default function Login() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 font-semibold hover:scale-105 transition"
+          className="
+            w-full
+            py-3
+            sm:py-4
+            rounded-xl
+            bg-gradient-to-r
+            from-purple-600
+            to-cyan-500
+            font-semibold
+            hover:scale-[1.02]
+            transition
+            "
         >
           {loading ? "Logging in..." : "Login"}
         </button>
 
         {/* Divider */}
 
-        <div className="flex items-center my-6">
+        <div className="flex items-center my-5 sm:my-6">
 
           <div className="flex-1 h-px bg-white/10"></div>
 
@@ -125,14 +171,24 @@ export default function Login() {
         <button
           type="button"
           onClick={handleGoogleLogin}
-          className="w-full py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 transition"
+          className="
+            w-full
+            py-3
+            sm:py-4
+            rounded-xl
+            bg-white
+            text-black
+            font-semibold
+            hover:scale-[1.02]
+            transition
+            "
         >
           Continue with Google
         </button>
 
         {/* Signup */}
 
-        <p className="text-center mt-8 text-gray-400">
+        <p className="text-center mt-6 sm:mt-8 text-sm sm:text-base text-gray-400">
 
           Don't have an account?{" "}
 
