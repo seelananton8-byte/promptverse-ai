@@ -43,7 +43,7 @@ const navigate = useNavigate();
               ✨
             </div>
 
-            <h1 className="text-sm sm:text-lg md:text-2xl font-bold truncate">
+            <h1 className="text-sm sm:text-base md:text-2xl font-bold truncate">
               PromptVerse <span className="text-purple-400">AI</span>
             </h1>
           </div>

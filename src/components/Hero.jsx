@@ -1101,33 +1101,83 @@ const generateStudyExtra = async (type) => {
               )}
 
             {/* ACTION BUTTONS */}
-            <div className="flex gap-2 mt-4">
+            <div
+              className="
+                mt-5
+                grid
+                grid-cols-1
+                xs:grid-cols-2
+                sm:flex
+                gap-3
+              "
+            >
               <button
                 onClick={saveFavorite}
-                className="px-4 py-2 rounded-lg bg-pink-600 hover:bg-pink-700 transition flex items-center gap-2"
+                className="
+                  w-full
+                  sm:w-auto
+                  px-4
+                  py-3
+                  rounded-lg
+                  bg-pink-600
+                  hover:bg-pink-700
+                  transition
+                  flex
+                  items-center
+                  justify-center
+                  gap-2
+                  text-sm
+                "
               >
                 <Heart
-                    size={16}
-                    fill={saved ? "currentColor" : "none"}
-                  />
-
-                  {saved ? "Saved" : "Save"}
+                  size={16}
+                  fill={saved ? "currentColor" : "none"}
+                />
+                {saved ? "Saved" : "Save"}
               </button>
+            
 
               <button
                 onClick={copyToClipboard}
-                className="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 transition flex items-center gap-2"
+                className="
+                  w-full
+                  sm:w-auto
+                  px-4
+                  py-3
+                  rounded-lg
+                bg-purple-600
+                hover:bg-purple-700
+                  transition
+                  flex
+                  items-center
+                  justify-center
+                  gap-2
+                  text-sm
+                "
               >
                 <Copy size={16} />
                 Copy
               </button>
 
               <button
-                onClick={downloadResponse}
-                className="px-4 py-2 rounded-lg bg-pink-600 hover:bg-pink-700 transition"
-              >
-                ⬇️ Download
-              </button>
+                    onClick={downloadResponse}
+                    className="
+                      w-full
+                      sm:w-auto
+                      px-4
+                      py-3
+                      rounded-lg
+                      bg-pink-600
+                      hover:bg-pink-700
+                      transition
+                      flex
+                      items-center
+                      justify-center
+                      text-sm
+                    "
+                  >
+                    ⬇️ Download
+                  </button>
             </div>
           </motion.div>
         )}
