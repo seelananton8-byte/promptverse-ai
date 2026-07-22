@@ -4,6 +4,8 @@ import toast from 'react-hot-toast'
 import { useEffect, useState } from "react";
 import { getGalleryStats } from "../../services/galleryStats";
 import { toggleGalleryFavorite } from "../../services/galleryActions";
+import { Heart, Eye } from "lucide-react";
+import { Copy } from "lucide-react";
 
 export default function GalleryCard({
   item,
@@ -50,6 +52,7 @@ useEffect(() => {
         overflow-hidden
         backdrop-blur-xl
         hover:border-purple-500
+        hover:bg-white/[0.08]
         hover:shadow-[0_0_35px_rgba(168,85,247,.25)]
         transition-all
         duration-300
@@ -60,16 +63,19 @@ useEffect(() => {
 
         <img
           loading="lazy"
+          decoding="async"
           src={item.image}
           alt={`${item.title} AI Prompt`}
           className="
             w-full
-            h-64
+            h-48
+            sm:h-56
+            md:h-64
             object-cover
             group-hover:scale-110
             transition-transform
             duration-500
-          "
+            "
         />
 
         {/* Category */}
@@ -82,7 +88,8 @@ useEffect(() => {
             rounded-full
             bg-black/60
             backdrop-blur-md
-            text-xs
+            text-[11px]
+            sm:text-xs
             text-purple-300
           "
         >
@@ -106,15 +113,18 @@ useEffect(() => {
             absolute
             top-4
             right-4
-            w-10
-            h-10
+            w-9
+            h-9
+            sm:w-10
+            sm:h-10
             rounded-full
             bg-black/60
             backdrop-blur-md
             flex
             items-center
             justify-center
-            text-xl
+            text-lg 
+            sm:text-xl
             hover:scale-110
             transition-all
           "
@@ -125,23 +135,39 @@ useEffect(() => {
       </div>
 
       {/* Content */}
-      <div className="p-4 md:p-5 flex flex-col h-[160px] md:h-[180px]">
+      <div
+        className="
+          p-4
+          md:p-5
+          flex
+          flex-col
+          min-h-[180px]
+        "
+      >
 
-        <h3 className="font-bold text-lg md:text-xl line-clamp-2">
+        <h3 className="font-bold text-base sm:text-lg md:text-xl line-clamp-2">
           {item.title}
         </h3>
 
-        <div
-          className="
-            flex
-            items-center
-            justify-between
-            text-sm
-            text-gray-400
-          "
-        >
-          <span>❤️ {stats.likes}</span>
-          <span>👁️ {stats.views}</span>
+        <div className="flex items-center gap-5 mt-3 text-gray-400 text-sm">
+
+          <div className="flex items-center gap-1">
+            <Heart
+              size={16}
+              className="text-pink-500"
+              fill="currentColor"
+            />
+            <span>{stats.likes}</span>
+          </div>
+
+          <div className="flex items-center gap-1">
+            <Eye
+              size={16}
+              className="text-cyan-400"
+            />
+            <span>{stats.views}</span>
+          </div>
+
         </div>
 
         {/* Copy Prompt */}
@@ -154,21 +180,30 @@ useEffect(() => {
             );
             toast.success("Prompt copied!");
           }}
-          className="
-            mt-auto
-            w-full
-            py-3
-            rounded-2xl
-            bg-gradient-to-r
-            from-purple-600
-            to-cyan-500
-            hover:scale-105
-            transition-all
-            duration-300
-            font-semibold
-          "
+           className="
+                mt-auto
+                w-full
+                py-2.5
+                sm:py-3
+                text-sm
+                sm:text-base
+                rounded-2xl
+                bg-gradient-to-r
+                from-purple-600
+                to-cyan-500
+                hover:brightness-110
+                active:scale-95
+                transition-all
+                duration-300
+                font-semibold
+                flex
+                items-center
+                justify-center
+                gap-2
+              "
         >
-          📋 Copy Prompt
+        <Copy size={16}/>
+          Copy Prompt
         </button>
 
       </div>

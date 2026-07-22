@@ -1,6 +1,7 @@
 import { useState} from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Copy, Heart, Share2 } from "lucide-react";
+import { Eye } from "lucide-react";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
 import { getGalleryStats, incrementViews } from "../../services/galleryStats";
@@ -264,8 +265,9 @@ const generateWithAI = async (platform) => {
             overflow-hidden
             w-full
             max-w-5xl
-            max-h-[90vh]
+            max-h-[92vh]
             overflow-y-auto
+            overscroll-contain
           "
         >
           {/* Image */}
@@ -277,7 +279,8 @@ const generateWithAI = async (platform) => {
               alt={`${selectedPrompt.title} AI Prompt`}
               className="
                 w-full
-                h-[250px]
+                h-44
+                sm:h-56
                 md:h-[420px]
                 object-cover
               "
@@ -294,7 +297,8 @@ const generateWithAI = async (platform) => {
                 bg-black/60
                 backdrop-blur-xl
                 text-purple-300
-                text-sm
+                text-xs
+                sm:text-sm
               "
             >
               {selectedPrompt.category}
@@ -309,8 +313,10 @@ const generateWithAI = async (platform) => {
                 absolute
                 top-5
                 right-5
-                w-12
-                h-12
+                w-10
+                h-10
+                sm:w-12
+                sm:h-12
                 rounded-full
                 bg-black/60
                 backdrop-blur-xl
@@ -350,7 +356,8 @@ const generateWithAI = async (platform) => {
             <>
             <h2
               className="
-                text-3xl
+                text-2xl
+                sm:text-3xl
                 md:text-5xl
                 font-bold
                 bg-gradient-to-r
@@ -365,20 +372,25 @@ const generateWithAI = async (platform) => {
             </h2>
 
             {/* Stats */}
-            <div
-              className="
-                flex gap-6
-                mt-4
-                text-gray-400
-              "
-            >
-              <span>
-                ❤️ {stats.likes}
-              </span>
+            <div className="flex gap-6 mt-4 text-gray-400">
 
-              <span>
-                👁️ {stats.views}
-              </span>
+              <div className="flex items-center gap-1">
+                <Heart
+                  size={16}
+                  className="text-pink-500"
+                  fill="currentColor"
+                />
+                {stats.likes}
+              </div>
+
+              <div className="flex items-center gap-1">
+                <Eye
+                  size={16}
+                  className="text-cyan-400"
+                />
+                {stats.views}
+              </div>
+
             </div>
 
             {/* Prompt Box */}
@@ -389,7 +401,8 @@ const generateWithAI = async (platform) => {
                 border border-white/10
                 rounded-3xl
                 p-6
-                min-h-[180px]
+                min-h-[150px]
+                sm:min-h-[180px]
                 text-gray-300
                 leading-relaxed
               "
@@ -398,18 +411,12 @@ const generateWithAI = async (platform) => {
             </div>
 
             {/* Buttons */}
-            <div
-              className="
-                flex flex-wrap
-                gap-4
-                mt-8
-              "
-            >
+            <div className="flex flex-col sm:flex-row gap-3 mt-8">
               <button
                 onClick={copyPrompt}
                 className="
-                  flex-1
-                  min-w-[180px]
+                  w-full
+                  md:flex-1
                   py-4
                   rounded-2xl
                   bg-gradient-to-r
@@ -428,7 +435,9 @@ const generateWithAI = async (platform) => {
               <button
                 onClick={handleFavorite}
                 className="
-                  w-16
+                  w-full
+                  md:w-16
+                  h-14
                   rounded-2xl
                   bg-white/10
                   flex items-center justify-center
@@ -452,7 +461,9 @@ const generateWithAI = async (platform) => {
                 disabled={sharing}
                 onClick={sharePrompt}
                 className="
-                  w-16
+                  w-full
+                  md:w-16
+                  h-14
                   rounded-2xl
                   bg-white/10
                   flex items-center justify-center
@@ -464,6 +475,7 @@ const generateWithAI = async (platform) => {
               >
                 <Share2 size={24} />
               </button>
+              </div>
 
               {/* Generate Image */}
 
@@ -477,7 +489,7 @@ const generateWithAI = async (platform) => {
                   Choose your favorite AI platform.
                 </p>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
 
                   {aiPlatforms.map((platform) => (
 
@@ -489,7 +501,8 @@ const generateWithAI = async (platform) => {
                         bg-white/5
                         border border-white/10
                         rounded-2xl
-                        p-5
+                        p-4
+                        sm:p-5
                         text-left
                         hover:border-purple-500
                         hover:bg-purple-500/10
@@ -536,8 +549,6 @@ const generateWithAI = async (platform) => {
                 </p>
 
               </div>
-
-            </div>
             </>
             )}
 
