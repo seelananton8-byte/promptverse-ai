@@ -35,27 +35,35 @@ const navigate = useNavigate();
   return (
     <>
       <header className="w-full">
-        <nav className="max-w-7xl mx-auto px-5 md:px-8 py-6 flex items-center justify-between">
+        <nav className="max-w-7xl mx-auto px-3 sm:px-4 md:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between">
 
           {/* Logo */}
-          <div className="flex items-center gap-3 min-w-0">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-xl">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-lg sm:text-xl">
               ✨
             </div>
 
-            <h1 className="text-base md:text-2xl font-bold whitespace-nowrap">
+            <h1 className="text-sm sm:text-lg md:text-2xl font-bold truncate">
               PromptVerse <span className="text-purple-400">AI</span>
             </h1>
           </div>
 
           {/* Right Side */}
-          <div className="flex items-center gap-2 md:gap-4 flex-shrink-0 ml-4">
+          <div className="
+            flex
+            items-center
+            gap-1.5
+            sm:gap-2
+            md:gap-4
+            flex-shrink-0
+            ml-2
+            ">
 
             {/* request */}
             <button
              onClick={() => navigate("/request")}
-             className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-600 active:scale-95 transition">
-              <Send size={20} />
+             className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-600 active:scale-95 transition">
+              <Send className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* Profile */}
@@ -67,13 +75,13 @@ const navigate = useNavigate();
                     setShowAuthModal(true);
                   }
                 }}
-            className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-purple-600 active:scale-95 transition">
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-purple-600 active:scale-95 transition">
                 {user ? (
                   user.photoURL ? (
                     <img
                       src={user.photoURL}
                       alt="Profile"
-                      className="w-10 h-10 rounded-full object-cover"
+                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover"
                     />
                   ) : (
                     <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold uppercase">
@@ -83,16 +91,16 @@ const navigate = useNavigate();
                     </div>
                   )
                 ) : (
-                  <User size={20} />
+                  <User className="w-4 h-4 sm:w-5 sm:h-5" />
                 )}
             </button>
 
             {/* Mobile Menu */}
            <button
               onClick={() => setMenuOpen(true)}
-              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition"
             >
-              <Menu size={22} />
+              <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
           </div>

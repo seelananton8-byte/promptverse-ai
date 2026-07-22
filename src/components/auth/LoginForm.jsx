@@ -43,65 +43,114 @@ export default function LoginForm({ onSuccess, onForgot }) {
   };
 
   return (
-    <>
-      <form onSubmit={handleLogin}>
+  <>
+    <form onSubmit={handleLogin} className="space-y-4">
 
-        <input
-          type="email"
-          placeholder="Email Address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-4 rounded-xl bg-[#111827] border border-white/10 outline-none mb-4 text-white"
-        />
+      <input
+        type="email"
+        autoComplete="email"
+        placeholder="Email Address"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="
+          w-full
+          py-3
+          px-4
+          sm:py-4
+          rounded-xl
+          bg-[#111827]
+          border
+          border-white/10
+          outline-none
+          text-white
+          text-sm
+          sm:text-base
+        "
+      />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-4 rounded-xl bg-[#111827] border border-white/10 outline-none mb-3 text-white"
-        />
+      <input
+        type="password"
+        autoComplete="current-password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        className="
+          w-full
+          py-3
+          px-4
+          sm:py-4
+          rounded-xl
+          bg-[#111827]
+          border
+          border-white/10
+          outline-none
+          text-white
+          text-sm
+          sm:text-base
+        "
+      />
 
-        <div className="text-right mb-5">
-
-          <button
-            type="button"
-            onClick={onForgot}
-            className="text-sm text-purple-400 hover:text-purple-300"
-          >
-            Forgot Password?
-          </button>
-
-        </div>
+      <div className="text-right">
 
         <button
-          type="submit"
-          disabled={loading}
-          className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 font-semibold hover:scale-105 transition"
+          type="button"
+          onClick={onForgot}
+          className="text-xs sm:text-sm text-purple-400 hover:text-purple-300 transition"
         >
-          {loading ? "Logging in..." : "Login"}
+          Forgot Password?
         </button>
-
-      </form>
-
-      <div className="flex items-center my-6">
-
-        <div className="flex-1 h-px bg-white/10"></div>
-
-        <span className="px-4 text-gray-400 text-sm">
-          OR
-        </span>
-
-        <div className="flex-1 h-px bg-white/10"></div>
 
       </div>
 
       <button
-        onClick={handleGoogleLogin}
-        className="w-full py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 transition"
+        type="submit"
+        disabled={loading}
+        className="
+          w-full
+          py-3
+          sm:py-4
+          rounded-xl
+          bg-gradient-to-r
+          from-purple-600
+          to-cyan-500
+          font-semibold
+          hover:scale-[1.02]
+          transition
+        "
       >
-        Continue with Google
+        {loading ? "Logging in..." : "Login"}
       </button>
-    </>
-  );
+
+    </form>
+
+    <div className="flex items-center my-5 sm:my-6">
+
+      <div className="flex-1 h-px bg-white/10"></div>
+
+      <span className="px-4 text-gray-400 text-xs sm:text-sm">
+        OR
+      </span>
+
+      <div className="flex-1 h-px bg-white/10"></div>
+
+    </div>
+
+    <button
+      onClick={handleGoogleLogin}
+      className="
+        w-full
+        py-3
+        sm:py-4
+        rounded-xl
+        bg-white
+        text-black
+        font-semibold
+        hover:scale-[1.02]
+        transition
+      "
+    >
+      Continue with Google
+    </button>
+  </>
+)
 }

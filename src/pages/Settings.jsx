@@ -16,7 +16,18 @@ export default function Settings() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#050816] text-white px-6 py-16">
+    <div
+        className="
+        min-h-screen
+        bg-[#050816]
+        text-white
+        px-4
+        sm:px-6
+        lg:px-8
+        py-10
+        sm:py-16
+        "
+        >
 
       <div className="max-w-5xl mx-auto">
 
@@ -32,7 +43,7 @@ export default function Settings() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: .15 }}
-          className="mt-6 text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-white via-purple-300 to-cyan-300 bg-clip-text text-transparent"
+          className="mt-6 text-3xl sm:text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-white via-purple-300 to-cyan-300 bg-clip-text text-transparent"
         >
           Settings
         </motion.h1>
@@ -41,7 +52,7 @@ export default function Settings() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: .3 }}
-          className="mt-8 text-gray-400 text-lg leading-8"
+          className="mt-6 sm:mt-8 text-gray-400 text-sm sm:text-lg leading-7 sm:leading-8"
         >
           Manage your PromptVerse AI account,
           application preferences, and useful links.
@@ -59,18 +70,61 @@ export default function Settings() {
 
             {user ? (
 
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div
+                className="
+                    flex
+                    flex-col
+                    sm:flex-row
+                    sm:items-center
+                    sm:justify-between
+                    gap-5
+                "
+                >
 
-                <div className="flex items-center gap-5">
+                <div
+                className="
+                    flex
+                    flex-col
+                    xs:flex-row
+                    sm:flex-row
+                    items-center
+                    sm:items-center
+                    text-center
+                    sm:text-left
+                    gap-4
+                    w-full
+                "
+                >
 
                 {user.photoURL ? (
                     <img
                     src={user.photoURL}
                     alt="Profile"
-                    className="w-16 h-16 rounded-full object-cover"
+                    className="
+                        w-14 h-14
+                        sm:w-16 sm:h-16
+                        rounded-full
+                        object-cover
+                        flex-shrink-0
+                        "
                     />
                 ) : (
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-2xl font-bold uppercase">
+                    <div className="
+                        w-14 h-14
+                        sm:w-16 sm:h-16
+                        rounded-full
+                        bg-gradient-to-r
+                        from-purple-500
+                        to-pink-500
+                        flex
+                        items-center
+                        justify-center
+                        text-xl
+                        sm:text-2xl
+                        font-bold
+                        uppercase
+                        flex-shrink-0
+                        ">
                     {user.displayName?.charAt(0) ||
                         user.email?.charAt(0)}
                     </div>
@@ -78,11 +132,25 @@ export default function Settings() {
 
                 <div>
 
-                    <h3 className="text-xl font-bold">
+                    <h3
+                        className="
+                        text-lg
+                        sm:text-xl
+                        font-bold
+                        break-words
+                        "
+                        >
                     {user.displayName || "PromptVerse User"}
                     </h3>
 
-                    <p className="text-gray-400 mt-1">
+                    <p
+                        className="
+                        text-gray-400
+                        mt-1
+                        text-sm
+                        break-all
+                        "
+                        >
                     {user.email}
                     </p>
 
@@ -92,7 +160,18 @@ export default function Settings() {
 
                 <button
                 onClick={() => navigate("/profile")}
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 hover:scale-105 transition"
+                className="
+                    w-full
+                    sm:w-auto
+                    px-6
+                    py-3
+                    rounded-xl
+                    bg-gradient-to-r
+                    from-purple-600
+                    to-cyan-500
+                    hover:scale-105
+                    transition
+                    "
                 >
                 Open Profile →
                 </button>
@@ -118,7 +197,18 @@ export default function Settings() {
 
                 <button
                 onClick={() => navigate("/login")}
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 hover:scale-105 transition"
+                className="
+                    w-full
+                    sm:w-auto
+                    px-6
+                    py-3
+                    rounded-xl
+                    bg-gradient-to-r
+                    from-purple-600
+                    to-cyan-500
+                    hover:scale-105
+                    transition
+                    "
                 >
                 Login →
                 </button>

@@ -28,32 +28,37 @@ export default function AuthModal({
       />
 
       {/* Modal */}
-      <div className="absolute inset-0 flex items-center justify-center p-6">
+      <div className="absolute inset-0 flex items-start sm:items-center justify-center p-3 sm:p-6 overflow-y-auto">
 
         <div
           className="
             relative
             w-full
             max-w-md
-            rounded-3xl
+            max-h-[92dvh]
+            overflow-y-auto
+            rounded-2xl
+            sm:rounded-3xl
             border
             border-white/10
             bg-[#0B1120]
-            p-8
+            p-4
+            sm:p-6
+            md:p-8
             shadow-2xl
-          "
+            "
         >
 
           {/* Close */}
           <button
             onClick={closeModal}
-            className="absolute top-5 right-5 text-gray-400 hover:text-white transition"
+            className="absolute top-3 right-3 sm:top-5 sm:right-5 text-gray-400 hover:text-white transition"
           >
             <X size={22} />
           </button>
 
           {/* Title */}
-          <h1 className="text-3xl font-bold text-center text-white mb-2">
+          <h1 className="text-2xl sm:text-3xl font-bold text-center text-white leading-tight mb-2">
 
             {mode === "login" && "Welcome Back 👋"}
 
@@ -63,7 +68,7 @@ export default function AuthModal({
 
           </h1>
 
-          <p className="text-center text-gray-400 mb-8">
+          <p className="text-center text-gray-400 text-sm sm:text-base mb-5 sm:mb-8 px-2">
 
             {mode === "login" &&
               "Login to PromptVerse AI"}
@@ -78,11 +83,11 @@ export default function AuthModal({
 
           {/* Tabs */}
 
-          <div className="flex bg-white/5 rounded-2xl p-1 mb-8">
+          <div className="flex bg-white/5 rounded-2xl p-1 mb-5 sm:mb-8">
 
             <button
               onClick={() => setMode("login")}
-              className={`flex-1 py-3 rounded-xl transition ${
+              className={`flex-1 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl transition ${
                 mode === "login"
                   ? "bg-purple-600 text-white"
                   : "text-gray-300"
@@ -93,7 +98,7 @@ export default function AuthModal({
 
             <button
               onClick={() => setMode("signup")}
-              className={`flex-1 py-3 rounded-xl transition ${
+              className={`flex-1 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl transition ${
                 mode === "signup"
                   ? "bg-purple-600 text-white"
                   : "text-gray-300"
@@ -104,7 +109,7 @@ export default function AuthModal({
 
             <button
               onClick={() => setMode("forgot")}
-              className={`flex-1 py-3 rounded-xl transition ${
+              className={`flex-1 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl transition ${
                 mode === "forgot"
                   ? "bg-purple-600 text-white"
                   : "text-gray-300"
