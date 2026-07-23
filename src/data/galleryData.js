@@ -730,4 +730,8 @@ export const categories = [
   "Cinematic",
   "Fantasy",
   "Cricket",
+  "Family",
+  "Child",
+  "Nature",
+  "Life Events",
 ];

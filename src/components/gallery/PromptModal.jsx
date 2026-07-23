@@ -264,7 +264,7 @@ const generateWithAI = async (platform) => {
             rounded-3xl
             overflow-hidden
             w-full
-            max-w-5xl
+            max-w-6xl
             max-h-[92vh]
             overflow-y-auto
             overscroll-contain
@@ -292,6 +292,8 @@ const generateWithAI = async (platform) => {
                 absolute
                 top-5
                 left-5
+                max-w-[55%]
+                sm:max-w-[60%]
                 px-4 py-2
                 rounded-full
                 bg-black/60
@@ -299,6 +301,7 @@ const generateWithAI = async (platform) => {
                 text-purple-300
                 text-xs
                 sm:text-sm
+                truncate
               "
             >
               {selectedPrompt.category}
@@ -317,6 +320,7 @@ const generateWithAI = async (platform) => {
                 h-10
                 sm:w-12
                 sm:h-12
+                shrink-0
                 rounded-full
                 bg-black/60
                 backdrop-blur-xl
@@ -401,7 +405,8 @@ const generateWithAI = async (platform) => {
                 border border-white/10
                 rounded-3xl
                 p-6
-                min-h-[150px]
+                max-h-[300px]
+                overflow-y-auto
                 sm:min-h-[180px]
                 text-gray-300
                 leading-relaxed
@@ -416,7 +421,7 @@ const generateWithAI = async (platform) => {
                 onClick={copyPrompt}
                 className="
                   w-full
-                  md:flex-1
+                  sm:flex-1
                   py-4
                   rounded-2xl
                   bg-gradient-to-r
@@ -436,8 +441,9 @@ const generateWithAI = async (platform) => {
                 onClick={handleFavorite}
                 className="
                   w-full
-                  md:w-16
+                  sm:w-16
                   h-14
+                  shrink-0
                   rounded-2xl
                   bg-white/10
                   flex items-center justify-center
@@ -462,8 +468,9 @@ const generateWithAI = async (platform) => {
                 onClick={sharePrompt}
                 className="
                   w-full
-                  md:w-16
+                  sm:w-16
                   h-14
+                  shrink-0
                   rounded-2xl
                   bg-white/10
                   flex items-center justify-center

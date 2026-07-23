@@ -45,10 +45,12 @@ useEffect(() => {
       }}
       className="
         group
+        w-full
         cursor-pointer
         bg-white/5
         border border-white/10
-        rounded-3xl
+        rounded-2xl
+        sm:rounded-3xl
         overflow-hidden
         backdrop-blur-xl
         hover:border-purple-500
@@ -68,7 +70,8 @@ useEffect(() => {
           alt={`${item.title} AI Prompt`}
           className="
             w-full
-            h-48
+            h-40
+            min-[375px]:h-48
             sm:h-56
             md:h-64
             object-cover
@@ -82,14 +85,23 @@ useEffect(() => {
         <div
           className="
             absolute
-            top-4
-            left-4
-            px-3 py-1
+            top-2
+            left-2
+            sm:top-4
+            sm:left-4
+            max-w-[55%]
+            sm:max-w-[60%]
+            truncate
+            px-2
+            py-0.5
+            sm:px-3
+            sm:py-1
             rounded-full
             bg-black/60
             backdrop-blur-md
-            text-[11px]
-            sm:text-xs
+            text-[10px]
+            sm:text-[11px]
+            md:text-xs
             text-purple-300
           "
         >
@@ -111,10 +123,14 @@ useEffect(() => {
           }}
           className="
             absolute
-            top-4
-            right-4
-            w-9
-            h-9
+            top-2
+            right-2
+            sm:top-4
+            sm:right-4
+            w-8
+            h-8
+            min-[375px]:w-9
+            min-[375px]:h-9
             sm:w-10
             sm:h-10
             rounded-full
@@ -123,10 +139,12 @@ useEffect(() => {
             flex
             items-center
             justify-center
-            text-lg 
+            text-base
+            min-[375px]:text-lg 
             sm:text-xl
             hover:scale-110
             transition-all
+            shrink-0
           "
         >
           {isFavorite(item.id) ? "❤️" : "🤍"}
@@ -137,24 +155,26 @@ useEffect(() => {
       {/* Content */}
       <div
         className="
-          p-4
+          p-3
+          min-[375px]:p-4
           md:p-5
           flex
           flex-col
-          min-h-[180px]
+          min-h-[160px]
+          min-[375px]:min-h-[180px]
         "
       >
 
-        <h3 className="font-bold text-base sm:text-lg md:text-xl line-clamp-2">
+        <h3 className="font-bold text-sm min-[375px]:text-base sm:text-lg md:text-xl line-clamp-2 break-words">
           {item.title}
         </h3>
 
-        <div className="flex items-center gap-5 mt-3 text-gray-400 text-sm">
+        <div className="flex items-center gap-3 min-[375px]:gap-5 mt-2 min-[375px]:mt-3 text-gray-400 text-xs min-[375px]:text-sm flex-wrap">
 
           <div className="flex items-center gap-1">
             <Heart
-              size={16}
-              className="text-pink-500"
+              size={14}
+              className="text-pink-500 min-[375px]:w-4 min-[375px]:h-4"
               fill="currentColor"
             />
             <span>{stats.likes}</span>
@@ -162,8 +182,8 @@ useEffect(() => {
 
           <div className="flex items-center gap-1">
             <Eye
-              size={16}
-              className="text-cyan-400"
+              size={14}
+              className="text-cyan-400 min-[375px]:w-4 min-[375px]:h-4"
             />
             <span>{stats.views}</span>
           </div>
@@ -182,12 +202,17 @@ useEffect(() => {
           }}
            className="
                 mt-auto
+                pt-3
+                min-[375px]:pt-0
                 w-full
-                py-2.5
+                py-2
+                min-[375px]:py-2.5
                 sm:py-3
-                text-sm
+                text-xs
+                min-[375px]:text-sm
                 sm:text-base
-                rounded-2xl
+                rounded-xl
+                min-[375px]:rounded-2xl
                 bg-gradient-to-r
                 from-purple-600
                 to-cyan-500
@@ -202,7 +227,7 @@ useEffect(() => {
                 gap-2
               "
         >
-        <Copy size={16}/>
+        <Copy size={14} className="min-[375px]:w-4 min-[375px]:h-4"/>
           Copy Prompt
         </button>
 
