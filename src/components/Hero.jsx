@@ -205,23 +205,23 @@ useEffect(() => {
 
 // Recently Used
 if (selectedPrompt === "Study Assistant") {
-  addRecent("Study Assistant", "Study Assistant");
+  addRecent("Study Assistant", "Education");
 }
 
 else if (selectedPrompt === "YouTube Script Generator") {
-  addRecent("YouTube Toolkit", "YouTube Toolkit");
+  addRecent("YouTube Script Generator", "YouTube Toolkit");
 }
 
 else if (selectedPrompt === "Instagram Viral Caption") {
-  addRecent("Instagram Toolkit", "Instagram Toolkit");
+  addRecent("Instagram Viral Caption", "Instagram Toolkit");
 }
 
 else if (selectedPrompt === "LinkedIn Post Generator") {
-  addRecent("LinkedIn Toolkit", "LinkedIn Toolkit");
+  addRecent("LinkedIn Post Generator", "LinkedIn Toolkit");
 }
 
 else if (selectedPrompt === "Professional Email Writer") {
-  addRecent("Email Toolkit", "Email Toolkit");
+  addRecent("Professional Email Writer", "Email Toolkit");
 }
 
     // 💾 Save history
