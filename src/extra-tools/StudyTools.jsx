@@ -6,7 +6,7 @@ export default function StudyTools({ generateStudyExtra }) {
       key: "notes",
       label: "Generate Notes",
       icon: <BookOpen size={18} />,
-      color: "from-blue-500 to-cyan-500",
+      color: "from-green-500 to-emerald-500",
     },
     {
       key: "summary",
@@ -18,19 +18,19 @@ export default function StudyTools({ generateStudyExtra }) {
       key: "quiz",
       label: "Generate Quiz",
       icon: <HelpCircle size={18} />,
-      color: "from-orange-500 to-yellow-500",
+      color: "from-green-500 to-emerald-500",
     },
     {
       key: "mcq",
       label: "Generate MCQs",
       icon: <ListChecks size={18} />,
-      color: "from-pink-500 to-purple-500",
+      color: "from-green-500 to-emerald-500",
     },
     {
       key: "explain",
       label: "Explain Concept",
       icon: <Brain size={18} />,
-      color: "from-violet-500 to-fuchsia-500",
+      color: "from-green-500 to-emerald-500",
     },
   ];
 
