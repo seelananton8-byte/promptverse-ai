@@ -1,5 +1,5 @@
 import { auth } from "../services/firebase"; // Import the auth object from your Firebase configuration
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Sparkles, Search, Copy, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
@@ -20,6 +20,37 @@ import LinkedinTools from "../extra-tools/LinkedinTools";
 import EmailTools from "../extra-tools/EmailTools";
 import StudyTools from "../extra-tools/StudyTools";
 
+// ---- Security-only constants (no feature/behavior change) ----
+const MAX_PROMPT_LENGTH = 4000; // caps payload size sent to AI providers & stored in DB
+const MIN_PROMPT_LENGTH = 1;
+
+// Strips characters commonly used in prompt-injection / control-sequence abuse
+// without altering normal user text (letters, punctuation, emoji, etc. pass through).
+function sanitizeInput(text) {
+  if (typeof text !== "string") return "";
+  return text
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "") // strip control chars
+    .slice(0, MAX_PROMPT_LENGTH);
+}
+
+// Safe localStorage wrapper — some browsers (e.g. Safari private mode) throw on
+// localStorage access instead of returning null, which would otherwise crash the app.
+function safeLocalStorageGet(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch (err) {
+    console.warn("localStorage unavailable:", err);
+    return null;
+  }
+}
+
+function safeLocalStorageRemove(key) {
+  try {
+    localStorage.removeItem(key);
+  } catch (err) {
+    console.warn("localStorage unavailable:", err);
+  }
+}
 
 export default function Hero({ selectedPrompt, setSelectedPrompt, activeTool, setActiveTool }) {
   const [prompt, setPrompt] = useState("");
@@ -57,268 +88,387 @@ export default function Hero({ selectedPrompt, setSelectedPrompt, activeTool, se
   const [studyMCQ, setStudyMCQ] = useState("");
   const [studyExplain, setStudyExplain] = useState("");
 
+  // Prevents duplicate/overlapping requests (double-submit, rapid Enter/click spam)
+  // from hitting the AI providers — protects against accidental API cost abuse.
+  const isGeneratingRef = useRef(false);
+  // Tracks whether the component is still mounted so we don't setState after unmount.
+  const isMountedRef = useRef(true);
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
+
   //Reusing
   useEffect(() => {
-  const savedPrompt = localStorage.getItem("reusePrompt");
+    const savedPrompt = safeLocalStorageGet("reusePrompt");
 
-  if (savedPrompt) {
-    setPrompt(savedPrompt);
-    localStorage.removeItem("reusePrompt");
-  }
-}, []);
-
-useEffect(() => {
-  const loadFavorites = async () => {
-    let data;
-
-    if (auth.currentUser) {
-      data = await getFavorites();
-    } else {
-      data = await getFavoritesLocal();
+    if (savedPrompt) {
+      setPrompt(sanitizeInput(savedPrompt));
+      safeLocalStorageRemove("reusePrompt");
     }
+  }, []);
 
-    setFavorites(data);
-  };
+  useEffect(() => {
+    const loadFavorites = async () => {
+      try {
+        let data;
 
-  loadFavorites();
-}, []);
+        if (auth.currentUser) {
+          data = await getFavorites();
+        } else {
+          data = await getFavoritesLocal();
+        }
+
+        if (isMountedRef.current) {
+          setFavorites(Array.isArray(data) ? data : []);
+        }
+      } catch (err) {
+        console.error("Failed to load favorites:", err);
+        if (isMountedRef.current) {
+          setFavorites([]);
+        }
+      }
+    };
+
+    loadFavorites();
+  }, []);
 
   // Trending Prompt Auto Fill
   useEffect(() => {
-  // Hide all tool panels first
-  setShowStudyTools(false);
-  setShowYoutubeTools(false);
-  setShowInstagramTools(false);
-  setShowLinkedinTools(false);
-  setShowEmailTools(false);
+    // Hide all tool panels first
+    setShowStudyTools(false);
+    setShowYoutubeTools(false);
+    setShowInstagramTools(false);
+    setShowLinkedinTools(false);
+    setShowEmailTools(false);
 
-  if (selectedPrompt === "Study Assistant") {
-    setPrompt("");
-    setActiveTool("study");
-  } else if (selectedPrompt) {
-    setPrompt(selectedPrompt);
-  }
-}, [selectedPrompt]);
+    if (selectedPrompt === "Study Assistant") {
+      setPrompt("");
+      setActiveTool("study");
+    } else if (selectedPrompt) {
+      setPrompt(sanitizeInput(selectedPrompt));
+    }
+  }, [selectedPrompt]);
 
   // 🚀 Generate AI Content
   const handleGenerate = async () => {
-  if (!prompt.trim()) {
-    setError("Please enter a prompt.");
-    return;
-  }
+    const cleanPrompt = sanitizeInput(prompt.trim());
 
-  setError("");
-  setLoading(true);
+    if (!cleanPrompt || cleanPrompt.length < MIN_PROMPT_LENGTH) {
+      setError("Please enter a prompt.");
+      return;
+    }
 
-  let finalPrompt = prompt;
-  try {
-    let response;
+    if (prompt.trim().length > MAX_PROMPT_LENGTH) {
+      setError(`Prompt is too long. Please keep it under ${MAX_PROMPT_LENGTH} characters.`);
+      return;
+    }
 
+    // Guard against double-submit / rapid repeated calls
+    if (isGeneratingRef.current) return;
+    isGeneratingRef.current = true;
+
+    setError("");
+    setLoading(true);
+
+    let finalPrompt = cleanPrompt;
     try {
-      // Primary AI → Gemini
-
-      if (activeTool === "study") {
-        finalPrompt = `
-      You are an expert Study Assistant.
-
-      The user will provide ONLY the study topic.
-
-      Your job is to:
-      - Explain the topic clearly.
-      - Use simple language.
-      - Give examples.
-      - Mention important points.
-      - End with a short recap.
-
-      Study Topic:
-      ${prompt}
-      `;
-      }
-      response = await generateContent(finalPrompt);
-
-    } catch (geminiError) {
-      console.log(
-        "Gemini failed, switching to Groq...",
-        geminiError
-      );
+      let response;
 
       try {
-        // Backup AI → Groq
-        response = await generateWithGroq(finalPrompt);
+        // Primary AI → Gemini
 
-      } catch (groqError) {
+        if (activeTool === "study") {
+          finalPrompt = `
+        You are an expert Study Assistant.
+
+        The user will provide ONLY the study topic.
+
+        Your job is to:
+        - Explain the topic clearly.
+        - Use simple language.
+        - Give examples.
+        - Mention important points.
+        - End with a short recap.
+
+        Study Topic:
+        ${cleanPrompt}
+        `;
+        }
+        response = await generateContent(finalPrompt);
+
+      } catch (geminiError) {
         console.log(
-          "Groq failed, switching to Cerebras...",
-          groqError
+          "Gemini failed, switching to Groq...",
+          geminiError
         );
 
-        // Final AI → Cerebras
-        response = await generateWithCerebras(finalPrompt);
+        try {
+          // Backup AI → Groq
+          response = await generateWithGroq(finalPrompt);
+
+        } catch (groqError) {
+          console.log(
+            "Groq failed, switching to Cerebras...",
+            groqError
+          );
+
+          // Final AI → Cerebras
+          response = await generateWithCerebras(finalPrompt);
+        }
+      }
+
+      if (!isMountedRef.current) return;
+
+      setResult(response);
+      if (activeTool === "study") {
+        setShowStudyTools(true);
+      }
+
+      if (activeTool === "youtube") {
+        setShowYoutubeTools(true);
+      }
+
+      if (activeTool === "instagram") {
+        setShowInstagramTools(true);
+      }
+
+      if (activeTool === "linkedin") {
+        setShowLinkedinTools(true);
+      }
+
+      if (activeTool === "email") {
+        setShowEmailTools(true);
+      }
+
+      setTitles("");
+      setDescription("");
+      setHashtags("");
+      setThumbnailIdeas("");
+      setCta("");
+      setInstaHashtags("");
+      setInstaHook("");
+      setInstaCTA("");
+      setReelIdeas("");
+      setLinkedinHook("");
+      setLinkedinHashtags("");
+      setLinkedinCTA("");
+      setLinkedinIdeas("");
+      setEmailSubject("");
+      setEmailRewrite("");
+      setEmailFollowup("");
+      setEmailClosing("");
+      setStudyNotes("");
+      setStudySummary("");
+      setStudyQuiz("");
+      setStudyMCQ("");
+      setStudyExplain("");
+
+      setLastPrompt(cleanPrompt);
+
+      // Recently Used
+      if (selectedPrompt === "Study Assistant") {
+        addRecent("Study Assistant", "Education");
+      }
+
+      else if (selectedPrompt === "YouTube Script Generator") {
+        addRecent("YouTube Script Generator", "YouTube Toolkit");
+      }
+
+      else if (selectedPrompt === "Instagram Viral Caption") {
+        addRecent("Instagram Viral Caption", "Instagram Toolkit");
+      }
+
+      else if (selectedPrompt === "LinkedIn Post Generator") {
+        addRecent("LinkedIn Post Generator", "LinkedIn Toolkit");
+      }
+
+      else if (selectedPrompt === "Professional Email Writer") {
+        addRecent("Professional Email Writer", "Email Toolkit");
+      }
+
+      // 💾 Save history
+      // Store values before clearing
+      const promptText = cleanPrompt;
+      const aiResponse = response;
+      const categoryName = selectedPrompt || "AI Assistant";
+
+      // Clear UI immediately
+      setPrompt("");
+      setResult(aiResponse);
+      toast.success("Content generated!");
+
+      // Save to Firestore (don't block UI)
+      if (auth.currentUser) {
+        saveHistory({
+          category: categoryName,
+          title: promptText,
+          prompt: promptText,
+          output: aiResponse,
+        })
+          .then(() => {
+            console.log("✅ History Saved (Firestore)");
+          })
+          .catch((err) => {
+            console.error("❌ SAVE ERROR", err);
+          });
+      } else {
+        saveHistoryLocal({
+          category: categoryName,
+          title: promptText,
+          prompt: promptText,
+          output: aiResponse,
+        });
+
+        console.log("✅ History Saved (LocalStorage)");
+      }
+
+
+
+    } catch (err) {
+      console.error("AI Generation Error: ", err);
+
+      if (!isMountedRef.current) return;
+
+      if (!navigator.onLine) {
+        setError(
+          "No internet connection. Please check your network."
+        );
+      } else {
+        setError(
+          "Unable to generate response. Please try again later."
+        );
+      }
+
+    } finally {
+      isGeneratingRef.current = false;
+      if (isMountedRef.current) {
+        setLoading(false);
       }
     }
+  };
 
-    setResult(response);
-    if (activeTool === "study") {
-      setShowStudyTools(true);
+  const generateExtra = async (type) => {
+    if (!result) return;
+
+    setLoading(true);
+
+    try {
+      let promptText = "";
+
+      switch (type) {
+        case "title":
+          promptText =
+            `Generate 5 catchy YouTube titles for this content:\n\n${result}`;
+          break;
+
+        case "description":
+          promptText =
+            `Generate a professional YouTube description for this content:\n\n${result}`;
+          break;
+
+        case "hashtags":
+          promptText =
+            `Generate 20 SEO friendly YouTube hashtags for this content:\n\n${result}`;
+          break;
+
+        case "thumbnail":
+          promptText =
+            `Generate 5 clickable YouTube thumbnail ideas for this content:\n\n${result}`;
+          break;
+
+          case "cta":
+          promptText =
+            `Generate 5 powerful YouTube call-to-actions (CTA) for this content:\n\n${result}`;
+          break;
+
+        default:
+          return;
+      }
+
+      let extraResult;
+
+        try {
+          extraResult = await generateContent(promptText);
+        } catch (geminiError) {
+          try {
+            extraResult = await generateWithGroq(promptText);
+          } catch (groqError) {
+            extraResult = await generateWithCerebras(promptText);
+          }
+        }
+
+      if (!isMountedRef.current) return;
+
+        switch (type) {
+        case "title":
+          setTitles(extraResult);
+          break;
+
+        case "description":
+          setDescription(extraResult);
+          break;
+
+        case "hashtags":
+          setHashtags(extraResult);
+          break;
+
+        case "thumbnail":
+          setThumbnailIdeas(extraResult);
+          break;
+
+                case "cta":
+          setCta(extraResult);
+          break;
+
+        default:
+          break;
+      }
+
+    } catch (err) {
+      console.error(err);
+      if (isMountedRef.current) setError("Failed to generate extra content.");
+    } finally {
+      if (isMountedRef.current) setLoading(false);
     }
+  };
 
-    if (activeTool === "youtube") {
-      setShowYoutubeTools(true);
-    }
+  const generateInstagramExtra = async (type) => {
+    if (!result) return;
 
-    if (activeTool === "instagram") {
-      setShowInstagramTools(true);
-    }
+    setLoading(true);
 
-    if (activeTool === "linkedin") {
-      setShowLinkedinTools(true);
-    }
+    try {
+      let promptText = "";
 
-    if (activeTool === "email") {
-      setShowEmailTools(true);
-    }
+      switch (type) {
+        case "hashtags":
+          promptText =
+            `Generate 20 viral Instagram hashtags for this post:\n\n${result}`;
+          break;
 
-    setTitles("");
-    setDescription("");
-    setHashtags("");
-    setThumbnailIdeas("");
-    setCta("");
-    setInstaHashtags("");
-    setInstaHook("");
-    setInstaCTA("");
-    setReelIdeas("");
-    setLinkedinHook("");
-    setLinkedinHashtags("");
-    setLinkedinCTA("");
-    setLinkedinIdeas("");
-    setEmailSubject("");
-    setEmailRewrite("");
-    setEmailFollowup("");
-    setEmailClosing("");
-    setStudyNotes("");
-    setStudySummary("");
-    setStudyQuiz("");
-    setStudyMCQ("");
-    setStudyExplain("");
+        case "hook":
+          promptText =
+            `Generate 5 viral Instagram hooks for this post:\n\n${result}`;
+          break;
 
-    setLastPrompt(prompt);
+        case "reels":
+          promptText =
+            `Generate 5 Instagram reel ideas related to this content:\n\n${result}`;
+          break;
 
-// Recently Used
-if (selectedPrompt === "Study Assistant") {
-  addRecent("Study Assistant", "Education");
-}
+          case "cta":
+          promptText =
+            `Generate 5 engaging Instagram CTAs for this content:\n\n${result}`;
+          break;
 
-else if (selectedPrompt === "YouTube Script Generator") {
-  addRecent("YouTube Script Generator", "YouTube Toolkit");
-}
+        default:
+          return;
+      }
 
-else if (selectedPrompt === "Instagram Viral Caption") {
-  addRecent("Instagram Viral Caption", "Instagram Toolkit");
-}
-
-else if (selectedPrompt === "LinkedIn Post Generator") {
-  addRecent("LinkedIn Post Generator", "LinkedIn Toolkit");
-}
-
-else if (selectedPrompt === "Professional Email Writer") {
-  addRecent("Professional Email Writer", "Email Toolkit");
-}
-
-    // 💾 Save history
-  // Store values before clearing
-const promptText = prompt;
-const aiResponse = response;
-const categoryName = selectedPrompt || "AI Assistant";
-
-// Clear UI immediately
-setPrompt("");
-setResult(aiResponse);
-toast.success("Content generated!");
-
-// Save to Firestore (don't block UI)
-if (auth.currentUser) {
-  saveHistory({
-    category: categoryName,
-    title: promptText,
-    prompt: promptText,
-    output: aiResponse,
-  })
-    .then(() => {
-      console.log("✅ History Saved (Firestore)");
-    })
-    .catch((err) => {
-      console.error("❌ SAVE ERROR", err);
-    });
-} else {
-  saveHistoryLocal({
-    category: categoryName,
-    title: promptText,
-    prompt: promptText,
-    output: aiResponse,
-  });
-
-  console.log("✅ History Saved (LocalStorage)");
-}
-
-  
-
-  } catch (err) {
-    console.error("AI Generation Error: ",err);
-    
-    if (!navigator.onLine) {
-      setError(
-        "No internet connection. Please check your network."
-      );
-    } else {
-    setError(
-      "Unable to generate response. Please try again later."
-    );
-  }
-
-  } finally {
-    setLoading(false);
-  }
-};
-
-const generateExtra = async (type) => {
-  if (!result) return;
-
-  setLoading(true);
-
-  try {
-    let promptText = "";
-
-    switch (type) {
-      case "title":
-        promptText =
-          `Generate 5 catchy YouTube titles for this content:\n\n${result}`;
-        break;
-
-      case "description":
-        promptText =
-          `Generate a professional YouTube description for this content:\n\n${result}`;
-        break;
-
-      case "hashtags":
-        promptText =
-          `Generate 20 SEO friendly YouTube hashtags for this content:\n\n${result}`;
-        break;
-
-      case "thumbnail":
-        promptText =
-          `Generate 5 clickable YouTube thumbnail ideas for this content:\n\n${result}`;
-        break;
-
-        case "cta":
-        promptText =
-          `Generate 5 powerful YouTube call-to-actions (CTA) for this content:\n\n${result}`;
-        break;
-
-      default:
-        return;
-    }
-
-    let extraResult;
+      let extraResult;
 
       try {
         extraResult = await generateContent(promptText);
@@ -330,333 +480,263 @@ const generateExtra = async (type) => {
         }
       }
 
+      if (!isMountedRef.current) return;
+
       switch (type) {
-      case "title":
-        setTitles(extraResult);
-        break;
+        case "hashtags":
+          setInstaHashtags(extraResult);
+          break;
 
-      case "description":
-        setDescription(extraResult);
-        break;
+        case "hook":
+          setInstaHook(extraResult);
+          break;
 
-      case "hashtags":
-        setHashtags(extraResult);
-        break;
+        case "reels":
+          setReelIdeas(extraResult);
+          break;
 
-      case "thumbnail":
-        setThumbnailIdeas(extraResult);
-        break;
+          case "cta":
+          setInstaCTA(extraResult);
+          break;
 
-              case "cta":
-        setCta(extraResult);
-        break;
-
-      default:
-        break;
+        default:
+          break;
+      }
+    } catch (err) {
+      console.error(err);
+      if (isMountedRef.current) setError("Failed to generate Instagram content.");
+    } finally {
+      if (isMountedRef.current) setLoading(false);
     }
+  };
 
-  } catch (err) {
-    console.error(err);
-    setError("Failed to generate extra content.");
-  } finally {
-    setLoading(false);
-  }
-};
+  const generateLinkedinExtra = async (type) => {
+    if (!result) return;
 
-const generateInstagramExtra = async (type) => {
-  if (!result) return;
+    setLoading(true);
 
-  setLoading(true);
+    try {
+      let promptText = "";
 
-  try {
-    let promptText = "";
+      switch (type) {
+        case "hook":
+          promptText =
+            `Generate 5 professional LinkedIn hooks for this post:\n\n${result}`;
+          break;
 
-    switch (type) {
-      case "hashtags":
-        promptText =
-          `Generate 20 viral Instagram hashtags for this post:\n\n${result}`;
-        break;
+        case "hashtags":
+          promptText =
+            `Generate 15 professional LinkedIn hashtags for this post:\n\n${result}`;
+          break;
 
-      case "hook":
-        promptText =
-          `Generate 5 viral Instagram hooks for this post:\n\n${result}`;
-        break;
+        case "ideas":
+          promptText =
+            `Generate 5 LinkedIn thought leadership ideas based on this content:\n\n${result}`;
+          break;
 
-      case "reels":
-        promptText =
-          `Generate 5 Instagram reel ideas related to this content:\n\n${result}`;
+        case "cta":
+          promptText =
+            `Generate 5 engaging LinkedIn CTAs for this post:\n\n${result}`;
+          break;
+
+        default:
+          return;
+      }
+
+      let extraResult;
+
+      try {
+        extraResult = await generateContent(promptText);
+      } catch (geminiError) {
+        try {
+          extraResult = await generateWithGroq(promptText);
+        } catch (groqError) {
+          extraResult = await generateWithCerebras(promptText);
+        }
+      }
+
+      if (!isMountedRef.current) return;
+
+      switch (type) {
+        case "hook":
+          setLinkedinHook(extraResult);
+          break;
+
+        case "hashtags":
+          setLinkedinHashtags(extraResult);
+          break;
+
+        case "ideas":
+        setLinkedinIdeas(extraResult);
         break;
 
         case "cta":
-        promptText =
-          `Generate 5 engaging Instagram CTAs for this content:\n\n${result}`;
-        break;
+          setLinkedinCTA(extraResult);
+          break;
 
-      default:
-        return;
-    }
-
-    let extraResult;
-
-    try {
-      extraResult = await generateContent(promptText);
-    } catch (geminiError) {
-      try {
-        extraResult = await generateWithGroq(promptText);
-      } catch (groqError) {
-        extraResult = await generateWithCerebras(promptText);
+        default:
+          break;
       }
+
+    } catch (err) {
+      console.error(err);
+      if (isMountedRef.current) setError("Failed to generate LinkedIn content.");
+    } finally {
+      if (isMountedRef.current) setLoading(false);
     }
+  };
 
-    switch (type) {
-      case "hashtags":
-        setInstaHashtags(extraResult);
-        break;
+  const generateEmailExtra = async (type) => {
+    if (!result) return;
 
-      case "hook":
-        setInstaHook(extraResult);
-        break;
-
-      case "reels":
-        setReelIdeas(extraResult);
-        break;
-
-        case "cta":
-        setInstaCTA(extraResult);
-        break;
-
-      default:
-        break;
-    }
-  } catch (err) {
-    console.error(err);
-    setError("Failed to generate Instagram content.");
-  } finally {
-    setLoading(false);
-  }
-};
-
-const generateLinkedinExtra = async (type) => {
-  if (!result) return;
-
-  setLoading(true);
-
-  try {
-    let promptText = "";
-
-    switch (type) {
-      case "hook":
-        promptText =
-          `Generate 5 professional LinkedIn hooks for this post:\n\n${result}`;
-        break;
-
-      case "hashtags":
-        promptText =
-          `Generate 15 professional LinkedIn hashtags for this post:\n\n${result}`;
-        break;
-
-      case "ideas":
-        promptText =
-          `Generate 5 LinkedIn thought leadership ideas based on this content:\n\n${result}`;
-        break;
-
-      case "cta":
-        promptText =
-          `Generate 5 engaging LinkedIn CTAs for this post:\n\n${result}`;
-        break;
-
-      default:
-        return;
-    }
-
-    let extraResult;
+    setLoading(true);
 
     try {
-      extraResult = await generateContent(promptText);
-    } catch (geminiError) {
-      try {
-        extraResult = await generateWithGroq(promptText);
-      } catch (groqError) {
-        extraResult = await generateWithCerebras(promptText);
+      let promptText = "";
+
+      switch (type) {
+        case "subject":
+          promptText =
+            `Generate 10 professional email subject lines for:\n\n${result}`;
+          break;
+
+        case "rewrite":
+          promptText =
+            `Rewrite this email professionally:\n\n${result}`;
+          break;
+
+        case "followup":
+          promptText =
+            `Generate a professional follow-up email for:\n\n${result}`;
+          break;
+
+        case "closing":
+          promptText =
+            `Generate 10 professional email closing statements for:\n\n${result}`;
+          break;
+
+        default:
+          return;
       }
-    }
 
-    switch (type) {
-      case "hook":
-        setLinkedinHook(extraResult);
-        break;
+      let extraResult;
 
-      case "hashtags":
-        setLinkedinHashtags(extraResult);
-        break;
-
-      case "ideas":
-      setLinkedinIdeas(extraResult);
-      break;
-
-      case "cta":
-        setLinkedinCTA(extraResult);
-        break;
-
-      default:
-        break;
-    }
-
-  } catch (err) {
-    console.error(err);
-    setError("Failed to generate LinkedIn content.");
-  } finally {
-    setLoading(false);
-  }
-};
-
-const generateEmailExtra = async (type) => {
-  if (!result) return;
-
-  setLoading(true);
-
-  try {
-    let promptText = "";
-
-    switch (type) {
-      case "subject":
-        promptText =
-          `Generate 10 professional email subject lines for:\n\n${result}`;
-        break;
-
-      case "rewrite":
-        promptText =
-          `Rewrite this email professionally:\n\n${result}`;
-        break;
-
-      case "followup":
-        promptText =
-          `Generate a professional follow-up email for:\n\n${result}`;
-        break;
-
-      case "closing":
-        promptText =
-          `Generate 10 professional email closing statements for:\n\n${result}`;
-        break;
-
-      default:
-        return;
-    }
-
-    let extraResult;
-
-    try {
-      extraResult = await generateContent(promptText);
-    } catch {
       try {
-        extraResult = await generateWithGroq(promptText);
+        extraResult = await generateContent(promptText);
       } catch {
-        extraResult = await generateWithCerebras(promptText);
+        try {
+          extraResult = await generateWithGroq(promptText);
+        } catch {
+          extraResult = await generateWithCerebras(promptText);
+        }
       }
+
+      if (!isMountedRef.current) return;
+
+      switch (type) {
+        case "subject":
+          setEmailSubject(extraResult);
+          break;
+
+        case "rewrite":
+          setEmailRewrite(extraResult);
+          break;
+
+        case "followup":
+          setEmailFollowup(extraResult);
+          break;
+
+        case "closing":
+          setEmailClosing(extraResult);
+          break;
+      }
+    } catch (err) {
+      console.error(err);
+      if (isMountedRef.current) setError("Failed to generate email content.");
+    } finally {
+      if (isMountedRef.current) setLoading(false);
     }
+  };
 
-    switch (type) {
-      case "subject":
-        setEmailSubject(extraResult);
-        break;
+  const generateStudyExtra = async (type) => {
+    if (!result) return;
 
-      case "rewrite":
-        setEmailRewrite(extraResult);
-        break;
-
-      case "followup":
-        setEmailFollowup(extraResult);
-        break;
-
-      case "closing":
-        setEmailClosing(extraResult);
-        break;
-    }
-  } catch (err) {
-    console.error(err);
-    setError("Failed to generate email content.");
-  } finally {
-    setLoading(false);
-  }
-};
-
-const generateStudyExtra = async (type) => {
-  if (!result) return;
-
-  setLoading(true);
-
-  try {
-    let promptText = "";
-
-    switch (type) {
-      case "notes":
-        promptText = `Create detailed study notes based on this content:\n\n${result}`;
-        break;
-
-      case "summary":
-        promptText = `Summarize this content in easy-to-understand study notes:\n\n${result}`;
-        break;
-
-      case "quiz":
-        promptText = `Generate 20 quiz questions with answers based on this content:\n\n${result}`;
-        break;
-
-      case "mcq":
-        promptText = `Generate 20 multiple-choice questions (MCQs) with correct answers based on this content:\n\n${result}`;
-        break;
-
-      case "explain":
-        promptText = `Explain this topic like a teacher with simple examples:\n\n${result}`;
-        break;
-
-      default:
-        return;
-    }
-
-    let extraResult;
+    setLoading(true);
 
     try {
-      extraResult = await generateContent(promptText);
-    } catch {
-      try {
-        extraResult = await generateWithGroq(promptText);
-      } catch {
-        extraResult = await generateWithCerebras(promptText);
+      let promptText = "";
+
+      switch (type) {
+        case "notes":
+          promptText = `Create detailed study notes based on this content:\n\n${result}`;
+          break;
+
+        case "summary":
+          promptText = `Summarize this content in easy-to-understand study notes:\n\n${result}`;
+          break;
+
+        case "quiz":
+          promptText = `Generate 20 quiz questions with answers based on this content:\n\n${result}`;
+          break;
+
+        case "mcq":
+          promptText = `Generate 20 multiple-choice questions (MCQs) with correct answers based on this content:\n\n${result}`;
+          break;
+
+        case "explain":
+          promptText = `Explain this topic like a teacher with simple examples:\n\n${result}`;
+          break;
+
+        default:
+          return;
       }
+
+      let extraResult;
+
+      try {
+        extraResult = await generateContent(promptText);
+      } catch {
+        try {
+          extraResult = await generateWithGroq(promptText);
+        } catch {
+          extraResult = await generateWithCerebras(promptText);
+        }
+      }
+
+      if (!isMountedRef.current) return;
+
+      switch (type) {
+        case "notes":
+          setStudyNotes(extraResult);
+          break;
+
+        case "summary":
+          setStudySummary(extraResult);
+          break;
+
+        case "quiz":
+          setStudyQuiz(extraResult);
+          break;
+
+        case "mcq":
+          setStudyMCQ(extraResult);
+          break;
+
+        case "explain":
+          setStudyExplain(extraResult);
+          break;
+
+        default:
+          break;
+      }
+
+    } catch (err) {
+      console.error(err);
+      if (isMountedRef.current) setError("Failed to generate study content.");
+    } finally {
+      if (isMountedRef.current) setLoading(false);
     }
-
-    switch (type) {
-      case "notes":
-        setStudyNotes(extraResult);
-        break;
-
-      case "summary":
-        setStudySummary(extraResult);
-        break;
-
-      case "quiz":
-        setStudyQuiz(extraResult);
-        break;
-
-      case "mcq":
-        setStudyMCQ(extraResult);
-        break;
-
-      case "explain":
-        setStudyExplain(extraResult);
-        break;
-
-      default:
-        break;
-    }
-
-  } catch (err) {
-    console.error(err);
-    setError("Failed to generate study content.");
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   // 📋 Copy
   const copyToClipboard = async () => {
@@ -666,7 +746,8 @@ const generateStudyExtra = async (type) => {
       await navigator.clipboard.writeText(result);
       toast.success("Copied to clipboard!");
     } catch (err) {
-      setError("Copy failed ❌", err);
+      console.error("Copy failed:", err);
+      setError("Copy failed. Please try again.");
     }
   };
 
@@ -681,6 +762,8 @@ const generateStudyExtra = async (type) => {
     element.download = `promptverse-${Date.now()}.txt`;
     document.body.appendChild(element);
     element.click();
+    document.body.removeChild(element); // security/hygiene: avoid leaving stray nodes
+    URL.revokeObjectURL(element.href); // release the blob URL once used
     toast.success("Downloaded!");
   };
 
@@ -691,51 +774,56 @@ const generateStudyExtra = async (type) => {
     setShowStudyTools(false);
 
     setActiveTool("");
-};
+  };
 
   // Save Favorites
   const saveFavorite = async () => {
-  if (!result) return;
+    if (!result) return;
 
-  const alreadyExists = favorites.some(
-    (item) =>
-      item.prompt === lastPrompt &&
-      item.response === result
-  );
+    const alreadyExists = favorites.some(
+      (item) =>
+        item.prompt === lastPrompt &&
+        item.response === result
+    );
 
-  if (alreadyExists) {
-    toast.error("Already saved");
-    return;
-  }
+    if (alreadyExists) {
+      toast.error("Already saved");
+      return;
+    }
 
-  const newFavorite = {
-    id: Date.now().toString(),
-    prompt: lastPrompt,
-    response: result,
-    createdAt:new Date().toISOString(),
+    const newFavorite = {
+      id: Date.now().toString(),
+      prompt: lastPrompt,
+      response: result,
+      createdAt: new Date().toISOString(),
+    };
+
+    try {
+      if (auth.currentUser) {
+        await saveFavoriteFirestore({
+          prompt: lastPrompt,
+          response: result,
+        });
+
+        setFavorites((prev) => [newFavorite, ...prev]);
+
+      } else {
+        saveFavoriteLocal(newFavorite);
+
+        setFavorites((prev) => [newFavorite, ...prev]);
+      }
+
+      toast.success("Added to Favorites ❤️");
+      setSaved(true);
+
+      setTimeout(() => {
+        if (isMountedRef.current) setSaved(false);
+      }, 1500);
+    } catch (err) {
+      console.error("Failed to save favorite:", err);
+      setError("Failed to save favorite. Please try again.");
+    }
   };
-
-  if (auth.currentUser) {
-  await saveFavoriteFirestore({
-    prompt: lastPrompt,
-    response: result,
-  });
-
-  setFavorites((prev) => [newFavorite, ...prev]);
-
-} else {
-  saveFavoriteLocal(newFavorite);
-
-  setFavorites((prev) => [newFavorite, ...prev]);
-}
-
-  toast.success("Added to Favorites ❤️");
-  setSaved(true);
-
-  setTimeout(() => {
-    setSaved(false);
-  }, 1500);
-};
 
   return (
     <motion.section
@@ -777,6 +865,7 @@ const generateStudyExtra = async (type) => {
         <div className="flex items-stretch rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl">
           <input
             value={prompt}
+            maxLength={MAX_PROMPT_LENGTH}
             onChange={(e) => {
               setPrompt(e.target.value);
               setError("");
@@ -785,7 +874,7 @@ const generateStudyExtra = async (type) => {
                 setSelectedPrompt("");
               }
             }}
-              onKeyDown={(e) => {
+            onKeyDown={(e) => {
               if (e.key === "Enter" && !loading) {
                 handleGenerate();
               }
@@ -801,7 +890,7 @@ const generateStudyExtra = async (type) => {
                   : "Search prompts anything..."
               }
           />
-        
+
           <motion.button
             onClick={handleGenerate}
             disabled={loading}
@@ -1113,6 +1202,7 @@ const generateStudyExtra = async (type) => {
             >
               <button
                 onClick={saveFavorite}
+                aria-label={saved ? "Saved to favorites" : "Save to favorites"}
                 className="
                   w-full
                   sm:w-auto
@@ -1135,10 +1225,11 @@ const generateStudyExtra = async (type) => {
                 />
                 {saved ? "Saved" : "Save"}
               </button>
-            
+
 
               <button
                 onClick={copyToClipboard}
+                aria-label="Copy response to clipboard"
                 className="
                   w-full
                   sm:w-auto
@@ -1161,6 +1252,7 @@ const generateStudyExtra = async (type) => {
 
               <button
                     onClick={downloadResponse}
+                    aria-label="Download response as text file"
                     className="
                       w-full
                       sm:w-auto

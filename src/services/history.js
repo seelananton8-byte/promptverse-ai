@@ -20,7 +20,6 @@ export const saveHistory = async ({
 }) => {
   const user = auth.currentUser;
 
-  console.log("Current User:", user);
 
   if (!user) {
     console.log("No user found");
@@ -39,7 +38,6 @@ export const saveHistory = async ({
       }
     );
 
-    console.log("Saved ID:", docRef.id);
 
   } catch (err) {
     console.error("Firestore Save Error:", err);
