@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import BackHandler from "./components/BackHandler";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -17,7 +18,10 @@ import HelpCenter from "./pages/HelpCenter";
 import Settings from "./pages/Settings";
 
 export default function App() {
+
   return (
+    <>
+    <BackHandler />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
@@ -35,5 +39,6 @@ export default function App() {
       <Route path="/help-center" element={<HelpCenter />} />
       <Route path="/settings" element={<Settings />} />
     </Routes>
+    </>
   );
 }
