@@ -1,3 +1,5 @@
+import { Share } from "@capacitor/share";
+import { Capacitor } from "@capacitor/core";
 import { useState} from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Copy, Heart, Share2 } from "lucide-react";
@@ -183,33 +185,38 @@ const generateWithAI = async (platform) => {
 
 };
 
-  const sharePrompt = async () => {
-
+const sharePrompt = async () => {
   if (sharing) return;
 
   setSharing(true);
 
   try {
 
-    if (navigator.share) {
+    if (Capacitor.isNativePlatform()) {
+
+      await Share.share({
+        title: selectedPrompt.title,
+        text: selectedPrompt.prompt,
+        dialogTitle: "Share Prompt",
+      });
+
+    } else if (navigator.share) {
 
       await navigator.share({
         title: selectedPrompt.title,
         text: selectedPrompt.prompt,
       });
-      toast.success('Shared successfully');
 
     } else {
 
       await navigator.clipboard.writeText(selectedPrompt.prompt);
 
-      toast.success("Prompt copied for sharing 🚀");
+      toast.success("Prompt copied 🚀");
 
     }
 
   } catch (err) {
 
-    // User Cancel panna error varum.
     if (err.name !== "AbortError") {
       console.error(err);
     }
@@ -219,7 +226,6 @@ const generateWithAI = async (platform) => {
     setSharing(false);
 
   }
-
 };
 
   return (

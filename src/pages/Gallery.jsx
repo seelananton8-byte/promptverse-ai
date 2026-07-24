@@ -1,18 +1,33 @@
 import { useState } from "react";
 import { Search } from "lucide-react";
-
+import { App as CapacitorApp } from "@capacitor/app";
+import { useEffect } from "react";
 import { categories, galleryData } from "../data/galleryData";
-
 import GalleryCard from "../components/gallery/GalleryCard";
 import PromptModal from "../components/gallery/PromptModal";
 import CategoryTabs from "../components/gallery/CategoryTabs";
-
 import useFavorites from "../hooks/useFavorites";
 
 export default function Gallery() {
 const [selectedCategory, setSelectedCategory] = useState("All");
 const [searchTerm, setSearchTerm] = useState("");
 const [selectedPrompt, setSelectedPrompt] = useState(null);
+
+useEffect(() => {
+  if (!selectedPrompt) return;
+
+  let listener;
+
+  (async () => {
+    listener = await CapacitorApp.addListener("backButton", () => {
+      setSelectedPrompt(null); // Modal close
+    });
+  })();
+
+  return () => {
+    listener?.remove();
+  };
+}, [selectedPrompt]);
 
 const {
 favorites,
