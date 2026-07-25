@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Search } from "lucide-react";
-import { App as CapacitorApp } from "@capacitor/app";
+import { setBackHandler, clearBackHandler } from "../utils/backButtonManager";
 import { useEffect } from "react";
 import { categories, galleryData } from "../data/galleryData";
 import GalleryCard from "../components/gallery/GalleryCard";
@@ -14,19 +14,12 @@ const [searchTerm, setSearchTerm] = useState("");
 const [selectedPrompt, setSelectedPrompt] = useState(null);
 
 useEffect(() => {
-  if (!selectedPrompt) return;
-
-  let listener;
-
-  (async () => {
-    listener = await CapacitorApp.addListener("backButton", () => {
-      setSelectedPrompt(null); // Modal close
-    });
-  })();
-
-  return () => {
-    listener?.remove();
-  };
+  if (!selectedPrompt) {
+    clearBackHandler();
+    return;
+  }
+  setBackHandler(() => setSelectedPrompt(null));
+  return () => clearBackHandler();
 }, [selectedPrompt]);
 
 const {

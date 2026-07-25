@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace = "com.promptverse.ai"
+    namespace = "com.jeypre.promptverse"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.promptverse.ai"
+        applicationId "com.jeypre.promptverse"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

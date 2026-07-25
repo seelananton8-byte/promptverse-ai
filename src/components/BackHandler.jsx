@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { App as CapacitorApp } from "@capacitor/app";
+import { consumeBackHandler } from "../utils/backButtonManager";
 
 export default function BackHandler() {
   const navigate = useNavigate();
@@ -8,20 +9,17 @@ export default function BackHandler() {
 
   useEffect(() => {
     let listener;
-
     (async () => {
-      listener = await CapacitorApp.addListener(
-        "backButton",
-        () => {
-          if (location.pathname === "/") {
-            CapacitorApp.exitApp();
-          } else {
-            navigate("/");
-          }
-        }
-      );
-    })();
+      listener = await CapacitorApp.addListener("backButton", () => {
+        if (consumeBackHandler()) return;
 
+        if (location.pathname === "/") {
+          CapacitorApp.exitApp();
+        } else {
+          navigate("/");
+        }
+      });
+    })();
     return () => {
       listener?.remove();
     };
