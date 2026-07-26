@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "197986915674",
+    "project_id": "promptverse-ai-714a8",
+    "storage_bucket": "promptverse-ai-714a8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197986915674:android:38a50421163c7fee48cf63",
+        "android_client_info": {
+          "package_name": "com.jeypre.promptverse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197986915674-s6osov5dkklq4b649aet91o5f2kagisi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jeypre.promptverse",
+            "certificate_hash": "b16ae46f0c9752bed7c0cbd96fd0ed45e90dd7cf"
+          }
+        },
+        {
+          "client_id": "197986915674-gqhg0issi4dab50g8nltho29c6nvvnlp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQTYYTmAogJtCrMC3xkdG5WZI2xHMFdGY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "197986915674-gqhg0issi4dab50g8nltho29c6nvvnlp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
