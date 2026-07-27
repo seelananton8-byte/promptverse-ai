@@ -739,6 +739,36 @@ export const galleryData = [
     prompt:
     "Create a heartwarming family picnic scene in a beautiful green park featuring smiling parents and two cheerful children enjoying quality time together on a cozy picnic blanket. A picnic basket filled with fresh fruits, sandwiches, and drinks, colorful flowers, lush green trees, warm golden hour sunlight, children laughing and playing, natural candid expressions, elegant casual outfits in soft pastel colors, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family lifestyle photography, joyful atmosphere, highly detailed, masterpiece, vibrant colors."
   },
+  {
+    id: 75,
+    title: "Parents Playing with Kids",
+    category: "Family",
+    image: "/images/family/family3.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming family moment featuring loving parents playing joyfully with their two cheerful children inside a bright and cozy modern living room. The family is sitting together on a soft carpet, building colorful toy blocks, playing with wooden toys, laughing naturally, and sharing genuine smiles. Warm sunlight streams through large windows, creating a peaceful and inviting atmosphere. Stylish home décor, indoor plants, comfortable sofa, elegant modern interior, soft neutral color palette, natural candid expressions, strong family bonding, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family lifestyle photography, highly detailed, masterpiece, vibrant colors, authentic emotions, wholesome family love."
+  },
+   {
+    id: 76,
+    title: "Three-Generation Family Portrait",
+    category: "Family",
+    image: "/images/family/family4.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming three-generation family portrait featuring loving grandparents, smiling parents, and two cheerful children standing together with genuine happiness. Everyone is dressed in elegant coordinated casual outfits in soft neutral and pastel colors. Warm golden hour sunlight illuminates the family, creating a cozy and emotional atmosphere. Beautiful outdoor garden filled with lush greenery, colorful flowers, and soft natural light in the background. Grandparents lovingly embracing their grandchildren while parents stand proudly beside them, natural candid smiles, strong family bonding, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family photography, highly detailed, masterpiece, vibrant colors, timeless memories, authentic emotions."
+  },
+  {
+    id: 77,
+    title: "Family Birthday Celebration",
+    category: "Family",
+    image: "/images/family/family5.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming family birthday celebration featuring smiling grandparents, loving parents, and two cheerful children gathered around a beautifully decorated birthday cake with glowing candles. Everyone is wearing colorful party hats and elegant casual outfits in soft pastel colors. The room is decorated with vibrant balloons, birthday banners, fairy lights, wrapped gift boxes, confetti, and festive decorations. Children are excitedly blowing candles while the family smiles with genuine happiness and love. Warm indoor lighting creates a cozy atmosphere with cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family lifestyle photography, joyful celebration, authentic emotions, highly detailed, masterpiece, vibrant colors, timeless memories."
+  },
 ];
 
 export const categories = [

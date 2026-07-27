@@ -63,8 +63,10 @@ export default function Profile() {
         <div className="flex flex-col items-center">
           <img
             src={user.photoURL || DEFAULT_AVATAR}
+            referrerPolicy="no-referrer"
             alt={user.displayName || "User profile"}
             onError={(e) => {
+              e.target.onerror = null;
               e.target.src = DEFAULT_AVATAR;
             }}
             className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-purple-500"
