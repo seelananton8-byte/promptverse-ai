@@ -729,6 +729,16 @@ export const galleryData = [
     prompt:
     "Create a heartwarming portrait of a happy family featuring smiling parents and two cheerful children standing together with genuine love and affection. Warm golden hour sunlight illuminates their faces, elegant casual outfits in soft neutral colors, lush green garden filled with colorful flowers in the background, cinematic composition, natural poses, authentic emotions, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family photography, highly detailed, masterpiece, vibrant colors, joyful atmosphere, professional portrait."
   },
+  {
+    id: 74,
+    title: "Family Picnic in the Park",
+    category: "Family",
+    image: "/images/family/family2.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming family picnic scene in a beautiful green park featuring smiling parents and two cheerful children enjoying quality time together on a cozy picnic blanket. A picnic basket filled with fresh fruits, sandwiches, and drinks, colorful flowers, lush green trees, warm golden hour sunlight, children laughing and playing, natural candid expressions, elegant casual outfits in soft pastel colors, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family lifestyle photography, joyful atmosphere, highly detailed, masterpiece, vibrant colors."
+  },
 ];
 
 export const categories = [
