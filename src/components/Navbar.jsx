@@ -21,16 +21,24 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [user, setUser] = useState(null);
+  const [imgError, setImgError] = useState(false);
 
-useEffect(() => {
-  const unsubscribe = observeAuth((currentUser) => {
-    setUser(currentUser);
-  });
+  useEffect(() => {
+    const unsubscribe = observeAuth((currentUser) => {
+      setUser(currentUser);
+    });
 
-  return () => unsubscribe();
-}, []);
+    return () => unsubscribe();
+  }, []);
 
-const navigate = useNavigate();
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -70,21 +78,22 @@ const navigate = useNavigate();
             <button 
                 onClick={() => {
                   if (user) {
-                    navigate("/profile");   // later build pannuvom
+                    navigate("/profile");
                   } else {
                     setShowAuthModal(true);
                   }
                 }}
             className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-purple-600 active:scale-95 transition">
                 {user ? (
-                  user.photoURL ? (
+                  user.photoURL && !imgError ? (
                     <img
                       src={user.photoURL}
                       alt="Profile"
+                      onError={() => setImgError(true)}
                       className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover"
                     />
                   ) : (
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold uppercase">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold uppercase text-sm">
                       {user.displayName?.charAt(0) ||
                       user.email?.charAt(0) ||
                       "P"}
@@ -98,6 +107,7 @@ const navigate = useNavigate();
             {/* Mobile Menu */}
            <button
               onClick={() => setMenuOpen(true)}
+              aria-label="Open menu"
               className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition"
             >
               <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -115,14 +125,14 @@ const navigate = useNavigate();
             onClick={() => setMenuOpen(false)}
           />
 
-          <div className="fixed top-0 right-0 h-screen w-72 bg-[#0B1023] border-l border-white/10 z-50 p-6 shadow-2xl">
+          <div className="fixed top-0 right-0 h-screen w-64 sm:w-72 max-w-[85%] bg-[#0B1023] border-l border-white/10 z-50 p-6 shadow-2xl">
 
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-xl font-bold text-white">
                 PromptVerse AI
               </h2>
 
-              <button onClick={() => setMenuOpen(false)}>
+              <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
                 <X size={24} />
               </button>
             </div>

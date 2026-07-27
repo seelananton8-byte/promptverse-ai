@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export default function Settings() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const [imgError, setImgError] = useState(false);
 
   useEffect(() => {
     const unsubscribe = observeAuth((currentUser) => {
@@ -96,10 +97,11 @@ export default function Settings() {
                 "
                 >
 
-                {user.photoURL ? (
+                {user.photoURL && !imgError ? (
                     <img
                     src={user.photoURL}
                     alt="Profile"
+                    onError={() => setImgError(true)}
                     className="
                         w-14 h-14
                         sm:w-16 sm:h-16

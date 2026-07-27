@@ -719,6 +719,16 @@ export const galleryData = [
     prompt:
     "Use the uploaded reference photo as the facial identity. Preserve the person's original face exactly. Create an ultra-realistic cinematic portrait during golden hour with soft sunlight, warm color grading, shallow depth of field, realistic skin texture, premium fashion, DSLR photography, HDR, 8K, masterpiece."
   },
+  {
+    id: 73,
+    title: "Happy Family Portrait",
+    category: "Family",
+    image: "/images/family/family1.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming portrait of a happy family featuring smiling parents and two cheerful children standing together with genuine love and affection. Warm golden hour sunlight illuminates their faces, elegant casual outfits in soft neutral colors, lush green garden filled with colorful flowers in the background, cinematic composition, natural poses, authentic emotions, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family photography, highly detailed, masterpiece, vibrant colors, joyful atmosphere, professional portrait."
+  },
 ];
 
 export const categories = [
