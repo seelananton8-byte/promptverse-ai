@@ -859,6 +859,246 @@ export const galleryData = [
     prompt:
     "Create a heartwarming family dinner scene featuring loving grandparents, smiling parents, and two cheerful children gathered around a beautifully set dining table inside a cozy modern home. The family is enjoying a delicious homemade dinner together, sharing laughter, meaningful conversations, and warm smiles while serving food to one another. The dining table is filled with a variety of freshly prepared dishes including rice, curry, vegetables, bread, salads, desserts, and refreshing drinks, elegantly presented. Everyone is dressed in stylish coordinated casual outfits in soft neutral and pastel colors. Warm ambient lighting, decorative candles, indoor plants, family photo frames, and elegant home décor create a welcoming atmosphere. Natural candid expressions, genuine family bonding, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, cozy dinner atmosphere, timeless family memories."
   },
+  {
+    id: 87,
+    title: "Newborn Baby",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents3.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming newborn baby portrait featuring a peacefully sleeping newborn wrapped in a soft white knitted blanket inside a cozy modern nursery. The baby has delicate facial features, tiny hands and feet, rosy cheeks, and a gentle peaceful expression. The nursery is beautifully decorated with pastel-colored décor, wooden furniture, plush teddy bears, soft pillows, fresh flowers, fairy lights, and elegant baby accessories. Warm golden window light fills the room, creating a calm and loving atmosphere. Soft neutral color palette with white, cream, beige, and pastel tones. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium newborn photography, authentic emotions, highly detailed, masterpiece, peaceful atmosphere, timeless memories."
+  },
+  {
+    id: 88,
+    title: "Birthday Celebration",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents4.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming birthday celebration portrait featuring the subject joyfully celebrating a special birthday in a beautifully decorated party venue. The subject is smiling naturally while standing beside a stunning multi-layer birthday cake decorated with candles, elegant flowers, balloons, ribbons, fairy lights, and colorful festive decorations. Friends and family members surround the subject, clapping, smiling, and celebrating together in a joyful atmosphere. The subject is dressed in elegant party attire suitable for the occasion, with natural expressions and authentic emotions. Warm golden ambient lighting, confetti floating in the air, beautifully wrapped gift boxes, vibrant floral arrangements, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium celebration photography, highly detailed, masterpiece, vibrant colors, joyful atmosphere, timeless birthday memories."
+  },
+   {
+    id: 89,
+    title: "Graduation Day",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents5.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a joyful graduation day portrait featuring the subject proudly celebrating graduation at a beautiful university campus. The subject is wearing a classic black graduation gown, matching mortarboard cap with a tassel, and holding a graduation diploma tied with a ribbon. The subject smiles naturally while celebrating this important milestone, surrounded by fellow graduates, family members, and friends in a festive atmosphere. Elegant university buildings, green lawns, blooming flowers, and colorful graduation decorations create a beautiful background. Graduation confetti fills the air as the subject proudly tosses the graduation cap into the sky. Warm golden hour sunlight, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium graduation photography, authentic emotions, highly detailed, masterpiece, vibrant colors, timeless achievement, joyful celebration."
+  },
+  {
+    id: 90,
+    title: "Engagement Ceremony",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents6.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming engagement ceremony portrait featuring the subject celebrating a beautiful engagement in an elegant venue decorated with luxurious floral arrangements, romantic fairy lights, candles, and sophisticated stage décor. The subject is dressed in stunning traditional or elegant formal engagement attire suitable for the occasion, smiling naturally while proudly showing the engagement ring. Family members and close friends surround the subject, applauding, smiling, and sharing joyful moments in a warm festive atmosphere. Beautiful flower arches, soft golden lighting, fresh roses, elegant decorations, and sparkling bokeh create a magical background. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium engagement photography, authentic emotions, highly detailed, masterpiece, vibrant colors, timeless memories, joyful celebration."
+  },
+  {
+    id: 91,
+    title: "Wedding Ceremony",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents7.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming wedding ceremony portrait featuring the subject celebrating a beautiful wedding in a luxurious venue with elegant floral decorations, romantic candlelight, grand chandeliers, and breathtaking wedding stage décor. The subject is dressed in stunning traditional or elegant wedding attire suitable for the occasion, smiling naturally while celebrating this unforgettable moment. Beautiful flower arches, fresh roses, soft drapes, golden fairy lights, and sophisticated wedding decorations create a magical atmosphere. Family members and close friends joyfully celebrate in the background with genuine smiles and warm emotions. Warm golden cinematic lighting, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium wedding photography, authentic emotions, highly detailed, masterpiece, vibrant colors, timeless memories, elegant composition."
+  },
+  {
+    id: 92,
+    title: "Baby Shower",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents8.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming baby shower celebration portrait featuring the subject joyfully celebrating a beautiful baby shower in an elegantly decorated venue. The subject is dressed in stunning traditional or elegant pastel-colored attire suitable for the celebration, smiling naturally while standing beside a beautifully decorated baby shower backdrop with balloons, floral arrangements, teddy bears, baby-themed decorations, fairy lights, and a stylish cake. Family members and close friends surround the subject, applauding, sharing warm hugs, and celebrating together with genuine happiness. Beautiful flower arches, pastel blue, pink, white, and gold decorations, gift boxes, baby accessories, and soft drapes create a magical festive atmosphere. Warm golden lighting, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium baby shower photography, authentic emotions, highly detailed, masterpiece, vibrant colors, timeless memories, elegant celebration."
+  },
+  {
+    id: 93,
+    title: "First Birthday Party",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents9.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming first birthday party portrait featuring the subject joyfully celebrating a memorable first birthday in a beautifully decorated party venue. The subject is dressed in an adorable elegant birthday outfit suitable for the celebration, standing beside a stunning first birthday cake decorated with candles, balloons, flowers, teddy bears, fairy lights, ribbons, and colorful birthday decorations. Family members and close friends surround the subject with genuine smiles, clapping, cheering, and capturing precious moments together. Beautiful balloon arches, pastel blue, pink, white, and gold decorations, wrapped gift boxes, festive banners, soft confetti, and warm ambient lighting create a magical celebration atmosphere. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium birthday photography, authentic emotions, highly detailed, masterpiece, vibrant colors, timeless memories, joyful celebration."
+  },
+  {
+    id: 94,
+    title: "Housewarming Ceremony",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents10.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming housewarming ceremony portrait featuring the subject joyfully celebrating a new home in a beautifully decorated modern house. The subject is dressed in elegant traditional or formal attire suitable for the occasion, standing proudly at the beautifully decorated entrance of the new home. The house is adorned with fresh flower garlands, colorful rangoli, banana leaves, mango leaf torans, glowing oil lamps, candles, and elegant floral decorations. Family members and close friends surround the subject with warm smiles, blessings, and joyful celebrations. A traditional housewarming setup with a decorated entrance, ceremonial items, flower arrangements, festive decorations, and a welcoming atmosphere creates a meaningful celebration. Warm golden lighting, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium housewarming photography, authentic emotions, highly detailed, masterpiece, vibrant colors, elegant décor, peaceful atmosphere, timeless family memories."
+  },
+  {
+    id: 95,
+    title: "First Day at Work",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents1.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming first day at work portrait featuring the subject confidently beginning a new professional journey inside a modern corporate office. The subject is dressed in elegant professional business attire appropriate for the workplace, wearing an employee ID badge and carrying a stylish laptop bag along with important documents. The subject smiles naturally with excitement, confidence, and optimism while standing in a bright contemporary office filled with glass walls, modern workstations, computers, indoor plants, and collaborative spaces. Friendly colleagues warmly welcome the subject with smiles, handshakes, and congratulations, creating a positive and inspiring work environment. Soft natural sunlight streams through large office windows, enhancing the elegant office interior. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium corporate lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, professional atmosphere, career milestone, timeless memories."
+  },
+  {
+    id: 96,
+    title: "Buying a New Car",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents2.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming new car delivery celebration portrait featuring the subject proudly receiving a brand-new luxury car inside a premium modern automobile showroom. The subject is dressed in elegant smart casual or formal attire, smiling naturally while standing beside the brand-new vehicle, holding a large ceremonial car key decorated with a beautiful ribbon and placing one hand on the car. The luxury showroom is beautifully decorated with black, gold, white, and silver balloons, fresh flower bouquets, elegant floral arrangements, red carpet, festive ribbons, premium lighting, confetti, and a stylish congratulatory backdrop. Family members, close friends, and showroom staff warmly congratulate the subject with genuine smiles, applause, handshakes, and joyful celebrations. The luxury car shines under premium showroom lights with a large decorative ribbon placed across the hood, creating a luxurious and memorable atmosphere. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium automotive lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, elegant celebration, achievement milestone, luxury showroom atmosphere, timeless memories."
+  },
+  {
+    id: 97,
+    title: "Buying a New Home",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents11.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming new home purchase celebration portrait featuring the subject proudly standing in front of a beautiful newly purchased modern home. The subject is dressed in elegant smart casual or formal attire, smiling naturally while holding a large ceremonial house key decorated with a luxurious ribbon and proudly displaying the house ownership documents. The stunning home features contemporary architecture with a beautifully landscaped garden, elegant entrance, large windows, and stylish exterior lighting. Family members, close friends, and a real estate representative warmly congratulate the subject with genuine smiles, handshakes, applause, and joyful celebrations. Beautiful flower bouquets, colorful balloons, festive ribbons, welcome decorations, and gift boxes create a memorable home-buying celebration. Warm golden hour sunlight illuminates the scene, creating a luxurious and emotional atmosphere. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium real estate lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, elegant celebration, achievement milestone, dream home atmosphere, timeless memories."
+  },
+  {
+    id: 98,
+    title: "First International Trip",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents12.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming first international trip portrait featuring the subject excitedly beginning their first overseas journey at a modern international airport. The subject is dressed in stylish smart casual travel attire, carrying a premium suitcase, passport, boarding pass, and travel backpack while smiling naturally with excitement and confidence. Large glass windows reveal commercial airplanes preparing for departure, with departure boards, check-in counters, luxury airport interiors, and travelers creating an authentic international airport atmosphere. Family members and close friends warmly wish the subject farewell with hugs, smiles, and heartfelt goodbyes, creating an emotional and memorable travel moment. Elegant travel accessories, airport trolleys, world map displays, and modern architecture enhance the premium travel experience. Warm natural lighting, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium travel lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, luxury airport atmosphere, travel milestone, timeless memories."
+  },
+  {
+    id: 99,
+    title: "Achievement Celebration",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents13.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming achievement celebration portrait featuring the subject proudly celebrating a major personal or professional milestone. The subject is dressed in elegant smart casual or formal attire, smiling confidently while holding a prestigious trophy, medal, certificate, or award plaque that symbolizes success and accomplishment. The celebration takes place in a beautifully decorated venue with luxurious floral arrangements, golden balloons, confetti, sparkling lights, elegant stage décor, and a grand congratulatory backdrop. Family members, close friends, colleagues, and well-wishers surround the subject with genuine smiles, applause, handshakes, warm hugs, and joyful congratulations, creating a memorable celebration. The atmosphere radiates pride, happiness, and success with premium decorations, vibrant colors, and festive energy. Warm cinematic lighting, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium celebration photography, authentic emotions, highly detailed, masterpiece, elegant celebration, success milestone, timeless memories."
+  },
+  {
+    id: 100,
+    title: "Award Ceremony",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents14.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming award ceremony portrait featuring the subject proudly receiving a prestigious award on a grand stage during a glamorous awards event. The subject is dressed in elegant formal attire suitable for a prestigious ceremony, smiling confidently while holding a beautiful golden trophy, medal, or award plaque with genuine pride and gratitude. The luxurious venue is decorated with elegant stage lighting, sparkling chandeliers, golden accents, floral arrangements, premium curtains, confetti, and a sophisticated awards backdrop. Family members, close friends, colleagues, and distinguished guests applaud enthusiastically while celebrating the subject's outstanding achievement. Professional photographers capture the special moment as bright spotlights illuminate the stage, creating a grand and unforgettable atmosphere. Warm cinematic lighting, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium award ceremony photography, authentic emotions, highly detailed, masterpiece, vibrant colors, elegant celebration, prestigious achievement, timeless memories."
+  },
+  {
+    id: 101,
+    title: "Wedding Anniversary",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents15.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming wedding anniversary celebration portrait featuring the subject joyfully celebrating a beautiful wedding anniversary with their spouse in an elegantly decorated venue. The couple is dressed in stunning formal or traditional attire suitable for the celebration, smiling naturally while holding hands, cutting a beautifully decorated anniversary cake, and sharing a joyful moment together. The venue is adorned with luxurious floral arrangements, romantic candlelight, fairy lights, elegant balloons, fresh roses, golden decorations, and a beautifully designed anniversary backdrop with sophisticated décor. Family members, children, close friends, and loved ones surround the couple with warm smiles, applause, hugs, and heartfelt congratulations, creating a joyful and emotional celebration. Soft golden lighting, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium anniversary photography, authentic emotions, highly detailed, masterpiece, vibrant colors, elegant celebration, timeless love, unforgettable memories."
+  },
+  {
+    id: 102,
+    title: "Silver Wedding Anniversary",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents16.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming Silver Wedding Anniversary celebration portrait featuring the subject and their beloved spouse joyfully celebrating their 25th wedding anniversary in a luxurious indoor venue. The couple is dressed in elegant silver-themed formal or traditional attire, smiling naturally while holding hands, cutting a magnificent silver anniversary cake, and sharing a romantic moment together. The venue is beautifully decorated with silver and white balloons, fresh white roses, elegant floral arrangements, shimmering fairy lights, candles, crystal chandeliers, silver ribbons, and a grand 'Happy 25th Silver Wedding Anniversary' backdrop. Family members, children, grandchildren, close friends, and loved ones surround the couple with warm smiles, applause, heartfelt hugs, and joyful congratulations, creating a loving multi-generational celebration. Beautiful dining tables, premium decorations, sparkling confetti, and soft golden lighting create an elegant and emotional atmosphere. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium anniversary photography, authentic emotions, highly detailed, masterpiece, vibrant colors, timeless love, luxurious celebration, unforgettable family memories."
+  },
+  {
+    id: 103,
+    title: "Golder Wedding Anniversary",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents17.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming Golden Wedding Anniversary celebration portrait featuring the subject and their beloved spouse joyfully celebrating their 50th wedding anniversary in a luxurious indoor venue. The couple is dressed in elegant gold-themed formal or traditional attire, smiling naturally while holding hands, cutting a magnificent golden anniversary cake, and sharing a beautiful romantic moment together. The venue is beautifully decorated with gold and ivory balloons, fresh white and golden roses, luxurious floral arrangements, shimmering fairy lights, crystal chandeliers, glowing candles, golden ribbons, sparkling confetti, and a grand 'Happy 50th Golden Wedding Anniversary' backdrop. Family members, children, grandchildren, great-grandchildren, close friends, and loved ones surround the couple with warm smiles, heartfelt hugs, applause, blessings, and joyful congratulations, creating a touching multi-generational celebration. Beautiful dining tables, premium decorations, framed family photographs, elegant table centerpieces, and soft golden lighting create a luxurious and emotional atmosphere filled with love and gratitude. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium anniversary photography, authentic emotions, highly detailed, masterpiece, vibrant colors, timeless love, luxurious celebration, unforgettable family memories."
+  },
+  {
+    id: 104,
+    title: "Retirement Celebration",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents18.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming retirement celebration portrait featuring the subject proudly celebrating the successful completion of a long and fulfilling professional career. The subject is dressed in elegant formal or traditional attire, smiling naturally while holding a beautiful bouquet of flowers, a retirement memento, appreciation plaque, or commemorative award. The celebration takes place in a beautifully decorated banquet hall or office venue adorned with elegant floral arrangements, gold and white balloons, fairy lights, premium stage décor, congratulatory banners, and a grand 'Happy Retirement' backdrop. Family members, colleagues, close friends, and well-wishers warmly congratulate the subject with heartfelt hugs, applause, handshakes, and joyful smiles, creating an emotional and memorable farewell celebration. Beautiful dining tables, fresh flowers, candles, gift boxes, framed career photographs, and elegant decorations add warmth and nostalgia to the atmosphere. Soft golden lighting, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium celebration photography, authentic emotions, highly detailed, masterpiece, vibrant colors, elegant farewell celebration, career milestone, gratitude, unforgettable memories."
+  },
+  {
+    id: 105,
+    title: "Farewell Party",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents19.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming farewell party celebration portrait featuring the subject being honored during a memorable farewell event in a beautifully decorated venue. The subject is dressed in elegant formal or smart casual attire, smiling naturally while holding a beautiful bouquet of flowers, farewell gifts, greeting cards, and a commemorative memento. Family members, friends, colleagues, classmates, and well-wishers surround the subject with warm smiles, heartfelt hugs, handshakes, applause, and joyful emotions, celebrating unforgettable memories together. The venue is beautifully decorated with colorful balloons, fresh floral arrangements, fairy lights, elegant stage décor, confetti, gift boxes, and a grand 'Best Wishes' and 'Farewell' backdrop. Warm golden lighting creates an emotional yet joyful atmosphere filled with gratitude, friendship, and new beginnings. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium farewell celebration photography, authentic emotions, highly detailed, masterpiece, vibrant colors, elegant decorations, touching farewell moment, unforgettable memories."
+  },
+  {
+    id: 106,
+    title: "Family Reunion",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents20.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming family reunion celebration portrait featuring the subject joyfully reuniting with beloved family members after a long time in a beautifully decorated home or outdoor garden. The subject is dressed in elegant casual or traditional attire, smiling naturally while warmly hugging parents, grandparents, siblings, cousins, children, and relatives. Multiple generations gather together with genuine happiness, laughter, emotional embraces, and heartfelt conversations, creating a touching family reunion moment. The venue is beautifully decorated with fresh flowers, fairy lights, colorful balloons, family photo displays, elegant dining tables filled with delicious homemade dishes, festive decorations, and a warm welcoming atmosphere. Children happily play together while elders share joyful memories and blessings. Soft golden hour lighting, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, emotional reunion, multi-generational family bonding, timeless memories."
+  },
+  {
+    id: 107,
+    title: "First Day of School",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents21.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming first day of school portrait featuring the subject excitedly beginning their educational journey outside a beautiful modern school campus. The subject is dressed in a neat school uniform suitable for the institution, wearing a backpack, holding school books, notebooks, and a colorful lunch bag while smiling naturally with excitement and confidence. The school entrance is beautifully decorated with colorful balloons, welcome banners, flowers, and cheerful educational decorations. Parents, teachers, classmates, and school staff warmly welcome the subject with encouraging smiles, handshakes, and heartfelt wishes, creating a joyful and memorable first-day atmosphere. A vibrant school building, green playground, school buses, classrooms, and children happily interacting enhance the lively educational environment. Warm morning sunlight, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium school lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, joyful learning atmosphere, educational milestone, timeless memories."
+  },
+  {
+    id: 108,
+    title: "College Admission Celebration",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents22.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming college admission celebration portrait featuring the subject proudly celebrating admission into their dream college or university. The subject is dressed in elegant smart casual attire, smiling naturally while holding an official admission letter, acceptance envelope, student ID, and a beautiful bouquet of flowers. Family members, parents, siblings, relatives, friends, and teachers warmly congratulate the subject with heartfelt hugs, applause, handshakes, and joyful smiles, creating a memorable celebration. The venue is beautifully decorated with colorful balloons, fresh floral arrangements, fairy lights, elegant banners reading 'Congratulations!', confetti, gift boxes, and premium celebration décor. A prestigious college campus or university entrance with iconic academic buildings, green lawns, and educational landmarks is visible in the background, symbolizing the beginning of an exciting new academic journey. Warm golden hour lighting, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium education lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, joyful academic milestone, dream college atmosphere, unforgettable memories."
+  },
+  {
+    id: 109,
+    title: "Promotion Celebration",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents23.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming promotion celebration portrait featuring the subject proudly celebrating a well-deserved career promotion inside a modern corporate office or elegant celebration venue. The subject is dressed in stylish professional business attire, smiling naturally while holding an official promotion letter, a bouquet of fresh flowers, and a commemorative award or plaque. Colleagues, managers, family members, and close friends warmly congratulate the subject with heartfelt hugs, handshakes, applause, and joyful smiles, creating a memorable career milestone celebration. The venue is beautifully decorated with elegant balloons, fresh floral arrangements, fairy lights, premium office décor, confetti, gift boxes, and a grand 'Congratulations on Your Promotion!' backdrop. A contemporary office with glass walls, modern workstations, indoor plants, and city skyline views enhances the premium corporate atmosphere. Warm golden lighting, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium corporate lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, elegant celebration, professional achievement, career milestone, unforgettable memories."
+  },
+  {
+    id: 110,
+    title: "Dream Come True Celebration",
+    category: "Life Events",
+    image: "/images/lifeevents/lifeevents24.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming 'Dream Come True' celebration portrait featuring the subject proudly celebrating the fulfillment of a lifelong dream or major personal achievement. The subject is dressed in elegant smart casual or formal attire, smiling naturally with joy, gratitude, and pride while holding a symbolic trophy, bouquet of flowers, certificate, or meaningful keepsake representing success. Family members, close friends, mentors, and loved ones surround the subject with heartfelt hugs, applause, handshakes, joyful smiles, and emotional congratulations, creating an unforgettable celebration. The venue is beautifully decorated with luxurious floral arrangements, fairy lights, elegant balloons, sparkling confetti, premium stage décor, candles, gift boxes, and a grand backdrop reading 'Dream Come True' and 'Congratulations!' Warm golden lighting creates a magical and inspiring atmosphere filled with happiness, hope, gratitude, and accomplishment. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium celebration photography, authentic emotions, highly detailed, masterpiece, vibrant colors, elegant decorations, inspirational atmosphere, life milestone, timeless memories."
+  },
 ];
 
 export const categories = [
