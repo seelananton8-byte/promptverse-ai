@@ -769,6 +769,96 @@ export const galleryData = [
     prompt:
     "Create a heartwarming family birthday celebration featuring smiling grandparents, loving parents, and two cheerful children gathered around a beautifully decorated birthday cake with glowing candles. Everyone is wearing colorful party hats and elegant casual outfits in soft pastel colors. The room is decorated with vibrant balloons, birthday banners, fairy lights, wrapped gift boxes, confetti, and festive decorations. Children are excitedly blowing candles while the family smiles with genuine happiness and love. Warm indoor lighting creates a cozy atmosphere with cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family lifestyle photography, joyful celebration, authentic emotions, highly detailed, masterpiece, vibrant colors, timeless memories."
   },
+  {
+    id: 78,
+    title: "Family Cooking Together",
+    category: "Family",
+    image: "/images/family/family6.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming family cooking together in a modern cozy kitchen featuring smiling grandparents, loving parents, and two cheerful children preparing a delicious homemade meal together. Family members are chopping vegetables, mixing ingredients, baking cookies, and decorating food while sharing laughter and joyful moments. Fresh vegetables, fruits, bread, cooking utensils, bowls, and colorful ingredients are neatly arranged on the kitchen counter. Everyone is dressed in stylish casual outfits with matching aprons, natural candid expressions, warm indoor golden lighting, elegant modern kitchen interior, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, cozy atmosphere, timeless family memories."
+  },
+  {
+    id: 79,
+    title: "Family Camping Adventure",
+    category: "Family",
+    image: "/images/family/family7.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming family camping adventure in a beautiful mountain forest featuring loving grandparents, smiling parents, and two cheerful children enjoying a memorable camping trip together. A cozy camping tent is set up beside a peaceful lake surrounded by tall pine trees and breathtaking mountains. The family is gathered around a glowing campfire, roasting marshmallows, sharing stories, laughing, and enjoying quality time together. Children are exploring nature, holding lanterns, and playing with friendly dogs while grandparents relax on camping chairs with warm smiles. Everyone wears comfortable outdoor camping outfits, hiking boots, and cozy jackets. Warm golden sunset light fills the scene, creating a magical and peaceful atmosphere. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, cozy campfire glow, unforgettable family memories."
+  },
+  {
+    id: 80,
+    title: "Family Diwali Celebration",
+    category: "Family",
+    image: "/images/family/family8.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming Family Diwali Celebration featuring loving grandparents, smiling parents, and two cheerful children celebrating the Festival of Lights together in front of a beautifully decorated traditional Indian home. Everyone is dressed in elegant traditional Indian attire—grandparents in classic silk outfits, parents in luxurious festive ethnic wear, and children in colorful traditional dresses. The family is joyfully lighting diyas, holding sparkling sparklers, exchanging sweets, and sharing warm hugs with genuine smiles. A magnificent rangoli decorates the entrance, glowing oil lamps illuminate every corner, colorful lanterns hang above, and vibrant marigold flower garlands decorate the house. Soft golden fairy lights create a magical festive atmosphere with gentle fireworks lighting up the night sky. Warm cinematic lighting, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family photography, authentic emotions, highly detailed, masterpiece, vibrant festive colors, joyful Indian festival atmosphere, timeless family memories."
+  },
+  {
+    id: 81,
+    title: "Family Christmas Celebration",
+    category: "Family",
+    image: "/images/family/family9.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming Family Christmas Celebration featuring loving grandparents, smiling parents, and two cheerful children celebrating Christmas together inside a beautifully decorated cozy home. A magnificent Christmas tree adorned with sparkling lights, colorful ornaments, golden ribbons, and a shining star stands in the center. Wrapped gift boxes, candy canes, stockings, and festive decorations surround the room. The family is joyfully exchanging gifts, decorating the Christmas tree, sharing warm hugs, and enjoying delicious Christmas treats with genuine smiles. Everyone is dressed in elegant Christmas outfits in festive red, green, and white colors, with cozy winter sweaters and scarves. Soft snowfall is visible through the windows while a glowing fireplace creates a warm and magical atmosphere. Warm cinematic lighting, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family photography, authentic emotions, highly detailed, masterpiece, vibrant festive colors, cozy holiday atmosphere, timeless family memories."
+  },
+  {
+    id: 82,
+    title: "Family Ramadan Celebration",
+    category: "Family",
+    image: "/images/family/family10.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming Family Ramadan Celebration featuring loving grandparents, smiling parents, and two cheerful children gathered together in a beautifully decorated traditional home during the holy month of Ramadan. The family is joyfully preparing to break their fast at a beautifully arranged iftar table filled with dates, fresh fruits, biryani, samosas, kebabs, desserts, juices, and traditional dishes. Elegant crescent moon and star decorations, glowing lanterns (fanous), soft golden fairy lights, Islamic geometric patterns, and beautiful calligraphy create a peaceful festive atmosphere. Everyone is dressed in elegant traditional attire, with grandparents in classic ethnic clothing, parents in luxurious festive outfits, and children in colorful traditional dresses. The family shares prayers, smiles, warm hugs, and meaningful moments together before enjoying the iftar meal. Warm golden evening lighting, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, peaceful Ramadan atmosphere, timeless family memories"
+  },
+  {
+    id: 83,
+    title: "Family Walking on the Beach",
+    category: "Family",
+    image: "/images/family/family11.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming Family Walking on the Beach featuring loving grandparents, smiling parents, and two cheerful children enjoying a peaceful walk together along a beautiful sandy beach during golden hour sunset. The family is barefoot, holding hands, laughing, and creating unforgettable memories as gentle ocean waves wash over the shore. Children happily collect seashells while grandparents and parents share warm smiles and loving conversations. Everyone is dressed in elegant casual summer outfits in soft pastel and neutral colors, gently flowing in the ocean breeze. A breathtaking sunset paints the sky with vibrant shades of orange, pink, and purple, reflecting beautifully on the calm sea. Seagulls fly overhead, palm trees sway in the distance, and footprints trail behind the family in the soft sand. Warm cinematic lighting, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, peaceful beach atmosphere, timeless family memories."
+  },
+  {
+    id: 84,
+    title: "Family Road Trip",
+    category: "Family",
+    image: "/images/family/family12.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming Family Road Trip featuring loving grandparents, smiling parents, and two cheerful children enjoying an unforgettable journey together in a stylish modern SUV traveling along a breathtaking scenic highway. The family is laughing, singing, taking selfies, and admiring the beautiful landscapes through the windows while sharing joyful conversations. The car is surrounded by majestic mountains, lush green forests, peaceful lakes, colorful wildflowers, and winding roads under a vibrant blue sky with soft white clouds. Everyone is dressed in elegant casual travel outfits with sunglasses and comfortable accessories. The vehicle is loaded with travel bags, a picnic basket, and adventure essentials, creating the perfect family vacation atmosphere. Warm golden hour sunlight casts a magical glow across the scene, with cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, joyful travel atmosphere, timeless family memories."
+  },
+  {
+    id: 85,
+    title: "Parents Holding Newborn Baby",
+    category: "Family",
+    image: "/images/family/family13.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming family portrait featuring loving parents gently holding their precious newborn baby with genuine happiness and unconditional love. The mother lovingly cradles the baby while the father stands close, embracing both with a warm smile. The newborn is peacefully sleeping, wrapped in a soft white knitted blanket. Everyone is dressed in elegant coordinated neutral-toned outfits in white, beige, and cream colors. Soft golden window light fills the cozy modern nursery, decorated with delicate flowers, wooden furniture, plush toys, and warm pastel décor. Natural candid expressions, emotional family bonding, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium newborn family photography, authentic emotions, highly detailed, masterpiece, warm colors, peaceful atmosphere, timeless family memories."
+  },
+  {
+    id: 86,
+    title: "Family Dinner Together",
+    category: "Family",
+    image: "/images/family/family14.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a heartwarming family dinner scene featuring loving grandparents, smiling parents, and two cheerful children gathered around a beautifully set dining table inside a cozy modern home. The family is enjoying a delicious homemade dinner together, sharing laughter, meaningful conversations, and warm smiles while serving food to one another. The dining table is filled with a variety of freshly prepared dishes including rice, curry, vegetables, bread, salads, desserts, and refreshing drinks, elegantly presented. Everyone is dressed in stylish coordinated casual outfits in soft neutral and pastel colors. Warm ambient lighting, decorative candles, indoor plants, family photo frames, and elegant home décor create a welcoming atmosphere. Natural candid expressions, genuine family bonding, cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium family lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant colors, cozy dinner atmosphere, timeless family memories."
+  },
 ];
 
 export const categories = [
