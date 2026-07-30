@@ -1,4 +1,7 @@
 import { auth } from "../services/firebase"; // Import the auth object from your Firebase configuration
+import { Capacitor } from "@capacitor/core";
+import { Filesystem, Directory } from "@capacitor/filesystem";
+import { Share } from "@capacitor/share";
 import { useState, useEffect, useRef } from "react";
 import { Sparkles, Search, Copy, Heart } from "lucide-react";
 import { motion } from "framer-motion";
@@ -752,20 +755,44 @@ export default function Hero({ selectedPrompt, setSelectedPrompt, activeTool, se
   };
 
   // ⬇️ Download
-  const downloadResponse = () => {
-    if (!result) return;
+const downloadResponse = async () => {
+  if (!result) return;
 
+  const fileName = `promptverse-${Date.now()}.txt`;
+
+  if (Capacitor.isNativePlatform()) {
+    try {
+      await Filesystem.writeFile({
+        path: fileName,
+        data: result,
+        directory: Directory.Documents,
+        encoding: "utf8",
+      });
+
+      toast.success("Saved to Documents!");
+
+      await Share.share({
+        title: "PromptVerse Response",
+        text: result,
+        dialogTitle: "Share or save your response",
+      });
+    } catch (err) {
+      console.error("Native download failed:", err);
+      toast.error("Failed to save file.");
+    }
+  } else {
     const element = document.createElement("a");
     const file = new Blob([result], { type: "text/plain" });
 
     element.href = URL.createObjectURL(file);
-    element.download = `promptverse-${Date.now()}.txt`;
+    element.download = fileName;
     document.body.appendChild(element);
     element.click();
-    document.body.removeChild(element); // security/hygiene: avoid leaving stray nodes
-    URL.revokeObjectURL(element.href); // release the blob URL once used
+    document.body.removeChild(element);
+    URL.revokeObjectURL(element.href);
     toast.success("Downloaded!");
-  };
+  }
+};
 
   // ❌ Clear Result
   const clearResult = () => {

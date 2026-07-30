@@ -1099,6 +1099,106 @@ export const galleryData = [
     prompt:
     "Create a heartwarming 'Dream Come True' celebration portrait featuring the subject proudly celebrating the fulfillment of a lifelong dream or major personal achievement. The subject is dressed in elegant smart casual or formal attire, smiling naturally with joy, gratitude, and pride while holding a symbolic trophy, bouquet of flowers, certificate, or meaningful keepsake representing success. Family members, close friends, mentors, and loved ones surround the subject with heartfelt hugs, applause, handshakes, joyful smiles, and emotional congratulations, creating an unforgettable celebration. The venue is beautifully decorated with luxurious floral arrangements, fairy lights, elegant balloons, sparkling confetti, premium stage décor, candles, gift boxes, and a grand backdrop reading 'Dream Come True' and 'Congratulations!' Warm golden lighting creates a magical and inspiring atmosphere filled with happiness, hope, gratitude, and accomplishment. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium celebration photography, authentic emotions, highly detailed, masterpiece, vibrant colors, elegant decorations, inspirational atmosphere, life milestone, timeless memories."
   },
+  {
+    id: 111,
+    title: "Cherry Blossom Garden",
+    category: "Nature",
+    image: "/images/nature/nature1.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a breathtaking Cherry Blossom Garden portrait featuring the subject peacefully strolling through a magnificent garden filled with blooming cherry blossom trees in full bloom. The subject is dressed in elegant casual or nature-inspired attire, smiling naturally while enjoying the magical beauty of thousands of soft pink and white cherry blossoms gently falling through the air. Beautiful stone pathways, wooden bridges, crystal-clear ponds, flowering shrubs, lush green grass, and traditional garden elements create a dreamy and romantic atmosphere. Warm golden sunlight filters through the blooming branches, producing soft rays of light and illuminating the delicate petals floating in the gentle spring breeze. Butterflies flutter among the blossoms, birds sing in the background, and the peaceful surroundings evoke serenity, happiness, and a deep connection with nature. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium nature photography, authentic emotions, highly detailed, masterpiece, vibrant colors, tranquil spring atmosphere, enchanting floral paradise, timeless memories."
+  },
+  {
+    id: 112,
+    title: "Sunset by the Lake",
+    category: "Nature",
+    image: "/images/nature/nature2.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a breathtaking Sunset by the Lake portrait featuring the subject peacefully enjoying a magical golden hour beside a calm crystal-clear lake surrounded by majestic mountains and lush green landscapes. The subject is dressed in elegant casual or nature-inspired attire, smiling naturally while standing or sitting on a beautiful wooden dock, lakeside rocks, or grassy shoreline, admiring the spectacular sunset. The sky is painted with vibrant shades of orange, pink, purple, and golden hues, beautifully reflecting across the calm water. Elegant wooden boats gently float on the lake, while colorful wildflowers, lanterns, wooden cabins, and tall pine trees create a peaceful and picturesque atmosphere. Gentle evening breeze, shimmering water reflections, birds flying across the sunset sky, and soft glowing sunlight create a serene connection with nature. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium nature photography, authentic emotions, highly detailed, masterpiece, vibrant colors, tranquil lakeside atmosphere, breathtaking sunset scenery, timeless nature memories."
+  },
+  {
+    id: 113,
+    title: "Tropical Island Paradise",
+    category: "Nature",
+    image: "/images/nature/nature3.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a breathtaking Tropical Island Paradise portrait featuring the subject relaxing in a luxurious tropical island surrounded by crystal-clear turquoise ocean waters, soft white sandy beaches, and swaying coconut palm trees. The subject is dressed in stylish beachwear or elegant tropical vacation attire, smiling naturally while walking barefoot along the shoreline or standing beside the sparkling sea, enjoying the refreshing ocean breeze and breathtaking island scenery. Luxury overwater villas, wooden piers, colorful tropical flowers, lush green vegetation, hammocks, beach loungers, and gently rolling waves create a dreamy paradise atmosphere. The sky glows with warm golden sunlight, fluffy white clouds, and brilliant blue tones, while the calm ocean beautifully reflects the sunlight. Seagulls soar overhead, gentle waves kiss the shore, and the peaceful surroundings evoke relaxation, freedom, and a deep connection with nature. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium tropical travel photography, authentic emotions, highly detailed, masterpiece, vibrant colors, luxurious island atmosphere, breathtaking ocean paradise, timeless vacation memories."
+  },
+  {
+    id: 114,
+    title: "Forest Adventure",
+    category: "Nature",
+    image: "/images/nature/nature4.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a breathtaking Forest Adventure portrait featuring the subject exploring a magnificent lush green forest filled with towering trees, crystal-clear streams, cascading waterfalls, moss-covered rocks, colorful wildflowers, and enchanting woodland scenery. The subject is dressed in stylish outdoor adventure or casual hiking attire, carrying a lightweight backpack while smiling naturally and enjoying the beauty of nature. Wooden bridges, winding forest trails, rustic cabins, and scenic viewpoints blend harmoniously into the untouched wilderness. Warm golden sunlight filters through the dense forest canopy, creating magical rays of light, while birds fly overhead, butterflies flutter among the flowers, and gentle mist rises from the flowing streams. The peaceful atmosphere evokes freedom, adventure, serenity, and a deep connection with nature. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium nature photography, authentic emotions, highly detailed, masterpiece, vibrant colors, tranquil forest atmosphere, breathtaking wilderness, timeless adventure memories."
+  },
+  {
+    id: 115,
+    title: "Sunflower Field",
+    category: "Nature",
+    image: "/images/nature/nature5.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a breathtaking Sunflower Field portrait featuring the subject peacefully walking through a vast field of fully bloomed golden sunflowers stretching to the horizon under a brilliant blue sky. The subject is dressed in elegant casual or nature-inspired attire, smiling naturally while gently touching the vibrant sunflower petals and enjoying the beauty of the countryside. Endless rows of bright yellow sunflowers, lush green leaves, rustic wooden fences, charming country pathways, colorful wildflowers, and distant rolling hills create a picturesque rural paradise. Warm golden sunlight bathes the landscape, producing a magical glow that highlights the flowers and the subject. Butterflies flutter gracefully among the blossoms, bees buzz gently from flower to flower, birds soar across the sky, and a soft summer breeze sways the sunflowers, creating a peaceful and joyful atmosphere. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium nature photography, authentic emotions, highly detailed, masterpiece, vibrant colors, tranquil countryside atmosphere, breathtaking floral landscape, timeless nature memories."
+  },
+  {
+    id: 116,
+    title: "Northern Lights",
+    category: "Nature",
+    image: "/images/nature/nature6.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a breathtaking Northern Lights portrait featuring the subject peacefully admiring the magnificent Aurora Borealis beneath a crystal-clear starry night sky in a snowy Arctic landscape. The subject is dressed in elegant winter adventure attire, including a premium insulated jacket, scarf, gloves, winter boots, and a cozy beanie, smiling naturally while standing on a snow-covered lakeside, frozen shoreline, or scenic mountain viewpoint. Brilliant green, blue, purple, and pink aurora lights dance across the night sky, beautifully reflecting on the calm icy water. Majestic snow-covered mountains, frozen lakes, pine forests, charming wooden cabins with warm glowing lights, and a peaceful Arctic village create a magical winter paradise. Soft moonlight, shimmering stars, gentle snowfall, and breathtaking natural scenery evoke wonder, serenity, and adventure. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium winter nature photography, authentic emotions, highly detailed, masterpiece, vibrant aurora colors, tranquil Arctic atmosphere, breathtaking wilderness, timeless travel memories."
+  },
+  {
+    id: 117,
+    title: "Snowy Mountain Landscape",
+    category: "Nature",
+    image: "/images/nature/nature7.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a breathtaking Snowy Mountain Landscape portrait featuring the subject peacefully enjoying a majestic snow-covered mountain paradise surrounded by towering alpine peaks, frozen lakes, pine forests, and pristine white snow. The subject is dressed in elegant winter adventure attire, including a premium insulated jacket, scarf, gloves, snow boots, and a cozy woolen beanie, smiling naturally while standing on a scenic mountain viewpoint, snowy trail, or frozen lakeside. Crystal-clear blue skies, drifting clouds, sparkling snow, wooden cabins with warm glowing windows, rustic fences, and snow-covered pine trees create a magical winter wonderland. Soft golden sunlight illuminates the snow-capped mountains, casting beautiful light across the breathtaking landscape. Gentle snowfall, birds soaring above the mountains, and peaceful wilderness evoke serenity, freedom, and adventure. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium winter nature photography, authentic emotions, highly detailed, masterpiece, vibrant colors, tranquil alpine atmosphere, breathtaking snowy wilderness, timeless travel memories."
+  },
+  {
+    id: 118,
+    title: "Beach Paradise",
+    category: "Nature",
+    image: "/images/nature/nature8.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a breathtaking Beach Paradise portrait featuring the subject peacefully enjoying a luxurious tropical beach surrounded by crystal-clear turquoise ocean waters, soft white sandy shores, and swaying coconut palm trees. The subject is dressed in stylish beachwear or elegant tropical vacation attire, smiling naturally while walking barefoot along the shoreline, relaxing near the waves, or standing beside the sparkling sea while enjoying the refreshing ocean breeze. Luxury beach resorts, overwater villas, wooden piers, colorful tropical flowers, beach loungers, hammocks, seashells, and gently rolling waves create a dreamlike coastal paradise. The brilliant blue sky, fluffy white clouds, and warm golden sunlight beautifully illuminate the landscape while shimmering reflections dance across the crystal-clear water. Seagulls soar overhead, palm leaves gently sway in the breeze, and the peaceful surroundings evoke relaxation, freedom, happiness, and a deep connection with nature. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium tropical travel photography, authentic emotions, highly detailed, masterpiece, vibrant colors, luxurious beach atmosphere, breathtaking ocean scenery, timeless vacation memories."
+  },
+  {
+    id: 119,
+    title: "Lavender Field",
+    category: "Nature",
+    image: "/images/nature/nature9.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a breathtaking Lavender Field portrait featuring the subject peacefully walking through an endless field of blooming purple lavender flowers stretching to the horizon under a beautiful blue sky. The subject is dressed in elegant casual or nature-inspired attire, smiling naturally while gently touching the fragrant lavender blossoms and enjoying the peaceful countryside atmosphere. Endless rows of vibrant lavender flowers, lush green pathways, rustic wooden fences, charming windmills, rolling hills, and picturesque countryside scenery create a magical floral paradise. Warm golden sunlight bathes the landscape, producing soft rays of light that illuminate the purple blossoms and the subject. Butterflies gracefully flutter among the flowers, bees gently gather nectar, birds soar across the clear sky, and a gentle breeze causes the lavender fields to sway beautifully, creating a calming and enchanting atmosphere. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium nature photography, authentic emotions, highly detailed, masterpiece, vibrant colors, tranquil countryside atmosphere, breathtaking floral landscape, timeless nature memories."
+  },
+  {
+    id: 120,
+    title: "Waterfall Escape",
+    category: "Nature",
+    image: "/images/nature/nature10.jpeg",
+    likes: "1.9k",
+    views: "3.3k",
+    prompt:
+    "Create a breathtaking Waterfall Escape portrait featuring the subject peacefully exploring a magnificent tropical waterfall surrounded by lush green rainforest and crystal-clear turquoise waters. The subject is dressed in stylish outdoor adventure or elegant casual nature-inspired attire, smiling naturally while standing on scenic rocks, a rustic wooden bridge, or beside the sparkling waterfall, enjoying the refreshing mist and breathtaking surroundings. Towering waterfalls cascade dramatically into a crystal-clear natural pool, surrounded by moss-covered rocks, dense tropical trees, vibrant green foliage, colorful wildflowers, ferns, and winding forest trails. Warm golden sunlight filters through the forest canopy, creating magical rays of light that illuminate the waterfall and shimmering water. Butterflies flutter gracefully among the flowers, birds soar through the forest, and the gentle sound of flowing water creates a peaceful atmosphere filled with serenity, freedom, and adventure. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium nature photography, authentic emotions, highly detailed, masterpiece, vibrant colors, tranquil rainforest atmosphere, breathtaking waterfall scenery, luxurious adventure, timeless nature memories."
+  },
 ];
 
 export const categories = [
