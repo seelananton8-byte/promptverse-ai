@@ -1,10 +1,29 @@
 import { useState } from "react";
 import { login, loginWithGoogle } from "../../services/auth";
 import toast from "react-hot-toast";
+import { Eye, EyeOff } from "lucide-react";
+
+const getFriendlyMessage = (code) => {
+  switch (code) {
+    case "auth/user-not-found":
+    case "auth/wrong-password":
+    case "auth/invalid-credential":
+      return "Email or password is incorrect";
+    case "auth/invalid-email":
+      return "Please enter a valid email address";
+    case "auth/too-many-requests":
+      return "Too many attempts. Please try again later";
+    case "auth/network-request-failed":
+      return "Network error. Check your connection";
+    default:
+      return "Something went wrong. Please try again";
+  }
+};
 
 export default function LoginForm({ onSuccess, onForgot }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e) => {
@@ -24,7 +43,7 @@ export default function LoginForm({ onSuccess, onForgot }) {
 
       onSuccess();
     } catch (error) {
-      toast.error(error.message);
+      toast.error(getFriendlyMessage(error.code));
     } finally {
       setLoading(false);
     }
@@ -38,7 +57,7 @@ export default function LoginForm({ onSuccess, onForgot }) {
 
       onSuccess();
     } catch (error) {
-      toast.error(error.message);
+      toast.error(getFriendlyMessage(error.code));
     }
   };
 
@@ -68,27 +87,47 @@ export default function LoginForm({ onSuccess, onForgot }) {
         "
       />
 
-      <input
-        type="password"
-        autoComplete="current-password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        className="
-          w-full
-          py-3
-          px-4
-          sm:py-4
-          rounded-xl
-          bg-[#111827]
-          border
-          border-white/10
-          outline-none
-          text-white
-          text-sm
-          sm:text-base
-        "
-      />
+      <div className="relative">
+        <input
+          type={showPassword ? "text" : "password"}
+          autoComplete="current-password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="
+            w-full
+            py-3
+            px-4
+            pr-12
+            sm:py-4
+            rounded-xl
+            bg-[#111827]
+            border
+            border-white/10
+            outline-none
+            text-white
+            text-sm
+            sm:text-base
+          "
+        />
+
+        <button
+          type="button"
+          onClick={() => setShowPassword((prev) => !prev)}
+          className="
+            absolute
+            right-3
+            top-1/2
+            -translate-y-1/2
+            text-gray-400
+            hover:text-gray-200
+            transition
+          "
+          tabIndex={-1}
+        >
+          {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+        </button>
+      </div>
 
       <div className="text-right">
 

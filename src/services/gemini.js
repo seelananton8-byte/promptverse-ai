@@ -1,19 +1,19 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
-const genAI = new GoogleGenerativeAI(
-  import.meta.env.VITE_GEMINI_API_KEY
-);
-
-const model = genAI.getGenerativeModel({
-  model: "gemini-2.5-flash",
-});
-
 export async function generateContent(prompt) {
- try {
-  const result = await model.generateContent(prompt);
-  return result.response.text();
- } catch (error) {
-  console.error("Gemini Error: ", error);
-  throw error;
- }
+  try {
+    const response = await fetch("/api/gemini", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Gemini request failed");
+    }
+
+    const data = await response.json();
+    return data.text;
+  } catch (error) {
+    console.error("Gemini Error:", error);
+    throw error;
+  }
 }

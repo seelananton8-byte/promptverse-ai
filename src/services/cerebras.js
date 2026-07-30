@@ -1,34 +1,19 @@
 export async function generateWithCerebras(prompt) {
   try {
-    const response = await fetch(
-    "https://api.cerebras.ai/v1/chat/completions",
-    {
+    const response = await fetch("/api/cerebras", {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_CEREBRAS_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "llama-3.3-70b",
-        messages: [
-          {
-            role: "user",
-            content: prompt,
-          },
-        ],
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Cerebras request failed");
     }
-  );
 
-  if (!response.ok) {
-    throw new Error("Cerebras request failed");
-  }
-
-  const data = await response.json();
-
-  return data.choices[0].message.content;
-  } catch(error) {
-    console.error("Cerebras Error: ", error);
+    const data = await response.json();
+    return data.text;
+  } catch (error) {
+    console.error("Cerebras Error:", error);
     throw error;
   }
 }

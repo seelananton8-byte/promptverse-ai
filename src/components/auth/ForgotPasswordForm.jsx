@@ -2,6 +2,21 @@ import { useState } from "react";
 import { forgotPassword } from "../../services/auth";
 import toast from "react-hot-toast";
 
+const getFriendlyMessage = (code) => {
+  switch (code) {
+    case "auth/user-not-found":
+      return "No account found with this email";
+    case "auth/invalid-email":
+      return "Please enter a valid email address";
+    case "auth/too-many-requests":
+      return "Too many attempts. Please try again later";
+    case "auth/network-request-failed":
+      return "Network error. Check your connection";
+    default:
+      return "Something went wrong. Please try again";
+  }
+};
+
 export default function ForgotPasswordForm({ onBack }) {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
@@ -23,7 +38,7 @@ export default function ForgotPasswordForm({ onBack }) {
 
       onBack();
     } catch (error) {
-      toast.error(error.message);
+      toast.error(getFriendlyMessage(error.code));
     } finally {
       setLoading(false);
     }

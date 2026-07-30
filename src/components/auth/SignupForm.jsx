@@ -1,12 +1,30 @@
 import { useState } from "react";
 import { signup, loginWithGoogle } from "../../services/auth";
 import toast from "react-hot-toast";
+import { Eye, EyeOff } from "lucide-react";
+
+const getFriendlyMessage = (code) => {
+  switch (code) {
+    case "auth/email-already-in-use":
+      return "An account with this email already exists";
+    case "auth/invalid-email":
+      return "Please enter a valid email address";
+    case "auth/weak-password":
+      return "Password is too weak, please choose a stronger one";
+    case "auth/network-request-failed":
+      return "Network error. Check your connection";
+    default:
+      return "Something went wrong. Please try again";
+  }
+};
 
 export default function SignupForm({ onSuccess }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSignup = async (e) => {
@@ -36,7 +54,7 @@ export default function SignupForm({ onSuccess }) {
 
       onSuccess();
     } catch (error) {
-      toast.error(error.message);
+      toast.error(getFriendlyMessage(error.code));
     } finally {
       setLoading(false);
     }
@@ -50,7 +68,7 @@ export default function SignupForm({ onSuccess }) {
 
       onSuccess();
     } catch (error) {
-      toast.error(error.message);
+      toast.error(getFriendlyMessage(error.code));
     }
   };
 
@@ -102,49 +120,89 @@ export default function SignupForm({ onSuccess }) {
         "
       />
 
-      <input
-        type="password"
-        autoComplete="new-password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        className="
-          w-full
-          py-3
-          px-4
-          sm:py-4
-          rounded-xl
-          bg-[#111827]
-          border
-          border-white/10
-          outline-none
-          text-white
-          text-sm
-          sm:text-base
-        "
-      />
+      <div className="relative">
+        <input
+          type={showPassword ? "text" : "password"}
+          autoComplete="new-password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="
+            w-full
+            py-3
+            px-4
+            pr-12
+            sm:py-4
+            rounded-xl
+            bg-[#111827]
+            border
+            border-white/10
+            outline-none
+            text-white
+            text-sm
+            sm:text-base
+          "
+        />
 
-      <input
-        type="password"
-        autoComplete="new-password"
-        placeholder="Confirm Password"
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-        className="
-          w-full
-          py-3
-          px-4
-          sm:py-4
-          rounded-xl
-          bg-[#111827]
-          border
-          border-white/10
-          outline-none
-          text-white
-          text-sm
-          sm:text-base
-        "
-      />
+        <button
+          type="button"
+          onClick={() => setShowPassword((prev) => !prev)}
+          className="
+            absolute
+            right-3
+            top-1/2
+            -translate-y-1/2
+            text-gray-400
+            hover:text-gray-200
+            transition
+          "
+          tabIndex={-1}
+        >
+          {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+        </button>
+      </div>
+
+      <div className="relative">
+        <input
+          type={showConfirmPassword ? "text" : "password"}
+          autoComplete="new-password"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          className="
+            w-full
+            py-3
+            px-4
+            pr-12
+            sm:py-4
+            rounded-xl
+            bg-[#111827]
+            border
+            border-white/10
+            outline-none
+            text-white
+            text-sm
+            sm:text-base
+          "
+        />
+
+        <button
+          type="button"
+          onClick={() => setShowConfirmPassword((prev) => !prev)}
+          className="
+            absolute
+            right-3
+            top-1/2
+            -translate-y-1/2
+            text-gray-400
+            hover:text-gray-200
+            transition
+          "
+          tabIndex={-1}
+        >
+          {showConfirmPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+        </button>
+      </div>
 
       <button
         type="submit"
