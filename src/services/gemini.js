@@ -1,6 +1,6 @@
 export async function generateContent(prompt) {
   try {
-    const response = await fetch("/api/gemini", {
+    const response = await fetch("https://promptverse-ai-inky.vercel.app/api/gemini", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt }),

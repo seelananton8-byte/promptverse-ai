@@ -1,6 +1,6 @@
 export async function generateWithCerebras(prompt) {
   try {
-    const response = await fetch("/api/cerebras", {
+    const response = await fetch("https://promptverse-ai-inky.vercel.app/api/cerebras", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt }),
