@@ -2,8 +2,7 @@ import { Share } from "@capacitor/share";
 import { Capacitor } from "@capacitor/core";
 import { useState} from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Copy, Heart, Share2 } from "lucide-react";
-import { Eye } from "lucide-react";
+import { X, Copy, Heart, Share2, Eye } from "lucide-react";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
 import { getGalleryStats, incrementViews } from "../../services/galleryStats";
@@ -88,8 +87,13 @@ useEffect(() => {
   const loadStats = async () => {
     const promptId = String(selectedPrompt.id);
 
-    const viewedPrompts =
-      JSON.parse(localStorage.getItem("viewedPrompts")) || [];
+    let viewedPrompts = [];
+    try {
+      viewedPrompts =
+        JSON.parse(localStorage.getItem("viewedPrompts")) || [];
+    } catch (err) {
+      viewedPrompts = [];
+    }
 
     if (!viewedPrompts.includes(promptId)) {
       await incrementViews(selectedPrompt.id);
@@ -113,6 +117,35 @@ useEffect(() => {
   loadStats();
 
 }, [selectedPrompt]);
+
+// Body scroll lock while modal is open
+useEffect(() => {
+  if (!selectedPrompt) return;
+
+  const originalOverflow = document.body.style.overflow;
+  document.body.style.overflow = "hidden";
+
+  return () => {
+    document.body.style.overflow = originalOverflow;
+  };
+}, [selectedPrompt]);
+
+// Close modal on Escape key
+useEffect(() => {
+  if (!selectedPrompt) return;
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Escape") {
+      setSelectedPrompt(null);
+    }
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+  };
+}, [selectedPrompt, setSelectedPrompt]);
 
   if (!selectedPrompt) return null;
 
@@ -303,7 +336,6 @@ const sharePrompt = async () => {
             {/* bottom fade - smooth transition into content section */}
             <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0B1120] to-transparent pointer-events-none" />
 
-
             {/* Category */}
             <div
               className="
@@ -330,6 +362,7 @@ const sharePrompt = async () => {
               onClick={() =>
                 setSelectedPrompt(null)
               }
+              aria-label="Close"
               className="
                 absolute
                 top-5
