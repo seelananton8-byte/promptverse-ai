@@ -277,20 +277,32 @@ const sharePrompt = async () => {
           "
         >
           {/* Image */}
-          <div className="relative">
+          <div className="relative w-full h-44 sm:h-56 md:h-[420px] overflow-hidden bg-black">
 
+            {/* blurred background - empty space fill panna */}
             <img
-              loading='lazy'
+              src={selectedPrompt.image}
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-40"
+            />
+
+            {/* actual image - full view, no crop */}
+            <img
+              loading="lazy"
               src={selectedPrompt.image}
               alt={`${selectedPrompt.title} AI Prompt`}
-              className="
-                w-full
-                h-44
-                sm:h-56
-                md:h-[420px]
-                object-cover
-              "
+              className="relative w-full h-full object-contain drop-shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
             />
+
+            {/* subtle color wash for premium tint */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-cyan-900/10 pointer-events-none" />
+
+            {/* top fade - so category badge & close button pop out nicely */}
+            <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
+
+            {/* bottom fade - smooth transition into content section */}
+            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0B1120] to-transparent pointer-events-none" />
+
 
             {/* Category */}
             <div
