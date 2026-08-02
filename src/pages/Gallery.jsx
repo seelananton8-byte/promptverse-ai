@@ -46,7 +46,7 @@ const matchesSearch =
 
 return matchesCategory && matchesSearch;
 
-});
+}).sort((a, b) => b.id - a.id);
 
 return ( <div className="min-h-screen bg-[#050816] text-white px-6 py-10">
 

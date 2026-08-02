@@ -3,7 +3,7 @@ export const galleryData = [
     id: 1,
     title: "Timeless Balcony Romance",
     category: "Couples",
-    image: "/images/couples/couple1.png",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592799/promptverse/couples/couple1.png",
     likes: 124,
     views: 1250,
     prompt: 
@@ -13,7 +13,7 @@ export const galleryData = [
     id: 2,
     title: "Neon Rain Promise",
     category: "Couples",
-    image: "/images/couples/couple2.png",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592806/promptverse/couples/couple2.png",
     likes: 95,
     views: 870,
     prompt: 
@@ -23,7 +23,7 @@ export const galleryData = [
     id: 3,
     title: "Morning Serenity",
     category: "Couples",
-    image: "/images/couples/couple6.png",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592822/promptverse/couples/couple6.png",
     likes: 18,
     views: 269,
     prompt:
@@ -33,7 +33,7 @@ export const galleryData = [
     id: 4,
     title: "Cozy Winter Evenings",
     category: "Couples",
-    image: "/images/couples/couple4.png",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592813/promptverse/couples/couple4.png",
     likes: 156,
     views: 1400,
     prompt:
@@ -43,7 +43,7 @@ export const galleryData = [
     id: 5,
     title: "Fields Of Forever",
     category: "Couples",
-    image: "/images/couples/couple5.png",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592816/promptverse/couples/couple5.png",
     likes: 156,
     views: 1400,
     prompt:
@@ -53,7 +53,7 @@ export const galleryData = [
     id: 6,
     title: "Golden Horizon Love",
     category: "Couples",
-    image: "/images/couples/couple3.png",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592810/promptverse/couples/couple3.png",
     likes: 88,
     views: 760,
     prompt:
@@ -63,7 +63,7 @@ export const galleryData = [
     id: 7,
     title: "Century Glory",
     category: "Cricket",
-    image: "/images/cricket/cricket1.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592838/promptverse/cricket/cricket1.jpg",
     likes: 156,
     views: 1400,
     prompt:
@@ -73,7 +73,7 @@ export const galleryData = [
     id: 8,
     title: "Street Cricket at Sunset",
     category: "Cricket",
-    image: "/images/cricket/cricket2.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592844/promptverse/cricket/cricket2.jpg",
     likes: 95,
     views: 870,
     prompt: 
@@ -83,7 +83,7 @@ export const galleryData = [
     id: 9,
     title: "Forever RCB",
     category: "Cricket",
-    image: "/images/cricket/cricket3.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592848/promptverse/cricket/cricket3.jpg",
     likes: 95,
     views: 870,
     prompt: 
@@ -93,7 +93,7 @@ export const galleryData = [
     id: 10,
     title: "One Selfie, A Million Memories",
     category: "Cricket",
-    image: "/images/cricket/cricket4.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592853/promptverse/cricket/cricket4.jpg",
     likes: 1800,
     views: "2.5k",
     prompt: 
@@ -103,7 +103,7 @@ export const galleryData = [
     id: 11,
     title: "Whistle Podu Selfie",
     category: "Cricket",
-    image: "/images/cricket/cricket5.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592855/promptverse/cricket/cricket5.jpg",
     likes: 1800,
     views: "2.5k",
     prompt: 
@@ -113,7 +113,7 @@ export const galleryData = [
     id: 12,
     title: "CSK Fan Outside the Stadium before the Match",
     category: "Cricket",
-    image: "/images/cricket/cricket6.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592858/promptverse/cricket/cricket6.jpg",
     likes: 700,
     views: "1.5k",
     prompt: 
@@ -123,7 +123,7 @@ export const galleryData = [
     id: 13,
     title: "RCB Fan Outside the Stadium before the Match",
     category: "Cricket",
-    image: "/images/cricket/cricket7.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592860/promptverse/cricket/cricket7.jpg",
     likes: 1700,
     views: "3.5k",
     prompt: 
@@ -133,7 +133,7 @@ export const galleryData = [
     id: 14,
     title: "MI Fan Outside the Stadium before the Match",
     category: "Cricket",
-    image: "/images/cricket/cricket8.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592863/promptverse/cricket/cricket8.jpg",
     likes: 2700,
     views: "2.5k",
     prompt: 
@@ -143,7 +143,7 @@ export const galleryData = [
     id: 15,
     title: "MI Fan taking Selfie a packed Wankhede Stadium during the Match",
     category: "Cricket",
-    image: "/images/cricket/cricket9.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592866/promptverse/cricket/cricket9.jpg",
     likes: 1300,
     views: "1.7k",
     prompt: 
@@ -153,7 +153,7 @@ export const galleryData = [
     id: 16,
     title: "Proud Team India Fan",
     category: "Cricket",
-    image: "/images/cricket/cricket10.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592842/promptverse/cricket/cricket10.jpg",
     likes: "18k",
     views: "1.8M",
     prompt: 
@@ -163,7 +163,7 @@ export const galleryData = [
     id: 17,
     title: "The Last Sunset Warrior",
     category: "Anime",
-    image: "/images/anime/anime1.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592702/promptverse/anime/anime1.jpg",
     likes: "310",
     views: "520",
     prompt: 
@@ -173,7 +173,7 @@ export const galleryData = [
     id: 18,
     title: "Midnight Supercar King",
     category: "Male",
-    image: "/images/male/male1.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592975/promptverse/male/male1.jpg",
     likes: "410",
     views: "1000",
     prompt: 
@@ -183,7 +183,7 @@ export const galleryData = [
     id: 19,
     title: "Midnight Superbike Rider",
     category: "Male",
-    image: "/images/male/male2.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592986/promptverse/male/male2.jpg",
     likes: "1110",
     views: "5.5k",
     prompt: 
@@ -193,7 +193,7 @@ export const galleryData = [
     id: 20,
     title: "Empire Office CEO",
     category: "Male",
-    image: "/images/male/male3.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592987/promptverse/male/male3.jpg",
     likes: "1.1k",
     views: "2.5k",
     prompt: 
@@ -203,7 +203,7 @@ export const galleryData = [
     id: 21,
     title: "Golden Hour Escape",
     category: "Male",
-    image: "/images/male/male4.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592988/promptverse/male/male4.jpg",
     likes: "2.1k",
     views: "3.5k",
     prompt: 
@@ -213,7 +213,7 @@ export const galleryData = [
     id: 22,
     title: "Mountain Travaler",
     category: "Male",
-    image: "/images/male/male5.png",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592993/promptverse/male/male5.png",
     likes: "1.8k",
     views: "2.8k",
     prompt: 
@@ -223,7 +223,7 @@ export const galleryData = [
     id: 23,
     title: "Gym Mirror Selfie",
     category: "Male",
-    image: "/images/male/male6.png",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592997/promptverse/male/male6.png",
     likes: "2.8k",
     views: "3.8k",
     prompt: 
@@ -233,7 +233,7 @@ export const galleryData = [
     id: 24,
     title: "Coffee Shop Lifestyle",
     category: "Male",
-    image: "/images/male/male7.png",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593002/promptverse/male/male7.png",
     likes: "2.6k",
     views: "3.8k",
     prompt: 
@@ -243,7 +243,7 @@ export const galleryData = [
     id: 25,
     title: "Rainy Street Portrait",
     category: "Male",
-    image: "/images/male/male8.png",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593007/promptverse/male/male8.png",
     likes: "1.2k",
     views: "1.8k",
     prompt: 
@@ -253,7 +253,7 @@ export const galleryData = [
     id: 26,
     title: "Airport Luxury Travel",
     category: "Male",
-    image: "/images/male/male9.png",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593012/promptverse/male/male9.png",
     likes: "3.1k",
     views: "4.2k",
     prompt: 
@@ -263,7 +263,7 @@ export const galleryData = [
     id: 27,
     title: "DSLR Photography Masterclass",
     category: "Male",
-    image: "/images/male/male10.png",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592984/promptverse/male/male10.png",
     likes: "2.5k",
     views: "3.7k",
     prompt: 
@@ -273,7 +273,7 @@ export const galleryData = [
     id: 28,
     title: "Gear:5 The Warrior of Liberation",
     category: "Anime",
-    image: "/images/anime/anime2.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592718/promptverse/anime/anime2.jpg",
     likes: "2.5k",
     views: "3.7k",
     prompt: 
@@ -283,7 +283,7 @@ export const galleryData = [
     id: 29,
     title: "Kakashi Hatake - The Storm of Legends",
     category: "Anime",
-    image: "/images/anime/anime3.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592727/promptverse/anime/anime3.jpg",
     likes: "2.5k",
     views: "3.7k",
     prompt: 
@@ -293,7 +293,7 @@ export const galleryData = [
     id: 30,
     title: "The Legendary Low-Class Warrior",
     category: "Anime",
-    image: "/images/anime/anime4.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592730/promptverse/anime/anime4.jpg",
     likes: "2.6k",
     views: "3.9k",
     prompt: 
@@ -303,7 +303,7 @@ export const galleryData = [
     id: 31,
     title: "Itachi Uchiha - The God of Genjutsu",
     category: "Anime",
-    image: "/images/anime/anime5.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592732/promptverse/anime/anime5.jpg",
     likes: "1.6k",
     views: "2.9k",
     prompt: 
@@ -313,7 +313,7 @@ export const galleryData = [
     id: 32,
     title: "Vegeta - The God of Pride",
     category: "Anime",
-    image: "/images/anime/anime6.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592735/promptverse/anime/anime6.jpg",
     likes: "1.9k",
     views: "3.9k",
     prompt: 
@@ -323,7 +323,7 @@ export const galleryData = [
     id: 33,
     title: "Roronoa Zoro - The King Of Hell",
     category: "Anime",
-    image: "/images/anime/anime7.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592737/promptverse/anime/anime7.jpg",
     likes: "3.9k",
     views: "4.9k",
     prompt: 
@@ -333,7 +333,7 @@ export const galleryData = [
     id: 34,
     title: "The Yellow Flash",
     category: "Anime",
-    image: "/images/anime/anime8.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592740/promptverse/anime/anime8.jpg",
     likes: "4.9k",
     views: "6.9k",
     prompt: 
@@ -343,7 +343,7 @@ export const galleryData = [
     id: 35,
     title: "Gojo Satoru | Six Eyes",
     category: "Anime",
-    image: "/images/anime/anime9.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592743/promptverse/anime/anime9.jpg",
     likes: "5.9k",
     views: "7.9k",
     prompt: 
@@ -353,7 +353,7 @@ export const galleryData = [
     id: 36,
     title: "Cozy Rainy Cafe Date",
     category: "Couples",
-    image: "/images/couples/couple7.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592826/promptverse/couples/couple7.jpg",
     likes: "5.9k",
     views: "7.9k",
     prompt: 
@@ -363,7 +363,7 @@ export const galleryData = [
     id: 37,
     title: "Rooftop City Lights",
     category: "Couples",
-    image: "/images/couples/couple8.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592833/promptverse/couples/couple8.jpg",
     likes: "6.9k",
     views: "7.8k",
     prompt: 
@@ -373,7 +373,7 @@ export const galleryData = [
     id: 38,
     title: "Cherry Blossom Love",
     category: "Couples",
-    image: "/images/couples/couple9.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592836/promptverse/couples/couple9.jpg",
     likes: "5.9k",
     views: "7.8k",
     prompt: 
@@ -383,7 +383,7 @@ export const galleryData = [
     id: 39,
     title: "Couple receiving blessings in Church",
     category: "Couples",
-    image: "/images/couples/couple10.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592800/promptverse/couples/couple10.jpg",
     likes: "8.9k",
     views: "10.8k",
     prompt: 
@@ -393,7 +393,7 @@ export const galleryData = [
     id: 40,
     title: "Couple receiving blessings in Temple",
     category: "Couples",
-    image: "/images/couples/couple11.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592801/promptverse/couples/couple11.jpg",
     likes: "9.9k",
     views: "10.8k",
     prompt: 
@@ -403,7 +403,7 @@ export const galleryData = [
     id: 41,
     title: "Couple receiving blessings in Mosque",
     category: "Couples",
-    image: "/images/couples/couple12.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592802/promptverse/couples/couple12.jpg",
     likes: "8.9k",
     views: "9.8k",
     prompt: 
@@ -413,7 +413,7 @@ export const galleryData = [
     id: 42,
     title: "Sasuke Uchiha - Emperor of Shadows",
     category: "Anime",
-    image: "/images/anime/anime10.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592709/promptverse/anime/anime10.jpg",
     likes: "8.9k",
     views: "9.8k",
     prompt: 
@@ -423,7 +423,7 @@ export const galleryData = [
     id: 43,
     title: "Traditional Saree Elegance",
     category: "Female",
-    image: "/images/female/female1.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592906/promptverse/female/female1.jpg",
     likes: "8.9k",
     views: "9.8k",
     prompt: 
@@ -433,7 +433,7 @@ export const galleryData = [
     id: 44,
     title: "Bridal Saree Photoshoot",
     category: "Female",
-    image: "/images/female/female2.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592911/promptverse/female/female2.jpg",
     likes: "9.9k",
     views: "10.8k",
     prompt: 
@@ -443,7 +443,7 @@ export const galleryData = [
     id: 45,
     title: "Serenity in a Temple Ambience",
     category: "Female",
-    image: "/images/female/female3.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592913/promptverse/female/female3.jpg",
     likes: "7.9k",
     views: "10.8k",
     prompt: 
@@ -453,7 +453,7 @@ export const galleryData = [
     id: 46,
     title: "Businesswoman in a Skyscraper Office",
     category: "Female",
-    image: "/images/female/female4.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592914/promptverse/female/female4.jpg",
     likes: "6.9k",
     views: "9.8k",
     prompt: 
@@ -463,7 +463,7 @@ export const galleryData = [
     id: 47,
     title: "Cherry Blossom Portrait",
     category: "Female",
-    image: "/images/female/female5.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592916/promptverse/female/female5.jpg",
     likes: "7.9k",
     views: "9.9k",
     prompt: 
@@ -473,7 +473,7 @@ export const galleryData = [
     id: 48,
     title: "Luxury Car Photoshoot",
     category: "Female",
-    image: "/images/female/female6.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592918/promptverse/female/female6.jpg",
     likes: "8.9k",
     views: "9.9k",
     prompt: 
@@ -483,7 +483,7 @@ export const galleryData = [
     id: 49,
     title: "Cinematic Beauty",
     category: "Female",
-    image: "/images/female/female7.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592924/promptverse/female/female7.jpg",
     likes: "1.2k",
     views: "2.3k",
     prompt:
@@ -493,7 +493,7 @@ export const galleryData = [
     id: 50,
     title: "Korean Style Portrait",
     category: "Female",
-    image: "/images/female/female8.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592926/promptverse/female/female8.jpg",
     likes: "2.2k",
     views: "3.3k",
     prompt:
@@ -503,7 +503,7 @@ export const galleryData = [
     id: 51,
     title: "Indian traditional look",
     category: "Female",
-    image: "/images/female/female9.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592927/promptverse/female/female9.jpg",
     likes: "1.2k",
     views: "3.3k",
     prompt:
@@ -513,7 +513,7 @@ export const galleryData = [
     id: 52,
     title: "Moon Goddess",
     category: "Female",
-    image: "/images/female/female10.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592908/promptverse/female/female10.jpg",
     likes: "1.3k",
     views: "3.3k",
     prompt:
@@ -523,7 +523,7 @@ export const galleryData = [
     id: 53,
     title: "Movie Star Look",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic1.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592745/promptverse/cinematic/cinematic1.jpg",
     likes: "1.3k",
     views: "3.3k",
     prompt:
@@ -533,7 +533,7 @@ export const galleryData = [
     id: 54,
     title: "Midnight Rain",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic2.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592771/promptverse/cinematic/cinematic2.jpg",
     likes: "1.2k",
     views: "3.3k",
     prompt:
@@ -543,7 +543,7 @@ export const galleryData = [
     id: 55,
     title: "Elite Street",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic3.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592775/promptverse/cinematic/cinematic3.jpg",
     likes: "1.1k",
     views: "3.3k",
     prompt:
@@ -553,7 +553,7 @@ export const galleryData = [
     id: 56,
     title: "Peak Adventure",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic4.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592777/promptverse/cinematic/cinematic4.jpg",
     likes: "1.4k",
     views: "3.3k",
     prompt:
@@ -563,7 +563,7 @@ export const galleryData = [
     id: 57,
     title: "Forest Wanderer",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic5.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592780/promptverse/cinematic/cinematic5.jpg",
     likes: "1.2k",
     views: "3.3k",
     prompt:
@@ -573,7 +573,7 @@ export const galleryData = [
     id: 58,
     title: "Palace Elite",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic6.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592782/promptverse/cinematic/cinematic6.jpg",
     likes: "1.5k",
     views: "3.3k",
     prompt:
@@ -583,7 +583,7 @@ export const galleryData = [
     id: 59,
     title: "The Survivor",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic7.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592785/promptverse/cinematic/cinematic7.jpg",
     likes: "1.2k",
     views: "3.3k",
     prompt:
@@ -593,7 +593,7 @@ export const galleryData = [
     id: 60,
     title: "Neon Nexus",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic8.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592788/promptverse/cinematic/cinematic8.jpg",
     likes: "1.3k",
     views: "3.3k",
     prompt:
@@ -603,7 +603,7 @@ export const galleryData = [
     id: 61,
     title: "Vintage Classic",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic9.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592791/promptverse/cinematic/cinematic9.jpg",
     likes: "1.4k",
     views: "3.3k",
     prompt:
@@ -613,7 +613,7 @@ export const galleryData = [
     id: 62,
     title: "Desert Odyssey",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic10.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592748/promptverse/cinematic/cinematic10.jpg",
     likes: "1.2k",
     views: "3.3k",
     prompt:
@@ -623,7 +623,7 @@ export const galleryData = [
     id: 63,
     title: "Winter Wonderland",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic11.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592752/promptverse/cinematic/cinematic11.jpg",
     likes: "1.4k",
     views: "3.3k",
     prompt:
@@ -633,7 +633,7 @@ export const galleryData = [
     id: 64,
     title: "Luxury Lobby",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic12.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592754/promptverse/cinematic/cinematic12.jpg",
     likes: "1.2k",
     views: "3.3k",
     prompt:
@@ -643,7 +643,7 @@ export const galleryData = [
     id: 65,
     title: "Sunset Paradise",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic13.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592756/promptverse/cinematic/cinematic13.jpg",
     likes: "1.4k",
     views: "3.3k",
     prompt:
@@ -653,7 +653,7 @@ export const galleryData = [
     id: 66,
     title: "Skyline Nights",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic14.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592758/promptverse/cinematic/cinematic14.jpg",
     likes: "1.2k",
     views: "3.3k",
     prompt:
@@ -663,7 +663,7 @@ export const galleryData = [
     id: 67,
     title: "Crime Noir",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic15.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592760/promptverse/cinematic/cinematic15.jpg",
     likes: "1.4k",
     views: "3.3k",
     prompt:
@@ -673,7 +673,7 @@ export const galleryData = [
     id: 68,
     title: "Space Explorer",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic16.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592763/promptverse/cinematic/cinematic16.jpg",
     likes: "1.3k",
     views: "3.3k",
     prompt:
@@ -683,7 +683,7 @@ export const galleryData = [
     id: 69,
     title: "Castle Royale",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic17.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592765/promptverse/cinematic/cinematic17.jpg",
     likes: "1.2k",
     views: "3.3k",
     prompt:
@@ -693,7 +693,7 @@ export const galleryData = [
     id: 70,
     title: "Cafe Elegance",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic18.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592767/promptverse/cinematic/cinematic18.jpg",
     likes: "1.1k",
     views: "3.3k",
     prompt:
@@ -703,7 +703,7 @@ export const galleryData = [
     id: 71,
     title: "Moonlight Magic",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic19.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592769/promptverse/cinematic/cinematic19.jpg",
     likes: "1.3k",
     views: "3.3k",
     prompt:
@@ -713,7 +713,7 @@ export const galleryData = [
     id: 72,
     title: "Golden Hour",
     category: "Cinematic",
-    image: "/images/cinematic/cinematic20.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592773/promptverse/cinematic/cinematic20.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -723,7 +723,7 @@ export const galleryData = [
     id: 73,
     title: "Happy Family Portrait",
     category: "Family",
-    image: "/images/family/family1.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592868/promptverse/family/family1.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -733,7 +733,7 @@ export const galleryData = [
     id: 74,
     title: "Family Picnic in the Park",
     category: "Family",
-    image: "/images/family/family2.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592881/promptverse/family/family2.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -743,7 +743,7 @@ export const galleryData = [
     id: 75,
     title: "Parents Playing with Kids",
     category: "Family",
-    image: "/images/family/family3.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592883/promptverse/family/family3.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -753,7 +753,7 @@ export const galleryData = [
     id: 76,
     title: "Three-Generation Family Portrait",
     category: "Family",
-    image: "/images/family/family4.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592886/promptverse/family/family4.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -763,7 +763,7 @@ export const galleryData = [
     id: 77,
     title: "Family Birthday Celebration",
     category: "Family",
-    image: "/images/family/family5.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592889/promptverse/family/family5.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -773,7 +773,7 @@ export const galleryData = [
     id: 78,
     title: "Family Cooking Together",
     category: "Family",
-    image: "/images/family/family6.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592891/promptverse/family/family6.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -783,7 +783,7 @@ export const galleryData = [
     id: 79,
     title: "Family Camping Adventure",
     category: "Family",
-    image: "/images/family/family7.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592894/promptverse/family/family7.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -793,7 +793,7 @@ export const galleryData = [
     id: 80,
     title: "Family Diwali Celebration",
     category: "Family",
-    image: "/images/family/family8.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592899/promptverse/family/family8.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -803,7 +803,7 @@ export const galleryData = [
     id: 81,
     title: "Family Christmas Celebration",
     category: "Family",
-    image: "/images/family/family9.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592904/promptverse/family/family9.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -813,7 +813,7 @@ export const galleryData = [
     id: 82,
     title: "Family Ramadan Celebration",
     category: "Family",
-    image: "/images/family/family10.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592871/promptverse/family/family10.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -823,7 +823,7 @@ export const galleryData = [
     id: 83,
     title: "Family Walking on the Beach",
     category: "Family",
-    image: "/images/family/family11.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592873/promptverse/family/family11.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -833,7 +833,7 @@ export const galleryData = [
     id: 84,
     title: "Family Road Trip",
     category: "Family",
-    image: "/images/family/family12.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592875/promptverse/family/family12.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -843,7 +843,7 @@ export const galleryData = [
     id: 85,
     title: "Parents Holding Newborn Baby",
     category: "Family",
-    image: "/images/family/family13.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592877/promptverse/family/family13.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -853,7 +853,7 @@ export const galleryData = [
     id: 86,
     title: "Family Dinner Together",
     category: "Family",
-    image: "/images/family/family14.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592879/promptverse/family/family14.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -863,7 +863,7 @@ export const galleryData = [
     id: 87,
     title: "Newborn Baby",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents3.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592962/promptverse/lifeevents/lifeevents3.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -873,7 +873,7 @@ export const galleryData = [
     id: 88,
     title: "Birthday Celebration",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents4.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592965/promptverse/lifeevents/lifeevents4.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -883,7 +883,7 @@ export const galleryData = [
     id: 89,
     title: "Graduation Day",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents5.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592966/promptverse/lifeevents/lifeevents5.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -893,7 +893,7 @@ export const galleryData = [
     id: 90,
     title: "Engagement Ceremony",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents6.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592968/promptverse/lifeevents/lifeevents6.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -903,7 +903,7 @@ export const galleryData = [
     id: 91,
     title: "Wedding Ceremony",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents7.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592970/promptverse/lifeevents/lifeevents7.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -913,7 +913,7 @@ export const galleryData = [
     id: 92,
     title: "Baby Shower",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents8.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592972/promptverse/lifeevents/lifeevents8.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -923,7 +923,7 @@ export const galleryData = [
     id: 93,
     title: "First Birthday Party",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents9.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592974/promptverse/lifeevents/lifeevents9.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -933,7 +933,7 @@ export const galleryData = [
     id: 94,
     title: "Housewarming Ceremony",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents10.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592931/promptverse/lifeevents/lifeevents10.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -943,7 +943,7 @@ export const galleryData = [
     id: 95,
     title: "First Day at Work",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents1.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592929/promptverse/lifeevents/lifeevents1.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -953,7 +953,7 @@ export const galleryData = [
     id: 96,
     title: "Buying a New Car",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents2.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592951/promptverse/lifeevents/lifeevents2.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -963,7 +963,7 @@ export const galleryData = [
     id: 97,
     title: "Buying a New Home",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents11.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592933/promptverse/lifeevents/lifeevents11.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -973,7 +973,7 @@ export const galleryData = [
     id: 98,
     title: "First International Trip",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents12.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592935/promptverse/lifeevents/lifeevents12.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -983,7 +983,7 @@ export const galleryData = [
     id: 99,
     title: "Achievement Celebration",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents13.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592937/promptverse/lifeevents/lifeevents13.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -993,7 +993,7 @@ export const galleryData = [
     id: 100,
     title: "Award Ceremony",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents14.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592939/promptverse/lifeevents/lifeevents14.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1003,7 +1003,7 @@ export const galleryData = [
     id: 101,
     title: "Wedding Anniversary",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents15.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592940/promptverse/lifeevents/lifeevents15.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1013,7 +1013,7 @@ export const galleryData = [
     id: 102,
     title: "Silver Wedding Anniversary",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents16.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592942/promptverse/lifeevents/lifeevents16.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1023,7 +1023,7 @@ export const galleryData = [
     id: 103,
     title: "Golder Wedding Anniversary",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents17.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592944/promptverse/lifeevents/lifeevents17.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1033,7 +1033,7 @@ export const galleryData = [
     id: 104,
     title: "Retirement Celebration",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents18.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592946/promptverse/lifeevents/lifeevents18.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1043,7 +1043,7 @@ export const galleryData = [
     id: 105,
     title: "Farewell Party",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents19.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592949/promptverse/lifeevents/lifeevents19.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1053,7 +1053,7 @@ export const galleryData = [
     id: 106,
     title: "Family Reunion",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents20.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592953/promptverse/lifeevents/lifeevents20.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1063,7 +1063,7 @@ export const galleryData = [
     id: 107,
     title: "First Day of School",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents21.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592955/promptverse/lifeevents/lifeevents21.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1073,7 +1073,7 @@ export const galleryData = [
     id: 108,
     title: "College Admission Celebration",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents22.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592957/promptverse/lifeevents/lifeevents22.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1083,7 +1083,7 @@ export const galleryData = [
     id: 109,
     title: "Promotion Celebration",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents23.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592959/promptverse/lifeevents/lifeevents23.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1093,7 +1093,7 @@ export const galleryData = [
     id: 110,
     title: "Dream Come True Celebration",
     category: "Life Events",
-    image: "/images/lifeevents/lifeevents24.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785592961/promptverse/lifeevents/lifeevents24.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1103,7 +1103,7 @@ export const galleryData = [
     id: 111,
     title: "Cherry Blossom Garden",
     category: "Nature",
-    image: "/images/nature/nature1.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593014/promptverse/nature/nature1.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1113,7 +1113,7 @@ export const galleryData = [
     id: 112,
     title: "Sunset by the Lake",
     category: "Nature",
-    image: "/images/nature/nature2.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593031/promptverse/nature/nature2.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1123,7 +1123,7 @@ export const galleryData = [
     id: 113,
     title: "Tropical Island Paradise",
     category: "Nature",
-    image: "/images/nature/nature3.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593046/promptverse/nature/nature3.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1133,7 +1133,7 @@ export const galleryData = [
     id: 114,
     title: "Forest Adventure",
     category: "Nature",
-    image: "/images/nature/nature4.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593055/promptverse/nature/nature4.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1143,7 +1143,7 @@ export const galleryData = [
     id: 115,
     title: "Sunflower Field",
     category: "Nature",
-    image: "/images/nature/nature5.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593056/promptverse/nature/nature5.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1153,7 +1153,7 @@ export const galleryData = [
     id: 116,
     title: "Northern Lights",
     category: "Nature",
-    image: "/images/nature/nature6.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593057/promptverse/nature/nature6.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1163,7 +1163,7 @@ export const galleryData = [
     id: 117,
     title: "Snowy Mountain Landscape",
     category: "Nature",
-    image: "/images/nature/nature7.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593058/promptverse/nature/nature7.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1173,7 +1173,7 @@ export const galleryData = [
     id: 118,
     title: "Beach Paradise",
     category: "Nature",
-    image: "/images/nature/nature8.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593060/promptverse/nature/nature8.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1183,7 +1183,7 @@ export const galleryData = [
     id: 119,
     title: "Lavender Field",
     category: "Nature",
-    image: "/images/nature/nature9.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593062/promptverse/nature/nature9.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1193,7 +1193,7 @@ export const galleryData = [
     id: 120,
     title: "Waterfall Escape",
     category: "Nature",
-    image: "/images/nature/nature10.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593015/promptverse/nature/nature10.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1203,7 +1203,7 @@ export const galleryData = [
     id: 121,
     title: "Sunrise in the Mountains",
     category: "Nature",
-    image: "/images/nature/nature11.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593016/promptverse/nature/nature11.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1213,7 +1213,7 @@ export const galleryData = [
     id: 122,
     title: "Flower Garden Walk",
     category: "Nature",
-    image: "/images/nature/nature12.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593017/promptverse/nature/nature12.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1223,7 +1223,7 @@ export const galleryData = [
     id: 123,
     title: "Golden Wheat Field",
     category: "Nature",
-    image: "/images/nature/nature13.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593019/promptverse/nature/nature13.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1233,7 +1233,7 @@ export const galleryData = [
     id: 124,
     title: "River Side Relaxation",
     category: "Nature",
-    image: "/images/nature/nature14.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593021/promptverse/nature/nature14.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1243,7 +1243,7 @@ export const galleryData = [
     id: 125,
     title: "Volcano View",
     category: "Nature",
-    image: "/images/nature/nature15.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593023/promptverse/nature/nature15.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1253,7 +1253,7 @@ export const galleryData = [
     id: 126,
     title: "Camping in Nature",
     category: "Nature",
-    image: "/images/nature/nature16.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593025/promptverse/nature/nature16.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1263,7 +1263,7 @@ export const galleryData = [
     id: 127,
     title: "Moonlight Forest",
     category: "Nature",
-    image: "/images/nature/nature17.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593026/promptverse/nature/nature17.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1273,7 +1273,7 @@ export const galleryData = [
     id: 128,
     title: "Rainbow After Rain",
     category: "Nature",
-    image: "/images/nature/nature18.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593027/promptverse/nature/nature18.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1283,7 +1283,7 @@ export const galleryData = [
     id: 129,
     title: "Rainy Day Nature",
     category: "Nature",
-    image: "/images/nature/nature19.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593029/promptverse/nature/nature19.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1293,7 +1293,7 @@ export const galleryData = [
     id: 130,
     title: "Autumn Forest",
     category: "Nature",
-    image: "/images/nature/nature20.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593033/promptverse/nature/nature20.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1303,7 +1303,7 @@ export const galleryData = [
     id: 131,
     title: "Bamboo Forest",
     category: "Nature",
-    image: "/images/nature/nature21.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593034/promptverse/nature/nature21.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1313,7 +1313,7 @@ export const galleryData = [
     id: 132,
     title: "Lotus Pond",
     category: "Nature",
-    image: "/images/nature/nature22.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593035/promptverse/nature/nature22.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1323,7 +1323,7 @@ export const galleryData = [
     id: 133,
     title: "Rose Garden",
     category: "Nature",
-    image: "/images/nature/nature23.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593037/promptverse/nature/nature23.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1333,7 +1333,7 @@ export const galleryData = [
     id: 134,
     title: "Sunflower Field",
     category: "Nature",
-    image: "/images/nature/nature24.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593038/promptverse/nature/nature24.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1343,7 +1343,7 @@ export const galleryData = [
     id: 135,
     title: "Desert Adventure",
     category: "Nature",
-    image: "/images/nature/nature25.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593039/promptverse/nature/nature25.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1353,7 +1353,7 @@ export const galleryData = [
     id: 136,
     title: "Canyon View",
     category: "Nature",
-    image: "/images/nature/nature26.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593041/promptverse/nature/nature26.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1363,7 +1363,7 @@ export const galleryData = [
     id: 137,
     title: "Pine Forest",
     category: "Nature",
-    image: "/images/nature/nature27.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593043/promptverse/nature/nature27.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1373,7 +1373,7 @@ export const galleryData = [
     id: 138,
     title: "Butterfly Garden",
     category: "Nature",
-    image: "/images/nature/nature28.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593044/promptverse/nature/nature28.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1383,7 +1383,7 @@ export const galleryData = [
     id: 139,
     title: "Wildflower Meadow",
     category: "Nature",
-    image: "/images/nature/nature29.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593045/promptverse/nature/nature29.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1393,7 +1393,7 @@ export const galleryData = [
     id: 140,
     title: "Cliffside Ocean View",
     category: "Nature",
-    image: "/images/nature/nature30.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593048/promptverse/nature/nature30.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1403,7 +1403,7 @@ export const galleryData = [
     id: 141,
     title: "Coconut Grove",
     category: "Nature",
-    image: "/images/nature/nature31.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593049/promptverse/nature/nature31.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1413,7 +1413,7 @@ export const galleryData = [
     id: 142,
     title: "Ocean Waves",
     category: "Nature",
-    image: "/images/nature/nature32.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593050/promptverse/nature/nature32.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1423,7 +1423,7 @@ export const galleryData = [
     id: 143,
     title: "Himalayan Landscape",
     category: "Nature",
-    image: "/images/nature/nature33.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593051/promptverse/nature/nature33.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1433,7 +1433,7 @@ export const galleryData = [
     id: 144,
     title: "Tea Plantation",
     category: "Nature",
-    image: "/images/nature/nature34.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593052/promptverse/nature/nature34.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
@@ -1443,11 +1443,181 @@ export const galleryData = [
     id: 145,
     title: "Rice Field",
     category: "Nature",
-    image: "/images/nature/nature35.jpeg",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785593054/promptverse/nature/nature35.jpg",
     likes: "1.9k",
     views: "3.3k",
     prompt:
     "Create a breathtaking Rice Field portrait featuring the subject peacefully exploring a magnificent countryside landscape surrounded by endless lush green rice fields stretching to the horizon. The subject is dressed in elegant casual or stylish countryside-inspired attire, smiling naturally while walking along narrow earthen pathways between the rice paddies, standing beside the emerald-green fields, or holding a traditional straw hat while enjoying the beautiful rural scenery. Crystal-clear irrigation canals reflect the golden sky, while neatly arranged rice terraces, rustic wooden huts, charming farmhouses, swaying coconut trees, bamboo fences, distant blue mountains, and colorful wildflowers create a picturesque farming paradise. Local farmers peacefully tending the rice fields in the background add authenticity to the vibrant countryside atmosphere. Warm golden sunrise or sunset light beautifully illuminates the rice paddies, creating shimmering reflections on the water and casting magical rays across the landscape. Gentle breezes make the rice plants sway naturally, birds fly gracefully overhead, butterflies flutter among the flowers, and the peaceful surroundings evoke happiness, simplicity, serenity, and a deep connection with nature. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium countryside lifestyle photography, authentic emotions, highly detailed, masterpiece, vibrant natural colors, luxurious rural atmosphere, breathtaking rice field scenery, timeless travel memories."
+  },
+  {
+    id: 146,
+    title: "Royal Majesty",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685740/promptverse/fantasy/fantasy1.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking royal fantasy portrait featuring the subject as a majestic King or Queen ruling a magnificent medieval kingdom. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the royal styling based on gender. The subject is seated confidently on an ornate golden throne inside a luxurious royal palace, wearing an elegant handcrafted royal outfit with intricate gold embroidery, luxurious velvet fabric, flowing royal cape, jeweled crown, precious gemstones, royal accessories, rings, necklaces, and regal details. The magnificent palace is filled with towering marble pillars, grand staircases, crystal chandeliers, glowing candlelight, royal banners, stained-glass windows, luxurious red carpets, golden sculptures, and breathtaking architectural details. Warm golden cinematic lighting streams through the palace windows, illuminating the throne and creating a powerful, majestic atmosphere. The subject radiates confidence, wisdom, grace, and royal authority while maintaining a natural smile and realistic pose. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, authentic emotions, masterpiece, highly detailed, vibrant royal colors, luxurious medieval kingdom, timeless fantasy atmosphere, face preservation, magical realism."
+  },
+  {
+    id: 147,
+    title: "Divine Guardian",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685753/promptverse/fantasy/fantasy2.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Angel Wings fantasy portrait featuring the subject transformed into a majestic celestial guardian blessed with magnificent glowing angel wings. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the celestial outfit based on gender. The subject stands gracefully among radiant golden clouds above the heavens, wearing an elegant white and gold divine robe with intricate embroidery, shimmering celestial armor accents, flowing fabric, sparkling crystal jewelry, and a luminous halo above the head. Enormous feathered angel wings glow with soft white and golden light, spreading majestically behind the subject. The heavenly surroundings feature floating marble pillars, glowing stairways, celestial temples, floating islands, sparkling stars, soft divine mist, golden rays of sunlight piercing through the clouds, white doves flying peacefully, and magical glowing particles filling the air. The atmosphere radiates peace, hope, purity, strength, and divine protection while maintaining a natural confident smile and graceful pose. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, authentic emotions, masterpiece, highly detailed, vibrant celestial colors, luxurious heavenly kingdom, magical realism, face preservation, timeless fantasy atmosphere."
+  },
+  {
+    id: 148,
+    title: "Dark Guardian",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685754/promptverse/fantasy/fantasy3.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Dark Angel fantasy portrait featuring the subject transformed into a powerful fallen celestial guardian with magnificent black feathered wings. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the fantasy outfit based on gender. The subject wears an elegant black and crimson gothic outfit with luxurious velvet, intricate embroidery, dark celestial armor, flowing cape, silver ornaments, chains, gemstone accessories, and a mysterious black crown or dark halo. Massive black wings with subtle glowing crimson edges spread majestically behind the subject. The background showcases a magnificent gothic kingdom filled with towering dark castles, ancient cathedrals, glowing crimson moon, stormy clouds, burning embers, floating black feathers, mystical fog, dramatic lightning, ruined stone architecture, and enchanted forests. Crimson and silver light illuminate the scene, creating a powerful balance between darkness and beauty. The subject radiates confidence, mystery, elegance, strength, and divine authority while maintaining a calm, natural expression and graceful pose. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious gothic atmosphere, dramatic lighting, face preservation, timeless dark fantasy, rich black, crimson, and silver color palette."
+  },
+  {
+    id: 149,
+    title: "Fairy Guardian",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685755/promptverse/fantasy/fantasy4.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Fairy Garden fantasy portrait featuring the subject transformed into a magical fairy guardian living in an enchanted garden. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the fairy outfit based on gender. The subject wears an elegant fantasy outfit crafted from shimmering silk, delicate flower petals, sparkling crystal accessories, glowing vines, floral crowns, enchanted jewelry, and graceful translucent butterfly-inspired fairy wings glowing with soft golden, pink, blue, and lavender light. The magical garden is filled with blooming roses, cherry blossoms, lavender, glowing lilies, giant fantasy flowers, sparkling waterfalls, crystal-clear streams, enchanted trees, floating flower petals, glowing mushrooms, magical butterflies, fireflies, hummingbirds, tiny floating fairy lights, sparkling crystals, ancient stone bridges, and mystical castles hidden in the distance. Warm golden sunlight filters through the enchanted forest canopy, creating magical rays of light while glowing particles dance through the air. The atmosphere radiates happiness, peace, elegance, wonder, and magical beauty as the subject smiles naturally with a graceful pose. Cinematic composition, ultra-realistic skin textures, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, vibrant floral colors, luxurious enchanted garden, dreamy atmosphere, face preservation, timeless fairy kingdom."
+  },
+  {
+    id: 150,
+    title: "Sun God",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685756/promptverse/fantasy/fantasy5.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Sun God fantasy portrait featuring the subject transformed into a powerful celestial deity who embodies the radiant energy of the sun. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the divine attire based on gender. The subject is captured in a cinematic mid-shot (waist-up), centered composition, wearing luxurious white and gold celestial robes with intricate golden embroidery, divine armor accents, flowing fabric, glowing sun emblems, radiant gemstone jewelry, elegant sun-ray crown, and majestic golden accessories. A magnificent blazing solar halo shines brilliantly behind the subject's head, filling the background with warm golden light. The heavenly setting features magnificent golden temples, towering marble pillars, floating clouds, divine stairways, celestial architecture, glowing sun symbols, sparkling golden particles, sunflowers, and rays of sunlight piercing through the sky. The subject radiates confidence, wisdom, hope, divine power, and warmth while maintaining a natural expression and graceful pose. Ultra-realistic cinematic mid-shot portrait, waist-up composition, large detailed face, symmetrical framing, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious celestial atmosphere, vibrant gold and white color palette, face preservation, gallery-ready square composition (1:1), timeless divine fantasy."
+  },
+  {
+    id: 151,
+    title: "Elf Warrior",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685758/promptverse/fantasy/fantasy6.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Elf Warrior fantasy portrait featuring the subject transformed into a legendary elven guardian of the ancient enchanted forests. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the elven warrior attire based on gender. The subject is captured in a cinematic mid-shot (waist-up), centered composition, wearing elegant emerald green, silver, and gold elven armor with intricate leaf-inspired engravings, flowing forest cloak, leather accents, glowing gemstone accessories, enchanted elven jewelry, and a majestic woodland crown or circlet. Gracefully pointed elf ears blend naturally with the subject's appearance. The subject confidently holds an ancient enchanted bow or mystical sword glowing with magical energy. The enchanted forest background features towering ancient trees, glowing blue flowers, magical vines, sparkling waterfalls, floating fairy lights, luminous butterflies, mystical fog, ancient stone ruins, crystal streams, glowing mushrooms, and distant elven architecture hidden among the trees. Soft golden sunlight filters through the forest canopy, creating magical rays that illuminate the subject while glowing magical particles float through the air. The atmosphere radiates courage, wisdom, elegance, mystery, and harmony with nature while maintaining a calm, confident expression. Ultra-realistic cinematic mid-shot portrait, waist-up composition, large detailed face, symmetrical framing, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious enchanted forest atmosphere, vibrant emerald green and silver color palette, face preservation, gallery-ready square composition (1:1), timeless fantasy adventure."
+  },
+  {
+    id: 152,
+    title: "Wizard",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685759/promptverse/fantasy/fantasy7.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Wizard fantasy portrait featuring the subject transformed into a legendary master of ancient magic. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the magical attire based on gender. The subject is captured in a cinematic mid-shot (waist-up), centered composition, wearing luxurious midnight blue, royal purple, and gold wizard robes with intricate celestial embroidery, enchanted cloak, glowing gemstone accessories, mystical amulets, magical rings, and elegant arcane details. The subject confidently holds an ancient crystal staff glowing with magical energy while the other hand conjures a radiant floating spell circle filled with glowing runes and mystical symbols. The magical background features a magnificent arcane library with towering bookshelves, ancient spell books, floating candles, enchanted potions, glowing crystals, celestial instruments, stained-glass windows, mystical scrolls, magical artifacts, swirling energy particles, and soft blue-purple magical light. Warm candlelight blends with glowing arcane magic to create a powerful and mysterious atmosphere. The subject radiates wisdom, confidence, intelligence, mystery, and magical power while maintaining a calm, natural expression. Ultra-realistic cinematic mid-shot portrait, waist-up composition, large detailed face, symmetrical framing, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious wizard academy atmosphere, vibrant blue, purple, and gold color palette, face preservation, gallery-ready square composition (1:1), timeless fantasy adventure."
+  },
+  {
+    id: 153,
+    title: "Mystic Mage",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685760/promptverse/fantasy/fantasy8.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Mystic Mage fantasy portrait featuring the subject transformed into an ancient master of mystical energy and forbidden arcane knowledge. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the mystical attire based on gender. The subject is captured in a cinematic mid-shot (waist-up), centered composition, wearing luxurious deep violet, midnight blue, black, and gold mystical robes with celestial embroidery, flowing enchanted cloak, glowing gemstone accessories, magical amulets, elegant arcane jewelry, and an ancient mystical crown or circlet. The subject holds a crystal staff infused with glowing cosmic energy while the other hand summons a floating magical orb surrounded by glowing runes, sacred geometric symbols, celestial constellations, and swirling arcane particles. The mystical environment features floating ancient ruins, glowing crystal formations, enchanted temples, magical portals, celestial skies filled with stars, floating islands, mystical fog, radiant energy streams, ancient spell books, levitating crystals, and shimmering cosmic light. Blue, purple, silver, and golden magical energy illuminate the surroundings, creating an atmosphere of mystery, wisdom, power, and divine magic. The subject radiates confidence, intelligence, serenity, and mystical authority while maintaining a calm, natural expression. Ultra-realistic cinematic mid-shot portrait, waist-up composition, large detailed face, symmetrical framing, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious mystical kingdom atmosphere, vibrant blue, purple, silver, and gold color palette, face preservation, gallery-ready square composition (1:1), timeless fantasy masterpiece."
+  },
+  {
+    id: 154,
+    title: "Dragon Rider",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685761/promptverse/fantasy/fantasy9.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Dragon Rider fantasy portrait featuring the subject transformed into a legendary dragon rider chosen by an ancient dragon. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the dragon rider attire based on gender. The subject is captured in a cinematic mid-shot (waist-up), centered composition, wearing luxurious black, crimson, and antique gold dragon-scale armor with intricate engravings, flowing royal cape, leather belts, enchanted shoulder guards, gemstone accessories, dragon-inspired jewelry, and an elegant warrior crown or circlet. The subject confidently rides a colossal ancient dragon positioned majestically behind them, with enormous detailed scales, glowing amber eyes, sharp horns, partially spread wings, and subtle streams of fire escaping from its mouth. The epic fantasy background features towering medieval castles, volcanic mountains, floating islands, dramatic storm clouds, burning skies, flying dragons in the distance, ancient stone fortresses, glowing lava rivers, mystical ruins, and magical embers drifting through the air. Warm golden sunlight blends with fiery crimson light, creating an epic heroic atmosphere. The subject radiates courage, confidence, leadership, strength, and legendary warrior spirit while maintaining a calm natural expression. Ultra-realistic cinematic mid-shot portrait, waist-up composition, large detailed face, symmetrical framing, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious medieval fantasy atmosphere, vibrant black, crimson, bronze, and gold color palette, face preservation, gallery-ready square composition (1:1), timeless epic fantasy adventure."
+  },
+  {
+    id: 155,
+    title: "Unicorn Kingdom",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685742/promptverse/fantasy/fantasy10.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Unicorn Kingdom fantasy portrait featuring the subject transformed into the royal guardian of a magical unicorn realm. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the royal fantasy attire based on gender. The subject is captured in a cinematic mid-shot (waist-up), centered composition, wearing luxurious white, pearl, lavender, and gold royal garments with intricate celestial embroidery, flowing silk cape, crystal accessories, enchanted jewelry, elegant floral crown or jeweled circlet, and shimmering magical details. A majestic white unicorn with a radiant golden horn stands gracefully behind the subject, surrounded by sparkling magical energy, soft glowing mane, and elegant wings of light. The enchanted kingdom features crystal castles, rainbow waterfalls, blooming cherry blossom trees, glowing flowers, floating islands, magical forests, sparkling lakes, crystal bridges, celestial clouds, floating petals, glowing butterflies, mystical mist, and countless shimmering light particles. Warm golden sunlight mixed with rainbow-colored magical rays illuminates the entire scene, creating a peaceful, magical atmosphere. The subject radiates kindness, wisdom, elegance, purity, hope, and royal confidence while maintaining a natural, graceful expression. Ultra-realistic cinematic mid-shot portrait, waist-up composition, large detailed face, symmetrical framing, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious enchanted kingdom atmosphere, vibrant white, gold, lavender, pastel blue, and rainbow color palette, face preservation, gallery-ready square composition (1:1), timeless fairy-tale fantasy."
+  },
+  {
+    id: 156,
+    title: "Ice Warrior",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685743/promptverse/fantasy/fantasy11.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Ice Warrior fantasy portrait featuring the subject transformed into the legendary guardian of the Frozen Kingdom. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the icy warrior attire based on gender. The subject is captured in a cinematic mid-shot (waist-up), centered composition, wearing luxurious silver, icy blue, white, and crystal armor with intricate snowflake engravings, glowing sapphire gemstones, elegant fur-lined shoulders, flowing frost cape, enchanted jewelry, and a majestic ice crown or circlet. The subject confidently holds a magnificent crystal ice sword or frost spear glowing with magical frozen energy while shimmering frost particles swirl around them. The epic frozen kingdom background features towering ice castles, frozen mountains, crystal caves, enormous icicles, shimmering glaciers, frozen waterfalls, sparkling snow, mystical northern lights, floating snowflakes, icy mist, frozen forests, and glowing blue crystal formations. Cold blue light blends with soft white sunlight, creating a majestic frozen atmosphere filled with magical energy. The subject radiates courage, strength, elegance, determination, and royal authority while maintaining a calm, natural expression. Ultra-realistic cinematic mid-shot portrait, waist-up composition, large detailed face, symmetrical framing, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious frozen kingdom atmosphere, vibrant icy blue, silver, and white color palette, face preservation, gallery-ready square composition (1:1), timeless epic fantasy."
+  },
+  {
+    id: 157,
+    title: "Fire Warrior",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685744/promptverse/fantasy/fantasy12.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Fire Warrior fantasy portrait featuring the subject transformed into the legendary guardian of the Eternal Flame. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the fiery warrior attire based on gender. The subject is captured in a cinematic mid-shot (waist-up), centered composition, wearing luxurious black, crimson, molten gold, and bronze armor with intricate flame engravings, glowing ember gemstones, flowing fire cape, enchanted warrior accessories, elegant royal jewelry, and a majestic flame crown or circlet. The subject confidently holds a blazing fire sword or molten battle spear infused with magical flames while streams of fire swirl around the weapon and hands. The epic background features volcanic mountains, rivers of glowing lava, burning temples, molten rock formations, fiery skies, floating embers, blazing phoenix feathers, erupting volcanoes, ancient ruined fortresses, magical fire crystals, glowing magma cracks, and dramatic smoke-filled clouds. Brilliant orange, crimson, and golden firelight illuminate the entire scene, creating a powerful heroic atmosphere. The subject radiates courage, confidence, determination, strength, and unstoppable warrior spirit while maintaining a calm, natural expression. Ultra-realistic cinematic mid-shot portrait, waist-up composition, large detailed face, symmetrical framing, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious volcanic kingdom atmosphere, vibrant crimson, orange, gold, black, and bronze color palette, face preservation, gallery-ready square composition (1:1), timeless epic fantasy."
+  },
+  {
+    id: 158,
+    title: "Cosmic Guardian",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685745/promptverse/fantasy/fantasy13.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Cosmic Guardian fantasy portrait featuring the subject transformed into the eternal protector of the universe and celestial realms. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the cosmic guardian attire based on gender. The subject is captured in a cinematic mid-shot (waist-up), centered composition, wearing luxurious deep sapphire blue, violet, black, silver, and gold celestial armor with intricate galaxy engravings, glowing constellation patterns, flowing cosmic cape, luminous crystal gemstones, elegant celestial jewelry, and a magnificent star crown or cosmic circlet. The subject confidently holds an ancient cosmic staff infused with galaxies, planets, and radiant starlight while the other hand channels a glowing universe orb surrounded by floating constellations, magical runes, and swirling nebula energy. The epic celestial background features massive spiral galaxies, colorful nebulae, floating planets, asteroid fields, distant stars, celestial temples, glowing portals, cosmic energy rings, shimmering stardust, floating crystal structures, and divine light illuminating the universe. Brilliant blue, purple, gold, and silver cosmic light fills the scene, creating an atmosphere of infinite wisdom, divine power, hope, and universal balance. The subject radiates confidence, serenity, intelligence, strength, and celestial authority while maintaining a calm, natural expression. Ultra-realistic cinematic mid-shot portrait, waist-up composition, large detailed face, symmetrical framing, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious cosmic kingdom atmosphere, vibrant blue, violet, gold, silver, and black color palette, face preservation, gallery-ready square composition (1:1), timeless epic fantasy."
+  },
+  {
+    id: 159,
+    title: "Celestial Kingdom",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685747/promptverse/fantasy/fantasy14.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Celestial Kingdom fantasy portrait featuring the subject transformed into the divine ruler of a magnificent heavenly kingdom. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the celestial royal attire based on gender. The subject is captured in a cinematic mid-shot (waist-up), centered composition, wearing luxurious white, gold, silver, and sapphire royal garments with intricate celestial embroidery, flowing divine cape, elegant crystal jewelry, radiant gemstones, heavenly armor accents, and a majestic glowing celestial crown or halo. The subject confidently holds a magnificent divine scepter infused with heavenly light while soft celestial energy surrounds their body. The majestic heavenly kingdom background features towering golden palaces, floating marble temples, celestial stairways, radiant crystal towers, floating islands, glowing clouds, divine arches, sparkling waterfalls, majestic white doves, celestial gardens, glowing stars, floating light particles, heavenly rays streaming through the clouds, and magnificent celestial architecture stretching across the sky. Brilliant golden, white, blue, and silver light illuminate the scene, creating a peaceful yet majestic atmosphere of hope, purity, wisdom, and divine authority. The subject radiates confidence, kindness, grace, serenity, and royal power while maintaining a calm, natural expression. Ultra-realistic cinematic mid-shot portrait, waist-up composition, large detailed face, symmetrical framing, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious heavenly kingdom atmosphere, vibrant white, gold, silver, sapphire blue, and celestial light color palette, face preservation, gallery-ready square composition (1:1), timeless epic fantasy."
+  },
+  {
+    id: 160,
+    title: "Fantasy Castle",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685748/promptverse/fantasy/fantasy15.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Fantasy Castle portrait featuring the subject transformed into the noble ruler of a magnificent magical castle. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the royal fantasy attire based on gender. The subject is captured in a cinematic mid-shot (waist-up), centered composition, wearing luxurious emerald green, royal blue, crimson, white, and gold royal garments with intricate embroidery, elegant shoulder armor, flowing velvet cape, enchanted gemstone accessories, regal jewelry, and a magnificent royal crown or jeweled circlet. The subject confidently holds an ornate royal sword or crystal scepter symbolizing leadership and courage. The enchanting background features an enormous fantasy castle with towering golden spires, majestic stone walls, glowing stained-glass windows, floating bridges, magical waterfalls, lush royal gardens, enchanted forests, crystal fountains, soaring dragons in the distant sky, floating islands, glowing lanterns, magical mist, sparkling particles, and warm sunset light illuminating the kingdom. The atmosphere radiates honor, wisdom, courage, elegance, and royal authority while maintaining a calm, natural expression. Ultra-realistic cinematic mid-shot portrait, waist-up composition, large detailed face, symmetrical framing, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious medieval fantasy kingdom atmosphere, vibrant royal blue, emerald green, crimson, white, and gold color palette, face preservation, gallery-ready square composition (1:1), timeless epic fantasy."
+  },
+  {
+    id: 161,
+    title: "Phoenix Warrior",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685749/promptverse/fantasy/fantasy16.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Phoenix Warrior fantasy portrait featuring the subject transformed into the legendary guardian blessed by the immortal Phoenix. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the warrior attire based on gender. The subject is captured in a cinematic mid-shot (waist-up), centered composition, wearing luxurious black, crimson, molten gold, and fiery orange phoenix-inspired armor with intricate feather engravings, glowing ember gemstones, flowing flame cape, enchanted jewelry, elegant warrior accessories, and a majestic phoenix crown or circlet. The subject confidently holds a blazing phoenix sword or legendary fire spear infused with eternal flames while fiery magical energy swirls around their body. A magnificent giant Phoenix spreads its glowing wings behind the subject, radiating brilliant golden, orange, and crimson flames with sparkling embers filling the air. The epic background features volcanic mountains, burning castles, molten lava rivers, fiery skies, ancient temples, floating fire crystals, blazing ruins, erupting volcanoes, magical smoke, glowing ash, and radiant sunlight breaking through the flames. The atmosphere radiates courage, rebirth, hope, strength, determination, and divine warrior spirit while maintaining a calm, natural expression. Ultra-realistic cinematic mid-shot portrait, waist-up composition, large detailed face, symmetrical framing, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious phoenix kingdom atmosphere, vibrant crimson, orange, gold, black, and fiery red color palette, face preservation, gallery-ready square composition (1:1), timeless epic fantasy."
+  },
+  {
+    id: 162,
+    title: "Forest Guardian",
+    category: "Fantasy",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785685751/promptverse/fantasy/fantasy17.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a breathtaking Forest Guardian fantasy portrait featuring the subject transformed into the legendary protector of the ancient enchanted forest. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the guardian attire based on gender. The subject is captured in a cinematic mid-shot (waist-up), centered composition, wearing luxurious emerald green, earthy brown, gold, and silver enchanted armor with intricate leaf and vine engravings, moss-covered shoulder guards, flowing woodland cloak, glowing emerald gemstones, elegant nature-inspired jewelry, and a majestic crown or circlet woven from enchanted branches, flowers, and leaves. The subject confidently holds an ancient glowing wooden staff or enchanted forest sword infused with nature's magic while emerald-green magical energy swirls around their hands. Towering ancient trees surround the scene, with glowing flowers, crystal-clear waterfalls, mystical ruins, hanging vines, giant mushrooms, magical deer, white wolves, graceful owls, butterflies, floating fairy lights, sparkling pollen, rays of golden sunlight filtering through the dense forest canopy, and soft emerald mist creating a magical atmosphere. The subject radiates wisdom, courage, kindness, harmony with nature, serenity, and quiet strength while maintaining a calm, natural expression. Ultra-realistic cinematic mid-shot portrait, waist-up composition, large detailed face, symmetrical framing, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious enchanted forest atmosphere, vibrant emerald green, earthy brown, gold, and silver color palette, face preservation, gallery-ready square composition (1:1), timeless epic fantasy."
   },
 ];
 
