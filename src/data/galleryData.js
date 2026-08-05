@@ -1619,6 +1619,46 @@ export const galleryData = [
     prompt:
     "Create a breathtaking Forest Guardian fantasy portrait featuring the subject transformed into the legendary protector of the ancient enchanted forest. Preserve the subject's original facial identity, facial features, skin tone, hairstyle, and expression exactly while naturally adapting the guardian attire based on gender. The subject is captured in a cinematic mid-shot (waist-up), centered composition, wearing luxurious emerald green, earthy brown, gold, and silver enchanted armor with intricate leaf and vine engravings, moss-covered shoulder guards, flowing woodland cloak, glowing emerald gemstones, elegant nature-inspired jewelry, and a majestic crown or circlet woven from enchanted branches, flowers, and leaves. The subject confidently holds an ancient glowing wooden staff or enchanted forest sword infused with nature's magic while emerald-green magical energy swirls around their hands. Towering ancient trees surround the scene, with glowing flowers, crystal-clear waterfalls, mystical ruins, hanging vines, giant mushrooms, magical deer, white wolves, graceful owls, butterflies, floating fairy lights, sparkling pollen, rays of golden sunlight filtering through the dense forest canopy, and soft emerald mist creating a magical atmosphere. The subject radiates wisdom, courage, kindness, harmony with nature, serenity, and quiet strength while maintaining a calm, natural expression. Ultra-realistic cinematic mid-shot portrait, waist-up composition, large detailed face, symmetrical framing, DSLR photography, shallow depth of field, soft bokeh, HDR, 8K, premium fantasy photography, masterpiece, highly detailed, magical realism, luxurious enchanted forest atmosphere, vibrant emerald green, earthy brown, gold, and silver color palette, face preservation, gallery-ready square composition (1:1), timeless epic fantasy."
   },
+  {
+    id: 163,
+    title: "Forever in Your Arms",
+    category: "Couples",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785910644/promptverse/couples/couple13.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Use the uploaded face references for both the male and female characters. Preserve their facial features, hairstyle, skin tone, and expressions as accurately as possible while transforming them into a premium modern anime style. The male character is gently carrying the female in a romantic bridal carry pose. Both are smiling naturally and looking at each other with warmth. The female is holding onto the male's shoulder, her dress flowing softly in the wind. Beautiful sunset sky with cherry blossom petals floating around, cinematic golden-hour lighting, ultra-detailed expressive eyes, elegant black outfit for the male, graceful white dress for the female, masterpiece composition, depth of field, soft glow, 8K, ultra HD, highly detailed anime illustration, romantic atmosphere, accurate face reference, no text, no watermark."
+  },
+  {
+    id: 164,
+    title: "Sunset Eyes",
+    category: "Couples",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785910645/promptverse/couples/couple14.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "A cinematic golden-hour sunset scene on a beautiful beach, featuring a young adult South Indian couple sitting together on the sand. Both faces should be clearly visible, natural and realistic, with detailed facial features. They are looking directly into each other’s eyes with a warm, gentle expression. Their hands are naturally clasped together between them, showing only the couple’s hands. The ocean, glowing sunset, soft waves, orange-golden sky, and reflections on the wet sand create a beautiful peaceful background. Natural lighting, realistic skin texture, authentic South Indian appearance, candid photography style, shallow depth of field, high detail, photorealistic, 4K quality. No face obstruction, no extra people, no distorted hands, no duplicate fingers"
+  },
+  {
+    id: 165,
+    title: "Sunset Ride",
+    category: "Couples",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785910646/promptverse/couples/couple15.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create an ultra-realistic cinematic photograph of a young Indian couple riding together on a black Royal Enfield motorcycle during golden hour sunset.Use the uploaded reference photos for both faces and preserve their facial identity accurately — same face shape, eyes, nose, hairstyle, skin tone, and natural facial features. Do not change or beautify their faces.The boy is driving the motorcycle, wearing a stylish black shirt and dark jeans. The girl is sitting behind him, wearing a simple elegant white outfit and blue jeans. She is gently holding him around the waist. Both should look natural and happy.Capture them from a slightly front-side angle, showing both faces clearly. Add a beautiful orange sunset in the background, soft golden sunlight, realistic road and greenery, subtle motion blur, natural wind movement in the girl's hair, detailed motorcycle, realistic shadows and reflections.Make it look like a professional DSLR cinematic photograph, photorealistic skin texture, natural expressions, realistic proportions, shallow depth of field, warm golden-hour lighting, high detail, 4K quality.Important: Keep both faces highly accurate to the uploaded reference images. No face distortion, no extra fingers, no duplicate people, no artificial-looking skin, no cartoon or anime style."
+  },
+  {
+    id: 166,
+    title: "Under the Some Moon",
+    category: "Couples",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785910647/promptverse/couples/couple16.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "A cinematic romantic night scene of a young South Asian couple sitting together on a beautiful hilltop under a bright full moon. Both are facing the camera/front, with their faces clearly visible and natural expressions. The girl gently leans toward the boy’s shoulder while they look at each other with a soft, affectionate smile. The boy wears a black shirt and light trousers, and the girl wears a beautiful deep navy-blue traditional outfit. Behind them are misty mountains, a peaceful lake, distant city lights, a star-filled sky, and soft clouds illuminated by moonlight. Realistic facial features, natural skin texture, soft moonlight on their faces, dreamy blue cinematic lighting, shallow depth of field, photorealistic, highly detailed, emotional and peaceful atmosphere, wide cinematic composition."
+  },
 ];
 
 export const categories = [
