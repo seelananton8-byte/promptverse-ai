@@ -1659,6 +1659,186 @@ export const galleryData = [
     prompt:
     "A cinematic romantic night scene of a young South Asian couple sitting together on a beautiful hilltop under a bright full moon. Both are facing the camera/front, with their faces clearly visible and natural expressions. The girl gently leans toward the boy’s shoulder while they look at each other with a soft, affectionate smile. The boy wears a black shirt and light trousers, and the girl wears a beautiful deep navy-blue traditional outfit. Behind them are misty mountains, a peaceful lake, distant city lights, a star-filled sky, and soft clouds illuminated by moonlight. Realistic facial features, natural skin texture, soft moonlight on their faces, dreamy blue cinematic lighting, shallow depth of field, photorealistic, highly detailed, emotional and peaceful atmosphere, wide cinematic composition."
   },
+  {
+    id: 167,
+    title: "Angel Baby",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916252/promptverse/child/child1.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create an ultra-realistic adorable baby transformed into a heavenly angel, soft glowing white feather wings, sparkling golden halo above the head, innocent smiling face, curly silky hair, flawless baby skin, elegant white celestial dress, standing on fluffy white clouds surrounded by golden sunlight, floating feathers, magical heavenly atmosphere, soft volumetric light rays, dreamy pastel sky, cinematic composition, ultra detailed eyes, DSLR photography, shallow depth of field, HDR, 8K, masterpiece, premium fantasy portrait, highly detailed, ethereal beauty."
+  },
+  {
+    id: 168,
+    title: "Little Prince",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916263/promptverse/child/child2.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create an ultra-realistic adorable little prince standing proudly in front of a magnificent royal palace, wearing an elegant royal blue velvet prince outfit with luxurious gold embroidery, sparkling golden crown decorated with sapphire gemstones, majestic royal cape flowing in the breeze, holding a magical golden star scepter, charming smiling face, soft curly hair, flawless child skin, warm golden sunlight, beautiful castle towers in the background, royal garden filled with colorful flowers, cinematic composition, fairy tale atmosphere, volumetric lighting, ultra detailed eyes, DSLR photography, shallow depth of field, HDR, 8K, masterpiece, premium fantasy portrait, highly detailed, magical kingdom, luxurious royal aesthetic."
+  },
+  {
+    id: 169,
+    title: "Little Princess",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916264/promptverse/child/child3.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create an ultra-realistic adorable little princess standing gracefully inside a magnificent royal palace, wearing a luxurious pastel pink and white royal ball gown with shimmering golden embroidery, sparkling diamond tiara, elegant crystal necklace, silky curly hair, charming innocent smile, flawless child skin, holding a beautiful bouquet of magical flowers, surrounded by glowing fairy lights, majestic castle interior with grand staircase, colorful royal gardens visible through large windows, warm golden sunlight, dreamy fairy tale atmosphere, soft volumetric lighting, floating sparkles, cinematic composition, ultra detailed eyes, DSLR photography, shallow depth of field, HDR, 8K, masterpiece, premium fantasy portrait, magical kingdom, luxurious princess aesthetic, highly detailed."
+  },
+  {
+    id: 170,
+    title: "Mini Superhero",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916265/promptverse/child/child4.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "A fearless little superhero child standing confidently on top of a city rooftop at golden sunset, wearing a premium custom-designed superhero suit with a flowing cape, glowing emblem on the chest, stylish armored boots, heroic gloves, cinematic lighting, dramatic sky with warm orange clouds, subtle lightning effects in the background, confident smile, powerful pose, ultra realistic facial details, soft wind blowing the cape, high-end movie poster composition, DSLR photography, shallow depth of field, HDR, 8K, masterpiece, extremely detailed, premium quality, vibrant colors, realistic textures, fantasy realism, award-winning cinematic photography."
+  },
+  {
+    id: 171,
+    title: "Fairy Child",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916266/promptverse/child/child5.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "An adorable little fairy child standing in a magical enchanted forest, tiny glowing fairy wings made of crystal light, sparkling pastel dress woven from flower petals, delicate flower crown, holding a glowing magic wand, surrounded by floating butterflies, fireflies, glowing mushrooms, magical flowers, sparkling fairy dust, soft golden sunlight filtering through ancient trees, dreamy fantasy atmosphere, vibrant colors, ultra realistic, cinematic lighting, highly detailed, Disney-inspired fantasy style, masterpiece, 8K, premium fantasy photography."
+  },
+  {
+    id: 172,
+    title: "Little Wizard",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916267/promptverse/child/child6.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create a magical portrait of an adorable little wizard child, around 4–6 years old, wearing a luxurious midnight-blue wizard robe embroidered with golden stars and moons, a classic pointed wizard hat, holding a glowing magic wand with sparkling golden energy swirling around it. Standing inside an ancient enchanted wizard academy filled with floating spell books, glowing candles, mystical potions, crystal balls, magical artifacts, and an elegant owl companion. Soft warm cinematic lighting, floating magical particles, glowing spell circles, fantasy atmosphere, ultra detailed face, expressive innocent smile, realistic skin texture, DSLR photography, shallow depth of field, HDR, 8K, masterpiece, premium fantasy artwork, highly detailed, vibrant colors, magical realism."
+  },
+  {
+    id: 173,
+    title: "Space Explorer Kid",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916269/promptverse/child/child7.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create an adorable little space explorer child, around 4–6 years old, wearing a futuristic white-and-blue astronaut suit with glowing LED accents, a transparent space helmet, and colorful mission patches. Standing on the surface of a breathtaking alien planet with glowing crystals, futuristic space stations, distant galaxies, colorful nebulae, rings of giant planets, floating asteroids, and a beautiful view of Earth in the distance. Holding a small futuristic laser scanner while exploring unknown worlds with a cute floating AI robot companion. Soft cosmic lighting, magical stars, realistic reflections on the helmet visor, ultra detailed face, expressive innocent smile, realistic skin texture, cinematic composition, DSLR photography, shallow depth of field, HDR, volumetric lighting, 8K, masterpiece, premium sci-fi fantasy artwork, vibrant colors, highly detailed, magical realism."
+  },
+  {
+    id: 174,
+    title: "Teddy Bear Friend",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916270/promptverse/child/child8.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "A heartwarming ultra-realistic portrait of an adorable little child hugging a giant fluffy teddy bear like a best friend, soft golden evening light, cozy bedroom filled with fairy lights, plush toys, warm blankets, magical bedtime atmosphere, sweet innocent smile, expressive sparkling eyes, cute pajamas, cuddling the teddy with love, dreamy bokeh lights, cinematic composition, soft pastel colors, highly detailed fur texture, premium children's photography, DSLR quality, shallow depth of field, HDR, 8K, masterpiece, ultra detailed, wholesome, comforting, magical childhood memories."
+  },
+  {
+    id: 175,
+    title: "Rainbow Dream Child",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916270/promptverse/child/child9.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "An adorable little child standing beneath a magical glowing rainbow in a dreamy fantasy meadow, wearing a colorful fairy-inspired outfit, joyful smile, sparkling expressive eyes, surrounded by floating rainbow butterflies, fluffy clouds, blooming flowers, glowing stars, magical sparkles, vibrant pastel colors, soft golden sunlight, whimsical fantasy atmosphere, cinematic composition, ultra realistic child portrait, premium children's photography, DSLR quality, shallow depth of field, HDR, 8K, masterpiece, highly detailed, dreamy, magical childhood wonder, vibrant rainbow lighting."
+  },
+  {
+    id: 176,
+    title: "Moon Child",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916253/promptverse/child/child10.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "An adorable little child sitting peacefully on a glowing crescent moon in a magical starry night sky, wearing cozy celestial pajamas decorated with tiny stars and moons, soft curly hair, innocent joyful smile, sparkling expressive eyes, hugging a cute smiling star plush toy, surrounded by glowing stars, fluffy clouds, floating moon dust, magical fireflies, warm lantern light, dreamy cosmic atmosphere, soft blue and golden color palette, cinematic composition, ultra realistic child portrait, premium children's photography, DSLR quality, shallow depth of field, HDR, 8K, masterpiece, highly detailed, magical bedtime fantasy, heavenly glow, comforting and whimsical."
+  },
+  {
+    id: 177,
+    title: "Jungle Explorer",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916255/promptverse/child/child11.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "An adorable little child dressed as a brave jungle explorer, wearing a safari hat, khaki explorer outfit, tiny backpack, binoculars around the neck, standing in a lush tropical rainforest surrounded by friendly elephants, giraffes, monkeys, colorful parrots, butterflies and gentle deer, glowing golden sunlight filtering through giant jungle trees, vibrant green plants, magical flowers, adventurous smile, sparkling expressive eyes, cinematic composition, ultra realistic child portrait, premium children's photography, DSLR quality, shallow depth of field, HDR, 8K, masterpiece, highly detailed, magical wildlife adventure, wholesome, vibrant colors."
+  },
+  {
+    id: 178,
+    title: "Pirate Kid",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916256/promptverse/child/child12.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "A fearless little pirate child standing proudly on a tropical island beside an ancient treasure chest overflowing with sparkling gold coins, diamonds, pearls, and pirate artifacts. Wearing a classic black pirate hat with a skull emblem, a red bandana, white pirate shirt, black leather vest with golden embroidery, striped pirate pants, sturdy brown boots, pirate belt, and a tiny golden compass necklace. Holding a vintage brass spyglass while smiling with excitement. A majestic pirate ship with black sails and a waving Jolly Roger flag anchored in the turquoise ocean behind. A colorful macaw parrot sitting on a wooden barrel nearby. Palm trees swaying in the sea breeze, scattered treasure maps, ropes, cannons, pirate barrels, tropical flowers, dramatic blue sky with fluffy clouds, warm golden sunlight, cinematic composition, ultra realistic, DSLR photography, shallow depth of field, HDR, 8K, masterpiece, premium children's fantasy artwork, vibrant colors, magical adventure atmosphere, highly detailed."
+  },
+  {
+    id: 179,
+    title: "Snow Prince",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916257/promptverse/child/child13.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "A charming little Snow Prince standing proudly in a magical winter kingdom surrounded by sparkling snow-covered pine trees and an enchanting crystal ice palace. Wearing an elegant royal white and icy blue prince outfit with luxurious fur trim, silver embroidery, a flowing velvet cape, crystal crown decorated with snowflakes, white gloves, and polished royal boots. Holding a glowing crystal ice scepter with delicate snowflake patterns. Gentle snowfall, frozen lake reflecting the palace, magical glowing snowflakes floating in the air, friendly white arctic fox beside him, majestic snowy mountains in the background, soft golden sunrise mixed with cool blue winter light, dreamy cinematic composition, ultra realistic, DSLR photography, shallow depth of field, HDR, 8K, masterpiece, premium fantasy children's portrait, highly detailed, magical winter atmosphere, vibrant yet soft colors."
+  },
+  {
+    id: 180,
+    title: "Snow Princess",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916258/promptverse/child/child14.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create an ultra-realistic portrait of a beautiful little Snow Princess standing in a magical frozen kingdom during golden winter sunset. She wears an elegant shimmering icy blue and white royal ball gown decorated with sparkling snowflakes, a luxurious white fur cape, crystal gloves, glittering silver boots, and a magnificent snowflake crystal crown. She holds a glowing ice crystal wand that radiates magical frosty light. Behind her stands a breathtaking ice castle surrounded by frozen lakes, snow-covered pine trees, glowing lanterns, crystal bridges, sparkling snowflakes, and majestic snowy mountains. The sky glows with soft blue and warm golden hues while magical ice particles float through the air. Her face is filled with innocence, happiness, and wonder, looking slightly upward with a gentle smile. Cinematic composition, fairy tale atmosphere, volumetric lighting, HDR, DSLR photography, ultra realistic facial details, masterpiece, premium fantasy portrait, highly detailed, 8K, magical winter kingdom, soft bokeh, dreamy lighting."
+  },
+  {
+    id: 181,
+    title: "Unicorn Rider",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916259/promptverse/child/child15.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Create an ultra-realistic portrait of a joyful little child riding a majestic white unicorn through an enchanted fantasy forest during golden sunrise. The unicorn has a flowing rainbow-colored mane and tail, a glowing crystal horn, sparkling wings of light, and magical golden horseshoes leaving trails of glitter. The child wears a luxurious fairy-tale royal outfit with shimmering pastel blue, pink, and white clothing, a crystal tiara (or royal crown), sparkling boots, and a flowing magical cape. The enchanted forest is filled with glowing flowers, giant mushrooms, waterfalls, floating butterflies, magical fireflies, sparkling fairy dust, rainbow light rays, crystal trees, and colorful blooming plants. A glowing rainbow arches across the sky while soft clouds and golden sunlight create a dreamy atmosphere. The child's face is full of happiness, excitement, and wonder while holding the unicorn's mane with confidence. Cinematic composition, ultra realistic facial details, volumetric lighting, fantasy masterpiece, HDR, DSLR photography, soft bokeh, magical atmosphere, highly detailed, premium fairy tale artwork, 8K."
+  },
+  {
+    id: 182,
+    title: "Sweet Kingdom Explorer",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916260/promptverse/child/child16.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Transform the uploaded child into a cheerful Sweet Kingdom Explorer walking through a magical candy paradise, surrounded by giant rainbow lollipops, chocolate rivers, cotton candy clouds, candy cane forests, colorful gumdrop hills, marshmallow flowers, sparkling jelly crystals, smiling gingerbread friends, and a magnificent candy castle glowing in the distance. Dress the child in an adorable pastel fantasy explorer outfit with a cute candy-themed backpack, colorful boots, sparkling accessories, and a joyful adventurous smile. Vibrant rainbow skies, magical floating candy sparkles, dreamy fairytale atmosphere, ultra realistic facial details, cinematic composition, soft golden light, DSLR photography, shallow depth of field, HDR, 8K, masterpiece, premium fantasy artwork, highly detailed."
+  },
+  {
+    id: 183,
+    title: "Royal King Child",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916261/promptverse/child/child17.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Transform the uploaded child into a majestic Royal King standing proudly inside a magnificent golden palace, wearing an elegant royal velvet robe with intricate gold embroidery, a luxurious jeweled crown, sparkling royal necklace, emerald and ruby rings, golden royal boots, and a majestic cape flowing behind. Place the child on a magnificent golden throne surrounded by towering marble pillars, grand chandeliers, glowing candles, royal banners, priceless treasures, and loyal royal guards in the background. Warm golden sunlight streams through giant palace windows, creating a powerful and magical royal atmosphere. Preserve the child's original facial identity, expression, hairstyle, and skin tone exactly. Ultra realistic facial details, cinematic composition, DSLR photography, shallow depth of field, HDR, volumetric lighting, 8K, masterpiece, premium royal portrait, highly detailed."
+  },
+  {
+    id: 184,
+    title: "Royal Queen Child",
+    category: "Child",
+    image: "https://res.cloudinary.com/wqbmdfi0/image/upload/v1785916262/promptverse/child/child18.jpg",
+    likes: 0,
+    views: 0,
+    prompt:
+    "Transform the uploaded child into a majestic Royal Queen seated gracefully on a magnificent golden throne inside an opulent royal palace. Dress the child in an elegant blush pink and gold royal ball gown with intricate embroidery, sparkling diamonds, rubies, pearls, luxurious royal jewelry, delicate lace gloves, and a magnificent jeweled queen's crown. Surround the throne with towering marble pillars, crystal chandeliers, blooming royal roses, golden treasures, velvet royal curtains, and elegant palace decorations. Warm golden sunlight streams through grand palace windows, creating a magical royal atmosphere filled with luxury and elegance. Preserve the child's original facial identity, expression, hairstyle, and skin tone exactly. Ultra realistic facial details, cinematic composition, DSLR photography, shallow depth of field, HDR, volumetric lighting, 8K, masterpiece, premium royal portrait, highly detailed, luxurious, magical fairytale atmosphere."
+  },
 ];
 
 export const categories = [
